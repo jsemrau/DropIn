@@ -200,16 +200,16 @@ NSString *base = @"https://choose.tenqyu.com/index.php";
 NSString *idstr = [@"id=" stringByAppendingString:@"getEventList"];
     
     
-NSString *distanceStr = [@"&distance=" stringByAppendingString:@"20000"];
+NSString *distanceStr = [@"&distance=" stringByAppendingString:@"5"];
     
     
 NSString *latitude = [NSString stringWithFormat:@"%f", lat];
 NSString *longitude = [NSString stringWithFormat:@"%f", lon];
 
-NSString *latStr = [@"&lat=" stringByAppendingString:longitude];
-NSString *longStr = [@"&lng=" stringByAppendingString:latitude];
+NSString *latStr = [@"&lat=" stringByAppendingString:latitude];
+NSString *longStr = [@"&lng=" stringByAppendingString:longitude ];
     
-NSString *eventHrsStr = [@"&nextHours=" stringByAppendingString:@"12"];
+NSString *eventHrsStr = [@"&nextHours=" stringByAppendingString:@"8"];
   
 NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@", latStr,longStr,distanceStr,eventHrsStr];
 
@@ -286,7 +286,7 @@ if (theConnection)
   
     NSString *messageStr = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
     
-    //NSLog(@" return value %@", messageStr);
+    NSLog(@" return value %@", messageStr);
     
     if ([messageStr isEqual:@""]) {
         NSLog(@"Empty string !!");

@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Main-->
+        <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="PGViewController" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Main" id="07T-Zs-aDi"/>
+                    <navigationItem key="navigationItem" id="07T-Zs-aDi"/>
                     <connections>
                         <segue destination="nPm-Ds-CbR" kind="modal" identifier="DRAWER_SEGUE" animates="NO" id="nvb-5D-Mc9"/>
                     </connections>
@@ -31,6 +31,7 @@
         <scene sceneID="gPi-HT-rJv">
             <objects>
                 <navigationController definesPresentationContext="YES" id="6du-M4-QlT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kWd-UB-h6o"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DsS-nQ-bFe">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -69,84 +70,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="rVc-gh-CYb">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dl_menu_table_header.png" id="drO-Fu-RKB">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
+                        </imageView>
                         <view key="tableFooterView" contentMode="scaleToFill" id="e32-gh-n5Z">
-                            <rect key="frame" x="0.0" y="196" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="192" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <sections>
                             <tableViewSection id="jNh-XG-HuA">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="zGn-Ia-xgh" style="IBUITableViewCellStyleDefault" id="L95-b9-U6E">
-                                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="zGn-Ia-xgh" imageView="Lnr-91-BN0" style="IBUITableViewCellStyleDefault" id="L95-b9-U6E">
+                                        <rect key="frame" x="0.0" y="60" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L95-b9-U6E" id="dRO-Jg-6oZ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Table View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zGn-Ia-xgh">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                                    <rect key="frame" x="305" y="0.0" width="26" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="di_menu_item_drops.png" id="Lnr-91-BN0">
+                                                    <rect key="frame" x="15" y="0.0" width="301" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="igw-JU-fxE" style="IBUITableViewCellStyleDefault" id="4e0-Pq-pKY">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="igw-JU-fxE" imageView="30v-l6-QMK" style="IBUITableViewCellStyleDefault" id="4e0-Pq-pKY">
+                                        <rect key="frame" x="0.0" y="104" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4e0-Pq-pKY" id="b64-Rr-zbo">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Map View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="igw-JU-fxE">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                                    <rect key="frame" x="305" y="0.0" width="26" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="pk_menu_item_settings.png" id="30v-l6-QMK">
+                                                    <rect key="frame" x="15" y="0.0" width="301" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="TnJ-PQ-l3c" style="IBUITableViewCellStyleDefault" id="ac5-xv-bp1">
-                                        <rect key="frame" x="0.0" y="108" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="TnJ-PQ-l3c" imageView="Zlb-MY-Wxu" style="IBUITableViewCellStyleDefault" id="ac5-xv-bp1">
+                                        <rect key="frame" x="0.0" y="148" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ac5-xv-bp1" id="bAf-7P-wut">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TnJ-PQ-l3c">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                                    <rect key="frame" x="305" y="0.0" width="26" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="iEm-uo-uUo" style="IBUITableViewCellStyleDefault" id="QHK-le-Kr4">
-                                        <rect key="frame" x="0.0" y="152" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QHK-le-Kr4" id="sma-to-8cW">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iEm-uo-uUo">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="di_menu_item_about.png" id="Zlb-MY-Wxu">
+                                                    <rect key="frame" x="15" y="0.0" width="301" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -161,7 +156,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ulJ-rx-bGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1157" y="122"/>
+            <point key="canvasLocation" x="1116" y="122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R8Q-uh-a7J">
@@ -178,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="627" y="1447"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Map-->
         <scene sceneID="WkY-DH-Hy7">
             <objects>
-                <viewController id="yWe-8i-ogX" customClass="PGSecondViewController" sceneMemberID="viewController">
+                <viewController id="yWe-8i-ogX" customClass="TQ_MapVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q5z-fl-WYT"/>
                         <viewControllerLayoutGuide type="bottom" id="XKy-6J-fcE"/>
@@ -189,13 +184,184 @@
                     <view key="view" contentMode="scaleToFill" id="GcJ-Fq-sFx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mapping it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ru-7J-48B">
+                                <rect key="frame" x="89" y="131" width="81" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Second View Controller" id="NLe-ko-94Z"/>
+                    <navigationItem key="navigationItem" title="Map" id="NLe-ko-94Z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PW5-Gi-gZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1161" y="1447"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="3gh-1J-KBi">
+            <objects>
+                <viewController id="A1f-eM-lT7" customClass="TQ_SettingsVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="W0e-th-v7W"/>
+                        <viewControllerLayoutGuide type="bottom" id="L0J-1H-W31"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1E0-YW-R7Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M4g-sZ-5Dt">
+                                <rect key="frame" x="0.0" y="343" width="320" height="230"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="RJp-Dg-3zr">
+                                <rect key="frame" x="12" y="114" width="290" height="31"/>
+                                <connections>
+                                    <action selector="distanceSliderChanged:" destination="A1f-eM-lT7" eventType="valueChanged" id="9Mp-ZW-jEw"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaK-mD-hEM">
+                                <rect key="frame" x="16" y="141" width="8" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93R-17-gyg">
+                                <rect key="frame" x="273" y="141" width="21" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance (km)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgp-Wd-8VF">
+                                <rect key="frame" x="16" y="97" width="106" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjM-L4-hbk">
+                                <rect key="frame" x="14" y="201" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQu-sC-7b9">
+                                <rect key="frame" x="14" y="243" width="10" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6V-dz-WRO">
+                                <rect key="frame" x="273" y="243" width="21" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftQ-La-FpP">
+                                <rect key="frame" x="225" y="97" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPA-wl-VoF">
+                                <rect key="frame" x="225" y="201" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NT-pT-Msh">
+                                <rect key="frame" x="134" y="297" width="46" height="30"/>
+                                <state key="normal" title="save" backgroundImage="pk_compo_button_grey.png"/>
+                                <connections>
+                                    <action selector="distanceSettingUpdate:" destination="Ezp-oO-6Xu" eventType="touchUpInside" id="16V-fH-mHB"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="2" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="8zb-R1-86K">
+                                <rect key="frame" x="18" y="218" width="278" height="31"/>
+                                <connections>
+                                    <action selector="timeSliderChanged:" destination="A1f-eM-lT7" eventType="valueChanged" id="tW6-jk-m5M"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="Bmj-2b-wn1"/>
+                    <connections>
+                        <outlet property="dSlide" destination="RJp-Dg-3zr" id="oro-XL-Oro"/>
+                        <outlet property="distanceLabel" destination="ftQ-La-FpP" id="ur2-Vc-NFb"/>
+                        <outlet property="saveButton" destination="4NT-pT-Msh" id="L1p-MN-GaY"/>
+                        <outlet property="tSlide" destination="8zb-R1-86K" id="w4f-5y-SJF"/>
+                        <outlet property="timeLabel" destination="ZPA-wl-VoF" id="sCp-EO-Oae"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ezp-oO-6Xu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1157" y="2133"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="k5l-dH-x9O">
+            <objects>
+                <viewController id="B3X-HH-IPJ" customClass="TQ_AboutVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1XQ-rS-JVM"/>
+                        <viewControllerLayoutGuide type="bottom" id="yNO-kE-mei"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6ZN-SU-myc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ja3-1k-IcG">
+                                <rect key="frame" x="20" y="362" width="280" height="186"/>
+                                <mutableString key="text">Introduction
+
+This privacy policy is designed to inform users of TENQYU (website, apps and service), collectively (the "Service") about how TENQYU, Inc. ("TENQYU" or "we") gathers and uses personal information submitted to us in connection with use of the Service. TENQYU will take all reasonable steps to protect user privacy consistent with the guidelines set forth in this policy and with applicable laws. In this policy, "user" or "you" means any person using the Service, whether by playing TENQYU, visiting the website or using our download apps. Important Disclosure By using TENQYU’s products, you are consenting to the display of your username, your Gameplay Information and Location Information (as defined below) to other TENQYU users. You can limit this disclosure by using our Privacy settings, so you should review our Privacy Policy to understand your privacy choices.
+What Information Do We Collect?
+Personal Information.
+
+TENQYU collects the following personal information in connection with the Service: (a) when you sign up to participate in TENQYU, TENQYU may collect your name, email address and/or mobile number (if playing via SMS); (b) if you are building quests on TENQYU for free, we will collect the same information as above; and (c) if you building quests on TENQYU and are paying to use our enterprise tools to do so, TENQYU will collect the name, address and credit card number of the paying customer (collectively, "Personal Information"). Names and addresses collected from corporate customers are not classified as "Personal Information". Location Tracking Information When participants play using TENQYU’s products using their mobile devices, TENQYU will collect location tracking information that tells TENQYU the locations of participants playing, based on the location of their device. We use location tracking information for the purposes of showing you nearby places, verifying your location (to stop cheaters) and enabling you to access other location-based features of the service. Gameplay Information: When participants play using TENQYU’s products, TENQYU collects information relating to participants' gameplay, such as the quests that a participant does, the time and date of completion, and the location where the quest was completed. In addition, participants may submit photos and text responses to TENQYU in the course of completing quests on TENQYU.
+Web tracking information.
+
+The Service may use web tracking technologies such as cookies and clear GIFs in order to recognize visitors to the TENQYU website and to analyze general user traffic patterns, and we collect data generated by use of such technologies. Some of this data may include data, such as IP address data, that is unique to you. How Do We Use the Information We Collect? Personal Information and Gameplay Information We will use Personal Information, Location Information and Gameplay Information for the purpose of delivering the Service to you. Aggregate Information We will also use customer information to create aggregated data for analytical purposes. This statistical information does not contain any Personal Information and is used to understand our customer base and to better serve our market. Web Tracking Technologies TENQYU only uses web tracking technologies to collect information in an aggregate form that does not identify the individual user, and only for us to understand how well our Service is working. For example, we may develop anonymous, aggregate, statistical information on usage of the TENQYU website (which we may disclose to business partners and investors), such as by keeping count of return visitors to the TENQYU website and assessing which pages of the website are most popular. This allows us to determine which features visitors like best to help us improve our Service, personalize your user experience, and measure overall effectiveness. Legal Exception Notwithstanding the above, TENQYU may in any event use Personal Information and other information collected through the Service to the extent required by law or legal process, or if in TENQYU's reasonable discretion use is necessary to protect TENQYU's legal rights or to protect third parties.
+What Information Do We Disclose to Third Parties?
+Personal Information.
+
+TENQYU does not sell or rent its mailing list, and will not disclose your Personal Information to any third parties except (i) to third party contractors engaged to provide services on behalf of TENQYU; (ii) when we have your consent to share the information; or (iii) as part of gameplay (see "Gameplay Information and Location Information" below). Gameplay Information and Location Information When you play using TENQYU’s products, your username, location information, the quests you complete, the time, date and place of completing any quests, and any photos and text responses you give when completing quests, may be displayed to other TENQYU users. By playing TENQYU, you consent to this disclosure. You can manage what Gameplay Information and Location Information is disclosed to other users by using our privacy settings, described below. Anonymous, Aggregated Information We may disclose anonymous, aggregated information to third parties such as potential business partners and funding sources, in order to describe our business and operations.
+Network operators.
+
+Use of the Service involves use of the services of third party telecommunications carriers and service providers (such as the services of the carrier that provides cellphone service to you). Such carriers and service providers are not TENQYU's contractors, and any information that a carrier collects in connection with your use of the Service is not "Personal Information" and is not subject to this Privacy Policy. TENQYU is not responsible for the acts or omissions of telecommunications carriers or service providers. TENQYU reserves the right to disclose any information TENQYU collects in connection with the Service, including Personal Information, Gameplay Information and Location Information, (a) to any successor to TENQYU's business as a result of any merger, acquisition or similar transaction; and (b) to any law enforcement, judicial authority, or governmental or regulatory authority, to the extent required by law or if in TENQYU's reasonable discretion disclosure is necessary to protect TENQYU's legal rights or to protect third parties.
+Privacy Settings/Opt Out
+
+If you turn your Privacy setting in TENQYU to share activity with "friends", your Gameplay Information and Location Information will only be displayed to participants whom you have added as TENQYU friends. If you turn your Privacy setting in TENQYU to share activity with "everyone", your Gameplay Information and Location Information will be displayed to all TENQYU users. Changing your privacy setting only changes your setting for the future; your past activity will have been displayed in accordance with the Privacy setting in place at the time you played the relevant TENQYU game. These settings can be managed conveniently from your app's "more" tab on iPhone and "settings" screen on Android. For other devices, please select settings. If you would like your Personal Information permanently removed from our mailing list or database, please contact us at info@TENQYU.com. Access and Updating of Information TENQYU is happy to allow you to review or amend your email address or contact details held in our mailing list or database, at any time. Please contact us by sending an email to: info@TENQYU.com or by using your settings panel in your account online. General Links The TENQYU website may contain links to other websites. TENQYU is not responsible for the privacy practices or the content of those websites. Users should be aware of this when they leave our website and review the privacy statements of each third party website. This Privacy Policy applies solely to information collected by the Service. Amendments TENQYU may modify or amend this policy from time to time. If we make any material changes, as determined by TENQYU, in the way in which Personal Information is collected, used or transferred, we will notify you of these changes by modification of this Privacy Policy, which will be available for review by you at the Service. Notwithstanding any modifications we may make, any Personal Information collected by TENQYU from you will be treated in accordance with the privacy policy in effect at the time information was collected, unless we obtain your consent otherwise. Children TENQYU does not knowingly collect or maintain personally identifiable information from persons under 13 years of age, and no part of the Service is directed at persons under 13. If you are under 13 years of age, then please do not use the Service or play TENQYU. If TENQYU learns that personally identifiable information of persons less than 13 years of age has been collected without verifiable parental consent, then TENQYU will take the appropriate steps to delete this information. To make such a request, please contact us at info@TENQYU.com. Service Visitors from outside the United States TENQYU is located in Singapore and its servers are located in the Japan and are subject to the applicable state and federal laws of the respective countries. If you choose to access or use the Service, you consent to the use and disclosure of information in accordance with this privacy policy and subject to such laws.
+Effective date
+Effective Date of this policy: July 1st, 2013 </mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Privacy policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxm-Nk-Ayc">
+                                <rect key="frame" x="20" y="339" width="106" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="drop.in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-yX-Iuy">
+                                <rect key="frame" x="20" y="93" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="some blah blah about the company" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLJ-lo-jvj">
+                                <rect key="frame" x="20" y="122" width="280" height="186"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="XUb-6f-br0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n2V-Ej-jpp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1157" y="2805"/>
         </scene>
         <!--drops-->
         <scene sceneID="Tfa-C0-Mxo">
@@ -307,13 +473,6 @@
                                 <rect key="frame" x="239" y="531" width="50" height="23"/>
                                 <state key="normal" title="more" backgroundImage="pk_compo_2_button_blue.png"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fe8-Sz-g4l">
-                                <rect key="frame" x="87" y="531" width="50" height="23"/>
-                                <state key="normal" title="go" backgroundImage="pk_compo_2_button_blue.png"/>
-                                <connections>
-                                    <action selector="openURL:" destination="eA8-Os-q1r" eventType="touchUpInside" id="ogj-ho-owy"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63J-Q0-wnp">
                                 <rect key="frame" x="58" y="403" width="243" height="22"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
@@ -332,15 +491,43 @@
                                 <color key="textColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdn-LR-DAm">
+                                <rect key="frame" x="158" y="533" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqU-gJ-k5t">
+                                <rect key="frame" x="88" y="532" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbM-Lu-85z">
+                                <rect key="frame" x="228" y="533" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fe8-Sz-g4l">
+                                <rect key="frame" x="13" y="500" width="50" height="23"/>
+                                <state key="normal" title="go" backgroundImage="pk_compo_2_button_blue.png"/>
+                                <connections>
+                                    <action selector="openURL:" destination="eA8-Os-q1r" eventType="touchUpInside" id="ogj-ho-owy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="distance" destination="GbM-Lu-85z" id="EHx-YA-2s0"/>
                         <outlet property="eDescription" destination="fJb-uc-8B9" id="cDm-bo-xpW"/>
                         <outlet property="eTitle" destination="PqA-Hm-RfL" id="Wjc-MF-jT4"/>
+                        <outlet property="fScore" destination="aqU-gJ-k5t" id="AYr-VU-2br"/>
                         <outlet property="going_count" destination="lJk-b7-pZ9" id="bds-dX-cgH"/>
                         <outlet property="price" destination="63J-Q0-wnp" id="paz-MI-b0A"/>
                         <outlet property="start_time" destination="rDi-0x-rBe" id="zTq-Zq-Ns5"/>
+                        <outlet property="timeDiff" destination="kdn-LR-DAm" id="Y0Y-zK-KLf"/>
                         <outlet property="vAddress" destination="T7S-o9-qWg" id="RIA-vs-5IN"/>
                         <outlet property="vName" destination="CGI-lj-CBf" id="7CX-v6-jS1"/>
                         <outlet property="vRecur" destination="fft-Pv-jh9" id="cS5-3K-Ynx"/>
@@ -368,24 +555,18 @@
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6du-M4-QlT" kind="modal" id="OYv-pm-GmE"/>
+                                    <segue destination="6du-M4-QlT" kind="modal" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="OYv-pm-GmE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbE-ik-wRH">
-                                <rect key="frame" x="70" y="504" width="19" height="21"/>
+                                <rect key="frame" x="85" y="504" width="19" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo420x285.png" translatesAutoresizingMaskIntoConstraints="NO" id="V9r-1B-QSF">
-                                <rect key="frame" x="97" y="481" width="113" height="67"/>
+                                <rect key="frame" x="112" y="481" width="113" height="67"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iDrop.in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZR-DE-QUz">
-                                <rect key="frame" x="116" y="367" width="89" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -409,12 +590,53 @@
             </objects>
             <point key="canvasLocation" x="627" y="786"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Vlb-NU-P5F">
+            <objects>
+                <navigationController storyboardIdentifier="THIRD_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="lH9-uC-RbK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hx1-1s-wpm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="A1f-eM-lT7" kind="relationship" relationship="rootViewController" id="3f0-Ex-kf6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZJ2-P8-z89" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="627" y="2133"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tlc-3F-0Fz">
+            <objects>
+                <navigationController storyboardIdentifier="FOURTH_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="Myg-2i-C8C" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fed-i3-wNN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="B3X-HH-IPJ" kind="relationship" relationship="rootViewController" id="Omc-Xx-Xov"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8eI-rQ-uI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="627" y="2805"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="di_menu_item_about.png" width="553" height="80"/>
+        <image name="di_menu_item_drops.png" width="553" height="80"/>
+        <image name="dl_menu_table_header.png" width="320" height="60"/>
         <image name="iTunesArtwork.png" width="512" height="512"/>
         <image name="logo420x285.png" width="460" height="285"/>
         <image name="pk_background_details.png" width="640" height="1136"/>
         <image name="pk_compo_2_button_blue.png" width="169" height="78"/>
+        <image name="pk_compo_button_grey.png" width="254" height="87"/>
         <image name="pk_icon_refresh.png" width="40" height="42"/>
+        <image name="pk_menu_item_settings.png" width="553" height="80"/>
     </resources>
 </document>

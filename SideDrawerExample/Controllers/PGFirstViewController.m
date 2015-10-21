@@ -30,6 +30,8 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     
+    [self setupLeftMenuButton];
+    
     
     BOOL locationAllowed = [CLLocationManager locationServicesEnabled];
     
@@ -82,10 +84,6 @@
 - (void) viewDidLoad:(BOOL) animated {
     
     [super viewDidLoad];
-    
-    
-    
-    [self setupLeftMenuButton];
     
     
 }
@@ -206,6 +204,12 @@
                 cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" min"]];
             }
         }
+        
+        int durationCheck= [[text objectForKey:@"duration"] intValue]*-1 ;
+        //which one is more negative
+        if (tInterval <= durationCheck ){
+            cell.inXMinutes.text=@"expired";
+        }
        
         NSString *maxTest;
         if ([[text valueForKey:@"max_count"] isEqualToString:@"0"]){
@@ -245,20 +249,45 @@
         }
         
         
+        NSString *priceTest=[[text objectForKey:@"price"] lowercaseString];
         
-        NSString *priceTest=[text objectForKey:@"price"];
-        if ([priceTest isEqualToString:@"0"]){
+       
+        NSCharacterSet *notDigits = [[NSCharacterSet decimalDigitCharacterSet]invertedSet];
+        
+        if ([priceTest rangeOfCharacterFromSet:notDigits].location==NSNotFound) {
+            NSLog(@" String : %@", priceTest);
+            
+            NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+            [currencyFormatter setLocale:[NSLocale currentLocale]];
+            [currencyFormatter setMaximumFractionDigits:2];
+            [currencyFormatter setMinimumFractionDigits:2];
+            [currencyFormatter setAlwaysShowsDecimalSeparator:YES];
+            [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+            
+            NSNumber *someAmount = [NSNumber numberWithFloat:[priceTest floatValue]];
+            NSString *priceString = [currencyFormatter stringFromNumber:someAmount];
+            
+            
+        if ([priceTest isEqualToString:@"0"]||[priceTest isEqualToString:@"0.00"]){
           
-            if([[text valueForKey:@"source"] isEqualToString:@"eventful"]) {
-                cell.price.text=@"Check";
-            } else {
-                cell.price.text=@"Free";
-            }
+            /* if([[text valueForKey:@"source"] isEqualToString:@"eventful"]) {
+             cell.price.text=@"Check";
+             } else {
+             */
+            
+            cell.price.text=@"Free";
+            
+            // }
         }else{
-          cell.price.text=priceTest;
+          cell.price.text=priceString;
         }
                     
-        
+        } else {
+            
+            //if not a number and there is nothing about prices, take the default string
+            cell.price.text=priceTest;
+            
+        }
         
         
         /*
@@ -341,16 +370,43 @@
     
     
     NSString *priceTest=[[text objectForKey:@"price"] lowercaseString];
-    if ([priceTest isEqualToString:@"0"]){
+    NSCharacterSet *notDigits = [[NSCharacterSet decimalDigitCharacterSet]invertedSet];
+    
+    if ([priceTest rangeOfCharacterFromSet:notDigits].location==NSNotFound) {
+        NSLog(@" String : %@", priceTest);
         
-        if([[text valueForKey:@"source"] isEqualToString:@"eventful"]) {
-            eventDetails.price.text=@"Check Description";
-        } else {
+        NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+        [currencyFormatter setLocale:[NSLocale currentLocale]];
+        [currencyFormatter setMaximumFractionDigits:2];
+        [currencyFormatter setMinimumFractionDigits:2];
+        [currencyFormatter setAlwaysShowsDecimalSeparator:YES];
+        [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        
+        NSNumber *someAmount = [NSNumber numberWithFloat:[priceTest floatValue]];
+        NSString *priceString = [currencyFormatter stringFromNumber:someAmount];
+        
+        if ([priceTest isEqualToString:@"0"]||[priceTest isEqualToString:@"0.00"]){
+            
+           /* if([[text valueForKey:@"source"] isEqualToString:@"eventful"]) {
+                eventDetails.price.text=@"Check";
+            } else {
+            */
+            
             eventDetails.price.text=@"Free";
+           
+            // }
+            
+        }else{
+            
+            eventDetails.price.text=priceString;
+            
         }
-    }else{
+    } else {
+        
         eventDetails.price.text=priceTest;
+        
     }
+   
 
     if([[text valueForKey:@"max_count"] intValue]>0) {
     
@@ -397,8 +453,17 @@
     
     eventDetails.start_time.text = [NSString stringWithFormat:@"%@%@%@", startString , @" - ", endString ];
     
-    eventDetails.eTitle.text=[[text valueForKey:@"title"] lowercaseString];
-    
+    //in this case I do have an owner
+    if([[text valueForKey:@"source"] isEqualToString:@"meetup.com"] && !([[text valueForKey:@"organizer"] isEqualToString:@""])) {
+        
+    eventDetails.eTitle.text= [NSString stringWithFormat:@"%@%@%@", [text valueForKey:@"title"] , @" - ", [text valueForKey:@"organizer"] ];
+        ;
+ 
+    } else {
+ 
+        eventDetails.eTitle.text=[text valueForKey:@"title"];
+        
+    }
     NSAttributedString *tmpStr = [[NSAttributedString alloc] initWithData:[[text valueForKey:@"description"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
     
     eventDetails.eDescription.text=[tmpStr string]  ;
@@ -407,6 +472,10 @@
     eventDetails.vAddress.text=[text objectForKey:@"venue_address"];
     eventDetails.vName.text=[text objectForKey:@"venue_name"];
     
+    eventDetails.distance.text=[text objectForKey:@"distance"];
+    eventDetails.fScore.text=[text objectForKey:@"fScore"];
+    eventDetails.timeDiff.text=[text objectForKey:@"timeDiff"];
+
     if([[text objectForKey:@"recur_string"] isEqualToString:@""]) {
         //do something clever here:
         eventDetails.vRecur.text=@" ";

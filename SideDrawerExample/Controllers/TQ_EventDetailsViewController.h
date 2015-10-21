@@ -58,6 +58,9 @@
    IBOutlet UILabel *vName;
    IBOutlet UILabel *vRecur;
     
+    IBOutlet UILabel *fScore;
+    IBOutlet UILabel *timeDiff;
+    
     
 }
 
@@ -80,6 +83,10 @@
 @property (retain, nonatomic) IBOutlet UILabel *vAddress;
 @property (retain, nonatomic) IBOutlet UILabel *vName;
 @property (retain, nonatomic) IBOutlet UILabel *vRecur;
+
+@property (retain, nonatomic) IBOutlet UILabel *fScore;
+@property (retain, nonatomic) IBOutlet UILabel *timeDiff;
+
 
 - (IBAction)openURL:(id)sender;
 
