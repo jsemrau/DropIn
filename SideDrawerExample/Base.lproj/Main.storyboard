@@ -257,13 +257,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftQ-La-FpP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftQ-La-FpP">
                                 <rect key="frame" x="225" y="97" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPA-wl-VoF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPA-wl-VoF">
                                 <rect key="frame" x="225" y="201" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -312,7 +312,7 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ja3-1k-IcG">
                                 <rect key="frame" x="20" y="362" width="280" height="186"/>
-                                <mutableString key="text">Introduction
+                                <string key="text">Introduction
 
 This privacy policy is designed to inform users of TENQYU (website, apps and service), collectively (the "Service") about how TENQYU, Inc. ("TENQYU" or "we") gathers and uses personal information submitted to us in connection with use of the Service. TENQYU will take all reasonable steps to protect user privacy consistent with the guidelines set forth in this policy and with applicable laws. In this policy, "user" or "you" means any person using the Service, whether by playing TENQYU, visiting the website or using our download apps. Important Disclosure By using TENQYU’s products, you are consenting to the display of your username, your Gameplay Information and Location Information (as defined below) to other TENQYU users. You can limit this disclosure by using our Privacy settings, so you should review our Privacy Policy to understand your privacy choices.
 What Information Do We Collect?
@@ -333,7 +333,7 @@ Privacy Settings/Opt Out
 
 If you turn your Privacy setting in TENQYU to share activity with "friends", your Gameplay Information and Location Information will only be displayed to participants whom you have added as TENQYU friends. If you turn your Privacy setting in TENQYU to share activity with "everyone", your Gameplay Information and Location Information will be displayed to all TENQYU users. Changing your privacy setting only changes your setting for the future; your past activity will have been displayed in accordance with the Privacy setting in place at the time you played the relevant TENQYU game. These settings can be managed conveniently from your app's "more" tab on iPhone and "settings" screen on Android. For other devices, please select settings. If you would like your Personal Information permanently removed from our mailing list or database, please contact us at info@TENQYU.com. Access and Updating of Information TENQYU is happy to allow you to review or amend your email address or contact details held in our mailing list or database, at any time. Please contact us by sending an email to: info@TENQYU.com or by using your settings panel in your account online. General Links The TENQYU website may contain links to other websites. TENQYU is not responsible for the privacy practices or the content of those websites. Users should be aware of this when they leave our website and review the privacy statements of each third party website. This Privacy Policy applies solely to information collected by the Service. Amendments TENQYU may modify or amend this policy from time to time. If we make any material changes, as determined by TENQYU, in the way in which Personal Information is collected, used or transferred, we will notify you of these changes by modification of this Privacy Policy, which will be available for review by you at the Service. Notwithstanding any modifications we may make, any Personal Information collected by TENQYU from you will be treated in accordance with the privacy policy in effect at the time information was collected, unless we obtain your consent otherwise. Children TENQYU does not knowingly collect or maintain personally identifiable information from persons under 13 years of age, and no part of the Service is directed at persons under 13. If you are under 13 years of age, then please do not use the Service or play TENQYU. If TENQYU learns that personally identifiable information of persons less than 13 years of age has been collected without verifiable parental consent, then TENQYU will take the appropriate steps to delete this information. To make such a request, please contact us at info@TENQYU.com. Service Visitors from outside the United States TENQYU is located in Singapore and its servers are located in the Japan and are subject to the applicable state and federal laws of the respective countries. If you choose to access or use the Service, you consent to the use and disclosure of information in accordance with this privacy policy and subject to such laws.
 Effective date
-Effective Date of this policy: July 1st, 2013 </mutableString>
+Effective Date of this policy: July 1st, 2013 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -390,6 +390,28 @@ Effective Date of this policy: July 1st, 2013 </mutableString>
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LHU-IS-9Zk">
+                                <rect key="frame" x="40" y="220" width="240" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sq-s5-0ss">
+                                        <rect key="frame" x="8" y="46" width="224" height="69"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="drop.in notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xta-Or-ivS">
+                                        <rect key="frame" x="49" y="17" width="143" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-IQ-5Ho">
+                                <rect key="frame" x="110" y="234" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -408,6 +430,9 @@ Effective Date of this policy: July 1st, 2013 </mutableString>
                     </navigationItem>
                     <connections>
                         <outlet property="eventTable" destination="B4r-Wn-UXQ" id="hjd-GW-lr0"/>
+                        <outlet property="loader" destination="pR4-IQ-5Ho" id="Jlj-60-2tU"/>
+                        <outlet property="messager" destination="LHU-IS-9Zk" id="zaF-XV-kpo"/>
+                        <outlet property="messagerLabel" destination="6Sq-s5-0ss" id="DzW-Id-Vxz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgk-we-V9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -429,6 +454,10 @@ Effective Date of this policy: July 1st, 2013 </mutableString>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pk_background_details.png" translatesAutoresizingMaskIntoConstraints="NO" id="KBz-PR-KRS">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-88-Dcq">
+                                <rect key="frame" x="0.0" y="65" width="320" height="57"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDi-0x-rBe">
                                 <rect key="frame" x="206" y="461" width="104" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
@@ -441,12 +470,6 @@ Effective Date of this policy: July 1st, 2013 </mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="T7S-o9-qWg">
-                                <rect key="frame" x="58" y="349" width="252" height="32"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-uc-8B9">
                                 <rect key="frame" x="20" y="124" width="280" height="190"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -455,8 +478,8 @@ Effective Date of this policy: July 1st, 2013 </mutableString>
                                 <dataDetectorType key="dataDetectorTypes" link="YES" calendarEvent="YES"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqA-Hm-RfL">
-                                <rect key="frame" x="0.0" y="65" width="320" height="57"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="20" y="65" width="281" height="57"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -479,56 +502,99 @@ Effective Date of this policy: July 1st, 2013 </mutableString>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGI-lj-CBf">
-                                <rect key="frame" x="58" y="332" width="231" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vName" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGI-lj-CBf">
+                                <rect key="frame" x="58" y="337" width="231" height="40"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vRecur" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fft-Pv-jh9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vRecur" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fft-Pv-jh9">
                                 <rect key="frame" x="170" y="496" width="134" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                 <color key="textColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdn-LR-DAm">
-                                <rect key="frame" x="158" y="533" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqU-gJ-k5t">
-                                <rect key="frame" x="88" y="532" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbM-Lu-85z">
-                                <rect key="frame" x="228" y="533" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fe8-Sz-g4l">
-                                <rect key="frame" x="13" y="500" width="50" height="23"/>
-                                <state key="normal" title="go" backgroundImage="pk_compo_2_button_blue.png"/>
+                                <rect key="frame" x="90" y="531" width="50" height="23"/>
+                                <state key="normal" title="debug" backgroundImage="pk_compo_2_button_blue.png"/>
                                 <connections>
-                                    <action selector="openURL:" destination="eA8-Os-q1r" eventType="touchUpInside" id="ogj-ho-owy"/>
+                                    <action selector="toggleDebugView:" destination="eA8-Os-q1r" eventType="touchUpInside" id="epp-zl-ShB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peE-SB-DO6">
+                                <rect key="frame" x="15" y="342" width="35" height="30"/>
+                                <connections>
+                                    <action selector="openLocationView:" destination="cgo-Ta-dcC" eventType="touchUpInside" id="s7Y-Vm-Ala"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R9j-ZH-QEa">
+                                <rect key="frame" x="123" y="244" width="197" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdn-LR-DAm">
+                                        <rect key="frame" x="147" y="39" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqU-gJ-k5t">
+                                        <rect key="frame" x="11" y="37" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbM-Lu-85z">
+                                        <rect key="frame" x="77" y="39" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="debug" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFY-G6-KcF">
+                                        <rect key="frame" x="11" y="8" width="49" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shd-Zo-h1S">
+                                        <rect key="frame" x="11" y="59" width="102" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBh-cC-wcZ">
+                                <rect key="frame" x="128" y="342" width="173" height="95"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ppK-tT-Rj5">
+                                        <rect key="frame" x="0.0" y="0.0" width="173" height="107"/>
+                                    </mapView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPV-1G-BeI">
+                                        <rect key="frame" x="8" y="8" width="163" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="distance" destination="GbM-Lu-85z" id="EHx-YA-2s0"/>
+                        <outlet property="debugView" destination="R9j-ZH-QEa" id="7ac-mw-3bV"/>
+                        <outlet property="distance" destination="tPV-1G-BeI" id="Bnu-jN-B2w"/>
                         <outlet property="eDescription" destination="fJb-uc-8B9" id="cDm-bo-xpW"/>
+                        <outlet property="eSource" destination="Shd-Zo-h1S" id="bpI-6E-kuZ"/>
                         <outlet property="eTitle" destination="PqA-Hm-RfL" id="Wjc-MF-jT4"/>
                         <outlet property="fScore" destination="aqU-gJ-k5t" id="AYr-VU-2br"/>
                         <outlet property="going_count" destination="lJk-b7-pZ9" id="bds-dX-cgH"/>
+                        <outlet property="mapView" destination="iBh-cC-wcZ" id="eBq-5Y-iIU"/>
+                        <outlet property="myMapView" destination="ppK-tT-Rj5" id="mu6-sv-COX"/>
+                        <outlet property="openLocation" destination="peE-SB-DO6" id="uB6-m3-hil"/>
                         <outlet property="price" destination="63J-Q0-wnp" id="paz-MI-b0A"/>
                         <outlet property="start_time" destination="rDi-0x-rBe" id="zTq-Zq-Ns5"/>
                         <outlet property="timeDiff" destination="kdn-LR-DAm" id="Y0Y-zK-KLf"/>
-                        <outlet property="vAddress" destination="T7S-o9-qWg" id="RIA-vs-5IN"/>
                         <outlet property="vName" destination="CGI-lj-CBf" id="7CX-v6-jS1"/>
                         <outlet property="vRecur" destination="fft-Pv-jh9" id="cS5-3K-Ynx"/>
                     </connections>

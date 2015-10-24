@@ -25,8 +25,13 @@
     bool needsUpdates;
     
     CLLocation *currentLocation;
-    IBOutlet UIView * loader ;
+    IBOutlet UIView *loader ;
+    IBOutlet UIView *messager ;
+    IBOutlet UILabel *messagerLabel;
     UIImageView * loading ;
+    
+    
+    
 }
 
 @property (retain, nonatomic) CLLocation *currentLocation;
@@ -40,8 +45,11 @@
 @property(nonatomic, retain) NSArray *eventList;
 
 @property(nonatomic, retain) IBOutlet UIView * loader ;
+@property(nonatomic, retain) IBOutlet UIView * messager ;
+@property(nonatomic, retain) IBOutlet UILabel *messagerLabel;
 @property(nonatomic, retain) IBOutlet UIImageView * loading ;
 @property(nonatomic )bool needsUpdates;
+
 
 - (void) playSound:(NSString*) path;
 - (IBAction)refreshButtonPress:(id)sender;

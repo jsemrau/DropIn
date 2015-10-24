@@ -24,6 +24,19 @@
     // Do any additional setup after loading the view.
     [self setupLeftMenuButton];
     
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    int dVal=[[[[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"distance"]] objectForKey:@"distance"]intValue];
+    
+    int tVal = [[[[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"timeFrame"]] objectForKey:@"time"] intValue];
+    
+    self.dSlide.value=dVal;
+    self.tSlide.value=tVal;
+    self.distanceLabel.text = [NSString stringWithFormat:@"%d", dVal];
+    
+    self.timeLabel.text = [NSString stringWithFormat:@"%d",tVal ];
+    
+    
 }
 
 - (void)setupLeftMenuButton {
@@ -58,7 +71,7 @@
         val1=val;
     }
     
-    NSLog(@" Slider Value %@", [NSString stringWithFormat:@"%ld", (long)slider.value]);
+   // NSLog(@" Slider Value %@", [NSString stringWithFormat:@"%ld", (long)slider.value]);
     
     // NSLog(@"Updating slider val %li from %li", (long)val, (long)val1);
     
@@ -84,7 +97,7 @@
         val1=val;
     }
     
-    NSLog(@" Slider Value %@", [NSString stringWithFormat:@"%ld", (long)slider.value]);
+   // NSLog(@" Slider Value %@", [NSString stringWithFormat:@"%ld", (long)slider.value]);
     
     // NSLog(@"Updating slider val %li from %li", (long)val, (long)val1);
     
@@ -105,7 +118,7 @@
     NSMutableDictionary *timeDic =[[NSMutableDictionary alloc] init];
     [timeDic setObject:[NSString stringWithFormat:@"%f", self.tSlide.value] forKey:@"time"];
     self.timeLabel.text=[NSString stringWithFormat:@"%d", (int)self.tSlide.value ];
-    [[NSUserDefaults standardUserDefaults] setObject:timeDic forKey:@"distance"] ;
+    [[NSUserDefaults standardUserDefaults] setObject:timeDic forKey:@"timeFrame"] ;
     [[NSUserDefaults standardUserDefaults] synchronize];
    
     

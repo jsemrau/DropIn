@@ -26,7 +26,9 @@
     NSString *coreDataKey;
   //  CLLocationManager *locationManager;
     NSString *iPath ;
+    
     NSString *distance;
+    NSString *timeFrame;
     
     __strong id<QyuWebDelegate> delegate;
      
@@ -44,6 +46,7 @@
 @property(nonatomic, retain) NSString *coreDataKey;
 @property(nonatomic, retain) NSString *iPath ;
 @property(nonatomic, retain) NSString *distance ;
+@property(nonatomic, retain) NSString *timeFrame ;
 
 @property(nonatomic, assign) BOOL finishedLoading;
 @property (nonatomic, retain) __strong id <QyuWebDelegate> delegate;

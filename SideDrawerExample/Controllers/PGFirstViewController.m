@@ -22,7 +22,7 @@
 @synthesize eventList;
 @synthesize refreshButton;
 @synthesize currentLocation;
-@synthesize loading,loader;
+@synthesize loading,loader,messager, messagerLabel;
 @synthesize loadedWithLocation;
 @synthesize needsUpdates;
 
@@ -32,6 +32,8 @@
     
     [self setupLeftMenuButton];
     
+    self.messager.alpha=0.0;
+    self.loader.alpha=0.0;
     
     BOOL locationAllowed = [CLLocationManager locationServicesEnabled];
     
@@ -64,9 +66,11 @@
         
         self.needsUpdates=TRUE;
         self.eventTable.alpha=0.0;
-        self.loader.alpha=1.0;
         
-        bool isSimulator=FALSE;
+        self.loader.alpha=1.0;
+        [self startingLoadingAnimation];
+        
+        bool isSimulator=true;
         
         if(isSimulator){
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -77,6 +81,7 @@
             gettingUpdates=YES;
         } 
     }
+    
     
     
 }
@@ -110,6 +115,7 @@
     
     self.eventTable.alpha=0.0;
     self.loader.alpha=1.0;
+    [self startingLoadingAnimation];
     //data not available anymore
     self.eventList=nil;
     self.needsUpdates=TRUE;
@@ -365,7 +371,19 @@
     [eventDetails setModalPresentationStyle:UIModalPresentationFullScreen];
     [eventDetails view];
     
-    eventDetails.distance.text=[[text valueForKey:@"distance"] lowercaseString];
+    //eventDetails.distance.text=[[text valueForKey:@"distance"] lowercaseString];
+    
+    float dist = [[text objectForKey:@"distance"] floatValue];
+    if (dist>=1) {
+        
+        eventDetails.distance.text=[[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString: @" km"] ;
+    } else {
+        dist=dist*1000;
+        float new = [[NSString stringWithFormat:@"%.2f",dist]floatValue];
+        eventDetails.distance.text=[[NSString stringWithFormat:@"%d",(int)new] stringByAppendingString: @" mtrs"] ;
+        
+    }
+    
     eventDetails.duration.text=[[text valueForKey:@"duration"] lowercaseString];
     
     
@@ -472,7 +490,17 @@
     eventDetails.vAddress.text=[text objectForKey:@"venue_address"];
     eventDetails.vName.text=[text objectForKey:@"venue_name"];
     
-    eventDetails.distance.text=[text objectForKey:@"distance"];
+    if ([[text objectForKey:@"venue_address"] isEqualToString:[text objectForKey:@"venue_name"]]) {
+        
+         eventDetails.vName.text=[text objectForKey:@"venue_name"];
+    
+    } else {
+       
+        
+        eventDetails.vName.text=[NSString stringWithFormat:@"%@%@%@", [text valueForKey:@"venue_name"] , @" - ", [text valueForKey:@"venue_address"] ];
+        
+    }
+    
     eventDetails.fScore.text=[text objectForKey:@"fScore"];
     eventDetails.timeDiff.text=[text objectForKey:@"timeDiff"];
 
@@ -488,7 +516,7 @@
     [fmt setMaximumFractionDigits:0];
     [fmt setMinimumFractionDigits:0];
     
-    eventDetails.distance.text=[fmt stringFromNumber:[NSNumber numberWithFloat:[[text objectForKey:@"distance"] floatValue]*1000]];
+   // eventDetails.distance.text=[fmt stringFromNumber:[NSNumber numberWithFloat:[[text objectForKey:@"distance"] floatValue]*1000]];
    
     // eventDetails.latitude=[[text valueForKey:@"lotLAT"] floatValue];
    // eventDetails.longitude=[[text valueForKey:@"lotLNG"] floatValue];
@@ -523,15 +551,22 @@
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
+    self.loader.alpha=0.0;
+    [self stoppingLoadingAnimation];
+    
     if ([resultData count] ==0){
         
+        /*
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tenqyu.com"
                                                           message:@"No event data available in your vincinity!"
                                                          delegate:self
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
         
-        [message show];
+        [message show];*/
+        
+        self.messagerLabel.text=@" There are no events around, you could try to adjust your settings!";
+        self.messager.alpha=1.0;
         
         
     } else {
@@ -607,6 +642,49 @@
     AudioServicesPlaySystemSound (soundID);
     
 }
+
+
+- (void) startingLoadingAnimation {
+    
+    NSArray * imageArray  = [[NSArray alloc] initWithObjects:
+                             [UIImage imageNamed:@"earthLoader_0000_frame-1.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-2.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-3.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-4.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-5.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-6.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-7.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-8.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-9.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-10.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-11.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-12.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-13.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-14.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-15.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-16.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-17.png"],
+                             [UIImage imageNamed:@"earthLoader_0000_frame-18.png"],
+                             
+                             nil];
+    CGRect rect=CGRectMake(self.loading.frame.origin.x, self.loading.frame.origin.y, 100 , 100);
+    NSLog(@" Rect .x %f , .y %f",rect.origin.x, rect.origin.y);
+    self.loading = [[UIImageView alloc] initWithFrame:rect];
+  
+    self.loading.animationImages = imageArray;
+    self.loading.animationDuration = 1.5;
+    self.loading.contentMode = UIViewContentModeCenter;
+    [self.loader addSubview:self.loading];
+    [self.loading startAnimating];
+}
+
+
+- (void) stoppingLoadingAnimation{
+    
+    [self.loading stopAnimating];
+    
+}
+
 
 
 

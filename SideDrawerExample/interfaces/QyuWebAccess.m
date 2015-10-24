@@ -22,7 +22,7 @@
 @synthesize imgMongoId;
 @synthesize coreDataKey;
 //@synthesize locationManager;
-@synthesize iPath,distance;
+@synthesize iPath,distance,timeFrame;
 
 
 - (id)init
@@ -35,9 +35,11 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     self.distance = [[[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"distance"]] objectForKey:@"distance"];
     
+    self.timeFrame = [[[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"timeFrame"]] objectForKey:@"time"];
+    
     if(!self.distance){
         
-        self.distance=@"3000";
+        self.distance=@"5";
         
     }
     
@@ -72,8 +74,15 @@
     
     if(!self.distance){
         
-        self.distance=@"3000";
+        self.distance=@"5";
         
+    }
+    
+    self.timeFrame = [[[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"timeFrame"]] objectForKey:@"time"];
+    
+    if(!self.timeFrame) {
+        
+        self.timeFrame=@"8";
     }
     
     objName=@"Webby";
@@ -141,7 +150,7 @@
     NSString *latStr = [@"&lat=" stringByAppendingString:[NSString stringWithFormat:@"%f", lat]];
     NSString *longStr = [@"&long=" stringByAppendingString:[NSString stringWithFormat:@"%f", lon]];
     
-    NSString *gameId = @"&gameId=3";
+    NSString *gameId = @"&gameId=4";
     
     
     NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@",  latStr, longStr,mailStr,pwdStr,mongoStr,langPref, qrcodeStr,gameId];
@@ -200,7 +209,7 @@ NSString *base = @"https://choose.tenqyu.com/index.php";
 NSString *idstr = [@"id=" stringByAppendingString:@"getEventList"];
     
     
-NSString *distanceStr = [@"&distance=" stringByAppendingString:@"5"];
+NSString *distanceStr = [@"&distance=" stringByAppendingString:self.distance];
     
     
 NSString *latitude = [NSString stringWithFormat:@"%f", lat];
@@ -209,7 +218,7 @@ NSString *longitude = [NSString stringWithFormat:@"%f", lon];
 NSString *latStr = [@"&lat=" stringByAppendingString:latitude];
 NSString *longStr = [@"&lng=" stringByAppendingString:longitude ];
     
-NSString *eventHrsStr = [@"&nextHours=" stringByAppendingString:@"8"];
+NSString *eventHrsStr = [@"&nextHours=" stringByAppendingString:self.timeFrame];
   
 NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@", latStr,longStr,distanceStr,eventHrsStr];
 

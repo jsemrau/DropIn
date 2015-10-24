@@ -12,7 +12,7 @@
 #import "MapOverlay.h"
 #import <AddressBook/AddressBook.h>
 
-@interface TQ_EventDetailsViewController : UIViewController
+@interface TQ_EventDetailsViewController : UIViewController <MKMapViewDelegate>
 
 {
     /*
@@ -58,9 +58,16 @@
    IBOutlet UILabel *vName;
    IBOutlet UILabel *vRecur;
     
-    IBOutlet UILabel *fScore;
-    IBOutlet UILabel *timeDiff;
+   IBOutlet UILabel *fScore;
+   IBOutlet UILabel *timeDiff;
     
+    IBOutlet UIButton *openLocation;
+    
+    UIView *debugView;
+    UIView *mapView;
+    UIView *shareView;
+    
+    IBOutlet MKMapView *myMapView;
     
 }
 
@@ -86,6 +93,13 @@
 
 @property (retain, nonatomic) IBOutlet UILabel *fScore;
 @property (retain, nonatomic) IBOutlet UILabel *timeDiff;
+
+@property (retain, nonatomic) IBOutlet UIButton *openLocation;
+
+@property(nonatomic, retain) IBOutlet UIView * debugView ;
+@property(nonatomic, retain) IBOutlet UIView * mapView ;
+@property(nonatomic, retain) IBOutlet UIView * shareView ;
+@property (nonatomic, retain) IBOutlet MKMapView *myMapView;
 
 
 - (IBAction)openURL:(id)sender;
