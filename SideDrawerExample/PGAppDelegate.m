@@ -12,7 +12,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+     // Override point for customization after application launch.
+    // [Socialize storeConsumerKey:@"92c84474-5d99-4825-8a97-bccf2b413f93"];
+    //[Socialize storeConsumerSecret:@"ce5251ad-8b7b-409d-9721-6532b9a4c82b"];
+   
+    // Specify a Socialize entity loader block
+    /*[Socialize setEntityLoaderBlock:^(UINavigationController *navigationController, id<SocializeEntity>entity) {
+        
+        SampleEntityLoader *entityLoader = [[SampleEntityLoader alloc] initWithEntity:entity];
+        
+        if (navigationController == nil) {
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:entityLoader];
+            [self.window.rootViewController presentViewController:navigationController animated:YES completion:nil];
+        } else {
+            [navigationController pushViewController:entityLoader animated:YES];
+        }
+    }];*/
+
+    
     return YES;
 }
 							

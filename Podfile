@@ -3,8 +3,14 @@
 
 target "dropin" do
 	source 'https://github.com/CocoaPods/Specs.git'
+	pod 'MMDrawerController', '~> 0.5'
 
-  pod 'MMDrawerController', '~> 0.5'
+	#source 'https://github.com/socialize/SocializeCocoaPods.git'
+	#source 'https://github.com/CocoaPods/Specs.git'
+
+	#inhibit_all_warnings!
+	#pod 'Socialize', :podspec => 'https://raw.github.com/socialize/socialize-sdk-ios/master/Socialize.podspec'
+
 end
 
 #target "SideDrawerExampleTests" do

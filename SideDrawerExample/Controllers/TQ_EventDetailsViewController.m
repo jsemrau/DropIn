@@ -14,7 +14,7 @@
 
 @implementation TQ_EventDetailsViewController
 
-@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView;
+@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL;
 
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -24,6 +24,20 @@
         self.vName.text=@"Unnamed Venue";
         [self geoLookUp];
     }
+   
+    NSString *string =[NSString stringWithFormat:@"%@",self.eDescription.text] ;
+    NSDataDetector *linkDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:nil];
+    NSArray *matches = [linkDetector matchesInString:string options:0 range:NSMakeRange(0, [string length])];
+    for (NSTextCheckingResult *match in matches) {
+        if ([match resultType] == NSTextCheckingTypeLink) {
+            NSURL *url = [match URL];
+            self.scannedURL.text=[url absoluteString];
+            //NSLog(@"found URL: %@", url);
+            
+        }
+    }
+    
+   // [self loadActionBar];
     
     self.mapView.alpha=0;
     self.debugView.alpha=0;
@@ -32,7 +46,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     
     
 }
@@ -148,6 +161,13 @@
     
 }
 
+- (IBAction) sendSMS {
+    
+  
+        [self showSMS:self.eURL];
+  
+    
+}
 - (IBAction)toggleDebugView:(id)sender{
     
     if (self.debugView.alpha==1) {
@@ -208,6 +228,89 @@ else
 {
     NSLog(@"callout button tapped for annotation %@", view.annotation);
 }
+}
+
+/*
+- (void) loadActionBar {
+    
+    if (self.actionBar == nil) {
+        self.entity = [SZEntity entityWithKey:@"some_entity" name:@"Some Entity"];
+        self.actionBar = [SZActionBarUtils showActionBarWithViewController:self entity:self.entity options:nil];
+        
+        SZShareOptions *shareOptions = [SZShareUtils userShareOptions];
+        shareOptions.dontShareLocation = YES;
+        
+        shareOptions.willAttemptPostingToSocialNetworkBlock = ^(SZSocialNetwork network, SZSocialNetworkPostData *postData) {
+            if (network == SZSocialNetworkTwitter) {
+                NSString *entityURL = [[postData.propagationInfo objectForKey:@"twitter"] objectForKey:@"entity_url"];
+                NSString *displayName = [postData.entity displayName];
+                NSString *customStatus = [NSString stringWithFormat:@"Custom status for %@ with url %@", displayName, entityURL];
+                
+                [postData.params setObject:customStatus forKey:@"status"];
+                
+            } else if (network == SZSocialNetworkFacebook) {
+                NSString *entityURL = [[postData.propagationInfo objectForKey:@"facebook"] objectForKey:@"entity_url"];
+                NSString *displayName = [postData.entity displayName];
+                NSString *customMessage = [NSString stringWithFormat:@"Custom status for %@ ", displayName];
+                
+                [postData.params setObject:customMessage forKey:@"message"];
+                [postData.params setObject:entityURL forKey:@"link"];
+                [postData.params setObject:@"A caption" forKey:@"caption"];
+                [postData.params setObject:@"Custom Name" forKey:@"name"];
+                [postData.params setObject:@"A Site" forKey:@"description"];
+            }
+        };
+        
+        self.actionBar.shareOptions = shareOptions;
+    }
+    
+}
+ 
+*/ 
+
+ 
+#pragma mark - Message composer
+- (void)showSMS:(NSString*)file {
+    
+    if(![MFMessageComposeViewController canSendText]) {
+        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your device doesn't support SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [warningAlert show];
+        return;
+    }
+    
+    NSArray *recipents = @[@""];
+    NSString *message = [NSString stringWithFormat:@"Yo! Check you this event %@ where I will drop in now!", file];
+    
+    MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
+    messageController.messageComposeDelegate = self;
+    [messageController setRecipients:recipents];
+    [messageController setBody:message];
+    
+    // Present message view controller on screen
+    [self presentViewController:messageController animated:YES completion:nil];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result
+{
+    switch (result) {
+        case MessageComposeResultCancelled:
+            break;
+            
+        case MessageComposeResultFailed:
+        {
+            UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to send SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [warningAlert show];
+            break;
+        }
+            
+        case MessageComposeResultSent:
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

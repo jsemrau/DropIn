@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		061B7B941BBC316C0059A840 /* TQ_EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061B7B931BBC316C0059A840 /* TQ_EventDetailsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		06377C921BDD20C3004FE094 /* PG_LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 06377C911BDD20C3004FE094 /* PG_LoginVC.m */; settings = {ASSET_TAGS = (); }; };
 		063823421BC01716004EECAD /* Features in Resources */ = {isa = PBXBuildFile; fileRef = 063823411BC01716004EECAD /* Features */; settings = {ASSET_TAGS = (); }; };
 		0638236A1BC018A3004EECAD /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 063823571BC018A3004EECAD /* Logo.png */; settings = {ASSET_TAGS = (); }; };
 		0638236C1BC023A2004EECAD /* logo420x285.png in Resources */ = {isa = PBXBuildFile; fileRef = 0638236B1BC023A2004EECAD /* logo420x285.png */; settings = {ASSET_TAGS = (); }; };
@@ -189,6 +190,8 @@
 /* Begin PBXFileReference section */
 		061B7B921BBC316C0059A840 /* TQ_EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQ_EventDetailsViewController.h; sourceTree = "<group>"; };
 		061B7B931BBC316C0059A840 /* TQ_EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQ_EventDetailsViewController.m; sourceTree = "<group>"; };
+		06377C901BDD20C3004FE094 /* PG_LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PG_LoginVC.h; sourceTree = "<group>"; };
+		06377C911BDD20C3004FE094 /* PG_LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PG_LoginVC.m; sourceTree = "<group>"; };
 		063823411BC01716004EECAD /* Features */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Features; path = ../Features; sourceTree = "<group>"; };
 		063823571BC018A3004EECAD /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = ../../../Assets/Visual/CI/16_DropIn/Logo.png; sourceTree = "<group>"; };
 		0638236B1BC023A2004EECAD /* logo420x285.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo420x285.png; path = ../../../Assets/Visual/CI/01_Logo/logo420x285.png; sourceTree = "<group>"; };
@@ -680,6 +683,8 @@
 		ED73689719CB2E0A00B69BEC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				06377C901BDD20C3004FE094 /* PG_LoginVC.h */,
+				06377C911BDD20C3004FE094 /* PG_LoginVC.m */,
 				ED73689819CB2E0A00B69BEC /* PGFirstViewController.h */,
 				ED73689919CB2E0A00B69BEC /* PGFirstViewController.m */,
 				ED73689C19CB2E0A00B69BEC /* PGSideDrawerController.h */,
@@ -800,6 +805,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = tenqyu;
 				TargetAttributes = {
+					EDB058011858C5BD000EAA9C = {
+						DevelopmentTeam = 546NVCFW57;
+					};
 					EDB058221858C5BE000EAA9C = {
 						TestTargetID = EDB058011858C5BD000EAA9C;
 					};
@@ -1037,6 +1045,7 @@
 				ED7368AB19CB2E0A00B69BEC /* PGSideDrawerController.m in Sources */,
 				06AC42741BB83B8B00872A9D /* MapOverlay.m in Sources */,
 				ED7368AC19CB2E0A00B69BEC /* PGViewController.m in Sources */,
+				06377C921BDD20C3004FE094 /* PG_LoginVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1162,6 +1171,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SideDrawerExample/dropin-Prefix.pch";
 				INFOPLIST_FILE = "SideDrawerExample/dropin-Info.plist";
@@ -1178,6 +1188,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SideDrawerExample/dropin-Prefix.pch";
 				INFOPLIST_FILE = "SideDrawerExample/dropin-Info.plist";

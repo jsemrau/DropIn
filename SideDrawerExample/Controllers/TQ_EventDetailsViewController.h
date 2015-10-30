@@ -11,8 +11,10 @@
 #import "MapPin.h"
 #import "MapOverlay.h"
 #import <AddressBook/AddressBook.h>
+//#import <Socialize/Socialize.h>
+#import <MessageUI/MessageUI.h>
 
-@interface TQ_EventDetailsViewController : UIViewController <MKMapViewDelegate>
+@interface TQ_EventDetailsViewController : UIViewController <MKMapViewDelegate,MFMessageComposeViewControllerDelegate>
 
 {
     /*
@@ -40,6 +42,7 @@
    float longitude;
    NSString *vNameStr;
    NSString *eURL;
+   UILabel *scannedURL;
     
    IBOutlet UILabel *price;
    IBOutlet UILabel *start_time;
@@ -86,6 +89,8 @@
 @property (retain, nonatomic) IBOutlet UILabel *eTitle;
 @property (retain, nonatomic) IBOutlet UITextView *eDescription;
 @property (retain, nonatomic) NSString *eURL;
+@property (retain, nonatomic) IBOutlet UILabel *scannedURL;
+
 @property (retain, nonatomic) IBOutlet UILabel *eSource;
 @property (retain, nonatomic) IBOutlet UILabel *vAddress;
 @property (retain, nonatomic) IBOutlet UILabel *vName;
@@ -102,6 +107,10 @@
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
 
 
+//@property (nonatomic, retain) SZActionBar *actionBar;
+//@property (nonatomic, retain) id<SZEntity> entity;
+
 - (IBAction)openURL:(id)sender;
+- (IBAction) sendSMS ;
 
 @end
