@@ -35,6 +35,7 @@
     
     
    IBOutlet UILabel *distance;
+    
    IBOutlet UILabel *duration;
    IBOutlet UILabel *going_count;
    IBOutlet UILabel *max_count;
