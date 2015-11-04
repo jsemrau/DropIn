@@ -74,7 +74,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="56B79EB6-CC0D-42D8-984E-5550DCBD8B7A" id="drO-Fu-RKB">
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8AB5A473-6CCC-4039-B885-AC6C0E1C6A03" id="drO-Fu-RKB">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
@@ -594,16 +594,15 @@ Effective Date of this policy: July 1st, 2013 </string>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-88-Dcq">
-                                <rect key="frame" x="0.0" y="130" width="320" height="63"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pk_compo_message_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-88-Dcq">
+                                <rect key="frame" x="20" y="130" width="280" height="63"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqA-Hm-RfL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqA-Hm-RfL">
                                 <rect key="frame" x="25" y="131.5" width="272" height="61.5"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -612,17 +611,17 @@ Effective Date of this policy: July 1st, 2013 </string>
                                 <animations/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EGI-du-v54">
-                                <rect key="frame" x="0.0" y="193" width="320" height="25"/>
+                                <rect key="frame" x="0.0" y="195" width="320" height="25"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="from" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDi-0x-rBe">
-                                        <rect key="frame" x="54" y="0.0" width="92" height="25"/>
+                                        <rect key="frame" x="54" y="0.0" width="85" height="25"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vRecur" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fft-Pv-jh9">
-                                        <rect key="frame" x="164" y="0.0" width="148" height="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vRecur" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fft-Pv-jh9">
+                                        <rect key="frame" x="147" y="0.0" width="165" height="25"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -691,14 +690,14 @@ Effective Date of this policy: July 1st, 2013 </string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tPm-z9-aHo">
-                                <rect key="frame" x="0.0" y="440" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="440" width="320" height="50"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="horizontal_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="GZ8-tu-RcG">
                                         <rect key="frame" x="40" y="0.0" width="240" height="0.5"/>
                                         <animations/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peE-SB-DO6">
-                                        <rect key="frame" x="168" y="2" width="40" height="40"/>
+                                        <rect key="frame" x="168" y="8" width="40" height="40"/>
                                         <animations/>
                                         <state key="normal" backgroundImage="map.png"/>
                                         <state key="selected" backgroundImage="pk_compo_2_button_grey.png"/>
@@ -707,7 +706,7 @@ Effective Date of this policy: July 1st, 2013 </string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmq-hj-8rc">
-                                        <rect key="frame" x="23" y="4" width="40" height="40"/>
+                                        <rect key="frame" x="23" y="8" width="40" height="40"/>
                                         <animations/>
                                         <state key="normal" backgroundImage="fav.png"/>
                                         <state key="selected" backgroundImage="Liked.png"/>
@@ -717,25 +716,25 @@ Effective Date of this policy: July 1st, 2013 </string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fb-LJ-k2K">
-                                        <rect key="frame" x="243" y="4" width="40" height="40"/>
+                                        <rect key="frame" x="243" y="8" width="40" height="40"/>
                                         <animations/>
                                         <state key="normal" backgroundImage="url.png"/>
                                         <connections>
                                             <action selector="openURL:" destination="eA8-Os-q1r" eventType="touchUpInside" id="ZJA-Fg-zyA"/>
                                         </connections>
                                     </button>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="horizontal_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="APw-ze-tOK">
+                                        <rect key="frame" x="40" y="50" width="240" height="0.5"/>
+                                        <animations/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="and-kK-dNc">
-                                        <rect key="frame" x="92" y="4" width="40" height="40"/>
+                                        <rect key="frame" x="100" y="8" width="40" height="40"/>
                                         <animations/>
                                         <state key="normal" backgroundImage="share.png"/>
                                         <connections>
                                             <action selector="sendSMS" destination="eA8-Os-q1r" eventType="touchUpInside" id="MgN-f5-3sl"/>
                                         </connections>
                                     </button>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="horizontal_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="APw-ze-tOK">
-                                        <rect key="frame" x="40" y="44" width="240" height="0.5"/>
-                                        <animations/>
-                                    </imageView>
                                 </subviews>
                                 <animations/>
                             </view>
@@ -747,17 +746,13 @@ Effective Date of this policy: July 1st, 2013 </string>
                                     <action selector="toggleDebugView:" destination="eA8-Os-q1r" eventType="touchUpInside" id="epp-zl-ShB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vName" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGI-lj-CBf">
-                                <rect key="frame" x="58" y="489" width="242" height="71"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vName" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGI-lj-CBf">
+                                <rect key="frame" x="20" y="492" width="271" height="48"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home.png" translatesAutoresizingMaskIntoConstraints="NO" id="NmI-ni-n8O">
-                                <rect key="frame" x="28" y="504" width="30" height="30"/>
-                                <animations/>
-                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -816,8 +811,8 @@ Effective Date of this policy: July 1st, 2013 </string>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo420x285.png" translatesAutoresizingMaskIntoConstraints="NO" id="V9r-1B-QSF">
-                                <rect key="frame" x="112" y="481" width="113" height="67"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo120x194.png" translatesAutoresizingMaskIntoConstraints="NO" id="qQN-7c-Tec">
+                                <rect key="frame" x="122" y="480" width="108" height="68"/>
                                 <animations/>
                             </imageView>
                         </subviews>
@@ -888,7 +883,7 @@ Effective Date of this policy: July 1st, 2013 </string>
         </scene>
     </scenes>
     <resources>
-        <image name="56B79EB6-CC0D-42D8-984E-5550DCBD8B7A" width="320" height="60">
+        <image name="8AB5A473-6CCC-4039-B885-AC6C0E1C6A03" width="320" height="60">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -2225,14 +2220,14 @@ AAAABAEAAAAAAAAAPgAAAAAAAAAAAAAAAAABNgk
         <image name="di_menu_item_about.png" width="553" height="80"/>
         <image name="di_menu_item_drops.png" width="553" height="80"/>
         <image name="fav.png" width="74" height="71"/>
-        <image name="home.png" width="78" height="78"/>
         <image name="horizontal_line.png" width="640" height="2"/>
         <image name="iTunesArtwork.png" width="512" height="512"/>
-        <image name="logo420x285.png" width="460" height="285"/>
+        <image name="logo120x194.png" width="194" height="120"/>
         <image name="map.png" width="76" height="76"/>
         <image name="pk_compo_2_button_blue.png" width="169" height="78"/>
         <image name="pk_compo_2_button_grey.png" width="169" height="78"/>
         <image name="pk_compo_button_grey.png" width="254" height="87"/>
+        <image name="pk_compo_message_white.png" width="584" height="79"/>
         <image name="pk_icon_refresh.png" width="40" height="42"/>
         <image name="pk_menu_item_settings.png" width="553" height="80"/>
         <image name="share.png" width="77" height="75"/>
