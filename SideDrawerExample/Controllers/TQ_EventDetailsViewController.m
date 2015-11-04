@@ -14,7 +14,8 @@
 
 @implementation TQ_EventDetailsViewController
 
-@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL;
+@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,
+    inXminutes;
 
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -48,6 +49,7 @@
     // Do any additional setup after loading the view.
     
     
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,6 +81,18 @@
     }];
     
     
+    
+}
+
+- (IBAction)sendFavorite:(id)sender{
+    
+   // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.eURL]];
+   
+    //UIImage *bImage = [UIImage imageNamed:@"Liked.png"];
+    //UIButton *fButton = (UIButton*)sender;
+    
+    //[fButton setImage:bImage forState:UIControlStateSelected|UIControlStateNormal];
+  //  [self.view addSubview:fButton];
     
 }
 

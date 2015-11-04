@@ -17,22 +17,6 @@
 @interface TQ_EventDetailsViewController : UIViewController <MKMapViewDelegate,MFMessageComposeViewControllerDelegate>
 
 {
-    /*
-     NSString *distance;
-     NSString *duration;
-     NSInteger *going_count;
-     NSInteger *max_count;
-     NSString *latitude;
-     NSString *longitude;
-     NSString *price;
-     NSDate *start_time;
-     NSDate *stop_time;
-     NSString *eTitle;
-     NSString *eDescription;
-     NSString *eURL;
-    
-    */
-    
     
    IBOutlet UILabel *distance;
     
@@ -44,13 +28,14 @@
    NSString *vNameStr;
    NSString *eURL;
    UILabel *scannedURL;
+   NSString *vStart_time;
+   NSString *vStop_time;
     
    IBOutlet UILabel *price;
    IBOutlet UILabel *start_time;
    IBOutlet UILabel *stop_time;
     
-   IBOutlet NSString *vStart_time;
-   IBOutlet NSString *vStop_time;
+   
     
     
    IBOutlet UILabel *eTitle;
@@ -64,8 +49,11 @@
     
    IBOutlet UILabel *fScore;
    IBOutlet UILabel *timeDiff;
+    IBOutlet UILabel *inXminutes;
     
     IBOutlet UIButton *openLocation;
+    IBOutlet UIButton *openURL;
+    IBOutlet UIButton *favButton;
     
     UIView *debugView;
     UIView *mapView;
@@ -85,7 +73,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *price;
 @property (retain, nonatomic) IBOutlet UILabel *start_time;
 @property (retain, nonatomic) IBOutlet UILabel *stop_time;
-@property (retain, nonatomic) IBOutlet NSString *vStart_time;
+@property (retain, nonatomic) NSString *vStart_time;
 @property (retain, nonatomic) NSString *vStop_time;
 @property (retain, nonatomic) IBOutlet UILabel *eTitle;
 @property (retain, nonatomic) IBOutlet UITextView *eDescription;
@@ -99,8 +87,11 @@
 
 @property (retain, nonatomic) IBOutlet UILabel *fScore;
 @property (retain, nonatomic) IBOutlet UILabel *timeDiff;
+@property (retain, nonatomic) IBOutlet UILabel *inXminutes;
 
 @property (retain, nonatomic) IBOutlet UIButton *openLocation;
+@property (retain, nonatomic) IBOutlet UIButton *openURL;
+@property (retain, nonatomic) IBOutlet UIButton *favButton;
 
 @property(nonatomic, retain) IBOutlet UIView * debugView ;
 @property(nonatomic, retain) IBOutlet UIView * mapView ;

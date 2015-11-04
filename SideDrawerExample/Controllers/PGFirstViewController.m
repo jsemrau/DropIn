@@ -25,8 +25,8 @@
 @synthesize loading,loader,messager, messagerLabel;
 @synthesize loadedWithLocation;
 @synthesize needsUpdates;
-
-
+@synthesize weatherString;
+@synthesize weatherNeedsUpdates;
 
 -(void) viewWillAppear:(BOOL)animated{
     
@@ -37,7 +37,9 @@
     
     BOOL locationAllowed = [CLLocationManager locationServicesEnabled];
     
-    
+    if (([self.weatherString.text isEqualToString:@""])) {
+       self.weatherNeedsUpdates=true;
+    }
     if (!locationAllowed)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Service Disabled"
@@ -365,7 +367,8 @@
     eventDetails.longitude=[[text valueForKey:@"longitude"] floatValue] ;
     eventDetails.vNameStr=[text objectForKey:@"venue_name"];
     eventDetails.eURL=[[text valueForKey:@"url"] lowercaseString];
-    
+    eventDetails.vStart_time=[text objectForKey:@"start_time"];
+    eventDetails.vStop_time=[text objectForKey:@"stop_time"];
     /* Before loading the items*/
 
     [eventDetails setModalPresentationStyle:UIModalPresentationFullScreen];
@@ -502,8 +505,7 @@
     }
     
     eventDetails.fScore.text=[text objectForKey:@"fScore"];
-    eventDetails.timeDiff.text=[text objectForKey:@"timeDiff"];
-
+ 
     if([[text objectForKey:@"recur_string"] isEqualToString:@""]) {
         //do something clever here:
         eventDetails.vRecur.text=@" ";
@@ -516,14 +518,36 @@
     [fmt setMaximumFractionDigits:0];
     [fmt setMinimumFractionDigits:0];
     
-   // eventDetails.distance.text=[fmt stringFromNumber:[NSNumber numberWithFloat:[[text objectForKey:@"distance"] floatValue]*1000]];
-   
-    // eventDetails.latitude=[[text valueForKey:@"lotLAT"] floatValue];
-   // eventDetails.longitude=[[text valueForKey:@"lotLNG"] floatValue];
+    dateString = [text objectForKey:@"start_time"];
+    startDateFormat = [[NSDateFormatter alloc] init];
+    [startDateFormat setDateFormat:@"yyyy-MM-dd H:mm:ss"];
+    //        NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    timeZone = [NSTimeZone systemTimeZone];
     
-    // eventDetails.detailTitle.text=[[detailManagedObject valueForKey:@"nText"] description];
-    // eventDetails.detailHeader.text=[[detailManagedObject valueForKey:@"nHeader"] description];
-    // eventDetails.detailDescription.text=[[detailManagedObject valueForKey:@"longText"] description];
+    [startDateFormat setTimeZone:timeZone];
+    [startDateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
+    startDate1 = [startDateFormat dateFromString:dateString];
+    
+    float fInterval= [startDate1 timeIntervalSinceNow]/60;
+    
+    if (fInterval>60) {
+        //convert to hours
+        fInterval=fInterval/60;
+        NSLog(@" My Interval %.2f", fInterval);
+        
+        if (fInterval == 1.00) {
+            eventDetails.timeDiff.text=[NSString stringWithFormat:@"%.2f",fInterval];
+            eventDetails.inXminutes.text=@"hr";
+        } else {
+            eventDetails.timeDiff.text=[NSString stringWithFormat:@"%.2f",fInterval];
+            eventDetails.inXminutes.text=@"hrs";
+        }
+    } else {
+        NSLog(@" My Interval %.2f", fInterval);
+        
+        eventDetails.timeDiff.text=[NSString stringWithFormat:@"%d",(int)fInterval];
+        eventDetails.inXminutes.text=@"min";
+    }
     
     [self.navigationController pushViewController:eventDetails animated:YES];
     
@@ -618,6 +642,17 @@
     //store the current location in object
     self.currentLocation = location;
     
+    if(weatherNeedsUpdates){
+    NSDictionary *tempTmp= [self getWeatherForLocation:self.currentLocation];
+        if (tempTmp) {
+            self.weatherString.text = [NSString stringWithFormat:@"%@%@%@%@",
+                                  @"It is " , [tempTmp valueForKey:@"temp_c" ] , @"°C and ", [tempTmp valueForKey:@"weather" ]];
+            self.weatherNeedsUpdates=FALSE;
+        }
+    }
+    
+    
+    
     if(self.needsUpdates){
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -691,6 +726,35 @@
     self.loading.contentMode = UIViewContentModeCenter;
     [self.loader addSubview:self.loading];
     [self.loading startAnimating];
+}
+
+
+- (NSDictionary*)getWeatherForLocation:(CLLocation*)wLocation
+{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    NSString *stringURL=[NSString stringWithFormat:@"https://api.wunderground.com/api/f7f2f04f1312022b/geolookup/conditions/q/%f,%f.json",wLocation.coordinate.latitude,wLocation.coordinate.longitude];
+    
+    //NSLog(@"%@",stringURL);
+    
+    [request setURL:[NSURL URLWithString:stringURL]];
+    
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    //NSString *stringData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    //NSDictionary *dictionary=[stringData objectFromJSONString];
+    
+    NSError *e = nil;
+    NSDictionary *dictionary  = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &e];
+    
+    
+    NSDictionary *locationDic=[[NSDictionary alloc] initWithDictionary:[dictionary valueForKey:@"current_observation"]];
+    //NSLog(@"locations is %@",locationDic);
+    
+    return locationDic;
+    //[dictionary valueForKey:@"current_observation"];
 }
 
 

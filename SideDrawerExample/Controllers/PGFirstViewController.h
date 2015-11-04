@@ -23,9 +23,11 @@
     
     bool gettingUpdates;
     bool needsUpdates;
+    bool weatherNeedsUpdates;
     
     CLLocation *currentLocation;
     IBOutlet UIView *loader ;
+    IBOutlet UILabel *weatherString ;
     IBOutlet UIView *messager ;
     IBOutlet UILabel *messagerLabel;
     UIImageView * loading ;
@@ -40,7 +42,7 @@
 
 @property (nonatomic, retain) IBOutlet UITableView* eventTable;
 @property (nonatomic, retain) IBOutlet UITableViewCell *eventTableCellItem;
-
+@property (nonatomic, retain) IBOutlet UILabel *weatherString ;
 @property(nonatomic, assign) bool loadedWithLocation;
 @property(nonatomic, retain) NSArray *eventList;
 
@@ -49,6 +51,8 @@
 @property(nonatomic, retain) IBOutlet UILabel *messagerLabel;
 @property(nonatomic, retain) IBOutlet UIImageView * loading ;
 @property(nonatomic )bool needsUpdates;
+@property(nonatomic )bool weatherNeedsUpdates;
+
 
 
 - (void) playSound:(NSString*) path;
