@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06004B411BEB12A0008C2306 /* iPhone6@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06004B3F1BEB12A0008C2306 /* iPhone6@3x.png */; };
+		06004B421BEB12A0008C2306 /* iphone6Plus@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06004B401BEB12A0008C2306 /* iphone6Plus@3x.png */; };
 		061B7B941BBC316C0059A840 /* TQ_EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061B7B931BBC316C0059A840 /* TQ_EventDetailsViewController.m */; };
 		0620D4501BE9CFA700A7D9CE /* logo420x285.png in Resources */ = {isa = PBXBuildFile; fileRef = 0620D44F1BE9CFA700A7D9CE /* logo420x285.png */; };
 		0620D4521BE9D03700A7D9CE /* logo120x194.png in Resources */ = {isa = PBXBuildFile; fileRef = 0620D4511BE9D03700A7D9CE /* logo120x194.png */; };
@@ -202,6 +204,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06004B3F1BEB12A0008C2306 /* iPhone6@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPhone6@3x.png"; path = "assets/ci/iPhone6@3x.png"; sourceTree = "<group>"; };
+		06004B401BEB12A0008C2306 /* iphone6Plus@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone6Plus@3x.png"; path = "assets/ci/iphone6Plus@3x.png"; sourceTree = "<group>"; };
 		061B7B921BBC316C0059A840 /* TQ_EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQ_EventDetailsViewController.h; sourceTree = "<group>"; };
 		061B7B931BBC316C0059A840 /* TQ_EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQ_EventDetailsViewController.m; sourceTree = "<group>"; };
 		0620D44F1BE9CFA700A7D9CE /* logo420x285.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo420x285.png; path = assets/ci/logo420x285.png; sourceTree = "<group>"; };
@@ -446,6 +450,8 @@
 		063823441BC01891004EECAD /* ci */ = {
 			isa = PBXGroup;
 			children = (
+				06004B3F1BEB12A0008C2306 /* iPhone6@3x.png */,
+				06004B401BEB12A0008C2306 /* iphone6Plus@3x.png */,
 				06F3514C1BEADAF8004D1727 /* drop-in-logo.png */,
 				06E228741BEA4A5300A72907 /* name.png */,
 				0620D4511BE9D03700A7D9CE /* logo120x194.png */,
@@ -940,6 +946,7 @@
 				06A5578C1BC17E81004152C8 /* PR_2_00000.png in Resources */,
 				06A5577D1BC17E81004152C8 /* earthLoader_0000_frame-14-old.png in Resources */,
 				06A556D01BC17E74004152C8 /* Icon@2x.png in Resources */,
+				06004B411BEB12A0008C2306 /* iPhone6@3x.png in Resources */,
 				06E146731BE6E7B0004AFD33 /* Liked.png in Resources */,
 				06A5576F1BC17E81004152C8 /* pk_map_parking_icon.png in Resources */,
 				06A556D11BC17E74004152C8 /* iTunesArtwork.png in Resources */,
@@ -991,6 +998,7 @@
 				06A556CE1BC17E74004152C8 /* Icon-Small@3x.png in Resources */,
 				06A557791BC17E81004152C8 /* earthLoader_0000_frame-10.png in Resources */,
 				06A557B11BC17E81004152C8 /* pk_menu_item_map.png in Resources */,
+				06004B421BEB12A0008C2306 /* iphone6Plus@3x.png in Resources */,
 				06A5577B1BC17E81004152C8 /* earthLoader_0000_frame-12.png in Resources */,
 				06A557781BC17E81004152C8 /* earthLoader_0000_frame-1.png in Resources */,
 				0620D4501BE9CFA700A7D9CE /* logo420x285.png in Resources */,
