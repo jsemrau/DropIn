@@ -94,6 +94,12 @@
     //[fButton setImage:bImage forState:UIControlStateSelected|UIControlStateNormal];
   //  [self.view addSubview:fButton];
     
+    UIButton *tempButton = (UIButton *)sender;
+    if(tempButton.isSelected){
+        [tempButton setSelected:NO];
+    } else {
+        [tempButton setSelected:YES];
+    }
 }
 
 - (IBAction)openURL:(id)sender{

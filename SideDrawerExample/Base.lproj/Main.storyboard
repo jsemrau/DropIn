@@ -74,7 +74,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="692E82D1-1177-46A6-A514-E7656F55746F" id="drO-Fu-RKB">
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="78E85244-7067-4339-A78B-515431B7ADD9" id="drO-Fu-RKB">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
@@ -345,7 +345,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ja3-1k-IcG">
-                                <rect key="frame" x="20" y="362" width="280" height="186"/>
+                                <rect key="frame" x="20" y="287" width="280" height="273"/>
                                 <animations/>
                                 <string key="text">Introduction
 
@@ -369,26 +369,24 @@ Privacy Settings/Opt Out
 If you turn your Privacy setting in TENQYU to share activity with "friends", your Gameplay Information and Location Information will only be displayed to participants whom you have added as TENQYU friends. If you turn your Privacy setting in TENQYU to share activity with "everyone", your Gameplay Information and Location Information will be displayed to all TENQYU users. Changing your privacy setting only changes your setting for the future; your past activity will have been displayed in accordance with the Privacy setting in place at the time you played the relevant TENQYU game. These settings can be managed conveniently from your app's "more" tab on iPhone and "settings" screen on Android. For other devices, please select settings. If you would like your Personal Information permanently removed from our mailing list or database, please contact us at info@TENQYU.com. Access and Updating of Information TENQYU is happy to allow you to review or amend your email address or contact details held in our mailing list or database, at any time. Please contact us by sending an email to: info@TENQYU.com or by using your settings panel in your account online. General Links The TENQYU website may contain links to other websites. TENQYU is not responsible for the privacy practices or the content of those websites. Users should be aware of this when they leave our website and review the privacy statements of each third party website. This Privacy Policy applies solely to information collected by the Service. Amendments TENQYU may modify or amend this policy from time to time. If we make any material changes, as determined by TENQYU, in the way in which Personal Information is collected, used or transferred, we will notify you of these changes by modification of this Privacy Policy, which will be available for review by you at the Service. Notwithstanding any modifications we may make, any Personal Information collected by TENQYU from you will be treated in accordance with the privacy policy in effect at the time information was collected, unless we obtain your consent otherwise. Children TENQYU does not knowingly collect or maintain personally identifiable information from persons under 13 years of age, and no part of the Service is directed at persons under 13. If you are under 13 years of age, then please do not use the Service or play TENQYU. If TENQYU learns that personally identifiable information of persons less than 13 years of age has been collected without verifiable parental consent, then TENQYU will take the appropriate steps to delete this information. To make such a request, please contact us at info@TENQYU.com. Service Visitors from outside the United States TENQYU is located in Singapore and its servers are located in the Japan and are subject to the applicable state and federal laws of the respective countries. If you choose to access or use the Service, you consent to the use and disclosure of information in accordance with this privacy policy and subject to such laws.
 Effective date
 Effective Date of this policy: July 1st, 2013 </string>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Privacy policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxm-Nk-Ayc">
-                                <rect key="frame" x="20" y="339" width="170" height="21"/>
+                                <rect key="frame" x="20" y="273" width="170" height="21"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" name="Avenir-BlackOblique" family="Avenir" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="drop.in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-yX-Iuy">
-                                <rect key="frame" x="20" y="93" width="66" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="drop-in-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="fWX-Cw-g1r">
+                                <rect key="frame" x="0.0" y="84" width="320" height="60"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" name="Avenir-BlackOblique" family="Avenir" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="some blah blah about the company" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLJ-lo-jvj">
-                                <rect key="frame" x="20" y="122" width="280" height="186"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLJ-lo-jvj">
+                                <rect key="frame" x="20" y="152" width="280" height="114"/>
                                 <animations/>
+                                <string key="text">Drop!in aims to solve one of your biggest problems. What is going on around me? It uses location-based information to help you have a more engaging and eventful life.</string>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -881,7 +879,7 @@ Effective Date of this policy: July 1st, 2013 </string>
         </scene>
     </scenes>
     <resources>
-        <image name="692E82D1-1177-46A6-A514-E7656F55746F" width="320" height="60">
+        <image name="78E85244-7067-4339-A78B-515431B7ADD9" width="320" height="60">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -2216,6 +2214,7 @@ AAAABAEAAAAAAAAAPgAAAAAAAAAAAAAAAAABNgk
         <image name="clock.png" width="73" height="75"/>
         <image name="di_menu_item_about.png" width="553" height="80"/>
         <image name="di_menu_item_drops.png" width="553" height="80"/>
+        <image name="drop-in-logo.png" width="640" height="120"/>
         <image name="fav.png" width="74" height="71"/>
         <image name="horizontal_line.png" width="640" height="2"/>
         <image name="iTunesArtwork.png" width="512" height="512"/>
