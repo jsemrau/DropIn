@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EFCircularSlider.h"
 
 @interface TQ_SettingsVC : UIViewController
 
-@property (nonatomic, retain) IBOutlet UISlider *dSlide;
-@property (nonatomic, retain) IBOutlet UISlider *tSlide;
+@property (nonatomic, retain) IBOutlet EFCircularSlider *dSlide;
+@property (nonatomic, retain) IBOutlet EFCircularSlider *tSlide;
 
 @property (nonatomic, retain) IBOutlet UIButton *saveButton;
 

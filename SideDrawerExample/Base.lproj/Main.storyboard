@@ -233,98 +233,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M4g-sZ-5Dt">
-                                <rect key="frame" x="0.0" y="343" width="320" height="230"/>
-                                <animations/>
-                            </imageView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="RJp-Dg-3zr">
-                                <rect key="frame" x="12" y="114" width="290" height="31"/>
-                                <animations/>
-                                <connections>
-                                    <action selector="distanceSliderChanged:" destination="A1f-eM-lT7" eventType="valueChanged" id="9Mp-ZW-jEw"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaK-mD-hEM">
-                                <rect key="frame" x="16" y="141" width="8" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93R-17-gyg">
-                                <rect key="frame" x="273" y="141" width="21" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance (km)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgp-Wd-8VF">
-                                <rect key="frame" x="16" y="97" width="106" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjM-L4-hbk">
-                                <rect key="frame" x="14" y="201" width="38" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQu-sC-7b9">
-                                <rect key="frame" x="14" y="243" width="10" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6V-dz-WRO">
-                                <rect key="frame" x="273" y="243" width="21" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftQ-La-FpP">
-                                <rect key="frame" x="225" y="97" width="75" height="21"/>
+                                <rect key="frame" x="26" y="92" width="91" height="36"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="34"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPA-wl-VoF">
-                                <rect key="frame" x="225" y="201" width="75" height="21"/>
+                                <rect key="frame" x="203" y="92" width="75" height="36"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="34"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NT-pT-Msh">
-                                <rect key="frame" x="134" y="297" width="46" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time (hrs)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6p-jL-TWO">
+                                <rect key="frame" x="204" y="138" width="74" height="21"/>
                                 <animations/>
-                                <state key="normal" title="save" backgroundImage="pk_compo_button_grey.png"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="distance (km)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0e-gr-Lzp">
+                                <rect key="frame" x="26" y="136" width="104" height="26"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NT-pT-Msh">
+                                <rect key="frame" x="130" y="290" width="60" height="60"/>
+                                <animations/>
+                                <state key="normal" backgroundImage="save_icon.png"/>
                                 <connections>
-                                    <action selector="distanceSettingUpdate:" destination="Ezp-oO-6Xu" eventType="touchUpInside" id="16V-fH-mHB"/>
+                                    <action selector="distanceSettingUpdate:" destination="Ezp-oO-6Xu" eventType="touchUpInside" id="e9h-fX-cpI"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="2" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="8zb-R1-86K">
-                                <rect key="frame" x="18" y="218" width="278" height="31"/>
-                                <animations/>
-                                <connections>
-                                    <action selector="timeSliderChanged:" destination="A1f-eM-lT7" eventType="valueChanged" id="tW6-jk-m5M"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="Bmj-2b-wn1"/>
                     <connections>
-                        <outlet property="dSlide" destination="RJp-Dg-3zr" id="oro-XL-Oro"/>
                         <outlet property="distanceLabel" destination="ftQ-La-FpP" id="ur2-Vc-NFb"/>
-                        <outlet property="saveButton" destination="4NT-pT-Msh" id="L1p-MN-GaY"/>
-                        <outlet property="tSlide" destination="8zb-R1-86K" id="w4f-5y-SJF"/>
+                        <outlet property="saveButton" destination="4NT-pT-Msh" id="2ME-qW-kQp"/>
                         <outlet property="timeLabel" destination="ZPA-wl-VoF" id="sCp-EO-Oae"/>
                     </connections>
                 </viewController>
@@ -732,6 +684,8 @@ Effective Date of this policy: July 1st, 2013 </string>
                                         <rect key="frame" x="23" y="8" width="40" height="40"/>
                                         <animations/>
                                         <state key="normal" image="fav.png"/>
+                                        <state key="selected" image="Liked.png"/>
+                                        <state key="highlighted" image="Liked.png"/>
                                         <connections>
                                             <action selector="sendFavorite:" destination="eA8-Os-q1r" eventType="touchUpInside" id="Goa-ye-yNy"/>
                                         </connections>
@@ -884,6 +838,7 @@ Effective Date of this policy: July 1st, 2013 </string>
         </scene>
     </scenes>
     <resources>
+        <image name="Liked.png" width="74" height="71"/>
         <image name="clock.png" width="73" height="75"/>
         <image name="di_menu_item_about.png" width="553" height="80"/>
         <image name="di_menu_item_drops.png" width="553" height="80"/>
@@ -896,10 +851,10 @@ Effective Date of this policy: July 1st, 2013 </string>
         <image name="name.png" width="640" height="160"/>
         <image name="pk_compo_2_button_blue.png" width="169" height="78"/>
         <image name="pk_compo_2_button_grey.png" width="169" height="78"/>
-        <image name="pk_compo_button_grey.png" width="254" height="87"/>
         <image name="pk_compo_message_white.png" width="584" height="79"/>
         <image name="pk_icon_refresh.png" width="40" height="42"/>
         <image name="pk_menu_item_settings.png" width="553" height="80"/>
+        <image name="save_icon.png" width="1024" height="1024"/>
         <image name="share.png" width="77" height="75"/>
         <image name="url.png" width="73" height="78"/>
         <image name="vertical_line.png" width="2" height="20"/>

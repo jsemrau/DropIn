@@ -1,4 +1,5 @@
 PODS:
+  - EFCircularSlider (0.2.0)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
     - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
@@ -13,9 +14,11 @@ PODS:
     - MMDrawerController/Core
 
 DEPENDENCIES:
+  - EFCircularSlider (> 0.1.0)
   - MMDrawerController (~> 0.5)
 
 SPEC CHECKSUMS:
+  EFCircularSlider: 3af1dd6f86eb3eeeeaab0345ef3d6d1c2fc93d17
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

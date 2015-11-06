@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>EFCircularSlider.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MMDrawerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9149A101CA539CF5C17C7485D971079E</key>
+		<key>550F7EEAEEA17E3F92C873912E23B01C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A611866BB2F55447EB663A6E738153A2</key>
+		<key>6873DD0F4F3CE98E3573C7782336FA10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8C371B39E2F0C76A58432982E52077D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -643,15 +643,24 @@
     self.currentLocation = location;
     
     if(weatherNeedsUpdates){
-    NSDictionary *tempTmp= [self getWeatherForLocation:self.currentLocation];
-        if (tempTmp) {
-            self.weatherString.text = [NSString stringWithFormat:@"%@%@%@%@",
-                                  @"It is " , [tempTmp valueForKey:@"temp_c" ] , @"°C and ", [tempTmp valueForKey:@"weather" ]];
-            self.weatherNeedsUpdates=FALSE;
-        }
+
+        __block NSDictionary *tempTmp = nil;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                       
+                tempTmp=[self getWeatherForLocation:self.currentLocation] ;
+            
+            if(tempTmp) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.weatherString.text = [NSString stringWithFormat:@"%@%@%@%@",
+                                               @"It is " , [tempTmp valueForKey:@"temp_c" ] , @"°C and ", [tempTmp valueForKey:@"weather" ]];
+                    self.weatherNeedsUpdates=FALSE;
+                });
+            }
+        });
+        
+       
     }
-    
-    
     
     if(self.needsUpdates){
     
@@ -682,39 +691,23 @@
 - (void) startingLoadingAnimation {
     
     NSArray * imageArray  = [[NSArray alloc] initWithObjects:
-                             [UIImage imageNamed:@"PR_2_00000.png"],
-                             [UIImage imageNamed:@"PR_2_00001.png"],
-                             [UIImage imageNamed:@"PR_2_00002.png"],
-                             [UIImage imageNamed:@"PR_2_00003.png"],
-                             [UIImage imageNamed:@"PR_2_00004.png"],
-                             [UIImage imageNamed:@"PR_2_00005.png"],
-                             [UIImage imageNamed:@"PR_2_00006.png"],
-                             [UIImage imageNamed:@"PR_2_00007.png"],
-                             [UIImage imageNamed:@"PR_2_00008.png"],
-                             [UIImage imageNamed:@"PR_2_00009.png"],
-                             [UIImage imageNamed:@"PR_2_00010.png"],
-                             [UIImage imageNamed:@"PR_2_00011.png"],
-                             [UIImage imageNamed:@"PR_2_00012.png"],
-                             [UIImage imageNamed:@"PR_2_00013.png"],
-                             [UIImage imageNamed:@"PR_2_00014.png"],
-                             [UIImage imageNamed:@"PR_2_00015.png"],
-                             [UIImage imageNamed:@"PR_2_00016.png"],
-                             [UIImage imageNamed:@"PR_2_00017.png"],
-                             [UIImage imageNamed:@"PR_2_00018.png"],
-                             [UIImage imageNamed:@"PR_2_00019.png"],
-                             [UIImage imageNamed:@"PR_2_00020.png"],
-                             [UIImage imageNamed:@"PR_2_00021.png"],
-                             [UIImage imageNamed:@"PR_2_00022.png"],
-                             [UIImage imageNamed:@"PR_2_00023.png"],
-                             [UIImage imageNamed:@"PR_2_00024.png"],
-                             [UIImage imageNamed:@"PR_2_00025.png"],
-                             [UIImage imageNamed:@"PR_2_00026.png"],
-                             [UIImage imageNamed:@"PR_2_00027.png"],
-                             [UIImage imageNamed:@"PR_2_00028.png"],
-                             [UIImage imageNamed:@"PR_2_00029.png"],
-                             [UIImage imageNamed:@"PR_2_00030.png"],
-                             [UIImage imageNamed:@"PR_2_00031.png"],
-                             [UIImage imageNamed:@"PR_2_00032.png"],
+                             [UIImage imageNamed:@"Preloader_2_00000.png"],
+                             [UIImage imageNamed:@"Preloader_2_00001.png"],
+                             [UIImage imageNamed:@"Preloader_2_00002.png"],
+                             [UIImage imageNamed:@"Preloader_2_00003.png"],
+                             [UIImage imageNamed:@"Preloader_2_00004.png"],
+                             [UIImage imageNamed:@"Preloader_2_00005.png"],
+                             [UIImage imageNamed:@"Preloader_2_00006.png"],
+                             [UIImage imageNamed:@"Preloader_2_00007.png"],
+                             [UIImage imageNamed:@"Preloader_2_00008.png"],
+                             [UIImage imageNamed:@"Preloader_2_00009.png"],
+                             [UIImage imageNamed:@"Preloader_2_00010.png"],
+                             [UIImage imageNamed:@"Preloader_2_00011.png"],
+                             [UIImage imageNamed:@"Preloader_2_00012.png"],
+                             [UIImage imageNamed:@"Preloader_2_00013.png"],
+                             [UIImage imageNamed:@"Preloader_2_00014.png"],
+                             [UIImage imageNamed:@"Preloader_2_00015.png"],
+                             
                              
                              nil];
     CGRect rect=CGRectMake(self.loading.frame.origin.x, self.loading.frame.origin.y, 100 , 100);

@@ -11,6 +11,8 @@ target "dropin" do
 	#inhibit_all_warnings!
 	#pod 'Socialize', :podspec => 'https://raw.github.com/socialize/socialize-sdk-ios/master/Socialize.podspec'
 
+	pod "EFCircularSlider", "> 0.1.0"
+
 end
 
 #target "SideDrawerExampleTests" do
