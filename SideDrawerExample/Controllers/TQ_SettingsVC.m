@@ -46,8 +46,10 @@
     dSlide.minimumValue = 1;
     dSlide.maximumValue = 30;
     dSlide.labelColor = [UIColor colorWithRed:137/255.0f green:137/255.0f blue:137/255.0f alpha:1.0f];
-   // dSlide.handleType = CircularSliderHandleTypeBigCircle;
-    dSlide.handleColor = dSlide.filledColor;
+    dSlide.handleType = EFSemiTransparentWhiteCircle;
+    dSlide.handleType=1;
+    dSlide.handleColor =[UIColor whiteColor];
+    //dSlide.filledColor;
     [self.view addSubview:dSlide];
     [dSlide addTarget:self action:@selector(distanceSliderChanged:) forControlEvents:UIControlEventValueChanged];
     
@@ -64,8 +66,9 @@
     tSlide.minimumValue = 1;
     tSlide.maximumValue = 24;
     tSlide.labelColor = [UIColor colorWithRed:137/255.0f green:137/255.0f blue:137/255.0f alpha:1.0f];
-    //tSlide.handleType = CircularSliderHandleTypeBigCircle;
-    tSlide.handleColor = tSlide.filledColor;
+    tSlide.handleType = EFSemiTransparentWhiteCircle;
+    tSlide.handleColor = [UIColor whiteColor];
+    //tSlide.filledColor;
     [self.view addSubview:tSlide];
     [tSlide addTarget:self action:@selector(timeSliderChanged:) forControlEvents:UIControlEventValueChanged];
     

@@ -264,7 +264,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NT-pT-Msh">
                                 <rect key="frame" x="130" y="290" width="60" height="60"/>
                                 <animations/>
-                                <state key="normal" backgroundImage="save_icon.png"/>
+                                <state key="normal" backgroundImage="save.png"/>
                                 <connections>
                                     <action selector="distanceSettingUpdate:" destination="Ezp-oO-6Xu" eventType="touchUpInside" id="e9h-fX-cpI"/>
                                 </connections>
@@ -854,7 +854,7 @@ Effective Date of this policy: July 1st, 2013 </string>
         <image name="pk_compo_message_white.png" width="584" height="79"/>
         <image name="pk_icon_refresh.png" width="40" height="42"/>
         <image name="pk_menu_item_settings.png" width="553" height="80"/>
-        <image name="save_icon.png" width="1024" height="1024"/>
+        <image name="save.png" width="78" height="78"/>
         <image name="share.png" width="77" height="75"/>
         <image name="url.png" width="73" height="78"/>
         <image name="vertical_line.png" width="2" height="20"/>

@@ -180,6 +180,7 @@
 		06B397641BDBC4A40012DCB2 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B397631BDBC4A40012DCB2 /* iAd.framework */; };
 		06B397661BDBC4AB0012DCB2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B397651BDBC4AB0012DCB2 /* MapKit.framework */; };
 		06B5E0371BECE4FF009A88CF /* round_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B5E0361BECE4FF009A88CF /* round_button.png */; };
+		06B5E0391BED695B009A88CF /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B5E0381BED695B009A88CF /* save.png */; };
 		06CDD4421BE6400200472DE0 /* fav.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CDD43F1BE6400200472DE0 /* fav.png */; };
 		06CDD4431BE6400200472DE0 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CDD4401BE6400200472DE0 /* map.png */; };
 		06CDD4441BE6400200472DE0 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CDD4411BE6400200472DE0 /* share.png */; };
@@ -403,6 +404,7 @@
 		06B397631BDBC4A40012DCB2 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		06B397651BDBC4AB0012DCB2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		06B5E0361BECE4FF009A88CF /* round_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round_button.png; sourceTree = "<group>"; };
+		06B5E0381BED695B009A88CF /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		06CDD43F1BE6400200472DE0 /* fav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fav.png; sourceTree = "<group>"; };
 		06CDD4401BE6400200472DE0 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		06CDD4411BE6400200472DE0 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
@@ -582,6 +584,7 @@
 		06A556EB1BC17E81004152C8 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				06B5E0381BED695B009A88CF /* save.png */,
 				06B5E0361BECE4FF009A88CF /* round_button.png */,
 				062AED1E1BE95DBC004FE681 /* clock.png */,
 				062AED1F1BE95DBC004FE681 /* home.png */,
@@ -977,6 +980,7 @@
 				06A5577E1BC17E81004152C8 /* earthLoader_0000_frame-14.png in Resources */,
 				06A556C31BC17E74004152C8 /* Icon-72.png in Resources */,
 				06A557A71BC17E81004152C8 /* PR_2_00027.png in Resources */,
+				06B5E0391BED695B009A88CF /* save.png in Resources */,
 				06A5577A1BC17E81004152C8 /* earthLoader_0000_frame-11.png in Resources */,
 				06A557581BC17E81004152C8 /* pk_compo_button_grey.png in Resources */,
 				064E28931BCBE0B0008F36B6 /* di_menu_item_drops.png in Resources */,
