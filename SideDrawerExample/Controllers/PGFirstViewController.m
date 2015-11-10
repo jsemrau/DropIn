@@ -21,6 +21,11 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     
+  /*
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"likedItems"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+   */
+    
     [self setupLeftMenuButton];
     
     self.messager.alpha=0.0;

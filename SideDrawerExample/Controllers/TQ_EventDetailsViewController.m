@@ -23,10 +23,10 @@
     
     if (!self.likedIDs) {
         //if it does not exists then create array
-        self.likedIDs=[[NSMutableArray alloc]init];
+        self.likedIDs=[[NSMutableDictionary alloc]init];
     } else {
         
-        if ([self.likedIDs containsObject:self.idStr]) {
+        if ([self.likedIDs objectForKey:self.idStr]) {
             [self.favButton setSelected:YES];
         }
     }
@@ -130,18 +130,12 @@
     if(tempButton.isSelected){
         [tempButton setSelected:NO];
         
-        if ([self.likedIDs containsObject: self.idStr]) // YES
+        if ([self.likedIDs objectForKey: self.idStr]) // YES
         {
             // Do something
+           
+            [self.likedIDs removeObjectForKey:self.idStr];
             
-           NSString *s=self.idStr;
-            
-            for (int i=self.likedIDs.count-1; i>-1; i--) {
-                NSString *item = [self.likedIDs objectAtIndex:i];
-                if ([item rangeOfString:s].location == NSNotFound) {
-                    [self.likedIDs removeObject:item];
-                }
-            }
         }
         
     } else {
@@ -150,14 +144,16 @@
         if(self.idStr && self.likedIDs) //or if(str != nil) or if(str.length>0)
         {
         
-            [self.likedIDs addObject:self.idStr];
+            [self.likedIDs setObject:[NSDate date] forKey:self.idStr];
             
         }
         NSLog(@"%@", self.idStr);
         
-        [[NSUserDefaults standardUserDefaults] setObject:self.likedIDs forKey:@"likedItems"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        
     }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.likedIDs forKey:@"likedItems"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (IBAction)openURL:(id)sender{
@@ -252,7 +248,7 @@
         qItem = (MapOverlay*)[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"qView"];
         qItem.canShowCallout = YES;
         
-        UIImage *pinImage = [UIImage imageNamed:@" fvc "];
+        UIImage *pinImage = [UIImage imageNamed:@"pk_tbl_icon_marker_blue.png"];
         [qItem setImage:pinImage];
         
         //rightButton.imageView.image=pinImage;

@@ -60,7 +60,7 @@
     
     IBOutlet MKMapView *myMapView;
     
-    NSMutableArray *likedIDs;
+    NSMutableDictionary *likedIDs;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *distance;
@@ -99,7 +99,7 @@
 @property(nonatomic, retain) IBOutlet UIView * shareView ;
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
 
-@property (nonatomic, retain) NSMutableArray *likedIDs;
+@property (nonatomic, retain) NSMutableDictionary *likedIDs;
 
 //@property (nonatomic, retain) SZActionBar *actionBar;
 //@property (nonatomic, retain) id<SZEntity> entity;
