@@ -25,6 +25,8 @@
    IBOutlet UILabel *max_count;
    float latitude;
    float longitude;
+    
+   NSString *idStr;
    NSString *vNameStr;
    NSString *eURL;
    UILabel *scannedURL;
@@ -34,9 +36,6 @@
    IBOutlet UILabel *price;
    IBOutlet UILabel *start_time;
    IBOutlet UILabel *stop_time;
-    
-   
-    
     
    IBOutlet UILabel *eTitle;
    IBOutlet UITextView *eDescription;
@@ -61,6 +60,7 @@
     
     IBOutlet MKMapView *myMapView;
     
+    NSMutableArray *likedIDs;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *distance;
@@ -70,6 +70,7 @@
 @property (nonatomic) float latitude;
 @property (nonatomic) float longitude;
 @property (nonatomic) NSString *vNameStr;
+@property (nonatomic) NSString *idStr;
 @property (retain, nonatomic) IBOutlet UILabel *price;
 @property (retain, nonatomic) IBOutlet UILabel *start_time;
 @property (retain, nonatomic) IBOutlet UILabel *stop_time;
@@ -98,6 +99,7 @@
 @property(nonatomic, retain) IBOutlet UIView * shareView ;
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
 
+@property (nonatomic, retain) NSMutableArray *likedIDs;
 
 //@property (nonatomic, retain) SZActionBar *actionBar;
 //@property (nonatomic, retain) id<SZEntity> entity;

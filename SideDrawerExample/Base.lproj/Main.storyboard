@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -409,18 +410,22 @@ Effective Date of this policy: July 1st, 2013 </string>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LHU-IS-9Zk">
                                 <rect key="frame" x="40" y="220" width="240" height="128"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sq-s5-0ss">
-                                        <rect key="frame" x="8" y="46" width="224" height="69"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="drop-in-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ktm-61-KnJ">
+                                        <rect key="frame" x="-3" y="0.0" width="118" height="48"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sq-s5-0ss">
+                                        <rect key="frame" x="8" y="40" width="224" height="75"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                        <color key="textColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="drop.in notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xta-Or-ivS">
-                                        <rect key="frame" x="49" y="17" width="143" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xta-Or-ivS">
+                                        <rect key="frame" x="107" y="3" width="135" height="42"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="26"/>
+                                        <color key="textColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -437,18 +442,26 @@ Effective Date of this policy: July 1st, 2013 </string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Upcoming" id="8As-MA-s1T">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="nBO-nb-SnO">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sK9-BN-28R">
-                                <rect key="frame" x="279" y="9" width="25" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <state key="normal" title=" " backgroundImage="pk_icon_refresh.png"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="lfJ-HL-egs">
+                                <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="refreshButtonPress:" destination="qFL-Rp-FAW" eventType="touchUpInside" id="6m2-ru-1oT"/>
-                                    <action selector="refreshButtonPress:" destination="xgk-we-V9c" eventType="touchUpInside" id="B7d-WK-heo"/>
+                                    <action selector="refreshButtonPress:" destination="qFL-Rp-FAW" id="96n-8o-GWO"/>
                                 </connections>
-                            </button>
-                        </barButtonItem>
+                            </barButtonItem>
+                            <barButtonItem image="sortByTime32x32.png" style="plain" id="FLO-o9-syB">
+                                <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sortByDate:" destination="qFL-Rp-FAW" id="Fbn-gi-oXa"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="sortByDistance32x32png.png" id="SzM-iD-eQB">
+                                <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sortByDistance:" destination="qFL-Rp-FAW" id="jm0-Rj-ZGz"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="eventTable" destination="B4r-Wn-UXQ" id="hjd-GW-lr0"/>
@@ -590,19 +603,26 @@ Effective Date of this policy: July 1st, 2013 </string>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-uc-8B9">
-                                <rect key="frame" x="20" y="222.5" width="280" height="211.5"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JGg-zf-Jvg">
+                                <rect key="frame" x="20" y="225" width="280" height="211.5"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-uc-8B9">
+                                        <rect key="frame" x="0.0" y="0.5" width="280" height="211.5"/>
+                                        <animations/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                                    </textView>
+                                </subviews>
                                 <animations/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                            </textView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R9j-ZH-QEa">
-                                <rect key="frame" x="28" y="256" width="263" height="81"/>
+                                <rect key="frame" x="28" y="256" width="263" height="135"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdn-LR-DAm">
-                                        <rect key="frame" x="207" y="34" width="42" height="21"/>
+                                        <rect key="frame" x="11" y="71" width="237" height="64"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -727,6 +747,7 @@ Effective Date of this policy: July 1st, 2013 </string>
                         <outlet property="openLocation" destination="peE-SB-DO6" id="uB6-m3-hil"/>
                         <outlet property="openURL" destination="3fb-LJ-k2K" id="SyC-Bs-BYW"/>
                         <outlet property="price" destination="LSF-QI-POZ" id="pOz-at-M2q"/>
+                        <outlet property="scannedURL" destination="kdn-LR-DAm" id="2BR-G3-SAU"/>
                         <outlet property="start_time" destination="rDi-0x-rBe" id="zTq-Zq-Ns5"/>
                         <outlet property="timeDiff" destination="gZt-6T-7x6" id="qnd-3c-5ly"/>
                         <outlet property="vName" destination="CGI-lj-CBf" id="7CX-v6-jS1"/>
@@ -852,10 +873,11 @@ Effective Date of this policy: July 1st, 2013 </string>
         <image name="pk_compo_2_button_blue.png" width="169" height="78"/>
         <image name="pk_compo_2_button_grey.png" width="169" height="78"/>
         <image name="pk_compo_message_white.png" width="584" height="79"/>
-        <image name="pk_icon_refresh.png" width="40" height="42"/>
         <image name="pk_menu_item_settings.png" width="553" height="80"/>
         <image name="save.png" width="78" height="78"/>
         <image name="share.png" width="77" height="75"/>
+        <image name="sortByDistance32x32png.png" width="32" height="32"/>
+        <image name="sortByTime32x32.png" width="32" height="36"/>
         <image name="url.png" width="73" height="78"/>
         <image name="vertical_line.png" width="2" height="20"/>
     </resources>

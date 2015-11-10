@@ -32,7 +32,8 @@
     IBOutlet UILabel *messagerLabel;
     UIImageView * loading ;
     
-    
+    NSMutableDictionary *notiDictionary;
+     NSMutableArray *likedIDs;
     
 }
 
@@ -53,9 +54,13 @@
 @property(nonatomic )bool needsUpdates;
 @property(nonatomic )bool weatherNeedsUpdates;
 
-
+@property(nonatomic, retain) NSMutableDictionary *notiDictionary;
+@property (nonatomic, retain) NSMutableArray *likedIDs;
 
 - (void) playSound:(NSString*) path;
 - (IBAction)refreshButtonPress:(id)sender;
+-(IBAction) sortByDate :(id)sender ;
+-(IBAction) sortByDistance :(id)sender;
+
 
 @end

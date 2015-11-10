@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EFCircularSlider.h"
 
-@interface TQ_SettingsVC : UIViewController
+@interface TQ_SettingsVC : UIViewController <UIAlertViewDelegate>
 
 @property (nonatomic, retain) IBOutlet EFCircularSlider *dSlide;
 @property (nonatomic, retain) IBOutlet EFCircularSlider *tSlide;

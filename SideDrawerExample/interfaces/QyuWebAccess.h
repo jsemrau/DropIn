@@ -10,7 +10,13 @@
 #import <CoreLocation/CoreLocation.h>
 #import <UIKit/UIKit.h>
 
-@protocol QyuWebDelegate ;
+@protocol QyuWebDelegate <NSObject>
+
+@required
+
+- (void)notificationsReceived:(NSDictionary *)resultData;
+- (void)locationsReceived:(NSDictionary *)resultData;
+@end
 
 @interface QyuWebAccess : NSObject
 {

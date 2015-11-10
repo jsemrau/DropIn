@@ -14,10 +14,22 @@
 
 @implementation TQ_EventDetailsViewController
 
-@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,
-    inXminutes;
+@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,idStr,inXminutes,likedIDs;
 
 - (void)viewWillAppear:(BOOL)animated{
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    self.likedIDs= [[prefs objectForKey:@"likedItems"] mutableCopy];
+    
+    if (!self.likedIDs) {
+        //if it does not exists then create array
+        self.likedIDs=[[NSMutableArray alloc]init];
+    } else {
+        
+        if ([self.likedIDs containsObject:self.idStr]) {
+            [self.favButton setSelected:YES];
+        }
+    }
     
     NSLog(@"********** %@ **************",self.eURL);
     
@@ -32,8 +44,22 @@
     for (NSTextCheckingResult *match in matches) {
         if ([match resultType] == NSTextCheckingTypeLink) {
             NSURL *url = [match URL];
+            NSString* domain = [url host];
             self.scannedURL.text=[url absoluteString];
             //NSLog(@"found URL: %@", url);
+            
+            //This is for the aggregators
+            if ([self.eSource.text isEqualToString:@"eventful"] || [self.eSource.text isEqualToString:@"eventfinda"] ) {
+                
+                //so the user can directly get the ticket
+                if ([domain isEqualToString:@"peatix.com"] ||[domain isEqualToString:@"eventbrite.com"]) {
+                    self.eURL=[url absoluteString];
+                }
+                
+                NSLog(@"found URL: %@", url);
+                
+                
+            }
             
         }
     }
@@ -48,7 +74,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    CAGradientLayer *gradient = [CAGradientLayer layer];
     
+    gradient.frame = self.eDescription.superview.bounds;
+    gradient.colors = @[(id)[UIColor clearColor].CGColor, (id)[UIColor blackColor].CGColor, (id)[UIColor blackColor].CGColor, (id)[UIColor clearColor].CGColor];
+    gradient.locations = @[@0.0, @0.03, @0.97, @1.0];
+    
+    self.eDescription.superview.layer.mask = gradient;
     
 }
 
@@ -97,8 +129,34 @@
     UIButton *tempButton = (UIButton *)sender;
     if(tempButton.isSelected){
         [tempButton setSelected:NO];
+        
+        if ([self.likedIDs containsObject: self.idStr]) // YES
+        {
+            // Do something
+            
+           NSString *s=self.idStr;
+            
+            for (int i=self.likedIDs.count-1; i>-1; i--) {
+                NSString *item = [self.likedIDs objectAtIndex:i];
+                if ([item rangeOfString:s].location == NSNotFound) {
+                    [self.likedIDs removeObject:item];
+                }
+            }
+        }
+        
     } else {
         [tempButton setSelected:YES];
+    
+        if(self.idStr && self.likedIDs) //or if(str != nil) or if(str.length>0)
+        {
+        
+            [self.likedIDs addObject:self.idStr];
+            
+        }
+        NSLog(@"%@", self.idStr);
+        
+        [[NSUserDefaults standardUserDefaults] setObject:self.likedIDs forKey:@"likedItems"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
@@ -150,31 +208,6 @@
         region.span.latitudeDelta = 0.005f;
         
         [self.myMapView setRegion:region animated:NO];
-      /*
-        
-        CLLocationCoordinate2D co1 = CLLocationCoordinate2DMake(self.latitude, self.longitude);
-        CLLocationCoordinate2D co2 = CLLocationCoordinate2DMake(myMapView.userLocation.coordinate.latitude, myMapView.userLocation.coordinate.longitude);
-        
-        MKMapPoint p1 = MKMapPointForCoordinate(co1);
-        MKMapPoint p2 = MKMapPointForCoordinate(co2);
-        
-        MKMapRect mapRect = MKMapRectMake(fmin(p1.x,p2.x), fmin(p1.y,p2.y), fabs(p1.x-p2.x), fabs(p1.y-p2.y));
-        
-        [myMapView setVisibleMapRect:mapRect animated:YES];
-      */
-        //Now set the region to fit both points
-        /*
-        MKMapPoint userPoint = MKMapPointForCoordinate(myMapView.userLocation.coordinate);
-        MKMapRect zoomRect = MKMapRectMake(userPoint.x, userPoint.y, 0.1, 0.1);
-        
-        for (id <MKAnnotation> annotation in myMapView.annotations)
-        {
-            MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
-            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
-            zoomRect = MKMapRectUnion(zoomRect, pointRect);
-        }
-        [myMapView setVisibleMapRect:zoomRect animated:YES];*/
-        
         
         
     }
@@ -219,12 +252,7 @@
         qItem = (MapOverlay*)[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"qView"];
         qItem.canShowCallout = YES;
         
-        //  UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        //  qItem.rightCalloutAccessoryView = rightButton;
-        
-        //  NSLog(@"%@",qItem.questLoc.description);
-        
-        UIImage *pinImage = [UIImage imageNamed:@"pk_tbl_icon_marker_blue.png"];
+        UIImage *pinImage = [UIImage imageNamed:@" fvc "];
         [qItem setImage:pinImage];
         
         //rightButton.imageView.image=pinImage;

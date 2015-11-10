@@ -194,6 +194,14 @@
     
     [message show];
     
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+   
+    /*UIViewController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FIRST_TOP_VIEW_CONTROLLER"];
+    [self.mm_drawerController setCenterViewController:myController withCloseAnimation:YES completion:nil];
+    */
 }
 
 /*

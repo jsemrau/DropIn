@@ -17,16 +17,7 @@
 
 @implementation PGFirstViewController
 
-@synthesize eventTable;
-@synthesize eventTableCellItem;
-@synthesize eventList;
-@synthesize refreshButton;
-@synthesize currentLocation;
-@synthesize loading,loader,messager, messagerLabel;
-@synthesize loadedWithLocation;
-@synthesize needsUpdates;
-@synthesize weatherString;
-@synthesize weatherNeedsUpdates;
+@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs;
 
 -(void) viewWillAppear:(BOOL)animated{
     
@@ -61,7 +52,22 @@
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSArray *eventDetails= [prefs objectForKey:@"currentEvents"];
+    
   
+    NSMutableDictionary *userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
+    
+    NSLog(@"User registered with ID %i" , [[userDetails objectForKey:@"id"] intValue]);
+    NSLog(@"User registered with email %@" , [userDetails objectForKey:@"email"]);
+    
+    /*
+    
+    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"submitScan"];
+    [webby setDelegate:self];
+    [webby submitQRScan:@"https://choose.tenqyu.com?q=103a047313a84e37c195017a0eff503601eef833f52b5ea8a49411b85ff6e30c" email:[userDetails objectForKey:@"email"]  pwd:[userDetails objectForKey:@"pwd"] mongoId:[userDetails objectForKey:@"id"] withLat:self.currentLocation.coordinate.latitude andLong:self.currentLocation.coordinate.longitude];
+    */
+    
+    
+    
     if ([eventDetails count]>0){
         self.eventList=eventDetails;
     } else {
@@ -72,20 +78,21 @@
         self.loader.alpha=1.0;
         [self startingLoadingAnimation];
         
-        bool isSimulator=true;
-        
-        if(isSimulator){
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-            QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
-            [webby setDelegate:self];
-            [webby submitLocationScan:(double)1.292771 andLong:(double)103.859343];
-            // [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude];
-            gettingUpdates=YES;
-        } 
+       
     }
     
     
+    bool isSimulator=false;
+    self.needsUpdates=false;
     
+    if(isSimulator && self.needsUpdates){
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
+        [webby setDelegate:self];
+        [webby submitLocationScan:(double)1.292771 andLong:(double)103.859343];
+        // [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude];
+        gettingUpdates=YES;
+    }
 }
 
 - (void) viewDidLoad:(BOOL) animated {
@@ -115,6 +122,7 @@
 
 - (void)refreshButtonPress:(id)refreshButtonPress {
     
+    self.messager.alpha=0.0;
     self.eventTable.alpha=0.0;
     self.loader.alpha=1.0;
     [self startingLoadingAnimation];
@@ -369,6 +377,9 @@
     eventDetails.eURL=[[text valueForKey:@"url"] lowercaseString];
     eventDetails.vStart_time=[text objectForKey:@"start_time"];
     eventDetails.vStop_time=[text objectForKey:@"stop_time"];
+    eventDetails.idStr=[text objectForKey:@"id"];
+    
+    NSLog(@" Check this %@",[text objectForKey:@"id"]);
     /* Before loading the items*/
 
     [eventDetails setModalPresentationStyle:UIModalPresentationFullScreen];
@@ -570,12 +581,26 @@
     }
 }
 
+- (void)notificationsReceived:(NSDictionary *)resultData{
+    
+    //You ned to set "count" new updates.
+    
+    self.notiDictionary=[resultData mutableCopy];
+    
+    //for (NSDictionary* notification in resultData) {
+    //}
+    
+}
+
+
 - (void)locationsReceived:(NSDictionary *)resultData
 {
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     self.loader.alpha=0.0;
+    self.messager.alpha=0.0;
+    
     [self stoppingLoadingAnimation];
     
     if ([resultData count] ==0){
@@ -674,6 +699,9 @@
     
 }
 
+
+
+
 #pragma mark sound
 -(void) playSound:(NSString*) path{
     
@@ -687,26 +715,81 @@
     
 }
 
+-(IBAction) sortByDate :(id)sender {
+    
+    
+    NSSortDescriptor *dateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"start_time" ascending:YES];
+    self.eventList  = [self.eventList  sortedArrayUsingDescriptors:@[dateSortDescriptor]];
+    
+    [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    
+    
+}
+
+-(IBAction) sortByDistance :(id)sender {
+    
+    
+    NSSortDescriptor *dateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
+    self.eventList  = [self.eventList  sortedArrayUsingDescriptors:@[dateSortDescriptor]];
+    
+    [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    
+    
+}
 
 - (void) startingLoadingAnimation {
-    
+   
     NSArray * imageArray  = [[NSArray alloc] initWithObjects:
-                             [UIImage imageNamed:@"Preloader_2_00000.png"],
-                             [UIImage imageNamed:@"Preloader_2_00001.png"],
-                             [UIImage imageNamed:@"Preloader_2_00002.png"],
-                             [UIImage imageNamed:@"Preloader_2_00003.png"],
-                             [UIImage imageNamed:@"Preloader_2_00004.png"],
-                             [UIImage imageNamed:@"Preloader_2_00005.png"],
-                             [UIImage imageNamed:@"Preloader_2_00006.png"],
-                             [UIImage imageNamed:@"Preloader_2_00007.png"],
-                             [UIImage imageNamed:@"Preloader_2_00008.png"],
-                             [UIImage imageNamed:@"Preloader_2_00009.png"],
-                             [UIImage imageNamed:@"Preloader_2_00010.png"],
-                             [UIImage imageNamed:@"Preloader_2_00011.png"],
-                             [UIImage imageNamed:@"Preloader_2_00012.png"],
-                             [UIImage imageNamed:@"Preloader_2_00013.png"],
-                             [UIImage imageNamed:@"Preloader_2_00014.png"],
-                             [UIImage imageNamed:@"Preloader_2_00015.png"],
+                             [UIImage imageNamed:@"Randi_00000.png"],
+                             [UIImage imageNamed:@"Randi_00001.png"],
+                             [UIImage imageNamed:@"Randi_00002.png"],
+                             [UIImage imageNamed:@"Randi_00003.png"],
+                             [UIImage imageNamed:@"Randi_00004.png"],
+                             [UIImage imageNamed:@"Randi_00005.png"],
+                             [UIImage imageNamed:@"Randi_00006.png"],
+                             [UIImage imageNamed:@"Randi_00007.png"],
+                             [UIImage imageNamed:@"Randi_00008.png"],
+                             [UIImage imageNamed:@"Randi_00009.png"],
+                             [UIImage imageNamed:@"Randi_00010.png"],
+                             [UIImage imageNamed:@"Randi_00011.png"],
+                             [UIImage imageNamed:@"Randi_00012.png"],
+                             [UIImage imageNamed:@"Randi_00013.png"],
+                             [UIImage imageNamed:@"Randi_00014.png"],
+                             [UIImage imageNamed:@"Randi_00015.png"],
+                             [UIImage imageNamed:@"Randi_00016.png"],
+                             [UIImage imageNamed:@"Randi_00017.png"],
+                             [UIImage imageNamed:@"Randi_00018.png"],
+                             [UIImage imageNamed:@"Randi_00019.png"],
+                             [UIImage imageNamed:@"Randi_00020.png"],
+                             [UIImage imageNamed:@"Randi_00021.png"],
+                             [UIImage imageNamed:@"Randi_00022.png"],
+                             [UIImage imageNamed:@"Randi_00023.png"],
+                             [UIImage imageNamed:@"Randi_00024.png"],
+                             [UIImage imageNamed:@"Randi_00025.png"],
+                             [UIImage imageNamed:@"Randi_00026.png"],
+                             [UIImage imageNamed:@"Randi_00027.png"],
+                             [UIImage imageNamed:@"Randi_00028.png"],
+                             [UIImage imageNamed:@"Randi_00029.png"],
+                             [UIImage imageNamed:@"Randi_00030.png"],
+                             [UIImage imageNamed:@"Randi_00031.png"],
+                             [UIImage imageNamed:@"Randi_00032.png"],
+                             [UIImage imageNamed:@"Randi_00033.png"],
+                             [UIImage imageNamed:@"Randi_00034.png"],
+                             [UIImage imageNamed:@"Randi_00035.png"],
+                             [UIImage imageNamed:@"Randi_00036.png"],
+                             [UIImage imageNamed:@"Randi_00037.png"],
+                             [UIImage imageNamed:@"Randi_00038.png"],
+                             [UIImage imageNamed:@"Randi_00039.png"],
+                             [UIImage imageNamed:@"Randi_00040.png"],
+                             [UIImage imageNamed:@"Randi_00041.png"],
+                             [UIImage imageNamed:@"Randi_00042.png"],
+                             [UIImage imageNamed:@"Randi_00043.png"],
+                             [UIImage imageNamed:@"Randi_00044.png"],
+                             [UIImage imageNamed:@"Randi_00045.png"],
+                             [UIImage imageNamed:@"Randi_00046.png"],
+                             [UIImage imageNamed:@"Randi_00047.png"],
+                             [UIImage imageNamed:@"Randi_00048.png"],
+                             [UIImage imageNamed:@"Randi_00049.png"],
                              
                              
                              nil];

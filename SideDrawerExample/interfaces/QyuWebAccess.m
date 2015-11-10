@@ -150,7 +150,7 @@
     NSString *latStr = [@"&lat=" stringByAppendingString:[NSString stringWithFormat:@"%f", lat]];
     NSString *longStr = [@"&long=" stringByAppendingString:[NSString stringWithFormat:@"%f", lon]];
     
-    NSString *gameId = @"&gameId=4";
+    NSString *gameId = @"&gameId=5";
     
     
     NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@",  latStr, longStr,mailStr,pwdStr,mongoStr,langPref, qrcodeStr,gameId];
@@ -305,6 +305,7 @@ if (theConnection)
         
     } else {
         
+        //By default read the json data
         NSError *e = nil;
         self.jsondata  = [NSJSONSerialization JSONObjectWithData: self.receivedData  options: NSJSONReadingMutableContainers error: &e];
         
@@ -314,16 +315,31 @@ if (theConnection)
     
     }
     
-    if(delegate && [delegate respondsToSelector:@selector(locationsReceived:)]) {
-        NSLog(@"Delegating! %@",self.jsondata);
-        [delegate locationsReceived:self.jsondata];
-    } else {
-        NSLog(@"Not Delegating. I dont know why.");
+    if ([self.connectionType isEqual: @"submitScan"]) {
+        
+        
+        NSLog(@" submitScan String %@ ",self.jsondata);
+        
+        if(delegate && [delegate respondsToSelector:@selector(notificationsReceived:)]) {
+            //NSLog(@"Delegating!");
+            [delegate notificationsReceived:self.jsondata];
+            
+        }
+    
+        
+
+    } //closes if connectiontype
+    else {
+    
+        if(delegate && [delegate respondsToSelector:@selector(locationsReceived:)]) {
+            NSLog(@"Delegating! %@",self.jsondata);
+            [delegate locationsReceived:self.jsondata];
+        } else {
+            NSLog(@"Not Delegating. I dont know why.");
+        }
+            
     }
     
-
-
-   
 }
 
 
