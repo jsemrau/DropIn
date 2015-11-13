@@ -3,7 +3,7 @@
 
 target "dropin" do
 	source 'https://github.com/CocoaPods/Specs.git'
-	pod 'MMDrawerController', '~> 0.5'
+	pod 'MMDrawerController', '~> 0.6'
 
 	#source 'https://github.com/socialize/SocializeCocoaPods.git'
 	#source 'https://github.com/CocoaPods/Specs.git'

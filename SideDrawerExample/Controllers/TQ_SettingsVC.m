@@ -201,11 +201,11 @@
    
     UIViewController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FIRST_TOP_VIEW_CONTROLLER"];
     
-   
-    [[self navigationController] presentViewController:centerViewController animated:YES completion:nil];
     
-    /*[self.mm_drawerController setCenterViewController:myController withCloseAnimation:YES completion:nil];
-    */
+  //  [[self navigationController] presentViewController:centerViewController animated:YES completion:nil];
+    
+    [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
+    
 }
 
 /*

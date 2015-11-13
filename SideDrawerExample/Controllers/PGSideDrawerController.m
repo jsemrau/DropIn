@@ -25,11 +25,11 @@
 #pragma mark - Table View Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.currentIndex == indexPath.row) {
+  /*  if (self.currentIndex == indexPath.row) {
         [self.mm_drawerController closeDrawerAnimated:YES completion:nil];
         return;
     }
-
+*/
     UIViewController *centerViewController;
     switch (indexPath.row) {
         case 0:

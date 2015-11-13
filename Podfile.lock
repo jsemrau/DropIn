@@ -15,7 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - EFCircularSlider (> 0.1.0)
-  - MMDrawerController (~> 0.5)
+  - MMDrawerController (~> 0.6)
 
 SPEC CHECKSUMS:
   EFCircularSlider: 3af1dd6f86eb3eeeeaab0345ef3d6d1c2fc93d17
