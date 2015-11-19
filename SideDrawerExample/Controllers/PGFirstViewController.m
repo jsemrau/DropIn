@@ -455,7 +455,7 @@
         
         if ([[text valueForKey:@"going_count"] intValue]>0) {
             
-            eventDetails.going_count.text=[NSString stringWithFormat:@"%@%@", [[text valueForKey:@"going_count"] lowercaseString], @" going"];
+            eventDetails.going_count.text=[NSString stringWithFormat:@"%@", [text valueForKey:@"going_count"]];
         } else {
             eventDetails.going_count.text=@"unlimited";
         }
