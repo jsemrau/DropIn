@@ -65,13 +65,3 @@
 
 @end
 
-@protocol QyuWebDelegate <NSObject>
-
-@required
-
-- (void)locationsReceived:(NSDictionary *)resultData;
-
-
-//@optional
-//- (void)updateStatusReceived:(NSDictionary *)resultData;
-@end

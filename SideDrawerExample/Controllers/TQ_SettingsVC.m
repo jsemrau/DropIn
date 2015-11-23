@@ -34,8 +34,10 @@
     self.distanceLabel.text = [NSString stringWithFormat:@"%d",dVal];
     self.timeLabel.text = [NSString stringWithFormat:@"%d", tVal];
     
+    self.dSlide.value=dVal;
+    self.tSlide.value=tVal;
     
-    CGRect minuteSliderFrame = CGRectMake(5, 170, 310, 310);
+   /* CGRect minuteSliderFrame = CGRectMake(5, 170, 310, 310);
     dSlide = [[EFCircularSlider alloc] initWithFrame:minuteSliderFrame];
     dSlide.unfilledColor = [UIColor colorWithRed:215/255.0f green:215/255.0f blue:215/255.0f alpha:1.0f];
     dSlide.filledColor = [UIColor colorWithRed:44/255.0f green:174/255.0f blue:228/255.0f alpha:1.0f];
@@ -75,6 +77,8 @@
     self.dSlide.currentValue=dVal;
     self.tSlide.currentValue=tVal;
     
+    */
+    
     [self.view bringSubviewToFront:saveButton];
 }
 
@@ -94,16 +98,20 @@
 }
 
 
--(void)distanceSliderChanged:(EFCircularSlider*)slider {
+-(IBAction)distanceSliderChanged:(id)sender {
     
-    int newVal = (int)slider.currentValue < 30? (int)slider.currentValue : 1;
+    UISlider *slider = (UISlider *)sender;
+    
+    int newVal = (int)lroundf(slider.value) < 50? (int)lroundf(slider.value): 1;
     
     distanceLabel.text = [NSString stringWithFormat:@"%d", newVal];
 }
 
--(void)timeSliderChanged:(EFCircularSlider*)slider {
+-(IBAction)timeSliderChanged:(id)sender {
     
-    int newVal = (int)slider.currentValue < 24 ? (int)slider.currentValue : 1;
+    UISlider *slider = (UISlider *)sender;
+
+    int newVal = (int)lroundf(slider.value)< 24 ? (int)lroundf(slider.value) : 1;
     
     if (newVal<1) {
         newVal=1;
@@ -169,12 +177,12 @@
 - (IBAction)distanceSettingUpdate:(id)sender{
     
     NSMutableDictionary *distanceDic =[[NSMutableDictionary alloc] init];
-    [distanceDic setObject:[NSString stringWithFormat:@"%f", self.dSlide.currentValue] forKey:@"distance"];
+    [distanceDic setObject:[NSString stringWithFormat:@"%f", self.dSlide.value] forKey:@"distance"];
     [[NSUserDefaults standardUserDefaults] setObject:distanceDic forKey:@"distance"] ;
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     NSMutableDictionary *timeDic =[[NSMutableDictionary alloc] init];
-    [timeDic setObject:[NSString stringWithFormat:@"%f", self.tSlide.currentValue] forKey:@"time"];
+    [timeDic setObject:[NSString stringWithFormat:@"%f", self.tSlide.value] forKey:@"time"];
     [[NSUserDefaults standardUserDefaults] setObject:timeDic forKey:@"timeFrame"] ;
     [[NSUserDefaults standardUserDefaults] synchronize];
    
@@ -184,7 +192,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     //present existing values
-    self.distanceLabel.text = [NSString stringWithFormat:@"%d", (int)self.dSlide.currentValue];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%d", (int)self.dSlide.value];
     
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tenqyu.com"
                                                       message:@"Saved"
