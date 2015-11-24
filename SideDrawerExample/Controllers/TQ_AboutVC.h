@@ -10,4 +10,13 @@
 
 @interface TQ_AboutVC : UIViewController
 
+{
+    
+    UITextView *eDescription;
+    
+}
+
+
+@property (retain, nonatomic) IBOutlet UITextView *eDescription;
+
 @end

@@ -55,14 +55,12 @@
     self.eventTable = eventTable;
     
     
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSArray *eventDetails= [prefs objectForKey:@"currentEvents"];
     
   
-    NSMutableDictionary *userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
+   // NSMutableDictionary *userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
     
-    NSLog(@"User registered with ID %i" , [[userDetails objectForKey:@"id"] intValue]);
-    NSLog(@"User registered with email %@" , [userDetails objectForKey:@"email"]);
+  //  NSLog(@"User registered with ID %i" , [[userDetails objectForKey:@"id"] intValue]);
+  //  NSLog(@"User registered with email %@" , [userDetails objectForKey:@"email"]);
     
     /*
     
@@ -70,21 +68,32 @@
     [webby setDelegate:self];
     [webby submitQRScan:@"https://choose.tenqyu.com?q=103a047313a84e37c195017a0eff503601eef833f52b5ea8a49411b85ff6e30c" email:[userDetails objectForKey:@"email"]  pwd:[userDetails objectForKey:@"pwd"] mongoId:[userDetails objectForKey:@"id"] withLat:self.currentLocation.coordinate.latitude andLong:self.currentLocation.coordinate.longitude];
     */
+    NSUserDefaults *prefs;
+    NSArray *eventDetails;
     
-    
-    
-    if ([eventDetails count]>0){
-        self.eventList=eventDetails;
-    } else {
+    //if I don't already have data
+    if ([self.eventList count]==0) {
         
-        self.needsUpdates=TRUE;
-        self.eventTable.alpha=0.0;
+         prefs= [NSUserDefaults standardUserDefaults];
+         eventDetails= [prefs objectForKey:@"currentEvents"];
+
+        if ([eventDetails count]>0){
+            self.eventList=eventDetails;
+            [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            
+        } else {
+            
+            self.needsUpdates=TRUE;
+            self.eventTable.alpha=0.0;
+            
+            self.loader.alpha=1.0;
+            [self startingLoadingAnimation];
+            
+            
+        }
         
-        self.loader.alpha=1.0;
-        [self startingLoadingAnimation];
-        
-       
     }
+    
     
     
     bool isSimulator=false;
@@ -135,8 +144,8 @@
     self.eventList=nil;
     self.needsUpdates=TRUE;
     
-    NSLog(@" current location lat %f and lng %f", self.currentLocation.coordinate.latitude,self.currentLocation.coordinate.longitude
-          );
+   // NSLog(@" current location lat %f and lng %f", self.currentLocation.coordinate.latitude,self.currentLocation.coordinate.longitude
+         // );
     [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
     //[self startingLoadingAnimation];
     
@@ -213,14 +222,14 @@
             if (tInterval>60) {
                 //convert to hours
                 tInterval=tInterval/60;
-                NSLog(@" My Interval %d", tInterval);
+               // NSLog(@" My Interval %d", tInterval);
                 if (tInterval == 1) {
                      cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" hr"]];
                 } else {
                     cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" hrs"]];
                 }
             } else {
-                NSLog(@" My Interval %d", tInterval);
+               // NSLog(@" My Interval %d", tInterval);
                 
                 cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" min"]];
             }
@@ -276,7 +285,7 @@
         NSCharacterSet *notDigits = [[NSCharacterSet decimalDigitCharacterSet]invertedSet];
         
         if ([priceTest rangeOfCharacterFromSet:notDigits].location==NSNotFound) {
-            NSLog(@" String : %@", priceTest);
+            //NSLog(@" String : %@", priceTest);
             
             NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
             [currencyFormatter setLocale:[NSLocale currentLocale]];
@@ -367,13 +376,12 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     TQ_EventDetailsViewController *eventDetails = [storyboard instantiateViewControllerWithIdentifier:@"EVENT_DETAILS"];
     
-   
-    
     
     //PG_eventDetails *eventDetails = [[PG_eventDetails alloc] init] ;
     
     NSDictionary *text=[self.eventList objectAtIndex:indexPath.row];
-    NSLog(@"%@",text);
+    NSLog(@"Index %ld has %@",(long)indexPath.row,
+          [text objectForKey:@"title"]);
     
     /* Try to get the strings done here*/
     eventDetails.latitude=[[text valueForKey:@"latitude"]floatValue] ;
@@ -384,7 +392,7 @@
     eventDetails.vStop_time=[text objectForKey:@"stop_time"];
     eventDetails.idStr=[text objectForKey:@"id"];
     
-    NSLog(@" Check this %@",[text objectForKey:@"id"]);
+    //NSLog(@" Check this %@",[text objectForKey:@"id"]);
     /* Before loading the items*/
 
     [eventDetails setModalPresentationStyle:UIModalPresentationFullScreen];
@@ -410,7 +418,6 @@
     NSCharacterSet *notDigits = [[NSCharacterSet decimalDigitCharacterSet]invertedSet];
     
     if ([priceTest rangeOfCharacterFromSet:notDigits].location==NSNotFound) {
-        NSLog(@" String : %@", priceTest);
         
         NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
         [currencyFormatter setLocale:[NSLocale currentLocale]];
@@ -549,7 +556,6 @@
     if (fInterval>60) {
         //convert to hours
         fInterval=fInterval/60;
-        NSLog(@" My Interval %.2f", fInterval);
         
         if (fInterval == 1.00) {
             eventDetails.timeDiff.text=[NSString stringWithFormat:@"%.2f",fInterval];
@@ -559,7 +565,7 @@
             eventDetails.inXminutes.text=@"hrs";
         }
     } else {
-        NSLog(@" My Interval %.2f", fInterval);
+    //    NSLog(@" My Interval %.2f", fInterval);
         
         eventDetails.timeDiff.text=[NSString stringWithFormat:@"%d",(int)fInterval];
         eventDetails.inXminutes.text=@"min";
@@ -569,6 +575,7 @@
     
     
 }
+
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -633,11 +640,11 @@
         self.eventList=nil;
         self.eventList = [NSMutableArray array];
         
-        NSLog(@"********************************");
+       // NSLog(@"********************************");
         
         for (NSDictionary* campaignData in resultData) {
             
-            NSLog(@"Outputting cData %@", campaignData);
+          //  NSLog(@"Outputting cData %@", campaignData);
             [data addObject:campaignData];
             
             
@@ -799,7 +806,7 @@
                              
                              nil];
     CGRect rect=CGRectMake(self.loading.frame.origin.x, self.loading.frame.origin.y, 100 , 100);
-    NSLog(@" Rect .x %f , .y %f",rect.origin.x, rect.origin.y);
+  //  NSLog(@" Rect .x %f , .y %f",rect.origin.x, rect.origin.y);
     self.loading = [[UIImageView alloc] initWithFrame:rect];
   
     self.loading.animationImages = imageArray;

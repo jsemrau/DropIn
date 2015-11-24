@@ -82,6 +82,9 @@
     
     self.eDescription.superview.layer.mask = gradient;
     
+    [self.eDescription scrollRangeToVisible:NSMakeRange(0, 0)];
+    
+    [self.eDescription setContentOffset: CGPointMake(0,-200) animated:TRUE];
 }
 
 - (void)didReceiveMemoryWarning {

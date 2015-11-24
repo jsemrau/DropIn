@@ -17,10 +17,14 @@
 
 @implementation TQ_AboutVC
 
+@synthesize eDescription;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupLeftMenuButton];
+    
+    [self.eDescription setContentOffset: CGPointMake(0,-200) animated:TRUE];
     
 }
 

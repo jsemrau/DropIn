@@ -19,6 +19,20 @@
 
 @synthesize dSlide,tSlide,distanceLabel,timeLabel,saveButton;
 
+- (void) viewWillAppear:(BOOL)animated{
+    
+    UIImage *sliderLeftTrackImage = [UIImage imageNamed: @"master-slider_01.png"];
+    UIImage *sliderRightTrackImage = [UIImage imageNamed: @"master-slider_02.png"] ;
+    [sliderLeftTrackImage resizableImageWithCapInsets:UIEdgeInsetsZero resizingMode:UIImageResizingModeStretch];
+    [sliderRightTrackImage resizableImageWithCapInsets:UIEdgeInsetsZero resizingMode:UIImageResizingModeStretch];
+    
+    [self.dSlide setMinimumTrackImage: sliderLeftTrackImage forState: UIControlStateNormal];
+    [self.dSlide setMaximumTrackImage: sliderRightTrackImage forState: UIControlStateNormal];
+    
+    [self.tSlide setMinimumTrackImage: sliderLeftTrackImage forState: UIControlStateNormal];
+    [self.tSlide setMaximumTrackImage: sliderRightTrackImage forState: UIControlStateNormal];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
