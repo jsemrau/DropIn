@@ -266,6 +266,99 @@ if (theConnection)
 } //End submitQRScan Function
 
 
+-(id) saveImpression:(NSString *)impression onAsset:(NSString*)onAsset email:(NSString *)email pwd:(NSString *)pwd  mongoId:(NSString *)mongoId withLat:(double)lat andLong:(double)lon{
+    
+    
+    NSLog(@" Entering save Impression");
+    
+    
+    if (!impression){
+        return false;
+        
+    }
+    
+    if (!email){
+        return false;
+        
+    }
+    
+    if (!pwd){
+        return false;
+        
+    }
+    
+    if (!mongoId){
+        return false;
+        
+    }
+    
+    
+    
+    NSString *base = @"https://choose.tenqyu.com/v1/activity/index.php";
+    
+    NSString *mailStr = [@"&email=" stringByAppendingString:email ];
+    NSString *pwdStr = [@"&pwd=" stringByAppendingString:pwd];
+    
+    NSString *idstr = [@"id=" stringByAppendingString:@"saveImpression"];
+    NSString *impressionStr = [@"&impression=" stringByAppendingString:impression];
+    NSString *onAssetStr = [@"&onAsset=" stringByAppendingString:onAsset];
+    
+    
+    NSString *mongoStr = [@"&playerId=" stringByAppendingString:mongoId];
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *langPref = [@"&langPref=" stringByAppendingString:language];
+    
+    NSString *latStr = [@"&lat=" stringByAppendingString:[NSString stringWithFormat:@"%f", lat]];
+    NSString *longStr = [@"&lng=" stringByAppendingString:[NSString stringWithFormat:@"%f", lon]];
+    
+    NSString *gameId = @"&gameId=5";
+    
+    
+    NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@%@",  latStr, longStr,mailStr,pwdStr,mongoStr,langPref, impressionStr,onAssetStr,gameId];
+    
+    //NSLog(@"URL %@", requestVars);
+    
+    NSData *requestData = [NSData dataWithBytes: [requestVars UTF8String] length: [requestVars length]];
+    
+    // Create the request.
+    NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:base]
+                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    // create the connection with the request
+    // and start loading the data
+    [theRequest setHTTPMethod: @"POST"];
+    [theRequest setHTTPBody: requestData];
+    
+    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest
+                                                                   delegate:self];
+    
+    if (theConnection)
+        
+    {
+        // Create the NSMutableData to hold the received data.
+        // receivedData is an instance variable declared elsewhere.
+        
+        self.receivedData = [NSMutableData data];
+        
+        
+    } else {
+        
+        // Inform the user that the connection failed.
+        
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tenqyu.com"
+                                                          message:@"Lost Connection"
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+        
+        
+    }
+    
+    
+    return self;
+    
+} //End submitQRScan Function
 
 #pragma mark Connection Methods
 
@@ -315,7 +408,7 @@ if (theConnection)
     
     }
     
-    if ([self.connectionType isEqual: @"submitScan"]) {
+    if ([self.connectionType isEqual: @"submitScan"] || [self.connectionType isEqual: @"saveImpression"]) {
         
         
         NSLog(@" submitScan String %@ ",self.jsondata);
@@ -328,7 +421,7 @@ if (theConnection)
     
         
 
-    } //closes if connectiontype
+    }
     else {
     
         if(delegate && [delegate respondsToSelector:@selector(locationsReceived:)]) {

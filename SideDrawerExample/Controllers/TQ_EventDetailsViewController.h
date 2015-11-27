@@ -13,8 +13,9 @@
 #import <AddressBook/AddressBook.h>
 //#import <Socialize/Socialize.h>
 #import <MessageUI/MessageUI.h>
+#import "QyuWebAccess.h"
 
-@interface TQ_EventDetailsViewController : UIViewController <MKMapViewDelegate,MFMessageComposeViewControllerDelegate>
+@interface TQ_EventDetailsViewController : UIViewController <MKMapViewDelegate,MFMessageComposeViewControllerDelegate,QyuWebDelegate>
 
 {
     
@@ -61,6 +62,7 @@
     IBOutlet MKMapView *myMapView;
     
     NSMutableDictionary *likedIDs;
+    NSMutableDictionary *userDetails;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *distance;
@@ -100,6 +102,7 @@
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
 
 @property (nonatomic, retain) NSMutableDictionary *likedIDs;
+@property (nonatomic, retain) NSMutableDictionary *userDetails;
 
 //@property (nonatomic, retain) SZActionBar *actionBar;
 //@property (nonatomic, retain) id<SZEntity> entity;

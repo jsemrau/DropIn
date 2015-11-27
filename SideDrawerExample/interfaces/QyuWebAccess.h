@@ -62,6 +62,6 @@
 
 -(id) submitLocationScan:(double)lat andLong:(double)lon;
 -(id) submitQRScan:(NSString *)qrcode email:(NSString *)email pwd:(NSString *)pwd  mongoId:(NSString *)mongoId withLat:(double)lat andLong:(double)lon;
-
+-(id) saveImpression:(NSString *)impression onAsset:(NSString*)onAsset email:(NSString *)email pwd:(NSString *)pwd  mongoId:(NSString *)mongoId withLat:(double)lat andLong:(double)lon;
 @end
 

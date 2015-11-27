@@ -14,11 +14,14 @@
 
 @implementation TQ_EventDetailsViewController
 
-@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,idStr,inXminutes,likedIDs;
+@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,idStr,inXminutes,likedIDs,userDetails;
 
 - (void)viewWillAppear:(BOOL)animated{
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
+    
     self.likedIDs= [[prefs objectForKey:@"likedItems"] mutableCopy];
     
     if (!self.likedIDs) {
@@ -139,6 +142,13 @@
            
             [self.likedIDs removeObjectForKey:self.idStr];
             
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+            [webby setDelegate:self];
+            
+            [webby saveImpression:@"unliked" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            
         }
         
     } else {
@@ -148,6 +158,13 @@
         {
         
             [self.likedIDs setObject:[NSDate date] forKey:self.idStr];
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+            [webby setDelegate:self];
+          
+            [webby saveImpression:@"liked" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             
         }
         NSLog(@"%@", self.idStr);
@@ -162,6 +179,13 @@
 - (IBAction)openURL:(id)sender{
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.eURL]];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+    [webby setDelegate:self];
+    
+    [webby saveImpression:@"openedURL" onAsset:self.eURL email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
 }
 
@@ -369,5 +393,20 @@ else
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)notificationsReceived:(NSDictionary *)resultData{
+    
+    NSLog(@"%@",resultData);
+    
+}
+
+
+- (void)locationsReceived:(NSDictionary *)resultData
+{
+    
+   NSLog(@"%@",resultData);
+    
+}
+
 
 @end
