@@ -96,8 +96,8 @@
     
     
     
-    bool isSimulator=false;
-    self.needsUpdates=false;
+    bool isSimulator=true;
+    self.needsUpdates=true;
     
     if(isSimulator && self.needsUpdates){
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -510,7 +510,9 @@
     }
     NSAttributedString *tmpStr = [[NSAttributedString alloc] initWithData:[[text valueForKey:@"description"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
     
+    [eventDetails.eDescription  setScrollEnabled:NO];
     eventDetails.eDescription.text=[tmpStr string]  ;
+    [eventDetails.eDescription setScrollEnabled:YES];
     
     eventDetails.eSource.text=[[text valueForKey:@"source"] lowercaseString];
     eventDetails.vAddress.text=[text objectForKey:@"venue_address"];

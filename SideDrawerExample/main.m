@@ -2,8 +2,8 @@
 //  main.m
 // SideDrawerExample
 //
-//  Created by Pulkit Goyal on 11/12/13.
-//  Copyright (c) 2013 Pulkit Goyal. All rights reserved.
+//  Created by tenqyu on 11/12/15.
+//  Copyright (c) 2015 tenqyu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

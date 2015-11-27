@@ -101,7 +101,7 @@
 @property(nonatomic, retain) IBOutlet UIView * shareView ;
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
 
-@property (nonatomic, retain) NSMutableDictionary *likedIDs;
+@property (nonatomic, strong) NSMutableDictionary *likedIDs;
 @property (nonatomic, retain) NSMutableDictionary *userDetails;
 
 //@property (nonatomic, retain) SZActionBar *actionBar;

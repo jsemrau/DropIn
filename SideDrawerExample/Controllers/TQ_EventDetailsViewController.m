@@ -28,10 +28,13 @@
         //if it does not exists then create array
         self.likedIDs=[[NSMutableDictionary alloc]init];
     } else {
+        if ([self.likedIDs count]>0) {
         
-        if ([self.likedIDs objectForKey:self.idStr]) {
-            [self.favButton setSelected:YES];
+            if ([self.likedIDs objectForKey:self.idStr]) {
+                [self.favButton setSelected:YES];
+            }
         }
+        
     }
     
     NSLog(@"********** %@ **************",self.eURL);
@@ -86,8 +89,15 @@
     self.eDescription.superview.layer.mask = gradient;
     
     [self.eDescription scrollRangeToVisible:NSMakeRange(0, 0)];
+    [self.eDescription setContentOffset:CGPointZero animated:YES];
+   // [self.eDescription setContentOffset: CGPointMake(0,-200) animated:TRUE];
+  
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+    [webby setDelegate:self];
     
-    [self.eDescription setContentOffset: CGPointMake(0,-200) animated:TRUE];
+    [webby saveImpression:@"seen" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -157,7 +167,12 @@
         if(self.idStr && self.likedIDs) //or if(str != nil) or if(str.length>0)
         {
         
-            [self.likedIDs setObject:[NSDate date] forKey:self.idStr];
+            if([self.likedIDs count]>0){
+                [self.likedIDs setObject:[NSDate date] forKey:self.idStr];
+            } else {
+                
+                self.likedIDs = [[[NSDictionary alloc] initWithObjectsAndKeys:[NSDate date ],self.idStr,nil] mutableCopy];
+            }
             
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
@@ -193,6 +208,12 @@
     
     //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.eURL]];
     
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+    [webby setDelegate:self];
+    
+    [webby saveImpression:@"checkedMap" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   
     
     if (self.mapView.alpha==1) {
@@ -240,6 +261,13 @@
 - (IBAction) sendSMS {
     
   
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+    [webby setDelegate:self];
+    
+    [webby saveImpression:@"startedSMS" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
         [self showSMS:self.eURL];
   
     
@@ -382,6 +410,13 @@ else
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+    [webby setDelegate:self];
+    
+    [webby saveImpression:@"finishedSMS" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 /*
