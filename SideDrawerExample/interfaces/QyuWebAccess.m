@@ -360,6 +360,71 @@ if (theConnection)
     
 } //End submitQRScan Function
 
+
+
+-(id) submitWeatherRequest:(double)lat andLong:(double)lon{
+    
+    
+    NSLog(@" Entering submit weather");
+    
+    
+    
+    
+    NSString *base = @"https://choose.tenqyu.com/v1/context/index.php";
+    
+    NSString *idstr = [@"id=" stringByAppendingString:@"getWeather"];
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *langPref = [@"&langPref=" stringByAppendingString:language];
+    
+    NSString *latStr = [@"&lat=" stringByAppendingString:[NSString stringWithFormat:@"%f", lat]];
+    NSString *longStr = [@"&lng=" stringByAppendingString:[NSString stringWithFormat:@"%f", lon]];
+    
+    NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@",  latStr, longStr,langPref];
+    
+    //NSLog(@"URL %@", requestVars);
+    
+    NSData *requestData = [NSData dataWithBytes: [requestVars UTF8String] length: [requestVars length]];
+    
+    // Create the request.
+    NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:base]
+                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    // create the connection with the request
+    // and start loading the data
+    [theRequest setHTTPMethod: @"POST"];
+    [theRequest setHTTPBody: requestData];
+    
+    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest
+                                                                   delegate:self];
+    
+    if (theConnection)
+        
+    {
+        // Create the NSMutableData to hold the received data.
+        // receivedData is an instance variable declared elsewhere.
+        
+        self.receivedData = [NSMutableData data];
+        
+        
+    } else {
+        
+        // Inform the user that the connection failed.
+        
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tenqyu.com"
+                                                          message:@"Lost Connection"
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+        
+        
+    }
+    
+    
+    return self;
+    
+} //End submitQRScan Function
+
 #pragma mark Connection Methods
 
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -408,7 +473,7 @@ if (theConnection)
     
     }
     
-    if ([self.connectionType isEqual: @"submitScan"] || [self.connectionType isEqual: @"saveImpression"]) {
+    if ([self.connectionType isEqual: @"submitScan"] || [self.connectionType isEqual: @"saveImpression"]|| [self.connectionType isEqual: @"getWeatherContext"]) {
         
         
         NSLog(@" submitScan String %@ ",self.jsondata);

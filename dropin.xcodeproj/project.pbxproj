@@ -69,6 +69,7 @@
 		068A86841BC96F0500578BCA /* TQ_AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 068A86831BC96F0500578BCA /* TQ_AboutVC.m */; };
 		068A86871BC96F1400578BCA /* TQ_SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 068A86861BC96F1400578BCA /* TQ_SettingsVC.m */; };
 		068A868A1BC96F2400578BCA /* TQ_MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 068A86891BC96F2400578BCA /* TQ_MapVC.m */; };
+		069499521C0A8AEE0009EAC9 /* dropin-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 069499511C0A8AEE0009EAC9 /* dropin-logo.png */; };
 		06A556C11BC17E74004152C8 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556AE1BC17E74004152C8 /* Icon-60@2x.png */; };
 		06A556C21BC17E74004152C8 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556AF1BC17E74004152C8 /* Icon-60@3x.png */; };
 		06A556C31BC17E74004152C8 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556B01BC17E74004152C8 /* Icon-72.png */; };
@@ -302,6 +303,7 @@
 		068A86861BC96F1400578BCA /* TQ_SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQ_SettingsVC.m; sourceTree = "<group>"; };
 		068A86881BC96F2400578BCA /* TQ_MapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQ_MapVC.h; sourceTree = "<group>"; };
 		068A86891BC96F2400578BCA /* TQ_MapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQ_MapVC.m; sourceTree = "<group>"; };
+		069499511C0A8AEE0009EAC9 /* dropin-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dropin-logo.png"; path = "assets/ci/dropin-logo.png"; sourceTree = "<group>"; };
 		06A556AE1BC17E74004152C8 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60@2x.png"; path = "assets/ci/Icon-60@2x.png"; sourceTree = "<group>"; };
 		06A556AF1BC17E74004152C8 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60@3x.png"; path = "assets/ci/Icon-60@3x.png"; sourceTree = "<group>"; };
 		06A556B01BC17E74004152C8 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "assets/ci/Icon-72.png"; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 		063823441BC01891004EECAD /* ci */ = {
 			isa = PBXGroup;
 			children = (
+				069499511C0A8AEE0009EAC9 /* dropin-logo.png */,
 				06F3514C1BEADAF8004D1727 /* drop-in-logo.png */,
 				06E228741BEA4A5300A72907 /* name.png */,
 				0620D4511BE9D03700A7D9CE /* logo120x194.png */,
@@ -1013,6 +1016,7 @@
 				06F3514D1BEADAF8004D1727 /* drop-in-logo.png in Resources */,
 				06A609431BE4B8E8009DF9D9 /* line.png in Resources */,
 				06A557BC1BC17E81004152C8 /* stepThree.png in Resources */,
+				069499521C0A8AEE0009EAC9 /* dropin-logo.png in Resources */,
 				06A5578F1BC17E81004152C8 /* PR_2_00003.png in Resources */,
 				06A557851BC17E81004152C8 /* earthLoader_0000_frame-4.png in Resources */,
 				06D1EF371BFB5BB200E3B118 /* dl_menu_table_header.png in Resources */,

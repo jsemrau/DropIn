@@ -29,6 +29,7 @@
     [self setupLeftMenuButton];
     
     self.messager.alpha=0.0;
+    //[self fadeOutImage];
     self.loader.alpha=0.0;
     
     BOOL locationAllowed = [CLLocationManager locationServicesEnabled];
@@ -71,11 +72,16 @@
     NSUserDefaults *prefs;
     NSArray *eventDetails;
     
+    prefs= [NSUserDefaults standardUserDefaults];
+    self.likedIDs=[[prefs objectForKey:@"likedItems"] mutableCopy];
+    
     //if I don't already have data
     if ([self.eventList count]==0) {
         
-         prefs= [NSUserDefaults standardUserDefaults];
+        
          eventDetails= [prefs objectForKey:@"currentEvents"];
+        
+        
 
         if ([eventDetails count]>0){
             self.eventList=eventDetails;
@@ -84,9 +90,10 @@
         } else {
             
             self.needsUpdates=TRUE;
-            self.eventTable.alpha=0.0;
-            
-            self.loader.alpha=1.0;
+            //self.eventTable.alpha=0.0;
+            [self fadeOutTableView];
+            [self fadeInImage];
+            //self.loader.alpha=1.0;
             [self startingLoadingAnimation];
             
             
@@ -96,8 +103,8 @@
     
     
     
-    bool isSimulator=true;
-    self.needsUpdates=true;
+    bool isSimulator=false;
+    self.needsUpdates=false;
     
     if(isSimulator && self.needsUpdates){
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -107,6 +114,8 @@
         // [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude];
         gettingUpdates=YES;
     }
+    
+    [self.eventTable reloadData];
 }
 
 - (void) viewDidLoad:(BOOL) animated {
@@ -137,8 +146,10 @@
 - (void)refreshButtonPress:(id)refreshButtonPress {
     
     self.messager.alpha=0.0;
+    
     self.eventTable.alpha=0.0;
-    self.loader.alpha=1.0;
+    [self fadeInImage];
+    // self.loader.alpha=1.0;
     [self startingLoadingAnimation];
     //data not available anymore
     self.eventList=nil;
@@ -330,7 +341,6 @@
             cell.lotViewIndicator.image=[UIImage imageNamed:@"pk_map_icon_marker.png"];
         }*/
         
-        cell.lotViewIndicator.image=[UIImage imageNamed:@"pk_map_icon_marker.png"];
         
         /* round edges */
         UIBezierPath * maskPath = [UIBezierPath bezierPathWithRoundedRect:cell.lotViewIndicator.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
@@ -347,9 +357,21 @@
         [fmt setMaximumFractionDigits:0];
         [fmt setMinimumFractionDigits:0];
         
+        
+      
+        
+        if (self.likedIDs) {
+            //if it does not exists then create array
+            if ([self.likedIDs objectForKey:[text objectForKey:@"id"]]) {
+                [cell.lotViewIndicator setImage:[UIImage imageNamed:@"Liked.png"]];
+            }
+        }
+        
+        NSLog(@"%lu", (unsigned long)[self.likedIDs count]);
         if(self.eventTable.alpha==0.0){
             
-            self.eventTable.alpha=1.0;
+           // self.eventTable.alpha=1.0;
+            [self fadeInTableView];
         }
         
     }
@@ -601,6 +623,16 @@
     
     self.notiDictionary=[resultData mutableCopy];
     
+    if ([[self.notiDictionary objectForKey:@"type"] isEqualToString:@"weather"]) {
+        NSLog(@"happyness");
+        
+        self.weatherString.text = [NSString stringWithFormat:@"%@%@%@%@",
+                                   @"It is " , [self.notiDictionary valueForKey:@"temp_c" ] , @"°C and ", [self.notiDictionary valueForKey:@"weather" ]];
+        self.weatherNeedsUpdates=FALSE;
+        
+    }
+    
+    
     //for (NSDictionary* notification in resultData) {
     //}
     
@@ -613,6 +645,7 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     self.loader.alpha=0.0;
+    //[self fadeOutImage];
     self.messager.alpha=0.0;
     
     [self stoppingLoadingAnimation];
@@ -658,12 +691,15 @@
             
         }
         
-        self.eventTable.alpha=1.0;
+        //self.eventTable.alpha=1.0;
+        
+        [self fadeInTableView];
         self.loader.alpha=0.0;
         self.eventList = [[NSArray alloc] initWithArray:data];
         
         [[NSUserDefaults standardUserDefaults] setObject:self.eventList forKey:@"currentEvents"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
         
         [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         
@@ -683,6 +719,10 @@
     
     if(weatherNeedsUpdates){
 
+        
+        [self getweatherContext:self.currentLocation];
+        
+        /*
         __block NSDictionary *tempTmp = nil;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                        
@@ -696,7 +736,7 @@
                     self.weatherNeedsUpdates=FALSE;
                 });
             }
-        });
+        });*/
         
        
     }
@@ -818,6 +858,15 @@
     [self.loading startAnimating];
 }
 
+-(void) getweatherContext:(CLLocation*)wLocation{
+    
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getWeatherContext"];
+    [webby setDelegate:self];
+    [webby submitWeatherRequest:currentLocation.coordinate.latitude andLong:currentLocation.coordinate.longitude];
+    
+}
 
 - (NSDictionary*)getWeatherForLocation:(CLLocation*)wLocation
 {
@@ -847,6 +896,41 @@
     //[dictionary valueForKey:@"current_observation"];
 }
 
+- (void)fadeInImage
+{
+    [UIView beginAnimations:@"fade in" context:nil];
+    [UIView setAnimationDuration:1.5];
+    self.loader.alpha = 1.0;
+    [UIView commitAnimations];
+    
+}
+
+- (void)fadeOutImage
+{
+    [UIView beginAnimations:@"fade out" context:nil];
+    [UIView setAnimationDuration:1.5];
+    self.loader.alpha = 0.0;
+    [UIView commitAnimations];
+    
+}
+
+- (void)fadeInTableView
+{
+    [UIView beginAnimations:@"fade in" context:nil];
+    [UIView setAnimationDuration:1.5];
+    self.eventTable.alpha = 1.0;
+    [UIView commitAnimations];
+    
+}
+
+- (void)fadeOutTableView
+{
+    [UIView beginAnimations:@"fade in" context:nil];
+    [UIView setAnimationDuration:1.5];
+    self.eventTable.alpha = 0.0;
+    [UIView commitAnimations];
+    
+}
 
 - (void) stoppingLoadingAnimation{
     

@@ -440,7 +440,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop-in-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="fWX-Cw-g1r">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropin-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="fWX-Cw-g1r">
                                 <rect key="frame" x="140" y="84" width="320" height="60"/>
                                 <animations/>
                                 <constraints>
@@ -633,18 +633,18 @@ Effective Date of this policy: July 1st, 2013 </string>
                                 <rect key="frame" x="180" y="220" width="240" height="160"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="drop-in-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ktm-61-KnJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="118" height="48"/>
+                                        <rect key="frame" x="8" y="8" width="69" height="48"/>
                                         <animations/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sq-s5-0ss">
-                                        <rect key="frame" x="8" y="40" width="224" height="75"/>
+                                        <rect key="frame" x="8" y="63" width="224" height="75"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                         <color key="textColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xta-Or-ivS">
-                                        <rect key="frame" x="107" y="3" width="135" height="42"/>
+                                        <rect key="frame" x="85" y="14" width="135" height="42"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="26"/>
                                         <color key="textColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -1308,9 +1308,10 @@ Effective Date of this policy: July 1st, 2013 </string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo120x194.png" translatesAutoresizingMaskIntoConstraints="NO" id="qQN-7c-Tec">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo120x194.png" translatesAutoresizingMaskIntoConstraints="NO" id="qQN-7c-Tec">
                                 <rect key="frame" x="252" y="488" width="97" height="60"/>
                                 <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="7ov-pk-Ydo"/>
                                     <constraint firstAttribute="width" constant="97" id="S3g-Pe-7v6"/>
@@ -1352,6 +1353,7 @@ Effective Date of this policy: July 1st, 2013 </string>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="XQH-O2-poL" id="XhV-La-Zz6"/>
+                        <outlet property="logo" destination="qQN-7c-Tec" id="w5D-mu-26E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKD-ci-k0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1420,6 +1422,7 @@ Effective Date of this policy: July 1st, 2013 </string>
         <image name="di_menu_item_drops.png" width="553" height="80"/>
         <image name="dl_menu_table_header.png" width="320" height="60"/>
         <image name="drop-in-logo.png" width="806" height="1313"/>
+        <image name="dropin-logo.png" width="444" height="126"/>
         <image name="fav.png" width="74" height="71"/>
         <image name="iTunesArtwork.png" width="512" height="512"/>
         <image name="logo120x194.png" width="194" height="120"/>

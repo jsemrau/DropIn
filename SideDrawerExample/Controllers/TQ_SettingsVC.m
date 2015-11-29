@@ -44,6 +44,11 @@
     
     int tVal = [[[[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"timeFrame"]] objectForKey:@"time"] intValue];
     
+    if (dVal==0 || tVal==0) {
+        
+        dVal=10;
+        tVal=12;
+    }
     //present existing values
     self.distanceLabel.text = [NSString stringWithFormat:@"%d",dVal];
     self.timeLabel.text = [NSString stringWithFormat:@"%d", tVal];

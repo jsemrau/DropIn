@@ -92,6 +92,12 @@
     [self.eDescription setContentOffset:CGPointZero animated:YES];
    // [self.eDescription setContentOffset: CGPointMake(0,-200) animated:TRUE];
   
+    if(!self.userDetails){
+        
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
+    }
+    
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
