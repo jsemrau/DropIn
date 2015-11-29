@@ -476,7 +476,7 @@ if (theConnection)
     if ([self.connectionType isEqual: @"submitScan"] || [self.connectionType isEqual: @"saveImpression"]|| [self.connectionType isEqual: @"getWeatherContext"]) {
         
         
-        NSLog(@" submitScan String %@ ",self.jsondata);
+      //  NSLog(@" submitScan String %@ ",self.jsondata);
         
         if(delegate && [delegate respondsToSelector:@selector(notificationsReceived:)]) {
             //NSLog(@"Delegating!");
@@ -490,7 +490,7 @@ if (theConnection)
     else {
     
         if(delegate && [delegate respondsToSelector:@selector(locationsReceived:)]) {
-            NSLog(@"Delegating! %@",self.jsondata);
+          //  NSLog(@"Delegating! %@",self.jsondata);
             [delegate locationsReceived:self.jsondata];
         } else {
             NSLog(@"Not Delegating. I dont know why.");

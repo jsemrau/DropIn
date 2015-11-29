@@ -34,6 +34,26 @@
     
     BOOL locationAllowed = [CLLocationManager locationServicesEnabled];
     
+    if([self.notiDictionary count]>0){
+        
+        NSString *dateString = [self.notiDictionary objectForKey:@"timeStamp"];
+        NSDateFormatter *startDateFormat = [[NSDateFormatter alloc] init];
+        [startDateFormat setDateFormat:@"yyyy-MM-dd H:mm:ss"];
+        //        NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+        NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
+        
+        [startDateFormat setTimeZone:timeZone];
+        [startDateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
+        NSDate *startDate1 = [startDateFormat dateFromString:dateString];
+        
+        float fInterval= [startDate1 timeIntervalSinceNow]/60;
+
+        if (fInterval<-60) {
+             self.weatherNeedsUpdates=true;
+        }
+        
+        
+    }
     if (([self.weatherString.text isEqualToString:@""])) {
        self.weatherNeedsUpdates=true;
     }
@@ -402,8 +422,8 @@
     //PG_eventDetails *eventDetails = [[PG_eventDetails alloc] init] ;
     
     NSDictionary *text=[self.eventList objectAtIndex:indexPath.row];
-    NSLog(@"Index %ld has %@",(long)indexPath.row,
-          [text objectForKey:@"title"]);
+    //NSLog(@"Index %ld has %@",(long)indexPath.row,
+     //     [text objectForKey:@"title"]);
     
     /* Try to get the strings done here*/
     eventDetails.latitude=[[text valueForKey:@"latitude"]floatValue] ;
@@ -624,7 +644,6 @@
     self.notiDictionary=[resultData mutableCopy];
     
     if ([[self.notiDictionary objectForKey:@"type"] isEqualToString:@"weather"]) {
-        NSLog(@"happyness");
         
         self.weatherString.text = [NSString stringWithFormat:@"%@%@%@%@",
                                    @"It is " , [self.notiDictionary valueForKey:@"temp_c" ] , @"°C and ", [self.notiDictionary valueForKey:@"weather" ]];
