@@ -14,7 +14,7 @@
 
 @implementation TQ_EventDetailsViewController
 
-@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,idStr,inXminutes,likedIDs,userDetails;
+@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,idStr,inXminutes,likedIDs,userDetails,vSource;
 
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -104,6 +104,8 @@
     
     [webby saveImpression:@"seen" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

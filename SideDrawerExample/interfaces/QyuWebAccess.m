@@ -440,8 +440,16 @@ if (theConnection)
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     
     NSLog(@"didFailWithError %@ at URL %@", error, connection.currentRequest.URL.absoluteString );
-  //  [connection release];
-   // [self.receivedData release];
+
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Services"
+                                                    message:[error localizedDescription]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+    
 }
 
 

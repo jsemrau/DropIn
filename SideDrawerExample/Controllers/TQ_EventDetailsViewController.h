@@ -60,6 +60,7 @@
     UIView *shareView;
     
     IBOutlet MKMapView *myMapView;
+    IBOutlet UIImageView *vSource;
     
     NSMutableDictionary *likedIDs;
     NSMutableDictionary *userDetails;
@@ -103,6 +104,9 @@
 
 @property (nonatomic, strong) NSMutableDictionary *likedIDs;
 @property (nonatomic, retain) NSMutableDictionary *userDetails;
+
+@property (retain, nonatomic) IBOutlet UIImageView *vSource;
+
 
 //@property (nonatomic, retain) SZActionBar *actionBar;
 //@property (nonatomic, retain) id<SZEntity> entity;

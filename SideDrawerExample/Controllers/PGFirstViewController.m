@@ -17,7 +17,7 @@
 
 @implementation PGFirstViewController
 
-@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs;
+@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl;
 
 -(void) viewWillAppear:(BOOL)animated{
     
@@ -136,11 +136,19 @@
     }
     
     [self.eventTable reloadData];
+    
+    self.refreshControl = [UIRefreshControl new];
+    [refreshControl addTarget:self action:@selector(refreshButtonPress:) forControlEvents:UIControlEventValueChanged];
+    [self.eventTable addSubview:refreshControl];
+    [self.eventTable sendSubviewToBack:refreshControl];
+
 }
 
 - (void) viewDidLoad:(BOOL) animated {
     
     [super viewDidLoad];
+    
+  
     
     
 }
@@ -163,7 +171,7 @@
 }
 */
 
-- (void)refreshButtonPress:(id)refreshButtonPress {
+- (void)refreshButtonPress:(id)sender {
     
     self.messager.alpha=0.0;
     
@@ -248,6 +256,7 @@
         if(tInterval<=0){
             
             cell.inXMinutes.text=@"started";
+            cell.inXMinutes.textColor=[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0];
             
         } else {
             if (tInterval>60) {
@@ -263,6 +272,7 @@
                // NSLog(@" My Interval %d", tInterval);
                 
                 cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" min"]];
+                cell.inXMinutes.textColor=[UIColor colorWithRed:57/255.0 green:181/255.0 blue:74/255.0 alpha:1.0];
             }
         }
         
@@ -270,6 +280,7 @@
         //which one is more negative
         if (tInterval <= durationCheck ){
             cell.inXMinutes.text=@"expired";
+            cell.inXMinutes.textColor=[UIColor redColor];
         }
        
         NSString *maxTest;
@@ -331,10 +342,7 @@
             
         if ([priceTest isEqualToString:@"0"]||[priceTest isEqualToString:@"0.00"]){
           
-            /* if([[text valueForKey:@"source"] isEqualToString:@"eventful"]) {
-             cell.price.text=@"Check";
-             } else {
-             */
+            
             
             cell.price.text=@"Free";
             
@@ -445,7 +453,7 @@
     float dist = [[text objectForKey:@"distance"] floatValue];
     if (dist>=1) {
         
-        eventDetails.distance.text=[[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString: @" km"] ;
+        eventDetails.distance.text=[[NSString stringWithFormat:@"%.1f",dist] stringByAppendingString: @" km"] ;
     } else {
         dist=dist*1000;
         float new = [[NSString stringWithFormat:@"%.2f",dist]floatValue];
@@ -544,12 +552,26 @@
         
     eventDetails.eTitle.text= [NSString stringWithFormat:@"%@%@%@", [text valueForKey:@"title"] , @" - ", [text valueForKey:@"organizer"] ];
         ;
+       
  
     } else {
  
         eventDetails.eTitle.text=[text valueForKey:@"title"];
         
     }
+    
+    if([[text valueForKey:@"source"] isEqualToString:@"meetup.com"] ){
+     eventDetails.vSource.image = [UIImage imageNamed:@"meetup.jpg"];
+    }
+    
+    if([[text valueForKey:@"source"] isEqualToString:@"eventfinda"] ){
+        eventDetails.vSource.image = [UIImage imageNamed:@"eventfinda.jpg"];
+    }
+    
+    if([[text valueForKey:@"source"] isEqualToString:@"eventful"] ){
+        eventDetails.vSource.image = [UIImage imageNamed:@"eventful.png"];
+    }
+    
     NSAttributedString *tmpStr = [[NSAttributedString alloc] initWithData:[[text valueForKey:@"description"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
     
     [eventDetails.eDescription  setScrollEnabled:NO];
@@ -595,7 +617,8 @@
     [startDateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
     startDate1 = [startDateFormat dateFromString:dateString];
     
-    float fInterval= [startDate1 timeIntervalSinceNow]/60;
+    /*
+    float fInterval= [startDate1 timeIntervalSinceNow];
     
     if (fInterval>60) {
         //convert to hours
@@ -614,7 +637,18 @@
         eventDetails.timeDiff.text=[NSString stringWithFormat:@"%d",(int)fInterval];
         eventDetails.inXminutes.text=@"min";
     }
+    */
+
+    float fInterval= [startDate1 timeIntervalSinceNow]/60;
     
+    int hours= fabsf(fInterval)/60;
+    int minutes = fabsf(fInterval) - (hours*60);
+    
+    NSLog(@"fInterval %f ->  %d:%d", fInterval, hours,minutes);
+    
+    eventDetails.timeDiff.text= [NSString stringWithFormat:@"%d:%02d", hours,minutes];
+    
+  
     [self.navigationController pushViewController:eventDetails animated:YES];
     
     
@@ -725,6 +759,9 @@
         [[self.view viewWithTag:12] removeFromSuperview];
     
     }
+    
+    [refreshControl endRefreshing];
+    [self.eventTable reloadData];
     
 }
 

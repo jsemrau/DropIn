@@ -34,7 +34,9 @@
     
     NSMutableDictionary *notiDictionary;
     NSMutableDictionary *likedIDs;
+ 
     
+    IBOutlet UIRefreshControl *refreshControl;
 }
 
 @property (retain, nonatomic) CLLocation *currentLocation;
@@ -56,6 +58,8 @@
 
 @property(nonatomic, retain) NSMutableDictionary *notiDictionary;
 @property (nonatomic, retain) NSMutableDictionary *likedIDs;
+@property (nonatomic, retain) IBOutlet UIRefreshControl *refreshControl;
+
 
 - (void) playSound:(NSString*) path;
 - (IBAction)refreshButtonPress:(id)sender;

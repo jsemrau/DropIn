@@ -65,7 +65,7 @@
                 <outlet property="price" destination="WUC-1r-HOS" id="7g6-fr-R8z"/>
                 <outlet property="title" destination="tnf-Xe-Vpm" id="Qlz-QY-PK8"/>
             </connections>
-            <point key="canvasLocation" x="214" y="331.5"/>
+            <point key="canvasLocation" x="212" y="315.5"/>
         </tableViewCell>
         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9og-T7-2w1">
             <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
