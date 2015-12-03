@@ -30,6 +30,8 @@
     IBOutlet UILabel *weatherString ;
     IBOutlet UIView *messager ;
     IBOutlet UILabel *messagerLabel;
+    IBOutlet UIView *cityHeader;
+    
     UIImageView * loading ;
     
     NSMutableDictionary *notiDictionary;
@@ -51,6 +53,7 @@
 
 @property(nonatomic, retain) IBOutlet UIView * loader ;
 @property(nonatomic, retain) IBOutlet UIView * messager ;
+@property(nonatomic, retain) IBOutlet UIView * cityHeader ;
 @property(nonatomic, retain) IBOutlet UILabel *messagerLabel;
 @property(nonatomic, retain) IBOutlet UIImageView * loading ;
 @property(nonatomic )bool needsUpdates;

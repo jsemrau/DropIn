@@ -237,7 +237,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="75" placeholderIntrinsicHeight="50" text="8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPA-wl-VoF">
-                                <rect key="frame" x="20" y="270" width="75" height="50"/>
+                                <rect key="frame" x="20" y="237" width="75" height="50"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="NK7-NN-xi7"/>
@@ -248,7 +248,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance (km)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0e-gr-Lzp">
-                                <rect key="frame" x="95" y="153" width="99.5" height="23.5"/>
+                                <rect key="frame" x="95" y="120" width="99.5" height="23.5"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="w4W-6a-4wW"/>
@@ -263,7 +263,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="75" placeholderIntrinsicHeight="50" text="15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftQ-La-FpP">
-                                <rect key="frame" x="20" y="140" width="75" height="50"/>
+                                <rect key="frame" x="20" y="107" width="75" height="50"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="fY2-iu-U7o"/>
@@ -283,7 +283,7 @@
                                 </variation>
                             </label>
                             <slider opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="faH-eU-SPq">
-                                <rect key="frame" x="18" y="190" width="564" height="31"/>
+                                <rect key="frame" x="18" y="157" width="564" height="31"/>
                                 <animations/>
                                 <color key="tintColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -291,7 +291,7 @@
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6" minValue="1" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="DZn-FW-7wI">
-                                <rect key="frame" x="18" y="320" width="564" height="31"/>
+                                <rect key="frame" x="18" y="287" width="564" height="31"/>
                                 <animations/>
                                 <color key="tintColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -299,7 +299,7 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="time (hrs)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6p-jL-TWO">
-                                <rect key="frame" x="95" y="270" width="75" height="50"/>
+                                <rect key="frame" x="95" y="237" width="75" height="50"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Fyf-36-vEd"/>
@@ -316,44 +316,10 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCC-dk-I3E">
-                                <rect key="frame" x="261" y="83" width="77" height="29"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="21"/>
-                                <color key="textColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="asia-img.png" translatesAutoresizingMaskIntoConstraints="NO" id="vzv-5q-kqz">
                                 <rect key="frame" x="108" y="384" width="384" height="273"/>
                                 <animations/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="horizontal_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="cjj-lm-9dA">
-                                <rect key="frame" x="10" y="112" width="580" height="0.5"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="0.5" id="SBf-fr-Gle"/>
-                                    <constraint firstAttribute="width" constant="580" id="cx6-IJ-SVg"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NT-pT-Msh">
-                                <rect key="frame" x="270" y="362" width="60" height="60"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="12E-9W-JkM"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="4pp-dt-gAX"/>
-                                    <constraint firstAttribute="height" constant="60" id="ezV-U0-FDO"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="save.png"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="4pp-dt-gAX"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="distanceSettingUpdate:" destination="Ezp-oO-6Xu" eventType="touchUpInside" id="e9h-fX-cpI"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -361,13 +327,9 @@
                             <constraint firstItem="o0e-gr-Lzp" firstAttribute="centerX" secondItem="ftQ-La-FpP" secondAttribute="centerX" constant="127.5" id="0B9-KU-J9f"/>
                             <constraint firstItem="faH-eU-SPq" firstAttribute="top" secondItem="W0e-th-v7W" secondAttribute="bottom" constant="126" id="0pg-XI-ghY"/>
                             <constraint firstItem="P6p-jL-TWO" firstAttribute="leading" secondItem="ZPA-wl-VoF" secondAttribute="leading" id="2GC-tV-uFK"/>
-                            <constraint firstItem="4NT-pT-Msh" firstAttribute="trailing" secondItem="DZn-FW-7wI" secondAttribute="trailing" id="3pR-ax-QCR"/>
                             <constraint firstItem="ZPA-wl-VoF" firstAttribute="top" secondItem="W0e-th-v7W" secondAttribute="bottom" constant="28" id="5AD-oj-6Y4"/>
-                            <constraint firstItem="nCC-dk-I3E" firstAttribute="centerX" secondItem="1E0-YW-R7Z" secondAttribute="centerX" id="5UH-gG-wnC"/>
                             <constraint firstItem="P6p-jL-TWO" firstAttribute="leading" secondItem="o0e-gr-Lzp" secondAttribute="leading" id="6d3-du-fc1"/>
-                            <constraint firstItem="4NT-pT-Msh" firstAttribute="centerX" secondItem="1E0-YW-R7Z" secondAttribute="centerX" id="6xv-ha-rdD"/>
                             <constraint firstItem="L0J-1H-W31" firstAttribute="top" secondItem="vzv-5q-kqz" secondAttribute="bottom" constant="-57" id="7KF-rq-Fsg"/>
-                            <constraint firstItem="nCC-dk-I3E" firstAttribute="top" secondItem="W0e-th-v7W" secondAttribute="bottom" constant="19" id="8mk-FK-9w6"/>
                             <constraint firstItem="P6p-jL-TWO" firstAttribute="leading" secondItem="ZPA-wl-VoF" secondAttribute="trailing" constant="-1" id="99h-d3-ixv"/>
                             <constraint firstItem="vzv-5q-kqz" firstAttribute="centerX" secondItem="1E0-YW-R7Z" secondAttribute="centerX" id="Bdb-ze-adb"/>
                             <constraint firstItem="faH-eU-SPq" firstAttribute="top" secondItem="o0e-gr-Lzp" secondAttribute="bottom" constant="0.5" id="Dhn-Bn-rFM"/>
@@ -380,14 +342,11 @@
                             <constraint firstItem="P6p-jL-TWO" firstAttribute="trailing" secondItem="ZPA-wl-VoF" secondAttribute="trailing" id="KM3-YM-vhr"/>
                             <constraint firstItem="DZn-FW-7wI" firstAttribute="top" secondItem="P6p-jL-TWO" secondAttribute="bottom" constant="0.5" id="L0E-k5-yB4"/>
                             <constraint firstItem="ZPA-wl-VoF" firstAttribute="top" secondItem="faH-eU-SPq" secondAttribute="bottom" constant="49" id="LoC-P9-9lo"/>
-                            <constraint firstAttribute="trailing" secondItem="cjj-lm-9dA" secondAttribute="trailing" constant="10" id="M9Q-gB-Zsh"/>
                             <constraint firstAttribute="leadingMargin" secondItem="faH-eU-SPq" secondAttribute="leading" id="NST-35-RVQ"/>
-                            <constraint firstItem="4NT-pT-Msh" firstAttribute="top" secondItem="DZn-FW-7wI" secondAttribute="bottom" constant="34" id="Nfh-zY-cEY"/>
                             <constraint firstItem="DZn-FW-7wI" firstAttribute="top" secondItem="P6p-jL-TWO" secondAttribute="bottom" id="OZB-Po-AId"/>
                             <constraint firstItem="o0e-gr-Lzp" firstAttribute="top" relation="lessThanOrEqual" secondItem="ftQ-La-FpP" secondAttribute="bottom" constant="4" id="PQs-pM-0Lr"/>
                             <constraint firstItem="o0e-gr-Lzp" firstAttribute="centerY" secondItem="ftQ-La-FpP" secondAttribute="centerY" id="QW1-Nz-W3y"/>
                             <constraint firstItem="ftQ-La-FpP" firstAttribute="leading" secondItem="1E0-YW-R7Z" secondAttribute="leadingMargin" constant="40" id="UX0-GX-qFj"/>
-                            <constraint firstItem="cjj-lm-9dA" firstAttribute="leading" secondItem="1E0-YW-R7Z" secondAttribute="leading" constant="10" id="UbS-3D-jE3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZPA-wl-VoF" secondAttribute="trailing" constant="42" id="Uev-9Z-R9z"/>
                             <constraint firstItem="o0e-gr-Lzp" firstAttribute="centerY" secondItem="P6p-jL-TWO" secondAttribute="centerY" id="W8w-yb-pLl"/>
                             <constraint firstItem="ZPA-wl-VoF" firstAttribute="leading" secondItem="ftQ-La-FpP" secondAttribute="leading" id="WGp-zF-oMg"/>
@@ -398,7 +357,6 @@
                             <constraint firstItem="P6p-jL-TWO" firstAttribute="top" relation="lessThanOrEqual" secondItem="ZPA-wl-VoF" secondAttribute="bottom" constant="4" id="frh-My-naJ"/>
                             <constraint firstItem="o0e-gr-Lzp" firstAttribute="trailing" secondItem="ftQ-La-FpP" secondAttribute="trailing" id="gBC-bU-DiE"/>
                             <constraint firstItem="o0e-gr-Lzp" firstAttribute="centerX" secondItem="ftQ-La-FpP" secondAttribute="centerX" id="gew-qe-akL"/>
-                            <constraint firstItem="4NT-pT-Msh" firstAttribute="top" secondItem="DZn-FW-7wI" secondAttribute="bottom" constant="12" id="hYU-aE-mdb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DZn-FW-7wI" secondAttribute="trailing" id="hmn-r0-AJ7"/>
                             <constraint firstItem="P6p-jL-TWO" firstAttribute="leading" secondItem="ZPA-wl-VoF" secondAttribute="trailing" id="i1l-Sd-uWW"/>
                             <constraint firstItem="o0e-gr-Lzp" firstAttribute="centerX" secondItem="ftQ-La-FpP" secondAttribute="centerX" constant="127.5" id="jkV-pH-q2Z"/>
@@ -409,11 +367,8 @@
                             <constraint firstItem="o0e-gr-Lzp" firstAttribute="leading" secondItem="1E0-YW-R7Z" secondAttribute="leadingMargin" constant="2" id="nE1-Pz-R6I"/>
                             <constraint firstItem="o0e-gr-Lzp" firstAttribute="top" secondItem="ftQ-La-FpP" secondAttribute="bottom" id="ozs-AL-pDT"/>
                             <constraint firstItem="faH-eU-SPq" firstAttribute="top" secondItem="ftQ-La-FpP" secondAttribute="bottom" id="qRW-6B-dCc"/>
-                            <constraint firstItem="faH-eU-SPq" firstAttribute="top" secondItem="W0e-th-v7W" secondAttribute="bottom" constant="126" id="sRh-xl-B9I"/>
-                            <constraint firstItem="4NT-pT-Msh" firstAttribute="centerX" secondItem="1E0-YW-R7Z" secondAttribute="centerX" constant="-140" id="tcG-Pa-ssW"/>
+                            <constraint firstItem="faH-eU-SPq" firstAttribute="top" secondItem="W0e-th-v7W" secondAttribute="bottom" constant="93" id="sRh-xl-B9I"/>
                             <constraint firstAttribute="trailingMargin" secondItem="faH-eU-SPq" secondAttribute="trailing" id="xFC-dJ-PN1"/>
-                            <constraint firstItem="4NT-pT-Msh" firstAttribute="centerX" secondItem="1E0-YW-R7Z" secondAttribute="centerX" id="z5T-nA-OEa"/>
-                            <constraint firstItem="cjj-lm-9dA" firstAttribute="top" secondItem="nCC-dk-I3E" secondAttribute="bottom" id="z76-ga-md6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -443,18 +398,21 @@
                                 <exclude reference="lq4-zr-10J"/>
                                 <exclude reference="JJE-Pa-XhF"/>
                                 <exclude reference="L0E-k5-yB4"/>
-                                <exclude reference="3pR-ax-QCR"/>
-                                <exclude reference="Nfh-zY-cEY"/>
-                                <exclude reference="tcG-Pa-ssW"/>
-                                <exclude reference="z5T-nA-OEa"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="Bmj-2b-wn1"/>
+                    <navigationItem key="navigationItem" id="Bmj-2b-wn1">
+                        <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" image="save32.png" style="plain" id="Z4q-y6-tyP">
+                            <color key="tintColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="distanceSettingUpdate:" destination="A1f-eM-lT7" id="VgK-cU-01T"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dSlide" destination="faH-eU-SPq" id="doq-TC-G6F"/>
                         <outlet property="distanceLabel" destination="ftQ-La-FpP" id="ur2-Vc-NFb"/>
-                        <outlet property="saveButton" destination="4NT-pT-Msh" id="2ME-qW-kQp"/>
                         <outlet property="tSlide" destination="DZn-FW-7wI" id="mw1-XZ-ukD"/>
                         <outlet property="timeLabel" destination="ZPA-wl-VoF" id="sCp-EO-Oae"/>
                     </connections>
@@ -463,7 +421,7 @@
             </objects>
             <point key="canvasLocation" x="2169" y="2253"/>
         </scene>
-        <!--About-->
+        <!--AboutVC-->
         <scene sceneID="k5l-dH-x9O">
             <objects>
                 <viewController id="B3X-HH-IPJ" customClass="TQ_AboutVC" sceneMemberID="viewController">
@@ -576,7 +534,7 @@ Effective Date of this policy: July 1st, 2013 </string>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="XUb-6f-br0"/>
+                    <navigationItem key="navigationItem" id="XUb-6f-br0"/>
                     <connections>
                         <outlet property="eDescription" destination="ja3-1k-IcG" id="SUJ-KG-N9t"/>
                     </connections>
@@ -585,7 +543,7 @@ Effective Date of this policy: July 1st, 2013 </string>
             </objects>
             <point key="canvasLocation" x="2169" y="2963"/>
         </scene>
-        <!--Upcoming-->
+        <!--First View Controller-->
         <scene sceneID="Tfa-C0-Mxo">
             <objects>
                 <viewController id="qFL-Rp-FAW" customClass="PGFirstViewController" sceneMemberID="viewController">
@@ -634,14 +592,25 @@ Effective Date of this policy: July 1st, 2013 </string>
                                                 </mask>
                                             </variation>
                                         </label>
+                                        <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOd-Yg-Ov7">
+                                            <rect key="frame" x="0.0" y="39" width="600" height="21"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="mAO-Wv-WPY"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <animations/>
                                     <constraints>
                                         <constraint firstItem="kVf-cu-IYw" firstAttribute="centerX" secondItem="T9d-Ai-mQp" secondAttribute="centerX" id="16x-Ap-GsF"/>
+                                        <constraint firstAttribute="bottom" secondItem="bOd-Yg-Ov7" secondAttribute="bottom" id="2Q2-n0-eAF"/>
                                         <constraint firstItem="b5P-M2-ixD" firstAttribute="leading" secondItem="T9d-Ai-mQp" secondAttribute="leading" constant="15" id="9Gv-ue-Npb"/>
                                         <constraint firstItem="kVf-cu-IYw" firstAttribute="centerY" secondItem="T9d-Ai-mQp" secondAttribute="centerY" id="Ira-3d-2CE"/>
+                                        <constraint firstItem="bOd-Yg-Ov7" firstAttribute="leading" secondItem="T9d-Ai-mQp" secondAttribute="leading" id="LFv-cp-VtH"/>
                                         <constraint firstAttribute="bottom" secondItem="b5P-M2-ixD" secondAttribute="bottom" constant="1" id="Ot7-vI-SyS"/>
                                         <constraint firstItem="kVf-cu-IYw" firstAttribute="leading" secondItem="T9d-Ai-mQp" secondAttribute="leading" id="Qw2-NT-LQc"/>
+                                        <constraint firstAttribute="trailing" secondItem="bOd-Yg-Ov7" secondAttribute="trailing" id="ZyS-7k-RGp"/>
                                         <constraint firstAttribute="trailing" secondItem="b5P-M2-ixD" secondAttribute="trailing" constant="15" id="cgg-e7-v3q"/>
                                         <constraint firstItem="b5P-M2-ixD" firstAttribute="centerY" secondItem="T9d-Ai-mQp" secondAttribute="centerY" id="jCA-dD-PUm"/>
                                         <constraint firstItem="b5P-M2-ixD" firstAttribute="centerX" secondItem="T9d-Ai-mQp" secondAttribute="centerX" id="kL0-tq-9Hk"/>
@@ -768,7 +737,7 @@ Effective Date of this policy: July 1st, 2013 </string>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Upcoming" id="8As-MA-s1T">
+                    <navigationItem key="navigationItem" id="8As-MA-s1T">
                         <rightBarButtonItems>
                             <barButtonItem image="sortByTime32x32.png" style="plain" id="FLO-o9-syB">
                                 <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -785,6 +754,7 @@ Effective Date of this policy: July 1st, 2013 </string>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="cityHeader" destination="T9d-Ai-mQp" id="uma-Sh-zfa"/>
                         <outlet property="eventTable" destination="B4r-Wn-UXQ" id="hjd-GW-lr0"/>
                         <outlet property="loader" destination="pR4-IQ-5Ho" id="Jlj-60-2tU"/>
                         <outlet property="messager" destination="LHU-IS-9Zk" id="zaF-XV-kpo"/>
@@ -1146,7 +1116,7 @@ Effective Date of this policy: July 1st, 2013 </string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGg-zf-Jvg" userLabel="descView">
                                 <rect key="frame" x="30" y="191" width="540" height="200"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" placeholderIntrinsicWidth="580" placeholderIntrinsicHeight="200" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-uc-8B9">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" placeholderIntrinsicWidth="580" placeholderIntrinsicHeight="200" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-uc-8B9">
                                         <rect key="frame" x="0.0" y="0.0" width="540" height="200"/>
                                         <animations/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -1432,6 +1402,7 @@ Effective Date of this policy: July 1st, 2013 </string>
                         <outlet property="price" destination="LSF-QI-POZ" id="pOz-at-M2q"/>
                         <outlet property="scannedURL" destination="kdn-LR-DAm" id="2BR-G3-SAU"/>
                         <outlet property="start_time" destination="rDi-0x-rBe" id="zTq-Zq-Ns5"/>
+                        <outlet property="summaryView" destination="eWJ-0w-AYm" id="BlR-jM-e8P"/>
                         <outlet property="timeDiff" destination="gZt-6T-7x6" id="qnd-3c-5ly"/>
                         <outlet property="vName" destination="CGI-lj-CBf" id="7CX-v6-jS1"/>
                         <outlet property="vRecur" destination="fft-Pv-jh9" id="cS5-3K-Ynx"/>
@@ -1659,14 +1630,13 @@ Effective Date of this policy: July 1st, 2013 </string>
         <image name="dl_menu_table_header.png" width="320" height="60"/>
         <image name="drop-in-logo.png" width="806" height="1313"/>
         <image name="fav.png" width="74" height="71"/>
-        <image name="horizontal_line.png" width="640" height="2"/>
         <image name="iTunesArtwork.png" width="512" height="512"/>
         <image name="logo120x194.png" width="194" height="120"/>
         <image name="map.png" width="76" height="76"/>
         <image name="pk_compo_2_button_blue.png" width="169" height="78"/>
         <image name="pk_compo_2_button_grey.png" width="169" height="78"/>
         <image name="pk_menu_item_settings.png" width="553" height="80"/>
-        <image name="save.png" width="1024" height="1024"/>
+        <image name="save32.png" width="32" height="32"/>
         <image name="share.png" width="77" height="75"/>
         <image name="sortByDistance32x32.png" width="32" height="32"/>
         <image name="sortByTime32x32.png" width="32" height="33"/>

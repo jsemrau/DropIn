@@ -14,7 +14,7 @@
 
 @implementation TQ_EventDetailsViewController
 
-@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,idStr,inXminutes,likedIDs,userDetails,vSource;
+@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView;
 
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -88,10 +88,13 @@
     
     self.eDescription.superview.layer.mask = gradient;
     
-    [self.eDescription scrollRangeToVisible:NSMakeRange(0, 0)];
-    [self.eDescription setContentOffset:CGPointZero animated:YES];
-   // [self.eDescription setContentOffset: CGPointMake(0,-200) animated:TRUE];
   
+    
+    self.summaryView.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.summaryView.layer.shadowOffset = CGSizeMake(0, 2);
+    self.summaryView.layer.shadowOpacity = 0.5;
+    self.summaryView.layer.shadowRadius = 1.0;
+    
     if(!self.userDetails){
         
         NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];

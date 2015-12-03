@@ -17,7 +17,7 @@
 
 @implementation PGFirstViewController
 
-@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl;
+@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader;
 
 -(void) viewWillAppear:(BOOL)animated{
     
@@ -142,6 +142,22 @@
     [self.eventTable addSubview:refreshControl];
     [self.eventTable sendSubviewToBack:refreshControl];
 
+    UILabel *lblTitle = [[UILabel alloc] init];
+    lblTitle.text = @"Upcoming";
+    lblTitle.backgroundColor = [UIColor clearColor];
+    lblTitle.textColor = [UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];
+    lblTitle.shadowColor = [UIColor whiteColor];
+    lblTitle.shadowOffset = CGSizeMake(0, 1);
+    lblTitle.font = [UIFont fontWithName:@"AvenirNext-Regular" size:17.0];
+    [lblTitle sizeToFit];
+    
+    self.navigationItem.titleView = lblTitle;
+    
+    self.cityHeader.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.cityHeader.layer.shadowOffset = CGSizeMake(0, 2);
+    self.cityHeader.layer.shadowOpacity = 0.5;
+    self.cityHeader.layer.shadowRadius = 1.0;
+    
 }
 
 - (void) viewDidLoad:(BOOL) animated {
@@ -576,6 +592,7 @@
     
     [eventDetails.eDescription  setScrollEnabled:NO];
     eventDetails.eDescription.text=[tmpStr string]  ;
+    [eventDetails.eDescription setContentOffset:CGPointZero animated:YES];
     [eventDetails.eDescription setScrollEnabled:YES];
     
     eventDetails.eSource.text=[[text valueForKey:@"source"] lowercaseString];

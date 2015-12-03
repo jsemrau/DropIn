@@ -98,6 +98,17 @@
     
     */
     
+    UILabel *lblTitle = [[UILabel alloc] init];
+    lblTitle.text = @"Settings";
+    lblTitle.backgroundColor = [UIColor clearColor];
+    lblTitle.textColor = [UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];
+    lblTitle.shadowColor = [UIColor whiteColor];
+    lblTitle.shadowOffset = CGSizeMake(0, 1);
+    lblTitle.font = [UIFont fontWithName:@"AvenirNext-Regular" size:17.0];
+    [lblTitle sizeToFit];
+    
+    self.navigationItem.titleView = lblTitle;
+    
     [self.view bringSubviewToFront:saveButton];
 }
 

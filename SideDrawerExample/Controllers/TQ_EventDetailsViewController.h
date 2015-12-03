@@ -55,6 +55,8 @@
     IBOutlet UIButton *openURL;
     IBOutlet UIButton *favButton;
     
+    IBOutlet UIView *summaryView;
+    
     UIView *debugView;
     UIView *mapView;
     UIView *shareView;
@@ -100,6 +102,8 @@
 @property(nonatomic, retain) IBOutlet UIView * debugView ;
 @property(nonatomic, retain) IBOutlet UIView * mapView ;
 @property(nonatomic, retain) IBOutlet UIView * shareView ;
+@property(nonatomic, retain) IBOutlet UIView * summaryView ;
+
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
 
 @property (nonatomic, strong) NSMutableDictionary *likedIDs;
