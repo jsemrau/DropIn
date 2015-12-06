@@ -98,6 +98,8 @@
     
     */
     
+    if(!self.navigationItem.titleView){
+    
     UILabel *lblTitle = [[UILabel alloc] init];
     lblTitle.text = @"Settings";
     lblTitle.backgroundColor = [UIColor clearColor];
@@ -109,7 +111,8 @@
     
     self.navigationItem.titleView = lblTitle;
     
-    [self.view bringSubviewToFront:saveButton];
+    }
+    
 }
 
 - (void)setupLeftMenuButton {

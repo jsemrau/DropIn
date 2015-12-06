@@ -111,6 +111,10 @@
     
 }
 
+- (void)viewDidLayoutSubviews {
+    [self.eDescription setContentOffset:CGPointZero animated:NO];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

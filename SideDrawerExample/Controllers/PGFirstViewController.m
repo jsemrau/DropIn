@@ -137,21 +137,37 @@
     
     [self.eventTable reloadData];
     
-    self.refreshControl = [UIRefreshControl new];
-    [refreshControl addTarget:self action:@selector(refreshButtonPress:) forControlEvents:UIControlEventValueChanged];
-    [self.eventTable addSubview:refreshControl];
-    [self.eventTable sendSubviewToBack:refreshControl];
+    if(!self.refreshControl){
+        self.refreshControl = [UIRefreshControl new];
+        //self.refreshControl.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:0.8];
+        self.refreshControl.backgroundColor=[UIColor whiteColor];
+        self.refreshControl.tintColor=[UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];
 
-    UILabel *lblTitle = [[UILabel alloc] init];
-    lblTitle.text = @"Upcoming";
-    lblTitle.backgroundColor = [UIColor clearColor];
-    lblTitle.textColor = [UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];
-    lblTitle.shadowColor = [UIColor whiteColor];
-    lblTitle.shadowOffset = CGSizeMake(0, 1);
-    lblTitle.font = [UIFont fontWithName:@"AvenirNext-Regular" size:17.0];
-    [lblTitle sizeToFit];
+        [refreshControl addTarget:self action:@selector(refreshButtonPress:) forControlEvents:UIControlEventValueChanged];
+      
+        /*UIImageView *rcImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Icon-76@2x.png"]];
+       // rcImageView.contentMode = UIViewContentModeCenter;
+        rcImageView.contentMode = UIViewContentModeScaleAspectFill;
+        
+        [refreshControl insertSubview:rcImageView atIndex:0];*/
+        
+        [self.eventTable addSubview:refreshControl];
+        [self.eventTable sendSubviewToBack:refreshControl];
+    }
     
+    if(!self.navigationItem.titleView){
+   
+        UILabel *lblTitle = [[UILabel alloc] init];
+        lblTitle.text = @"Upcoming";
+        lblTitle.backgroundColor = [UIColor clearColor];
+        lblTitle.textColor = [UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];
+        lblTitle.shadowColor = [UIColor whiteColor];
+        lblTitle.shadowOffset = CGSizeMake(0, 1);
+        lblTitle.font = [UIFont fontWithName:@"AvenirNext-Regular" size:17.0];
+        [lblTitle sizeToFit];
+        
     self.navigationItem.titleView = lblTitle;
+    }
     
     self.cityHeader.layer.shadowColor = [UIColor grayColor].CGColor;
     self.cityHeader.layer.shadowOffset = CGSizeMake(0, 2);
@@ -577,11 +593,11 @@
     }
     
     if([[text valueForKey:@"source"] isEqualToString:@"meetup.com"] ){
-     eventDetails.vSource.image = [UIImage imageNamed:@"meetup.jpg"];
+     eventDetails.vSource.image = [UIImage imageNamed:@"meetup.png"];
     }
     
     if([[text valueForKey:@"source"] isEqualToString:@"eventfinda"] ){
-        eventDetails.vSource.image = [UIImage imageNamed:@"eventfinda.jpg"];
+        eventDetails.vSource.image = [UIImage imageNamed:@"eventfinda.png"];
     }
     
     if([[text valueForKey:@"source"] isEqualToString:@"eventful"] ){
