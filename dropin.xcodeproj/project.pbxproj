@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0606B5241C149FC00005F035 /* TQ_PrivacyPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0606B5231C149FC00005F035 /* TQ_PrivacyPolicy.m */; };
+		0606B5261C14A5E20005F035 /* di_menu_item_privacy.png in Resources */ = {isa = PBXBuildFile; fileRef = 0606B5251C14A5E20005F035 /* di_menu_item_privacy.png */; };
 		060CE88F1C13CAE10073685F /* eventfinda.png in Resources */ = {isa = PBXBuildFile; fileRef = 060CE88D1C13CAE10073685F /* eventfinda.png */; };
 		060CE8901C13CAE10073685F /* meetup.png in Resources */ = {isa = PBXBuildFile; fileRef = 060CE88E1C13CAE10073685F /* meetup.png */; };
 		061B7B941BBC316C0059A840 /* TQ_EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061B7B931BBC316C0059A840 /* TQ_EventDetailsViewController.m */; };
@@ -266,6 +268,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0606B5221C149FC00005F035 /* TQ_PrivacyPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQ_PrivacyPolicy.h; sourceTree = "<group>"; };
+		0606B5231C149FC00005F035 /* TQ_PrivacyPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQ_PrivacyPolicy.m; sourceTree = "<group>"; };
+		0606B5251C14A5E20005F035 /* di_menu_item_privacy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = di_menu_item_privacy.png; sourceTree = "<group>"; };
 		060CE88D1C13CAE10073685F /* eventfinda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventfinda.png; sourceTree = "<group>"; };
 		060CE88E1C13CAE10073685F /* meetup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meetup.png; sourceTree = "<group>"; };
 		061B7B921BBC316C0059A840 /* TQ_EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQ_EventDetailsViewController.h; sourceTree = "<group>"; };
@@ -902,6 +907,7 @@
 		06F9FEA61C0C90CD008DA44C /* otherlogos */ = {
 			isa = PBXGroup;
 			children = (
+				0606B5251C14A5E20005F035 /* di_menu_item_privacy.png */,
 				060CE88D1C13CAE10073685F /* eventfinda.png */,
 				060CE88E1C13CAE10073685F /* meetup.png */,
 				06F9FEA81C0C90CD008DA44C /* eventful.png */,
@@ -964,6 +970,8 @@
 				061B7B931BBC316C0059A840 /* TQ_EventDetailsViewController.m */,
 				068A86821BC96F0500578BCA /* TQ_AboutVC.h */,
 				068A86831BC96F0500578BCA /* TQ_AboutVC.m */,
+				0606B5221C149FC00005F035 /* TQ_PrivacyPolicy.h */,
+				0606B5231C149FC00005F035 /* TQ_PrivacyPolicy.m */,
 				068A86851BC96F1400578BCA /* TQ_SettingsVC.h */,
 				068A86861BC96F1400578BCA /* TQ_SettingsVC.m */,
 				068A86881BC96F2400578BCA /* TQ_MapVC.h */,
@@ -1326,6 +1334,7 @@
 				062FBC6D1BF11664002D9BBC /* Randi_00039.png in Resources */,
 				06D1EF311BFAAD7900E3B118 /* sortByDistance32x32.png in Resources */,
 				062FBC551BF11664002D9BBC /* Randi_00015.png in Resources */,
+				0606B5261C14A5E20005F035 /* di_menu_item_privacy.png in Resources */,
 				0660A8091C1335E200457B2E /* page3.png in Resources */,
 				062FBC4D1BF11664002D9BBC /* Randi_00007.png in Resources */,
 				062FBC591BF11664002D9BBC /* Randi_00019.png in Resources */,
@@ -1399,6 +1408,7 @@
 				068A868A1BC96F2400578BCA /* TQ_MapVC.m in Sources */,
 				0660A8011C13349D00457B2E /* PageContentViewController.m in Sources */,
 				06AC42761BB83B8B00872A9D /* QyuWebAccess.m in Sources */,
+				0606B5241C149FC00005F035 /* TQ_PrivacyPolicy.m in Sources */,
 				061B7B941BBC316C0059A840 /* TQ_EventDetailsViewController.m in Sources */,
 				06AC42721BB83B8B00872A9D /* GFLocationManager.m in Sources */,
 				068A86841BC96F0500578BCA /* TQ_AboutVC.m in Sources */,

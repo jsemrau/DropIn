@@ -83,7 +83,7 @@
                             <animations/>
                         </imageView>
                         <view key="tableFooterView" contentMode="scaleToFill" id="e32-gh-n5Z">
-                            <rect key="frame" x="0.0" y="192" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="236" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,6 +157,31 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="di_menu_item_about.png" id="Zlb-MY-Wxu">
+                                                    <rect key="frame" x="15" y="0.0" width="301" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <animations/>
+                                                </imageView>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xrR-L6-RTx" imageView="W8E-G1-jX9" style="IBUITableViewCellStyleDefault" id="R3p-mE-ZiT">
+                                        <rect key="frame" x="0.0" y="192" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R3p-mE-ZiT" id="SJ0-Xm-GF6">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xrR-L6-RTx">
+                                                    <rect key="frame" x="331" y="0.0" width="254" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="di_menu_item_privacy.png" id="W8E-G1-jX9">
                                                     <rect key="frame" x="15" y="0.0" width="301" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <animations/>
@@ -442,7 +467,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLJ-lo-jvj">
-                                <rect key="frame" x="40" y="152" width="520" height="114"/>
+                                <rect key="frame" x="40" y="152" width="520" height="352"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="Htx-P5-jdp"/>
@@ -450,61 +475,322 @@
                                 </constraints>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                                 <string key="text">Drop!in challenges you to do something that you have never done before. Check ouy what is going on around me and drop!in ! This app uses location-based information to help you have a more engaging and eventful life.</string>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Htx-P5-jdp"/>
+                                        <exclude reference="NVg-0b-3jB"/>
                                     </mask>
                                 </variation>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy policy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxm-Nk-Ayc">
-                                <rect key="frame" x="215" y="271" width="170" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDV-hg-VwF">
+                                <rect key="frame" x="250" y="530" width="100" height="30"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="Uxk-3V-DHX"/>
-                                    <constraint firstAttribute="height" constant="20" id="t5g-Kz-GuG"/>
-                                    <constraint firstAttribute="width" constant="170" id="w3L-Ol-3EA"/>
+                                    <constraint firstAttribute="width" constant="100" id="8lt-jG-9TN"/>
+                                    <constraint firstAttribute="height" constant="30" id="PcB-tv-Q0k"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
-                                <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Uxk-3V-DHX"/>
-                                    </mask>
-                                </variation>
-                            </label>
-                            <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ja3-1k-IcG">
-                                <rect key="frame" x="40" y="311" width="520" height="247"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Help" backgroundImage="pk_compo_2_button_blue_flat.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="VOk-j7-wSr" kind="presentation" id="F6X-Rd-5TQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yNO-kE-mei" firstAttribute="top" secondItem="NLJ-lo-jvj" secondAttribute="bottom" constant="18" id="73V-6M-RP3"/>
+                            <constraint firstItem="jDV-hg-VwF" firstAttribute="top" secondItem="NLJ-lo-jvj" secondAttribute="bottom" constant="26" id="Esl-ez-po2"/>
+                            <constraint firstItem="NLJ-lo-jvj" firstAttribute="leading" secondItem="6ZN-SU-myc" secondAttribute="leadingMargin" constant="20" id="Ky5-nA-7uT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NLJ-lo-jvj" secondAttribute="trailing" constant="20" id="aaj-UV-i0p"/>
+                            <constraint firstItem="fWX-Cw-g1r" firstAttribute="centerX" secondItem="6ZN-SU-myc" secondAttribute="centerX" id="d0p-JY-eja"/>
+                            <constraint firstItem="jDV-hg-VwF" firstAttribute="centerX" secondItem="6ZN-SU-myc" secondAttribute="centerX" id="sxP-1D-90X"/>
+                            <constraint firstItem="fWX-Cw-g1r" firstAttribute="top" secondItem="1XQ-rS-JVM" secondAttribute="bottom" constant="20" id="vU6-tL-5Xq"/>
+                            <constraint firstItem="NLJ-lo-jvj" firstAttribute="centerX" secondItem="fWX-Cw-g1r" secondAttribute="centerX" id="wA1-oa-AsT"/>
+                            <constraint firstItem="yNO-kE-mei" firstAttribute="top" secondItem="jDV-hg-VwF" secondAttribute="bottom" constant="40" id="x2x-Dr-MT1"/>
+                            <constraint firstItem="NLJ-lo-jvj" firstAttribute="top" secondItem="fWX-Cw-g1r" secondAttribute="bottom" constant="8" symbolic="YES" id="z6U-NR-dwa"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="73V-6M-RP3"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="XUb-6f-br0"/>
+                    <connections>
+                        <outlet property="eDescription" destination="NLJ-lo-jvj" id="859-On-OnD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n2V-Ej-jpp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2169" y="2963"/>
+        </scene>
+        <!--Privacy Policy-->
+        <scene sceneID="VGW-5b-cyN">
+            <objects>
+                <viewController id="nMD-6e-t7P" customClass="TQ_PrivacyPolicy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C6r-js-wus"/>
+                        <viewControllerLayoutGuide type="bottom" id="Orx-bb-3BC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6e9-eF-oUM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="drop-in-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ixc-o2-rvs">
+                                <rect key="frame" x="250" y="72" width="100" height="100"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="6yp-aI-Wgh"/>
+                                    <constraint firstAttribute="width" constant="100" id="86s-gW-oJr"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYq-bo-TFU">
+                                <rect key="frame" x="248" y="200" width="103" height="36"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Privacy Policy">
+                                    <color key="titleColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGW-t8-SVn">
+                                <rect key="frame" x="20" y="238" width="560" height="349"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">Introduction
-
-This privacy policy is designed to inform users of TENQYU (website, apps and service), collectively (the "Service") about how TENQYU, Inc. ("TENQYU" or "we") gathers and uses personal information submitted to us in connection with use of the Service. TENQYU will take all reasonable steps to protect user privacy consistent with the guidelines set forth in this policy and with applicable laws. In this policy, "user" or "you" means any person using the Service, whether by playing TENQYU, visiting the website or using our download apps. Important Disclosure By using TENQYU’s products, you are consenting to the display of your username, your Gameplay Information and Location Information (as defined below) to other TENQYU users. You can limit this disclosure by using our Privacy settings, so you should review our Privacy Policy to understand your privacy choices.
-What Information Do We Collect?
-Personal Information.
-
-TENQYU collects the following personal information in connection with the Service: (a) when you sign up to participate in TENQYU, TENQYU may collect your name, email address and/or mobile number (if playing via SMS); (b) if you are building quests on TENQYU for free, we will collect the same information as above; and (c) if you building quests on TENQYU and are paying to use our enterprise tools to do so, TENQYU will collect the name, address and credit card number of the paying customer (collectively, "Personal Information"). Names and addresses collected from corporate customers are not classified as "Personal Information". Location Tracking Information When participants play using TENQYU’s products using their mobile devices, TENQYU will collect location tracking information that tells TENQYU the locations of participants playing, based on the location of their device. We use location tracking information for the purposes of showing you nearby places, verifying your location (to stop cheaters) and enabling you to access other location-based features of the service. Gameplay Information: When participants play using TENQYU’s products, TENQYU collects information relating to participants' gameplay, such as the quests that a participant does, the time and date of completion, and the location where the quest was completed. In addition, participants may submit photos and text responses to TENQYU in the course of completing quests on TENQYU.
-Web tracking information.
-
-The Service may use web tracking technologies such as cookies and clear GIFs in order to recognize visitors to the TENQYU website and to analyze general user traffic patterns, and we collect data generated by use of such technologies. Some of this data may include data, such as IP address data, that is unique to you. How Do We Use the Information We Collect? Personal Information and Gameplay Information We will use Personal Information, Location Information and Gameplay Information for the purpose of delivering the Service to you. Aggregate Information We will also use customer information to create aggregated data for analytical purposes. This statistical information does not contain any Personal Information and is used to understand our customer base and to better serve our market. Web Tracking Technologies TENQYU only uses web tracking technologies to collect information in an aggregate form that does not identify the individual user, and only for us to understand how well our Service is working. For example, we may develop anonymous, aggregate, statistical information on usage of the TENQYU website (which we may disclose to business partners and investors), such as by keeping count of return visitors to the TENQYU website and assessing which pages of the website are most popular. This allows us to determine which features visitors like best to help us improve our Service, personalize your user experience, and measure overall effectiveness. Legal Exception Notwithstanding the above, TENQYU may in any event use Personal Information and other information collected through the Service to the extent required by law or legal process, or if in TENQYU's reasonable discretion use is necessary to protect TENQYU's legal rights or to protect third parties.
-What Information Do We Disclose to Third Parties?
-Personal Information.
-
-TENQYU does not sell or rent its mailing list, and will not disclose your Personal Information to any third parties except (i) to third party contractors engaged to provide services on behalf of TENQYU; (ii) when we have your consent to share the information; or (iii) as part of gameplay (see "Gameplay Information and Location Information" below). Gameplay Information and Location Information When you play using TENQYU’s products, your username, location information, the quests you complete, the time, date and place of completing any quests, and any photos and text responses you give when completing quests, may be displayed to other TENQYU users. By playing TENQYU, you consent to this disclosure. You can manage what Gameplay Information and Location Information is disclosed to other users by using our privacy settings, described below. Anonymous, Aggregated Information We may disclose anonymous, aggregated information to third parties such as potential business partners and funding sources, in order to describe our business and operations.
-Network operators.
-
-Use of the Service involves use of the services of third party telecommunications carriers and service providers (such as the services of the carrier that provides cellphone service to you). Such carriers and service providers are not TENQYU's contractors, and any information that a carrier collects in connection with your use of the Service is not "Personal Information" and is not subject to this Privacy Policy. TENQYU is not responsible for the acts or omissions of telecommunications carriers or service providers. TENQYU reserves the right to disclose any information TENQYU collects in connection with the Service, including Personal Information, Gameplay Information and Location Information, (a) to any successor to TENQYU's business as a result of any merger, acquisition or similar transaction; and (b) to any law enforcement, judicial authority, or governmental or regulatory authority, to the extent required by law or if in TENQYU's reasonable discretion disclosure is necessary to protect TENQYU's legal rights or to protect third parties.
-Privacy Settings/Opt Out
-
-If you turn your Privacy setting in TENQYU to share activity with "friends", your Gameplay Information and Location Information will only be displayed to participants whom you have added as TENQYU friends. If you turn your Privacy setting in TENQYU to share activity with "everyone", your Gameplay Information and Location Information will be displayed to all TENQYU users. Changing your privacy setting only changes your setting for the future; your past activity will have been displayed in accordance with the Privacy setting in place at the time you played the relevant TENQYU game. These settings can be managed conveniently from your app's "more" tab on iPhone and "settings" screen on Android. For other devices, please select settings. If you would like your Personal Information permanently removed from our mailing list or database, please contact us at info@TENQYU.com. Access and Updating of Information TENQYU is happy to allow you to review or amend your email address or contact details held in our mailing list or database, at any time. Please contact us by sending an email to: info@TENQYU.com or by using your settings panel in your account online. General Links The TENQYU website may contain links to other websites. TENQYU is not responsible for the privacy practices or the content of those websites. Users should be aware of this when they leave our website and review the privacy statements of each third party website. This Privacy Policy applies solely to information collected by the Service. Amendments TENQYU may modify or amend this policy from time to time. If we make any material changes, as determined by TENQYU, in the way in which Personal Information is collected, used or transferred, we will notify you of these changes by modification of this Privacy Policy, which will be available for review by you at the Service. Notwithstanding any modifications we may make, any Personal Information collected by TENQYU from you will be treated in accordance with the privacy policy in effect at the time information was collected, unless we obtain your consent otherwise. Children TENQYU does not knowingly collect or maintain personally identifiable information from persons under 13 years of age, and no part of the Service is directed at persons under 13. If you are under 13 years of age, then please do not use the Service or play TENQYU. If TENQYU learns that personally identifiable information of persons less than 13 years of age has been collected without verifiable parental consent, then TENQYU will take the appropriate steps to delete this information. To make such a request, please contact us at info@TENQYU.com. Service Visitors from outside the United States TENQYU is located in Singapore and its servers are located in the Japan and are subject to the applicable state and federal laws of the respective countries. If you choose to access or use the Service, you consent to the use and disclosure of information in accordance with this privacy policy and subject to such laws.
-Effective date
-Effective Date of this policy: July 1st, 2013 </string>
+</string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="Avenir-Book"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16.600000000000001" minimumLineHeight="13" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">This privacy policy is designed to inform users of TENQYU (website, apps and services), collectively (the "Service") about how TENQYU, Inc. ("TENQYU" or "we") gathers and uses personal information submitted to us in connection with use of the Service. TENQYU will take all reasonable steps to protect user privacy consistent with the guidelines set forth in this policy and with applicable laws. In this policy, "user" or "you" means any person using the Service, whether by playing TENQYU, visiting the website or using our download apps. Important Disclosure By using TENQYU’s products, you are consenting to the display of your username, your Gameplay Information and Location Information (as defined below) to other TENQYU users. You can limit this disclosure by using our Privacy settings, so you should review our Privacy Policy to understand your privacy choices.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="14" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" minimumLineHeight="14" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">What Information Do We Collect?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16.600000000000001" minimumLineHeight="13" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Personal Information.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="20.949999999999999" minimumLineHeight="10" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">TENQYU collects the following personal information in connection with the Service: (a) when you sign up to participate in TENQYU, TENQYU may collect your name, email address and/or mobile number (if playing via SMS); (b) if you are building quests on TENQYU for free, we will collect the same information as above; and (c) if you building quests on TENQYU and are paying to use our enterprise tools to do so, TENQYU will collect the name, address and credit card number of the paying customer (collectively, "Personal Information"). Names and addresses collected from corporate customers are not classified as "Personal Information". Location Tracking Information When participants play using TENQYU’s products using their mobile devices, TENQYU will collect location tracking information that tells TENQYU the locations of participants playing, based on the location of their device. We use location tracking information for the purposes of showing you nearby places, verifying your location (to stop cheaters) and enabling you to access other location-based features of the service. Gameplay Information: When participants play using TENQYU’s products, TENQYU collects information relating to participants' gameplay, such as the quests that a participant does, the time and date of completion, and the location where the quest was completed. In addition, participants may submit photos and text responses to TENQYU in the course of completing quests on TENQYU. 
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="14" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Web tracking information.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="20.949999999999999" minimumLineHeight="10" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">The Service may use web tracking technologies such as cookies and clear GIFs in order to recognize visitors to the TENQYU website and to analyze general user traffic patterns, and we collect data generated by use of such technologies. Some of this data may include data, such as IP address data, that is unique to you. How Do We Use the Information We Collect? Personal Information and Gameplay Information We will use Personal Information, Location Information and Gameplay Information for the purpose of delivering the Service to you. Aggregate Information We will also use customer information to create aggregated data for analytical purposes. This statistical information does not contain any Personal Information and is used to understand our customer base and to better serve our market. Web Tracking Technologies TENQYU only uses web tracking technologies to collect information in an aggregate form that does not identify the individual user, and only for us to understand how well our Service is working. For example, we may develop anonymous, aggregate, statistical information on usage of the TENQYU website (which we may disclose to business partners and investors), such as by keeping count of return visitors to the TENQYU website and assessing which pages of the website are most popular. This allows us to determine which features visitors like best to help us improve our Service, personalize your user experience, and measure overall effectiveness. Legal Exception Notwithstanding the above, TENQYU may in any event use Personal Information and other information collected through the Service to the extent required by law or legal process, or if in TENQYU's reasonable discretion use is necessary to protect TENQYU's legal rights or to protect third parties. 
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="14" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" minimumLineHeight="14" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">What Information Do We Disclose to Third Parties?
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16.600000000000001" minimumLineHeight="13" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Personal Information.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="20.949999999999999" minimumLineHeight="10" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">TENQYU does not sell or rent its mailing list, and will not disclose your Personal Information to any third parties except (i) to third party contractors engaged to provide services on behalf of TENQYU; (ii) when we have your consent to share the information; or (iii) as part of gameplay (see "Gameplay Information and Location Information" below). Gameplay Information and Location Information When you play using TENQYU’s products, your username, location information, the quests you complete, the time, date and place of completing any quests, and any photos and text responses you give when completing quests, may be displayed to other TENQYU users. By playing TENQYU, you consent to this disclosure. You can manage what Gameplay Information and Location Information is disclosed to other users by using our privacy settings, described below. Anonymous, Aggregated Information We may disclose anonymous, aggregated information to third parties such as potential business partners and funding sources, in order to describe our business and operations. 
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="14" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Network operators.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="20.949999999999999" minimumLineHeight="10" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Use of the Service involves use of the services of third party telecommunications carriers and service providers (such as the services of the carrier that provides cellphone service to you). Such carriers and service providers are not TENQYU's contractors, and any information that a carrier collects in connection with your use of the Service is not "Personal Information" and is not subject to this Privacy Policy. TENQYU is not responsible for the acts or omissions of telecommunications carriers or service providers. TENQYU reserves the right to disclose any information TENQYU collects in connection with the Service, including Personal Information, Gameplay Information and Location Information, (a) to any successor to TENQYU's business as a result of any merger, acquisition or similar transaction; and (b) to any law enforcement, judicial authority, or governmental or regulatory authority, to the extent required by law or if in TENQYU's reasonable discretion disclosure is necessary to protect TENQYU's legal rights or to protect third parties. 
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="14" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Privacy Settings/Opt Out 
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="20.949999999999999" minimumLineHeight="10" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">If you turn your Privacy setting in TENQYU to share activity with "friends", your Gameplay Information and Location Information will only be displayed to participants whom you have added as TENQYU friends. If you turn your Privacy setting in TENQYU to share activity with "everyone", your Gameplay Information and Location Information will be displayed to all TENQYU users. Changing your privacy setting only changes your setting for the future; your past activity will have been displayed in accordance with the Privacy setting in place at the time you played the relevant TENQYU game. These settings can be managed conveniently from your app's "more" tab on iPhone and "settings" screen on Android. For other devices, please select settings. If you would like your Personal Information permanently removed from our mailing list or database, please contact us at info@TENQYU.com. Access and Updating of Information TENQYU is happy to allow you to review or amend your email address or contact details held in our mailing list or database, at any time. Please contact us by sending an email to: info@TENQYU.com or by using your settings panel in your account online. General Links The TENQYU website may contain links to other websites. TENQYU is not responsible for the privacy practices or the content of those websites. Users should be aware of this when they leave our website and review the privacy statements of each third party website. This Privacy Policy applies solely to information collected by the Service. Amendments TENQYU may modify or amend this policy from time to time. If we make any material changes, as determined by TENQYU, in the way in which Personal Information is collected, used or transferred, we will notify you of these changes by modification of this Privacy Policy, which will be available for review by you at the Service. Notwithstanding any modifications we may make, any Personal Information collected by TENQYU from you will be treated in accordance with the privacy policy in effect at the time information was collected, unless we obtain your consent otherwise. Children TENQYU does not knowingly collect or maintain personally identifiable information from persons under 13 years of age, and no part of the Service is directed at persons under 13. If you are under 13 years of age, then please do not use the Service or play TENQYU. If TENQYU learns that personally identifiable information of persons less than 13 years of age has been collected without verifiable parental consent, then TENQYU will take the appropriate steps to delete this information. To make such a request, please contact us at info@TENQYU.com. Service Visitors from outside the United States TENQYU is located in Singapore and its servers are located in the Japan and are subject to the applicable state and federal laws of the respective countries. If you choose to access or use the Service, you consent to the use and disclosure of information in accordance with this privacy policy and subject to such laws. 
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" minimumLineHeight="14" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="6" minimumLineHeight="14" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Effective date
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="16.600000000000001" minimumLineHeight="13" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Effective Date of this policy: July 1st, 2013 
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="AvenirNext-UltraLight"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="20.949999999999999" minimumLineHeight="10" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -514,34 +800,32 @@ Effective Date of this policy: July 1st, 2013 </string>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ja3-1k-IcG" firstAttribute="top" secondItem="Sxm-Nk-Ayc" secondAttribute="bottom" constant="20" id="13E-LY-qkn"/>
-                            <constraint firstItem="yNO-kE-mei" firstAttribute="top" secondItem="ja3-1k-IcG" secondAttribute="bottom" constant="42" id="795-YI-Nt2"/>
-                            <constraint firstItem="ja3-1k-IcG" firstAttribute="leading" secondItem="NLJ-lo-jvj" secondAttribute="leading" id="HMn-wq-yfD"/>
-                            <constraint firstItem="NLJ-lo-jvj" firstAttribute="leading" secondItem="6ZN-SU-myc" secondAttribute="leadingMargin" constant="20" id="Ky5-nA-7uT"/>
-                            <constraint firstItem="Sxm-Nk-Ayc" firstAttribute="centerX" secondItem="NLJ-lo-jvj" secondAttribute="centerX" id="Yhw-K2-5wU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NLJ-lo-jvj" secondAttribute="trailing" constant="20" id="aaj-UV-i0p"/>
-                            <constraint firstItem="yNO-kE-mei" firstAttribute="top" secondItem="Sxm-Nk-Ayc" secondAttribute="bottom" constant="307" id="bLJ-Xm-crI"/>
-                            <constraint firstItem="fWX-Cw-g1r" firstAttribute="centerX" secondItem="6ZN-SU-myc" secondAttribute="centerX" id="d0p-JY-eja"/>
-                            <constraint firstItem="fWX-Cw-g1r" firstAttribute="top" secondItem="1XQ-rS-JVM" secondAttribute="bottom" constant="20" id="vU6-tL-5Xq"/>
-                            <constraint firstItem="NLJ-lo-jvj" firstAttribute="centerX" secondItem="fWX-Cw-g1r" secondAttribute="centerX" id="wA1-oa-AsT"/>
-                            <constraint firstItem="ja3-1k-IcG" firstAttribute="centerX" secondItem="NLJ-lo-jvj" secondAttribute="centerX" id="xRz-NP-KeY"/>
-                            <constraint firstItem="NLJ-lo-jvj" firstAttribute="top" secondItem="fWX-Cw-g1r" secondAttribute="bottom" constant="8" symbolic="YES" id="z6U-NR-dwa"/>
-                            <constraint firstItem="Sxm-Nk-Ayc" firstAttribute="top" secondItem="NLJ-lo-jvj" secondAttribute="bottom" constant="5" id="zPZ-57-KVN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fGW-t8-SVn" secondAttribute="trailing" id="4aY-qU-hCZ"/>
+                            <constraint firstItem="OYq-bo-TFU" firstAttribute="centerX" secondItem="ixc-o2-rvs" secondAttribute="centerX" id="CFn-nF-Sxg"/>
+                            <constraint firstItem="fGW-t8-SVn" firstAttribute="top" secondItem="OYq-bo-TFU" secondAttribute="bottom" constant="2" id="How-bz-gMD"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="fGW-t8-SVn" secondAttribute="leading" id="JhU-Iz-vp5"/>
+                            <constraint firstItem="ixc-o2-rvs" firstAttribute="centerX" secondItem="6e9-eF-oUM" secondAttribute="centerX" id="MRi-e3-5Vh"/>
+                            <constraint firstItem="Orx-bb-3BC" firstAttribute="top" secondItem="fGW-t8-SVn" secondAttribute="bottom" constant="13" id="Mp0-CV-PuP"/>
+                            <constraint firstItem="ixc-o2-rvs" firstAttribute="top" secondItem="C6r-js-wus" secondAttribute="bottom" constant="8" id="cnt-KB-JNI"/>
+                            <constraint firstItem="OYq-bo-TFU" firstAttribute="centerX" secondItem="ixc-o2-rvs" secondAttribute="centerX" id="pSq-fQ-98F"/>
+                            <constraint firstItem="OYq-bo-TFU" firstAttribute="top" secondItem="ixc-o2-rvs" secondAttribute="bottom" constant="28" id="tRX-UF-WoX"/>
+                            <constraint firstItem="ixc-o2-rvs" firstAttribute="top" secondItem="OYq-bo-TFU" secondAttribute="bottom" constant="-643" id="zk5-h7-sfo"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="bLJ-Xm-crI"/>
+                                <exclude reference="zk5-h7-sfo"/>
+                                <exclude reference="CFn-nF-Sxg"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="XUb-6f-br0"/>
+                    <navigationItem key="navigationItem" id="kj7-mM-nCs"/>
                     <connections>
-                        <outlet property="eDescription" destination="ja3-1k-IcG" id="SUJ-KG-N9t"/>
+                        <outlet property="privacyPolicy" destination="fGW-t8-SVn" id="bBf-pa-JOG"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="n2V-Ej-jpp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lAl-uR-wva" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2169" y="2963"/>
+            <point key="canvasLocation" x="2169" y="3691"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="Tfa-C0-Mxo">
@@ -1516,17 +1800,7 @@ Effective Date of this policy: July 1st, 2013 </string>
         <!--Init Page View Controller-->
         <scene sceneID="dOx-qq-tHU">
             <objects>
-                <viewController id="VOk-j7-wSr" customClass="TQInitPageViewController" sceneMemberID="viewController">
-                    <button key="view" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dER-Rr-kAe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <animations/>
-                        <state key="normal" title="Button"/>
-                        <connections>
-                            <action selector="startWalkthrough:" destination="VOk-j7-wSr" eventType="touchUpInside" id="14B-Eq-g59"/>
-                        </connections>
-                    </button>
-                </viewController>
+                <viewController id="VOk-j7-wSr" customClass="TQInitPageViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEL-gf-CyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1799" y="863"/>
@@ -1552,11 +1826,11 @@ Effective Date of this policy: July 1st, 2013 </string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1gM-YG-pdU">
-                                <rect key="frame" x="20" y="20" width="580" height="580"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="258" placeholderIntrinsicHeight="21" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZS-Hn-RQR">
-                                <rect key="frame" x="141" y="50" width="258" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="258" placeholderIntrinsicHeight="21" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZS-Hn-RQR">
+                                <rect key="frame" x="171" y="50" width="258" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1566,15 +1840,21 @@ Effective Date of this policy: July 1st, 2013 </string>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1gM-YG-pdU" firstAttribute="leading" secondItem="ElB-iW-yu4" secondAttribute="leadingMargin" constant="-20" id="0e9-mE-Dku"/>
                             <constraint firstItem="1gM-YG-pdU" firstAttribute="leading" secondItem="ElB-iW-yu4" secondAttribute="leadingMargin" id="3Sq-Kv-M6e"/>
+                            <constraint firstItem="1gM-YG-pdU" firstAttribute="centerX" secondItem="ElB-iW-yu4" secondAttribute="centerX" id="4hE-dh-mb2"/>
                             <constraint firstAttribute="trailing" secondItem="1gM-YG-pdU" secondAttribute="trailing" id="83B-6a-DBy"/>
                             <constraint firstItem="1gM-YG-pdU" firstAttribute="bottom" secondItem="89d-bj-YWf" secondAttribute="top" id="DWj-6v-LQ1"/>
                             <constraint firstItem="1gM-YG-pdU" firstAttribute="centerX" secondItem="ElB-iW-yu4" secondAttribute="centerX" id="QeI-LL-1eG"/>
+                            <constraint firstItem="EZS-Hn-RQR" firstAttribute="centerX" secondItem="ElB-iW-yu4" secondAttribute="centerX" id="ULV-JR-Q9U"/>
+                            <constraint firstItem="EZS-Hn-RQR" firstAttribute="top" secondItem="0LS-ZC-wo8" secondAttribute="bottom" constant="30" id="ZGb-Zp-QFC"/>
                             <constraint firstItem="1gM-YG-pdU" firstAttribute="centerY" secondItem="ElB-iW-yu4" secondAttribute="centerY" id="eAy-iX-osu"/>
                             <constraint firstItem="1gM-YG-pdU" firstAttribute="top" secondItem="0LS-ZC-wo8" secondAttribute="bottom" id="kIt-Sk-2Vr"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="3Sq-Kv-M6e"/>
+                                <exclude reference="83B-6a-DBy"/>
                                 <exclude reference="QeI-LL-1eG"/>
                                 <exclude reference="eAy-iX-osu"/>
                             </mask>
@@ -1643,6 +1923,25 @@ Effective Date of this policy: July 1st, 2013 </string>
             </objects>
             <point key="canvasLocation" x="1175.625" y="2963.0281690140841"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="244-VL-r4I">
+            <objects>
+                <navigationController storyboardIdentifier="PRIVACY_POLICY" automaticallyAdjustsScrollViewInsets="NO" id="sUF-zb-d2M" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kNI-Zh-u13">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nMD-6e-t7P" kind="relationship" relationship="rootViewController" id="5F8-7P-dGw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Bf-8U-9pV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175" y="3691"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Edition_Edition-10-01.png" width="61" height="61"/>
@@ -1655,6 +1954,7 @@ Effective Date of this policy: July 1st, 2013 </string>
         <image name="clock.png" width="73" height="75"/>
         <image name="di_menu_item_about.png" width="553" height="80"/>
         <image name="di_menu_item_drops.png" width="553" height="80"/>
+        <image name="di_menu_item_privacy.png" width="553" height="80"/>
         <image name="drop-in-logo.png" width="806" height="1313"/>
         <image name="fav.png" width="74" height="71"/>
         <image name="iTunesArtwork.png" width="512" height="512"/>
@@ -1672,4 +1972,7 @@ Effective Date of this policy: July 1st, 2013 </string>
         <image name="url.png" width="73" height="78"/>
         <image name="vertical_line.png" width="2" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="F6X-Rd-5TQ"/>
+    </inferredMetricsTieBreakers>
 </document>

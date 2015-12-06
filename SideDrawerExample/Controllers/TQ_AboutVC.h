@@ -14,9 +14,11 @@
     
     UITextView *eDescription;
     
+    
 }
 
 
 @property (retain, nonatomic) IBOutlet UITextView *eDescription;
+
 
 @end

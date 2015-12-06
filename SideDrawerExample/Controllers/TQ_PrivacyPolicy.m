@@ -1,27 +1,26 @@
 //
-//  TQ_AboutVC.m
+//  TQ_PrivacyPolicy.m
 //  dropin
 //
-//  Created by tenqyu on 11/10/15.
+//  Created by tenqyu on 7/12/15.
 //  Copyright © 2015 tenqyu. All rights reserved.
 //
 
-#import "TQ_AboutVC.h"
+#import "TQ_PrivacyPolicy.h"
 #import "MMDrawerBarButtonItem.h"
 #import "UIViewController+MMDrawerController.h"
 
 
-@interface TQ_AboutVC ()
+@interface TQ_PrivacyPolicy ()
 
 @end
 
-@implementation TQ_AboutVC
+@implementation TQ_PrivacyPolicy
 
-@synthesize eDescription;
+@synthesize privacyPolicy;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self setupLeftMenuButton];
     
     UILabel *lblTitle = [[UILabel alloc] init];
@@ -38,8 +37,8 @@
 
 - (void)viewDidLayoutSubviews {
     
-    [self.eDescription setContentOffset:CGPointZero animated:NO];
-
+    [self.privacyPolicy setContentOffset:CGPointZero animated:NO];
+    
 }
 
 - (void)setupLeftMenuButton {
