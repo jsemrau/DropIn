@@ -23,6 +23,7 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *distanceLabel;
 @property (nonatomic, retain) IBOutlet UILabel *timeLabel;
+@property (nonatomic, retain) IBOutlet UIImageView *logo;
 
 //- (IBAction)distanceSettingUpdate:(id)sender;
 -(IBAction)distanceSliderChanged:(id)sender;

@@ -11,7 +11,10 @@
 @implementation lotCell
 
 @synthesize title,goingCount, maxCount, distance, inXMinutes,price;
-@synthesize lotViewIndicator;
+@synthesize lotViewIndicator,category,catLabel;
+@synthesize priceInd1,priceInd2,priceInd3,priceInd4 ;
+@synthesize priceLabel1,priceLabel2,priceLabel3 ;
+
 
 
 - (void)awakeFromNib {

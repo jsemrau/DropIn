@@ -56,6 +56,7 @@
 @property(nonatomic, retain) IBOutlet UIView * cityHeader ;
 @property(nonatomic, retain) IBOutlet UILabel *messagerLabel;
 @property(nonatomic, retain) IBOutlet UIImageView * loading ;
+@property(nonatomic, retain) IBOutlet UIImageView * whiter ;
 @property(nonatomic )bool needsUpdates;
 @property(nonatomic )bool weatherNeedsUpdates;
 
@@ -66,8 +67,9 @@
 
 - (void) playSound:(NSString*) path;
 - (IBAction)refreshButtonPress:(id)sender;
+
 -(IBAction) sortByDate :(id)sender ;
 -(IBAction) sortByDistance :(id)sender;
-
+-(IBAction) sortByCategory :(id)sender;
 
 @end

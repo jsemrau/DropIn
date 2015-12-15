@@ -17,7 +17,7 @@
 
 @implementation TQ_SettingsVC
 
-@synthesize dSlide,tSlide,distanceLabel,timeLabel,saveButton;
+@synthesize dSlide,tSlide,distanceLabel,timeLabel,saveButton, logo;
 
 - (void) viewWillAppear:(BOOL)animated{
     
@@ -113,6 +113,8 @@
     
     }
     
+    [self.view sendSubviewToBack:self.logo];
+    
 }
 
 - (void)setupLeftMenuButton {
@@ -135,7 +137,8 @@
     
     UISlider *slider = (UISlider *)sender;
     
-    int newVal = (int)lroundf(slider.value) < 50? (int)lroundf(slider.value): 1;
+    int newVal = (int)lroundf(slider.value);
+    // < 50? (int)lroundf(slider.value): 1;
     
     distanceLabel.text = [NSString stringWithFormat:@"%d", newVal];
 }
@@ -144,7 +147,8 @@
     
     UISlider *slider = (UISlider *)sender;
 
-    int newVal = (int)lroundf(slider.value)< 24 ? (int)lroundf(slider.value) : 1;
+    int newVal = (int)lroundf(slider.value);
+    //< 24 ? (int)lroundf(slider.value) : 1;
     
     if (newVal<1) {
         newVal=1;

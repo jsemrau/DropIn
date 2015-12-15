@@ -141,6 +141,8 @@
         
         self.vAddress.text=[placemark.addressDictionary objectForKey:(NSString*) kABPersonAddressStreetKey];
         
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
     }];
     
     
@@ -318,7 +320,7 @@
         qItem = (MapOverlay*)[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"qView"];
         qItem.canShowCallout = YES;
         
-        UIImage *pinImage = [UIImage imageNamed:@"pk_tbl_icon_marker_blue.png"];
+        UIImage *pinImage = [UIImage imageNamed:@"drop-logo 33x20.png"];
         [qItem setImage:pinImage];
         
         //rightButton.imageView.image=pinImage;

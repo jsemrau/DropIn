@@ -17,7 +17,7 @@
 
 @implementation PGFirstViewController
 
-@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader;
+@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter;
 
 -(void) viewWillAppear:(BOOL)animated{
     
@@ -121,19 +121,7 @@
         
     }
     
-    
-    
-    bool isSimulator=false;
-    self.needsUpdates=false;
-    
-    if(isSimulator && self.needsUpdates){
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
-        [webby setDelegate:self];
-        [webby submitLocationScan:(double)1.292771 andLong:(double)103.859343];
-        // [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude];
-        gettingUpdates=YES;
-    }
+
     
     [self.eventTable reloadData];
     
@@ -155,7 +143,7 @@
         [self.eventTable sendSubviewToBack:refreshControl];
     }
     
-    if(!self.navigationItem.titleView){
+   /* if(!self.navigationItem.titleView){
    
         UILabel *lblTitle = [[UILabel alloc] init];
         lblTitle.text = @"Upcoming";
@@ -168,11 +156,23 @@
         
     self.navigationItem.titleView = lblTitle;
     }
+    */
     
     self.cityHeader.layer.shadowColor = [UIColor grayColor].CGColor;
     self.cityHeader.layer.shadowOffset = CGSizeMake(0, 2);
     self.cityHeader.layer.shadowOpacity = 0.5;
     self.cityHeader.layer.shadowRadius = 1.0;
+    
+    /*
+    UIVisualEffect *blurEffect;
+    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    
+    UIVisualEffectView *visualEffectView;
+    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    
+    visualEffectView.frame = whiter.bounds;
+    [whiter addSubview:visualEffectView];
+    */
     
 }
 
@@ -314,6 +314,80 @@
             cell.inXMinutes.text=@"expired";
             cell.inXMinutes.textColor=[UIColor redColor];
         }
+        
+        NSLog(@" %@" , [text valueForKey:@"category"]);
+        
+        if ([[text valueForKey:@"category"] isEqualToString:@"Arts"]) {
+            cell.category.image = [UIImage imageNamed:@"arts.png"];
+        }
+        
+        else if ([[text valueForKey:@"category"] isEqualToString:@"Business"]) {
+            cell.category.image = [UIImage imageNamed:@"business.png"];
+        }
+        
+        else if ([[text valueForKey:@"category"] isEqualToString:@"Education"]) {
+            cell.category.image = [UIImage imageNamed:@"education.png"];
+        }
+        
+        else if ([[text valueForKey:@"category"] isEqualToString:@"Entertainment"]) {
+            cell.category.image = [UIImage imageNamed:@"entertainment.png"];
+        }
+        
+        else if ([[text valueForKey:@"category"] isEqualToString:@"Family"]) {
+            cell.category.image = [UIImage imageNamed:@"family.png"];
+        }
+        
+        else if ([[text valueForKey:@"category"] isEqualToString:@"Food"]) {
+            cell.category.image = [UIImage imageNamed:@"food.png"];
+        }
+        
+        else if ([[text valueForKey:@"category"] isEqualToString:@"Mass"]) {
+            cell.category.image = [UIImage imageNamed:@"mass.png"];
+        }
+        
+        else if ([[text valueForKey:@"category"] isEqualToString:@"Meeting"]) {
+            cell.category.image = [UIImage imageNamed:@"meeting.png"];
+        }
+        
+        else if ([[text valueForKey:@"category"] isEqualToString:@"Other"]) {
+            cell.category.image = [UIImage imageNamed:@"other.png"];
+        }
+        
+        
+        else if ([[text valueForKey:@"category"] isEqualToString:@"Sports"]) {
+            cell.category.image = [UIImage imageNamed:@"sports.png"];
+        }
+        
+        else if ([[text valueForKey:@"category"] isEqualToString:@"Social"]) {
+            cell.category.image = [UIImage imageNamed:@"social.png"];
+        }
+        
+        else if ([[text valueForKey:@"category"] isEqualToString:@"Tech"]) {
+           
+            cell.category.image = [UIImage imageNamed:@"tech.png"];
+            
+        } else {
+            
+            cell.category.image = [UIImage imageNamed:@"other.png"];
+            
+        }
+        
+        
+        /* Rounded Edges */
+        
+        //CGSizeMake(3.0,3.0)
+        //CGSizeMake(cell.category.frame.size.width/2, cell.category.frame.size.height/2)
+        UIBezierPath *maskPathIcon = [UIBezierPath bezierPathWithRoundedRect:cell.category.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
+        // Create the shape layer and set its path
+        CAShapeLayer *maskLayerIcon = [CAShapeLayer layer];
+        maskLayerIcon.frame = cell.category.bounds;
+        maskLayerIcon.path = maskPathIcon.CGPath;
+        // Set the newly created shape layer as the mask for the image view's layer
+       cell.category.layer.mask = maskLayerIcon;
+       cell.category.clipsToBounds = NO;
+        
+        
+        
        
         NSString *maxTest;
         if ([[text valueForKey:@"max_count"] isEqualToString:@"0"]){
@@ -340,6 +414,49 @@
             
             
         }
+        
+        UIImage *filledPerson = [UIImage imageNamed:@"personRun_blue.png"];
+        
+        int counter = [[text valueForKey:@"going_count"] integerValue ];
+        
+        if (0 <  counter  && counter  <10 ){
+            
+            cell.favInd1.image=filledPerson;
+            cell.favInd1.alpha=1.0;
+            cell.favInd2.alpha=0.25;
+            cell.favInd3.alpha=0.25;
+            
+        } else if (10 <=  counter  && counter  <50) {
+         
+            cell.favInd1.image=filledPerson;
+            cell.favInd2.image=filledPerson;
+            
+            cell.favInd1.alpha=1.0;
+            cell.favInd2.alpha=1.0;
+            cell.favInd3.alpha=0.25;
+            
+            
+        } else if (50 <= counter ) {
+            
+            
+            cell.favInd1.image=filledPerson;
+            cell.favInd2.image=filledPerson;
+            cell.favInd3.image=filledPerson;
+            
+            cell.favInd1.alpha=1.0;
+            cell.favInd2.alpha=1.0;
+            cell.favInd3.alpha=1.0;
+            
+          
+            
+        } else {
+            
+            cell.favInd1.alpha=0.25;
+            cell.favInd2.alpha=0.25;
+            cell.favInd3.alpha=0.25;
+            
+        }
+        
         
         float dist = [[text objectForKey:@"distance"] floatValue];
         if (dist>=1) {
@@ -371,24 +488,99 @@
             NSNumber *someAmount = [NSNumber numberWithFloat:[priceTest floatValue]];
             NSString *priceString = [currencyFormatter stringFromNumber:someAmount];
             
+            NSLog(@" Float %@", someAmount);
+            //UIImage *filledCoin = [UIImage imageNamed:@"filledCoin.png"];
+            //UIImage *notfilledCoin = [UIImage imageNamed:@"notfilledCoin.png"];
+            
+            cell.priceLabel1.text = [currencyFormatter currencySymbol];
+            cell.priceLabel2.text = [currencyFormatter currencySymbol];
+            cell.priceLabel3.text = [currencyFormatter currencySymbol];
+            
+            
+            if ([someAmount floatValue] > 50.00) {
+                
+               /* cell.priceInd1.image=filledCoin;
+                cell.priceInd2.image=filledCoin;
+                cell.priceInd3.image=filledCoin;
+                */
+                
+                cell.priceLabel1.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
+                cell.priceLabel2.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
+                cell.priceLabel3.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
+                
+                cell.priceLabel1.alpha=1.0;
+                cell.priceLabel2.alpha=1.0;
+                cell.priceLabel3.alpha=1.0;
+                
+                
+                
+           } else if (10 < [someAmount floatValue] && [someAmount floatValue] <= 50.0) {
+               
+              /* cell.priceInd1.image=filledCoin;
+               cell.priceInd2.image=filledCoin;*/
+               
+               cell.priceLabel1.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
+               cell.priceLabel2.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
+               
+               cell.priceLabel1.alpha=1.0;
+               cell.priceLabel2.alpha=1.0;
+               cell.priceLabel3.alpha=0.25;
+             
+           }else if (1 <= [someAmount floatValue]&&[someAmount floatValue] <= 10.0) {
+            
+              // cell.priceInd1.image=filledCoin;
+               
+               cell.priceLabel1.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
+               cell.priceLabel1.alpha=1.0;
+               cell.priceLabel2.alpha=0.25;
+               cell.priceLabel3.alpha=0.25;
+               
+           } else {
+             //Free
+               
+               cell.priceLabel1.alpha=0.25;
+               cell.priceLabel2.alpha=0.25;
+               cell.priceLabel3.alpha=0.25;
+               
+           }
+            
+            
             
         if ([priceTest isEqualToString:@"0"]||[priceTest isEqualToString:@"0.00"]){
           
+            cell.priceInd1.alpha=1;
+            cell.priceInd2.alpha=1;
+            cell.priceInd3.alpha=1;
             
             
-            cell.price.text=@"Free";
-            
-            // }
         }else{
-          cell.price.text=priceString;
+            
+            cell.price.alpha=0.0;
+            cell.price.text=[priceString lowercaseString];
         }
-                    
+            
+        
+        //if pricetest is not a number
+        
         } else {
             
+            NSLog(@" String : %@", priceTest);
+
             //if not a number and there is nothing about prices, take the default string
-            cell.price.text=priceTest;
+            // cell.priceInd1.alpha=1;
+            //cell.priceInd2.alpha=1;
+            //cell.priceInd3.alpha=1;
+         
+            cell.priceLabel1.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
+            cell.priceLabel1.alpha=1.0;
+            cell.priceLabel2.alpha=0.25;
+            cell.priceLabel3.alpha=0.25;
+
+            
+            //cell.price.text=[priceTest lowercaseString];
             
         }
+        
         
         
         /*
@@ -436,7 +628,17 @@
         
     }
     
-    
+    /*
+    if (indexPath.row % 2) {
+        
+        cell.contentView.backgroundColor = [UIColor colorWithRed:218.0/255.0 green:218.0/255.0 blue:218.0/255.0 alpha:1.0];
+        
+    } else {
+        
+        cell.contentView.backgroundColor = [[UIColor alloc]initWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1];
+        
+    }
+    */
     
     return cell;
     
@@ -592,6 +794,8 @@
         
     }
     
+    NSLog(@" source *** %@",[text valueForKey:@"source"] );
+    
     if([[text valueForKey:@"source"] isEqualToString:@"meetup.com"] ){
      eventDetails.vSource.image = [UIImage imageNamed:@"meetup.png"];
     }
@@ -707,6 +911,7 @@
 - (void)notificationsReceived:(NSDictionary *)resultData{
     
     //You ned to set "count" new updates.
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     self.notiDictionary=[resultData mutableCopy];
     
@@ -729,6 +934,8 @@
 {
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     
     self.loader.alpha=0.0;
     //[self fadeOutImage];
@@ -855,6 +1062,17 @@
     
     AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &soundID);
     AudioServicesPlaySystemSound (soundID);
+    
+}
+
+-(IBAction) sortByCategory :(id)sender {
+    
+    
+    NSSortDescriptor *dateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"category" ascending:YES];
+    self.eventList  = [self.eventList  sortedArrayUsingDescriptors:@[dateSortDescriptor]];
+    
+    [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    
     
 }
 
