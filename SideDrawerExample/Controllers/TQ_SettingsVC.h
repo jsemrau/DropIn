@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PGFirstViewController.h"
+
 
 @interface TQ_SettingsVC : UIViewController <UIAlertViewDelegate>
 
@@ -25,8 +27,24 @@
 @property (nonatomic, retain) IBOutlet UILabel *timeLabel;
 @property (nonatomic, retain) IBOutlet UIImageView *logo;
 
+@property (nonatomic, retain) IBOutlet UIButton *artsButton;
+@property (nonatomic, retain) IBOutlet UIButton *businessButton;
+@property (nonatomic, retain) IBOutlet UIButton *educationButton;
+@property (nonatomic, retain) IBOutlet UIButton *entertainmentButton;
+@property (nonatomic, retain) IBOutlet UIButton *familyButton;
+@property (nonatomic, retain) IBOutlet UIButton *foodButton;
+@property (nonatomic, retain) IBOutlet UIButton *massButton;
+@property (nonatomic, retain) IBOutlet UIButton *meetingButton;
+@property (nonatomic, retain) IBOutlet UIButton *otherButton;
+@property (nonatomic, retain) IBOutlet UIButton *socialButton;
+@property (nonatomic, retain) IBOutlet UIButton *sportsButton;
+@property (nonatomic, retain) IBOutlet UIButton *techButton;
+
+@property (nonatomic, retain) NSMutableDictionary *prefCats; //there are 12 categories
+
 //- (IBAction)distanceSettingUpdate:(id)sender;
 -(IBAction)distanceSliderChanged:(id)sender;
 -(IBAction)timeSliderChanged:(id)sender ;
+-(IBAction)buttonSelected:(id)sender ;
 
 @end

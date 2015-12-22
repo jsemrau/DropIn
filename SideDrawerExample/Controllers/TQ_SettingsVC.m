@@ -32,6 +32,87 @@
     [self.tSlide setMinimumTrackImage: sliderLeftTrackImage forState: UIControlStateNormal];
     [self.tSlide setMaximumTrackImage: sliderRightTrackImage forState: UIControlStateNormal];
     
+    NSUserDefaults *prefs;
+    
+    prefs= [NSUserDefaults standardUserDefaults];
+    self.prefCats=[[prefs objectForKey:@"pref_Categories"] mutableCopy] ;
+    
+    //Loop over categories
+    
+    
+    if ([[self.prefCats valueForKey:@"Arts"] isEqualToString:@"0"]) {
+        self.artsButton.selected=TRUE;
+    } else {
+        self.artsButton.selected=FALSE;
+    }
+    
+    if ([[self.prefCats valueForKey:@"Business"] isEqualToString:@"0"]) {
+        self.businessButton.selected=TRUE;
+    } else {
+        self.businessButton.selected=FALSE;
+    }
+    
+    if ([[self.prefCats valueForKey:@"Education"] isEqualToString:@"0"]) {
+        self.educationButton.selected=TRUE;
+    } else {
+        self.educationButton.selected=FALSE;
+    }
+    
+    if ([[self.prefCats valueForKey:@"Entertainment"] isEqualToString:@"0"]) {
+        self.entertainmentButton.selected=TRUE;
+    } else {
+        self.entertainmentButton.selected=FALSE;
+    }
+    
+    if ([[self.prefCats valueForKey:@"Family"] isEqualToString:@"0"]) {
+        self.familyButton.selected=TRUE;
+    } else {
+        self.familyButton.selected=FALSE;
+    }
+    
+    if ([[self.prefCats valueForKey:@"Food"] isEqualToString:@"0"]) {
+        self.foodButton.selected=TRUE;
+    } else {
+        self.foodButton.selected=FALSE;
+    }
+    
+    if ([[self.prefCats valueForKey:@"Social"] isEqualToString:@"0"]) {
+        self.socialButton.selected=TRUE;
+    } else {
+        self.socialButton.selected=FALSE;
+    }
+    
+    if ([[self.prefCats valueForKey:@"Large"] isEqualToString:@"0"]) {
+        self.massButton.selected=TRUE;
+    } else {
+        self.massButton.selected=FALSE;
+    }
+    
+    if ([[self.prefCats valueForKey:@"Meeting"] isEqualToString:@"0"]) {
+        self.meetingButton.selected=TRUE;
+    } else {
+        self.meetingButton.selected=FALSE;
+    }
+    
+    if ([[self.prefCats valueForKey:@"Sports"] isEqualToString:@"0"]) {
+        self.sportsButton.selected=TRUE;
+    } else {
+        self.sportsButton.selected=FALSE;
+    }
+    
+    if ([[self.prefCats valueForKey:@"Tech"] isEqualToString:@"0"]) {
+        self.techButton.selected=TRUE;
+    } else {
+        self.techButton.selected=FALSE;
+    }
+    
+    if ([[self.prefCats valueForKey:@"Other"] isEqualToString:@"0"]) {
+        self.otherButton.selected=TRUE;
+    } else {
+        self.otherButton.selected=FALSE;
+    }
+    
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,48 +137,7 @@
     self.dSlide.value=dVal;
     self.tSlide.value=tVal;
     
-   /* CGRect minuteSliderFrame = CGRectMake(5, 170, 310, 310);
-    dSlide = [[EFCircularSlider alloc] initWithFrame:minuteSliderFrame];
-    dSlide.unfilledColor = [UIColor colorWithRed:215/255.0f green:215/255.0f blue:215/255.0f alpha:1.0f];
-    dSlide.filledColor = [UIColor colorWithRed:44/255.0f green:174/255.0f blue:228/255.0f alpha:1.0f];
-    [dSlide setInnerMarkingLabels:@[@" 5", @"10", @"15", @"20", @"25", @"30"]];
-    
-    dSlide.labelFont = [UIFont systemFontOfSize:23.0f];
-    dSlide.lineWidth = 16;
-    dSlide.minimumValue = 1;
-    dSlide.maximumValue = 30;
-    dSlide.labelColor = [UIColor colorWithRed:137/255.0f green:137/255.0f blue:137/255.0f alpha:1.0f];
-    dSlide.handleType = EFSemiTransparentWhiteCircle;
-    dSlide.handleType=1;
-    dSlide.handleColor =[UIColor whiteColor];
-    //dSlide.filledColor;
-    [self.view addSubview:dSlide];
-    [dSlide addTarget:self action:@selector(distanceSliderChanged:) forControlEvents:UIControlEventValueChanged];
-    
-    CGRect hourSliderFrame = CGRectMake(55, 220, 210, 210);
-    tSlide = [[EFCircularSlider alloc] initWithFrame:hourSliderFrame];
-    tSlide.unfilledColor = [UIColor colorWithRed:235/255.0f green:235/255.0f blue:235/255.0f alpha:1.0f];
-    tSlide.filledColor = [UIColor colorWithRed:51/255.0f green:182/255.0f blue:232/255.0f alpha:1.0f];
-    
-    [tSlide setInnerMarkingLabels:@[@" 6", @" 12", @"18",@"24"]];
   
-    tSlide.labelFont = [UIFont systemFontOfSize:23.0f];
-    tSlide.lineWidth = 16;
-    tSlide.snapToLabels = NO;
-    tSlide.minimumValue = 1;
-    tSlide.maximumValue = 24;
-    tSlide.labelColor = [UIColor colorWithRed:137/255.0f green:137/255.0f blue:137/255.0f alpha:1.0f];
-    tSlide.handleType = EFSemiTransparentWhiteCircle;
-    tSlide.handleColor = [UIColor whiteColor];
-    //tSlide.filledColor;
-    [self.view addSubview:tSlide];
-    [tSlide addTarget:self action:@selector(timeSliderChanged:) forControlEvents:UIControlEventValueChanged];
-    
-    self.dSlide.currentValue=dVal;
-    self.tSlide.currentValue=tVal;
-    
-    */
-    
     if(!self.navigationItem.titleView){
     
     UILabel *lblTitle = [[UILabel alloc] init];
@@ -112,6 +152,8 @@
     self.navigationItem.titleView = lblTitle;
     
     }
+    
+   
     
     [self.view sendSubviewToBack:self.logo];
     
@@ -228,6 +270,9 @@
     [[NSUserDefaults standardUserDefaults] setObject:savedDic forKey:@"lastSaved"] ;
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    [[NSUserDefaults standardUserDefaults] setObject:self.prefCats forKey:@"pref_Categories"] ;
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     //present existing values
     self.distanceLabel.text = [NSString stringWithFormat:@"%d", (int)self.dSlide.value];
     
@@ -243,15 +288,157 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-   
-    UIViewController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FIRST_TOP_VIEW_CONTROLLER"];
     
+    UINavigationController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FIRST_TOP_VIEW_CONTROLLER"];
+    PGFirstViewController *vc= [centerViewController.viewControllers objectAtIndex:0];
+    vc.hasUpdates=TRUE;
     
-  //  [[self navigationController] presentViewController:centerViewController animated:YES completion:nil];
+    //  [[self navigationController] presentViewController:centerViewController animated:YES completion:nil];
     
     [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
     
 }
+-(IBAction)buttonSelected:(id)sender {
+    
+    UIButton *btn = (UIButton*)sender;
+    
+    NSLog(@" button %@", btn.currentTitle);
+    
+    
+    if([btn.currentTitle isEqualToString:@"Arts"]){
+        
+        if (self.artsButton.selected) {
+            [self.artsButton setSelected:NO];
+            [self.prefCats setValue:@"1" forKey:@"Arts"];
+            
+        } else {
+            [self.artsButton setSelected:YES];
+            [self.prefCats setValue:@"0" forKey:@"Arts"];
+            
+            
+        }
+        
+    } else if ([btn.currentTitle isEqualToString:@"Business"]) {
+    
+        if (self.businessButton.selected) {
+            [self.businessButton setSelected:NO];
+            [self.prefCats setValue:@"1" forKey:@"Business"];
+        } else {
+            [self.businessButton setSelected:YES];
+            [self.prefCats setValue:@"0" forKey:@"Business"];
+        }
+        
+    } else if ([btn.currentTitle isEqualToString:@"Education"]) {
+    
+        if (self.educationButton.selected) {
+            [self.educationButton setSelected:NO];
+            [self.prefCats setValue:@"1" forKey:@"Education"];
+        } else {
+            [self.educationButton setSelected:YES];
+            [self.prefCats setValue:@"0" forKey:@"Education"];
+        }
+        
+    } else if ([btn.currentTitle isEqualToString:@"Entertainment"]) {
+        
+        if (self.entertainmentButton.selected) {
+            [self.entertainmentButton setSelected:NO];
+            [self.prefCats setValue:@"1" forKey:@"Entertainment"];
+        } else {
+            [self.entertainmentButton setSelected:YES];
+            [self.prefCats setValue:@"0" forKey:@"Entertainment"];
+        }
+    
+    } else if ([btn.currentTitle isEqualToString:@"Family"]) {
+        
+        if (self.familyButton.selected) {
+            [self.familyButton setSelected:NO];
+            [self.prefCats setValue:@"1" forKey:@"Family"];
+        } else {
+            [self.familyButton setSelected:YES];
+            [self.prefCats setValue:@"0" forKey:@"Family"];
+        }
+        
+    } else if ([btn.currentTitle isEqualToString:@"Food"]) {
+        
+        if (self.foodButton.selected) {
+            [self.foodButton setSelected:NO];
+            [self.prefCats setValue:@"1" forKey:@"Food"];
+        } else {
+            [self.foodButton setSelected:YES];
+            [self.prefCats setValue:@"0" forKey:@"Food"];
+        }
+        
+    } else if ([btn.currentTitle isEqualToString:@"Large"]) {
+        
+        if (self.massButton.selected) {
+            [self.massButton setSelected:NO];
+            [self.prefCats setValue:@"1" forKey:@"Large"];
+        } else {
+            [self.massButton setSelected:YES];
+            [self.prefCats setValue:@"0" forKey:@"Large"];
+        }
+        
+    } else if ([btn.currentTitle isEqualToString:@"Meeting"]) {
+        
+        if (self.meetingButton.selected) {
+            [self.meetingButton setSelected:NO];
+            [self.prefCats setValue:@"1" forKey:@"Meeting"];
+        } else {
+            [self.meetingButton setSelected:YES];
+            [self.prefCats setValue:@"0" forKey:@"Meeting"];
+        }
+        
+    } else if ([btn.currentTitle isEqualToString:@"Other"]) {
+        
+        if (self.otherButton.selected) {
+            [self.otherButton setSelected:NO];
+            [self.prefCats setValue:@"1" forKey:@"Other"];
+        } else {
+            [self.otherButton setSelected:YES];
+            [self.prefCats setValue:@"0" forKey:@"Other"];
+        }
+        
+    } else if ([btn.currentTitle isEqualToString:@"Social"]) {
+        
+        if (self.socialButton.selected) {
+            [self.socialButton setSelected:NO];
+            [self.prefCats setValue:@"1" forKey:@"Social"];
+        } else {
+            [self.socialButton setSelected:YES];
+            [self.prefCats setValue:@"0" forKey:@"Social"];
+        }
+        
+    } else if ([btn.currentTitle isEqualToString:@"Sports"]) {
+        
+        if (self.sportsButton.selected) {
+            [self.sportsButton setSelected:NO];
+            [self.prefCats setValue:@"1" forKey:@"Sports"];
+        } else {
+            [self.sportsButton setSelected:YES];
+            [self.prefCats setValue:@"0" forKey:@"Sports"];
+        }
+        
+    } else if ([btn.currentTitle isEqualToString:@"Tech"])  {
+        
+        if (self.techButton.selected) {
+            [self.techButton setSelected:NO];
+            [self.prefCats setValue:@"1" forKey:@"Tech"];
+        } else {
+            [self.techButton setSelected:YES];
+            [self.prefCats setValue:@"0" forKey:@"Tech"];
+        }
+            
+    }   else {
+        
+    
+    }
+    
+    NSLog(@" Dictionary %@", self.prefCats);
+    
+    
+}
+
+
 
 /*
 #pragma mark - Navigation

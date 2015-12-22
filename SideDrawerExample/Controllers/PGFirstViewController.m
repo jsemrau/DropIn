@@ -17,7 +17,7 @@
 
 @implementation PGFirstViewController
 
-@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter;
+@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter,prefCats,hasCategories,hasUpdates;
 
 -(void) viewWillAppear:(BOOL)animated{
     
@@ -25,6 +25,13 @@
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"likedItems"];
     [[NSUserDefaults standardUserDefaults] synchronize];
    */
+    
+    if (self.hasUpdates) {
+        
+        [self refreshButtonPress:self];
+    }
+    
+    self.hasCategories=TRUE;
     
     [self setupLeftMenuButton];
     
@@ -76,14 +83,7 @@
     self.eventTable = eventTable;
     
     
-    
-  
-   // NSMutableDictionary *userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
-    
-  //  NSLog(@"User registered with ID %i" , [[userDetails objectForKey:@"id"] intValue]);
-  //  NSLog(@"User registered with email %@" , [userDetails objectForKey:@"email"]);
-    
-    /*
+  /*
     
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"submitScan"];
     [webby setDelegate:self];
@@ -92,19 +92,55 @@
     NSUserDefaults *prefs;
     NSArray *eventDetails;
     
-    prefs= [NSUserDefaults standardUserDefaults];
-    self.likedIDs=[[prefs objectForKey:@"likedItems"] mutableCopy];
     
+    prefs= [NSUserDefaults standardUserDefaults];
+    
+    //Try to load the prefcat
+    self.prefCats =[prefs objectForKey:@"pref_Categories"];
+    
+    if (!self.prefCats) {
+        //if there is no prefcat
+        //  NSMutableDictionary
+        self.prefCats = [[NSDictionary alloc] initWithObjectsAndKeys:
+                         @"1",@"Arts",
+                         @"1",@"Business",
+                         @"1",@"Education",
+                         @"1",@"Entertainment",
+                         @"1",@"Family",
+                         @"1",@"Food",
+                         @"1",@"Social",
+                         @"1",@"Large",
+                         @"1",@"Meeting",
+                         @"1",@"Sports",
+                         @"1",@"Tech",
+                         @"1",@"Other"
+                         ,nil] ;
+        
+        [[NSUserDefaults standardUserDefaults] setObject:self.prefCats forKey:@"pref_Categories"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    self.likedIDs=[[prefs objectForKey:@"likedItems"] mutableCopy];
     //if I don't already have data
     if ([self.eventList count]==0) {
         
         
          eventDetails= [prefs objectForKey:@"currentEvents"];
+ 
+        /**
+         Need to filter here too
+         **/
         
-        
-
         if ([eventDetails count]>0){
             self.eventList=eventDetails;
+            self.filteredEventList=[self filterArrayWithCategories:self.eventList];
+            
+            if ([self.filteredEventList count]==0){
+                
+                self.filteredEventList=self.eventList;
+                
+            }
+            
             [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
             
         } else {
@@ -112,7 +148,7 @@
             self.needsUpdates=TRUE;
             //self.eventTable.alpha=0.0;
             [self fadeOutTableView];
-            [self fadeInImage];
+            [self fadeInImage];\
             //self.loader.alpha=1.0;
             [self startingLoadingAnimation];
             
@@ -121,7 +157,6 @@
         
     }
     
-
     
     [self.eventTable reloadData];
     
@@ -213,6 +248,7 @@
     [self startingLoadingAnimation];
     //data not available anymore
     self.eventList=nil;
+    self.filteredEventList=nil;
     self.needsUpdates=TRUE;
     
    // NSLog(@" current location lat %f and lng %f", self.currentLocation.coordinate.latitude,self.currentLocation.coordinate.longitude
@@ -241,6 +277,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
+    
     static NSString *CellIdentifier = @"lotCell";
     
     lotCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -248,8 +285,6 @@
     if (!cell) {
         //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         // More initializations if needed.
-        
-        //   NSLog(@"Made new cell");
         
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"lotCell" owner:self options:nil];
         
@@ -264,10 +299,12 @@
     }
     
     
-    if ([self.eventList count]>0){
+    
+    if ([self.filteredEventList count]>0){
         
         
-        NSDictionary *text=[self.eventList objectAtIndex:indexPath.row];
+        NSDictionary *text=[self.filteredEventList objectAtIndex:indexPath.row];
+        NSString * test = [text objectForKey:@"category"];
         
         
         cell.title.text=[text objectForKey:@"title"];
@@ -315,8 +352,7 @@
             cell.inXMinutes.textColor=[UIColor redColor];
         }
         
-        NSLog(@" %@" , [text valueForKey:@"category"]);
-        
+    
         if ([[text valueForKey:@"category"] isEqualToString:@"Arts"]) {
             cell.category.image = [UIImage imageNamed:@"arts.png"];
         }
@@ -423,8 +459,8 @@
             
             cell.favInd1.image=filledPerson;
             cell.favInd1.alpha=1.0;
-            cell.favInd2.alpha=0.25;
-            cell.favInd3.alpha=0.25;
+            cell.favInd2.alpha=0.35;
+            cell.favInd3.alpha=0.35;
             
         } else if (10 <=  counter  && counter  <50) {
          
@@ -433,7 +469,7 @@
             
             cell.favInd1.alpha=1.0;
             cell.favInd2.alpha=1.0;
-            cell.favInd3.alpha=0.25;
+            cell.favInd3.alpha=0.35;
             
             
         } else if (50 <= counter ) {
@@ -451,9 +487,9 @@
             
         } else {
             
-            cell.favInd1.alpha=0.25;
-            cell.favInd2.alpha=0.25;
-            cell.favInd3.alpha=0.25;
+            cell.favInd1.alpha=0.35;
+            cell.favInd2.alpha=0.35;
+            cell.favInd3.alpha=0.35;
             
         }
         
@@ -488,7 +524,6 @@
             NSNumber *someAmount = [NSNumber numberWithFloat:[priceTest floatValue]];
             NSString *priceString = [currencyFormatter stringFromNumber:someAmount];
             
-            NSLog(@" Float %@", someAmount);
             //UIImage *filledCoin = [UIImage imageNamed:@"filledCoin.png"];
             //UIImage *notfilledCoin = [UIImage imageNamed:@"notfilledCoin.png"];
             
@@ -524,7 +559,7 @@
                
                cell.priceLabel1.alpha=1.0;
                cell.priceLabel2.alpha=1.0;
-               cell.priceLabel3.alpha=0.25;
+               cell.priceLabel3.alpha=0.35;
              
            }else if (1 <= [someAmount floatValue]&&[someAmount floatValue] <= 10.0) {
             
@@ -532,15 +567,15 @@
                
                cell.priceLabel1.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
                cell.priceLabel1.alpha=1.0;
-               cell.priceLabel2.alpha=0.25;
-               cell.priceLabel3.alpha=0.25;
+               cell.priceLabel2.alpha=0.35;
+               cell.priceLabel3.alpha=0.35;
                
            } else {
              //Free
                
-               cell.priceLabel1.alpha=0.25;
-               cell.priceLabel2.alpha=0.25;
-               cell.priceLabel3.alpha=0.25;
+               cell.priceLabel1.alpha=0.35;
+               cell.priceLabel2.alpha=0.35;
+               cell.priceLabel3.alpha=0.35;
                
            }
             
@@ -564,8 +599,7 @@
         
         } else {
             
-            NSLog(@" String : %@", priceTest);
-
+          
             //if not a number and there is nothing about prices, take the default string
             // cell.priceInd1.alpha=1;
             //cell.priceInd2.alpha=1;
@@ -573,8 +607,8 @@
          
             cell.priceLabel1.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
             cell.priceLabel1.alpha=1.0;
-            cell.priceLabel2.alpha=0.25;
-            cell.priceLabel3.alpha=0.25;
+            cell.priceLabel2.alpha=0.35;
+            cell.priceLabel3.alpha=0.35;
 
             
             //cell.price.text=[priceTest lowercaseString];
@@ -619,14 +653,16 @@
             }
         }
         
-        NSLog(@"%lu", (unsigned long)[self.likedIDs count]);
+        
         if(self.eventTable.alpha==0.0){
-            
+        
            // self.eventTable.alpha=1.0;
             [self fadeInTableView];
         }
         
-    }
+            
+        
+    } // self.eventlist - this one checks if there are more than one item in the list
     
     /*
     if (indexPath.row % 2) {
@@ -648,7 +684,22 @@
 {
     //   NSLog(@"Number of games %lu",(unsigned long)[self.gameList count]);
     
-    if ( [self.eventList count]==0) {  return 1; } else { return  [self.eventList count];}
+    if ( [self.eventList count]==0) {
+        
+        return 1;
+    
+    } else {
+        
+        if (hasCategories) {
+            return [self.filteredEventList count];
+        } else {
+        
+            return  [self.eventList count];
+        
+            
+        }
+        
+    }
     
     
 }
@@ -663,7 +714,7 @@
     
     //PG_eventDetails *eventDetails = [[PG_eventDetails alloc] init] ;
     
-    NSDictionary *text=[self.eventList objectAtIndex:indexPath.row];
+    NSDictionary *text=[self.filteredEventList objectAtIndex:indexPath.row];
     //NSLog(@"Index %ld has %@",(long)indexPath.row,
      //     [text objectForKey:@"title"]);
     
@@ -794,8 +845,6 @@
         
     }
     
-    NSLog(@" source *** %@",[text valueForKey:@"source"] );
-    
     if([[text valueForKey:@"source"] isEqualToString:@"meetup.com"] ){
      eventDetails.vSource.image = [UIImage imageNamed:@"meetup.png"];
     }
@@ -881,7 +930,6 @@
     int hours= fabsf(fInterval)/60;
     int minutes = fabsf(fInterval) - (hours*60);
     
-    NSLog(@"fInterval %f ->  %d:%d", fInterval, hours,minutes);
     
     eventDetails.timeDiff.text= [NSString stringWithFormat:@"%d:%02d", hours,minutes];
     
@@ -966,6 +1014,7 @@
         
         
         self.eventList=nil;
+        self.filteredEventList=nil;
         self.eventList = [NSMutableArray array];
         
        // NSLog(@"********************************");
@@ -989,8 +1038,10 @@
         [self fadeInTableView];
         self.loader.alpha=0.0;
         self.eventList = [[NSArray alloc] initWithArray:data];
+        self.filteredEventList = [self filterArrayWithCategories:self.eventList];
         
         [[NSUserDefaults standardUserDefaults] setObject:self.eventList forKey:@"currentEvents"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.prefCats forKey:@"pref_Categories"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         
@@ -1094,6 +1145,42 @@
     self.eventList  = [self.eventList  sortedArrayUsingDescriptors:@[dateSortDescriptor]];
     
     [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    
+    
+}
+
+- (NSArray*) filterArrayWithCategories : (NSArray*)dict {
+    
+    
+    for (id star in dict) {
+        
+        NSLog(@" %@", [star objectForKey:@"category"]);
+    }
+        
+    NSArray *filteredDict;
+    
+    NSMutableArray *parr = [NSMutableArray array];
+    
+    for (id star in self.prefCats) {
+        NSLog(@" Start : %@", [self.prefCats valueForKey:star]);
+        if ([[self.prefCats valueForKey:star] isEqualToString:@"1"]) {
+           [parr addObject:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"%@%@%s",@"category == '",star,"'"]]];
+        }
+    }
+    
+  
+    NSLog(@" Array %lu", (unsigned long)[parr count]);
+    
+    NSPredicate *applePred = [NSCompoundPredicate orPredicateWithSubpredicates:parr];
+    filteredDict=[dict filteredArrayUsingPredicate:applePred];
+    
+    if ([filteredDict count]==0) {
+        self.messagerLabel.text=@" No events found";
+        return dict;
+    } else {
+        NSLog(@" filtered length %lu", [filteredDict count]);
+        return filteredDict;
+    }
     
     
 }

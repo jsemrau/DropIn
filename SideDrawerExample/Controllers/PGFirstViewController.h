@@ -48,8 +48,14 @@
 @property (nonatomic, retain) IBOutlet UITableView* eventTable;
 @property (nonatomic, retain) IBOutlet UITableViewCell *eventTableCellItem;
 @property (nonatomic, retain) IBOutlet UILabel *weatherString ;
+
 @property(nonatomic, assign) bool loadedWithLocation;
+@property(nonatomic,assign) bool hasUpdates;
+@property(nonatomic,assign) bool hasCategories;
+
 @property(nonatomic, retain) NSArray *eventList;
+@property(nonatomic, retain) NSArray *filteredEventList;
+
 
 @property(nonatomic, retain) IBOutlet UIView * loader ;
 @property(nonatomic, retain) IBOutlet UIView * messager ;
@@ -62,6 +68,8 @@
 
 @property(nonatomic, retain) NSMutableDictionary *notiDictionary;
 @property (nonatomic, retain) NSMutableDictionary *likedIDs;
+@property (nonatomic, retain) NSMutableDictionary *prefCats; //there are 12 categories
+
 @property (nonatomic, retain) IBOutlet UIRefreshControl *refreshControl;
 
 
