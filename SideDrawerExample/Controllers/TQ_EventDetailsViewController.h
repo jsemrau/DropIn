@@ -54,6 +54,7 @@
     IBOutlet UIButton *openLocation;
     IBOutlet UIButton *openURL;
     IBOutlet UIButton *favButton;
+    IBOutlet UIButton *spamButton;
     
     IBOutlet UIView *summaryView;
     
@@ -66,6 +67,7 @@
     
     NSMutableDictionary *likedIDs;
     NSMutableDictionary *userDetails;
+    NSMutableDictionary *handOver;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *distance;
@@ -98,6 +100,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *openLocation;
 @property (retain, nonatomic) IBOutlet UIButton *openURL;
 @property (retain, nonatomic) IBOutlet UIButton *favButton;
+@property (retain, nonatomic) IBOutlet UIButton *spamButton;
 
 @property(nonatomic, retain) IBOutlet UIView * debugView ;
 @property(nonatomic, retain) IBOutlet UIView * mapView ;
@@ -108,6 +111,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *likedIDs;
 @property (nonatomic, retain) NSMutableDictionary *userDetails;
+
+@property (nonatomic, strong) NSMutableDictionary *handOver;
 
 @property (retain, nonatomic) IBOutlet UIImageView *vSource;
 

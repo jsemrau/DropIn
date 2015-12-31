@@ -26,9 +26,14 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
    */
     
+    if ([self.eventList count]==0) {
+        self.eventTable.alpha=0.0;
+    }
+    
     if (self.hasUpdates) {
         
         [self refreshButtonPress:self];
+        self.hasUpdates=FALSE;
     }
     
     self.hasCategories=TRUE;
@@ -61,6 +66,7 @@
         
         
     }
+    
     if (([self.weatherString.text isEqualToString:@""])) {
        self.weatherNeedsUpdates=true;
     }
@@ -89,6 +95,7 @@
     [webby setDelegate:self];
     [webby submitQRScan:@"https://choose.tenqyu.com?q=103a047313a84e37c195017a0eff503601eef833f52b5ea8a49411b85ff6e30c" email:[userDetails objectForKey:@"email"]  pwd:[userDetails objectForKey:@"pwd"] mongoId:[userDetails objectForKey:@"id"] withLat:self.currentLocation.coordinate.latitude andLong:self.currentLocation.coordinate.longitude];
     */
+    
     NSUserDefaults *prefs;
     NSArray *eventDetails;
     
@@ -101,19 +108,19 @@
     if (!self.prefCats) {
         //if there is no prefcat
         //  NSMutableDictionary
-        self.prefCats = [[NSDictionary alloc] initWithObjectsAndKeys:
-                         @"1",@"Arts",
-                         @"1",@"Business",
-                         @"1",@"Education",
-                         @"1",@"Entertainment",
-                         @"1",@"Family",
-                         @"1",@"Food",
-                         @"1",@"Social",
-                         @"1",@"Large",
-                         @"1",@"Meeting",
-                         @"1",@"Sports",
-                         @"1",@"Tech",
-                         @"1",@"Other"
+        self.prefCats = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]
                          ,nil] ;
         
         [[NSUserDefaults standardUserDefaults] setObject:self.prefCats forKey:@"pref_Categories"];
@@ -304,7 +311,6 @@
         
         
         NSDictionary *text=[self.filteredEventList objectAtIndex:indexPath.row];
-        NSString * test = [text objectForKey:@"category"];
         
         
         cell.title.text=[text objectForKey:@"title"];
@@ -353,52 +359,52 @@
         }
         
     
-        if ([[text valueForKey:@"category"] isEqualToString:@"Arts"]) {
+        if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"arts.png"];
         }
         
-        else if ([[text valueForKey:@"category"] isEqualToString:@"Business"]) {
+        else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"business.png"];
         }
         
-        else if ([[text valueForKey:@"category"] isEqualToString:@"Education"]) {
+        else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"education.png"];
         }
         
-        else if ([[text valueForKey:@"category"] isEqualToString:@"Entertainment"]) {
+        else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"entertainment.png"];
         }
         
-        else if ([[text valueForKey:@"category"] isEqualToString:@"Family"]) {
+        else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"family.png"];
         }
         
-        else if ([[text valueForKey:@"category"] isEqualToString:@"Food"]) {
+        else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"food.png"];
         }
         
-        else if ([[text valueForKey:@"category"] isEqualToString:@"Mass"]) {
+        else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"mass.png"];
         }
         
-        else if ([[text valueForKey:@"category"] isEqualToString:@"Meeting"]) {
+        else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"meeting.png"];
         }
         
-        else if ([[text valueForKey:@"category"] isEqualToString:@"Other"]) {
+        else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"other.png"];
         }
         
         
-        else if ([[text valueForKey:@"category"] isEqualToString:@"Sports"]) {
+        else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"sports.png"];
         }
         
-        else if ([[text valueForKey:@"category"] isEqualToString:@"Social"]) {
+        else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"social.png"];
         }
         
-        else if ([[text valueForKey:@"category"] isEqualToString:@"Tech"]) {
+        else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]]) {
            
             cell.category.image = [UIImage imageNamed:@"tech.png"];
             
@@ -453,7 +459,7 @@
         
         UIImage *filledPerson = [UIImage imageNamed:@"personRun_blue.png"];
         
-        int counter = [[text valueForKey:@"going_count"] integerValue ];
+        int counter = (int)[[text valueForKey:@"going_count"] integerValue ];
         
         if (0 <  counter  && counter  <10 ){
             
@@ -711,229 +717,12 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     TQ_EventDetailsViewController *eventDetails = [storyboard instantiateViewControllerWithIdentifier:@"EVENT_DETAILS"];
     
-    
-    //PG_eventDetails *eventDetails = [[PG_eventDetails alloc] init] ;
-    
-    NSDictionary *text=[self.filteredEventList objectAtIndex:indexPath.row];
-    //NSLog(@"Index %ld has %@",(long)indexPath.row,
-     //     [text objectForKey:@"title"]);
-    
-    /* Try to get the strings done here*/
-    eventDetails.latitude=[[text valueForKey:@"latitude"]floatValue] ;
-    eventDetails.longitude=[[text valueForKey:@"longitude"] floatValue] ;
-    eventDetails.vNameStr=[text objectForKey:@"venue_name"];
-    eventDetails.eURL=[[text valueForKey:@"url"] lowercaseString];
-    eventDetails.vStart_time=[text objectForKey:@"start_time"];
-    eventDetails.vStop_time=[text objectForKey:@"stop_time"];
-    eventDetails.idStr=[text objectForKey:@"id"];
-    
-    //NSLog(@" Check this %@",[text objectForKey:@"id"]);
-    /* Before loading the items*/
-
-    [eventDetails setModalPresentationStyle:UIModalPresentationFullScreen];
-    [eventDetails view];
-    
-    //eventDetails.distance.text=[[text valueForKey:@"distance"] lowercaseString];
-    
-    float dist = [[text objectForKey:@"distance"] floatValue];
-    if (dist>=1) {
-        
-        eventDetails.distance.text=[[NSString stringWithFormat:@"%.1f",dist] stringByAppendingString: @" km"] ;
-    } else {
-        dist=dist*1000;
-        float new = [[NSString stringWithFormat:@"%.2f",dist]floatValue];
-        eventDetails.distance.text=[[NSString stringWithFormat:@"%d",(int)new] stringByAppendingString: @" mtrs"] ;
-        
-    }
-    
-    eventDetails.duration.text=[[text valueForKey:@"duration"] lowercaseString];
+    NSMutableDictionary *text=[self.filteredEventList objectAtIndex:indexPath.row];
     
     
-    NSString *priceTest=[[text objectForKey:@"price"] lowercaseString];
-    NSCharacterSet *notDigits = [[NSCharacterSet decimalDigitCharacterSet]invertedSet];
+    NSLog(@"%@", text);
+    eventDetails.handOver=text;
     
-    if ([priceTest rangeOfCharacterFromSet:notDigits].location==NSNotFound) {
-        
-        NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
-        [currencyFormatter setLocale:[NSLocale currentLocale]];
-        [currencyFormatter setMaximumFractionDigits:2];
-        [currencyFormatter setMinimumFractionDigits:2];
-        [currencyFormatter setAlwaysShowsDecimalSeparator:YES];
-        [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-        
-        NSNumber *someAmount = [NSNumber numberWithFloat:[priceTest floatValue]];
-        NSString *priceString = [currencyFormatter stringFromNumber:someAmount];
-        
-        if ([priceTest isEqualToString:@"0"]||[priceTest isEqualToString:@"0.00"]){
-            
-           /* if([[text valueForKey:@"source"] isEqualToString:@"eventful"]) {
-                eventDetails.price.text=@"Check";
-            } else {
-            */
-            
-            eventDetails.price.text=@"Free";
-           
-            // }
-            
-        }else{
-            
-            eventDetails.price.text=priceString;
-            
-        }
-    } else {
-        
-        eventDetails.price.text=priceTest;
-        
-    }
-   
-
-    if([[text valueForKey:@"max_count"] intValue]>0) {
-    
-        NSString *goingMax = [NSString stringWithFormat:@"%@%@%@", [[text valueForKey:@"going_count"] lowercaseString] , @" / ", [[text valueForKey:@"max_count"] lowercaseString] ];
-        
-            eventDetails.going_count.text=goingMax;
-        
-    } else {
-        
-        if ([[text valueForKey:@"going_count"] intValue]>0) {
-            
-            eventDetails.going_count.text=[NSString stringWithFormat:@"%@", [text valueForKey:@"going_count"]];
-        } else {
-            eventDetails.going_count.text=@"unlimited";
-        }
-        
-        
-    }
-    
-    
-    eventDetails.max_count.text=[NSString stringWithFormat:@"%@%@%@", [[text valueForKey:@"latitude"] lowercaseString] , @" , ", [[text valueForKey:@"longitude"] lowercaseString] ];;
-    
-    
-    /** Date formatting **/
-    NSString *dateString = [[text valueForKey:@"start_time"] lowercaseString];
-    NSDateFormatter *startDateFormat = [[NSDateFormatter alloc] init];
-    [startDateFormat setDateFormat:@"yyyy-MM-dd H:mm:s"];
-    NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
-    
-    [startDateFormat setTimeZone:timeZone];
-    [startDateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
-    NSDate *startDate1 = [startDateFormat dateFromString:dateString];
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:startDate1];
-    
-    NSString *startString =[NSString stringWithFormat:@"%02ld%@%02ld", (long)[components hour] , @":", (long)[components minute] ];
-    
-    
-    
-    dateString = [[text valueForKey:@"stop_time"] lowercaseString];
-    startDate1 = [startDateFormat dateFromString:dateString];
-    components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:startDate1];
-    NSString *endString =[NSString stringWithFormat:@"%02ld%@%02ld", (long)[components hour] , @":", (long)[components minute] ];
-    
-    eventDetails.start_time.text = [NSString stringWithFormat:@"%@%@%@", startString , @" - ", endString ];
-    
-    //in this case I do have an owner
-    if([[text valueForKey:@"source"] isEqualToString:@"meetup.com"] && !([[text valueForKey:@"organizer"] isEqualToString:@""])) {
-        
-    eventDetails.eTitle.text= [NSString stringWithFormat:@"%@%@%@", [text valueForKey:@"title"] , @" - ", [text valueForKey:@"organizer"] ];
-        ;
-       
- 
-    } else {
- 
-        eventDetails.eTitle.text=[text valueForKey:@"title"];
-        
-    }
-    
-    if([[text valueForKey:@"source"] isEqualToString:@"meetup.com"] ){
-     eventDetails.vSource.image = [UIImage imageNamed:@"meetup.png"];
-    }
-    
-    if([[text valueForKey:@"source"] isEqualToString:@"eventfinda"] ){
-        eventDetails.vSource.image = [UIImage imageNamed:@"eventfinda.png"];
-    }
-    
-    if([[text valueForKey:@"source"] isEqualToString:@"eventful"] ){
-        eventDetails.vSource.image = [UIImage imageNamed:@"eventful.png"];
-    }
-    
-    NSAttributedString *tmpStr = [[NSAttributedString alloc] initWithData:[[text valueForKey:@"description"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
-    
-    [eventDetails.eDescription  setScrollEnabled:NO];
-    eventDetails.eDescription.text=[tmpStr string]  ;
-    [eventDetails.eDescription setContentOffset:CGPointZero animated:YES];
-    [eventDetails.eDescription setScrollEnabled:YES];
-    
-    eventDetails.eSource.text=[[text valueForKey:@"source"] lowercaseString];
-    eventDetails.vAddress.text=[text objectForKey:@"venue_address"];
-    eventDetails.vName.text=[text objectForKey:@"venue_name"];
-    
-    if ([[text objectForKey:@"venue_address"] isEqualToString:[text objectForKey:@"venue_name"]]) {
-        
-         eventDetails.vName.text=[text objectForKey:@"venue_name"];
-    
-    } else {
-       
-        
-        eventDetails.vName.text=[NSString stringWithFormat:@"%@%@%@", [text valueForKey:@"venue_name"] , @" - ", [text valueForKey:@"venue_address"] ];
-        
-    }
-    
-    eventDetails.fScore.text=[text objectForKey:@"fScore"];
- 
-    if([[text objectForKey:@"recur_string"] isEqualToString:@""]) {
-        //do something clever here:
-        eventDetails.vRecur.text=@" ";
-    } else {
-        eventDetails.vRecur.text=[text objectForKey:@"recur_string"];
-    }
-    
-    NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
-    fmt.numberStyle=NSNumberFormatterDecimalStyle;
-    [fmt setMaximumFractionDigits:0];
-    [fmt setMinimumFractionDigits:0];
-    
-    dateString = [text objectForKey:@"start_time"];
-    startDateFormat = [[NSDateFormatter alloc] init];
-    [startDateFormat setDateFormat:@"yyyy-MM-dd H:mm:ss"];
-    //        NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-    timeZone = [NSTimeZone systemTimeZone];
-    
-    [startDateFormat setTimeZone:timeZone];
-    [startDateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
-    startDate1 = [startDateFormat dateFromString:dateString];
-    
-    /*
-    float fInterval= [startDate1 timeIntervalSinceNow];
-    
-    if (fInterval>60) {
-        //convert to hours
-        fInterval=fInterval/60;
-        
-        if (fInterval == 1.00) {
-            eventDetails.timeDiff.text=[NSString stringWithFormat:@"%.2f",fInterval];
-            eventDetails.inXminutes.text=@"hr";
-        } else {
-            eventDetails.timeDiff.text=[NSString stringWithFormat:@"%.2f",fInterval];
-            eventDetails.inXminutes.text=@"hrs";
-        }
-    } else {
-    //    NSLog(@" My Interval %.2f", fInterval);
-        
-        eventDetails.timeDiff.text=[NSString stringWithFormat:@"%d",(int)fInterval];
-        eventDetails.inXminutes.text=@"min";
-    }
-    */
-
-    float fInterval= [startDate1 timeIntervalSinceNow]/60;
-    
-    int hours= fabsf(fInterval)/60;
-    int minutes = fabsf(fInterval) - (hours*60);
-    
-    
-    eventDetails.timeDiff.text= [NSString stringWithFormat:@"%d:%02d", hours,minutes];
-    
-  
     [self.navigationController pushViewController:eventDetails animated:YES];
     
     
@@ -993,14 +782,6 @@
     
     if ([resultData count] ==0){
         
-        /*
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tenqyu.com"
-                                                          message:@"No event data available in your vincinity!"
-                                                         delegate:self
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        
-        [message show];*/
         
         self.messagerLabel.text=@" There are no events around, you could try to adjust your settings!";
         self.messager.alpha=1.0;
@@ -1120,7 +901,7 @@
     
     
     NSSortDescriptor *dateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"category" ascending:YES];
-    self.eventList  = [self.eventList  sortedArrayUsingDescriptors:@[dateSortDescriptor]];
+    self.filteredEventList  = [self.filteredEventList  sortedArrayUsingDescriptors:@[dateSortDescriptor]];
     
     [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     
@@ -1131,7 +912,7 @@
     
     
     NSSortDescriptor *dateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"start_time" ascending:YES];
-    self.eventList  = [self.eventList  sortedArrayUsingDescriptors:@[dateSortDescriptor]];
+    self.filteredEventList  = [self.filteredEventList  sortedArrayUsingDescriptors:@[dateSortDescriptor]];
     
     [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     
@@ -1142,7 +923,7 @@
     
     
     NSSortDescriptor *dateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
-    self.eventList  = [self.eventList  sortedArrayUsingDescriptors:@[dateSortDescriptor]];
+    self.filteredEventList  = [self.filteredEventList  sortedArrayUsingDescriptors:@[dateSortDescriptor]];
     
     [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     
@@ -1151,12 +932,6 @@
 
 - (NSArray*) filterArrayWithCategories : (NSArray*)dict {
     
-    
-    for (id star in dict) {
-        
-        NSLog(@" %@", [star objectForKey:@"category"]);
-    }
-        
     NSArray *filteredDict;
     
     NSMutableArray *parr = [NSMutableArray array];
@@ -1168,8 +943,6 @@
         }
     }
     
-  
-    NSLog(@" Array %lu", (unsigned long)[parr count]);
     
     NSPredicate *applePred = [NSCompoundPredicate orPredicateWithSubpredicates:parr];
     filteredDict=[dict filteredArrayUsingPredicate:applePred];
@@ -1178,7 +951,6 @@
         self.messagerLabel.text=@" No events found";
         return dict;
     } else {
-        NSLog(@" filtered length %lu", [filteredDict count]);
         return filteredDict;
     }
     

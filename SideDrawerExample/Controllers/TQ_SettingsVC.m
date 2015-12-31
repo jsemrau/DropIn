@@ -17,9 +17,11 @@
 
 @implementation TQ_SettingsVC
 
-@synthesize dSlide,tSlide,distanceLabel,timeLabel,saveButton, logo;
+@synthesize dSlide,tSlide,distanceLabel,timeLabel,saveButton, logo,relevantUpdates,distanceString,timeString,deSelectString,quoteString;
 
 - (void) viewWillAppear:(BOOL)animated{
+    
+    self.relevantUpdates=false;
     
     UIImage *sliderLeftTrackImage = [UIImage imageNamed: @"master-slider_01.png"];
     UIImage *sliderRightTrackImage = [UIImage imageNamed: @"master-slider_02.png"] ;
@@ -31,82 +33,89 @@
     
     [self.tSlide setMinimumTrackImage: sliderLeftTrackImage forState: UIControlStateNormal];
     [self.tSlide setMaximumTrackImage: sliderRightTrackImage forState: UIControlStateNormal];
+
+    //setup the reader strings
+    self.distanceString.text=[NSString stringWithFormat:NSLocalizedString(@"dist", nil)];
+    self.timeString.text=[NSString stringWithFormat:NSLocalizedString(@"time", nil)];
+    self.deSelectString.text=[NSString stringWithFormat:NSLocalizedString(@"de-select", nil)];
+    self.quoteString.text=[NSString stringWithFormat:NSLocalizedString(@"quote", nil)];
     
     NSUserDefaults *prefs;
     
     prefs= [NSUserDefaults standardUserDefaults];
     self.prefCats=[[prefs objectForKey:@"pref_Categories"] mutableCopy] ;
+
     
     //Loop over categories
     
     
-    if ([[self.prefCats valueForKey:@"Arts"] isEqualToString:@"0"]) {
+    if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]] isEqualToString:@"0"]) {
         self.artsButton.selected=TRUE;
     } else {
         self.artsButton.selected=FALSE;
     }
     
-    if ([[self.prefCats valueForKey:@"Business"] isEqualToString:@"0"]) {
+    if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]] isEqualToString:@"0"]) {
         self.businessButton.selected=TRUE;
     } else {
         self.businessButton.selected=FALSE;
     }
     
-    if ([[self.prefCats valueForKey:@"Education"] isEqualToString:@"0"]) {
+    if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]] isEqualToString:@"0"]) {
         self.educationButton.selected=TRUE;
     } else {
         self.educationButton.selected=FALSE;
     }
     
-    if ([[self.prefCats valueForKey:@"Entertainment"] isEqualToString:@"0"]) {
+    if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]] isEqualToString:@"0"]) {
         self.entertainmentButton.selected=TRUE;
     } else {
         self.entertainmentButton.selected=FALSE;
     }
     
-    if ([[self.prefCats valueForKey:@"Family"] isEqualToString:@"0"]) {
+    if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]] isEqualToString:@"0"]) {
         self.familyButton.selected=TRUE;
     } else {
         self.familyButton.selected=FALSE;
     }
     
-    if ([[self.prefCats valueForKey:@"Food"] isEqualToString:@"0"]) {
+    if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]] isEqualToString:@"0"]) {
         self.foodButton.selected=TRUE;
     } else {
         self.foodButton.selected=FALSE;
     }
     
-    if ([[self.prefCats valueForKey:@"Social"] isEqualToString:@"0"]) {
+    if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]] isEqualToString:@"0"]) {
         self.socialButton.selected=TRUE;
     } else {
         self.socialButton.selected=FALSE;
     }
     
-    if ([[self.prefCats valueForKey:@"Large"] isEqualToString:@"0"]) {
+    if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]] isEqualToString:@"0"]) {
         self.massButton.selected=TRUE;
     } else {
         self.massButton.selected=FALSE;
     }
     
-    if ([[self.prefCats valueForKey:@"Meeting"] isEqualToString:@"0"]) {
+    if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]] isEqualToString:@"0"]) {
         self.meetingButton.selected=TRUE;
     } else {
         self.meetingButton.selected=FALSE;
     }
     
-    if ([[self.prefCats valueForKey:@"Sports"] isEqualToString:@"0"]) {
+    if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]] isEqualToString:@"0"]) {
         self.sportsButton.selected=TRUE;
     } else {
         self.sportsButton.selected=FALSE;
     }
     
-    if ([[self.prefCats valueForKey:@"Tech"] isEqualToString:@"0"]) {
+    if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]] isEqualToString:@"0"]) {
         self.techButton.selected=TRUE;
     } else {
         self.techButton.selected=FALSE;
     }
     
-    if ([[self.prefCats valueForKey:@"Other"] isEqualToString:@"0"]) {
+    if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]] isEqualToString:@"0"]) {
         self.otherButton.selected=TRUE;
     } else {
         self.otherButton.selected=FALSE;
@@ -183,6 +192,8 @@
     // < 50? (int)lroundf(slider.value): 1;
     
     distanceLabel.text = [NSString stringWithFormat:@"%d", newVal];
+    
+    self.relevantUpdates=true;
 }
 
 -(IBAction)timeSliderChanged:(id)sender {
@@ -196,6 +207,7 @@
         newVal=1;
     }
     timeLabel.text = [NSString stringWithFormat:@"%d", newVal];
+    self.relevantUpdates=true;
 }
 
 /*
@@ -290,8 +302,11 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     UINavigationController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FIRST_TOP_VIEW_CONTROLLER"];
-    PGFirstViewController *vc= [centerViewController.viewControllers objectAtIndex:0];
-    vc.hasUpdates=TRUE;
+    
+    if(self.relevantUpdates){
+        PGFirstViewController *vc= [centerViewController.viewControllers objectAtIndex:0];
+        vc.hasUpdates=TRUE;
+    }
     
     //  [[self navigationController] presentViewController:centerViewController animated:YES completion:nil];
     
@@ -302,130 +317,129 @@
     
     UIButton *btn = (UIButton*)sender;
     
-    NSLog(@" button %@", btn.currentTitle);
     
     
-    if([btn.currentTitle isEqualToString:@"Arts"]){
+    if([btn.currentTitle isEqualToString:[NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]]){
         
         if (self.artsButton.selected) {
             [self.artsButton setSelected:NO];
-            [self.prefCats setValue:@"1" forKey:@"Arts"];
+            [self.prefCats setValue:@"1" forKey:[NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]];
             
         } else {
             [self.artsButton setSelected:YES];
-            [self.prefCats setValue:@"0" forKey:@"Arts"];
+            [self.prefCats setValue:@"0" forKey:[NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]];
             
             
         }
         
-    } else if ([btn.currentTitle isEqualToString:@"Business"]) {
+    } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]]) {
     
         if (self.businessButton.selected) {
             [self.businessButton setSelected:NO];
-            [self.prefCats setValue:@"1" forKey:@"Business"];
+            [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]];
         } else {
             [self.businessButton setSelected:YES];
-            [self.prefCats setValue:@"0" forKey:@"Business"];
+            [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]];
         }
         
-    } else if ([btn.currentTitle isEqualToString:@"Education"]) {
+    } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]]) {
     
         if (self.educationButton.selected) {
             [self.educationButton setSelected:NO];
-            [self.prefCats setValue:@"1" forKey:@"Education"];
+            [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]];
         } else {
             [self.educationButton setSelected:YES];
-            [self.prefCats setValue:@"0" forKey:@"Education"];
+            [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]];
         }
         
-    } else if ([btn.currentTitle isEqualToString:@"Entertainment"]) {
+    } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]]) {
         
         if (self.entertainmentButton.selected) {
             [self.entertainmentButton setSelected:NO];
-            [self.prefCats setValue:@"1" forKey:@"Entertainment"];
+            [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]];
         } else {
             [self.entertainmentButton setSelected:YES];
-            [self.prefCats setValue:@"0" forKey:@"Entertainment"];
+            [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]];
         }
     
-    } else if ([btn.currentTitle isEqualToString:@"Family"]) {
+    } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]]) {
         
         if (self.familyButton.selected) {
             [self.familyButton setSelected:NO];
-            [self.prefCats setValue:@"1" forKey:@"Family"];
+            [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]];
         } else {
             [self.familyButton setSelected:YES];
-            [self.prefCats setValue:@"0" forKey:@"Family"];
+            [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]];
         }
         
-    } else if ([btn.currentTitle isEqualToString:@"Food"]) {
+    } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]]) {
         
         if (self.foodButton.selected) {
             [self.foodButton setSelected:NO];
-            [self.prefCats setValue:@"1" forKey:@"Food"];
+            [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]];
         } else {
             [self.foodButton setSelected:YES];
-            [self.prefCats setValue:@"0" forKey:@"Food"];
+            [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]];
         }
         
-    } else if ([btn.currentTitle isEqualToString:@"Large"]) {
+    } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]]) {
         
         if (self.massButton.selected) {
             [self.massButton setSelected:NO];
-            [self.prefCats setValue:@"1" forKey:@"Large"];
+            [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]];
         } else {
             [self.massButton setSelected:YES];
-            [self.prefCats setValue:@"0" forKey:@"Large"];
+            [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]];
         }
         
-    } else if ([btn.currentTitle isEqualToString:@"Meeting"]) {
+    } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]]) {
         
         if (self.meetingButton.selected) {
             [self.meetingButton setSelected:NO];
-            [self.prefCats setValue:@"1" forKey:@"Meeting"];
+            [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]];
         } else {
             [self.meetingButton setSelected:YES];
-            [self.prefCats setValue:@"0" forKey:@"Meeting"];
+            [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]];
         }
         
-    } else if ([btn.currentTitle isEqualToString:@"Other"]) {
+    } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]]) {
         
         if (self.otherButton.selected) {
             [self.otherButton setSelected:NO];
-            [self.prefCats setValue:@"1" forKey:@"Other"];
+            [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]];
         } else {
             [self.otherButton setSelected:YES];
-            [self.prefCats setValue:@"0" forKey:@"Other"];
+            [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]];
         }
         
-    } else if ([btn.currentTitle isEqualToString:@"Social"]) {
+    } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]]) {
         
         if (self.socialButton.selected) {
             [self.socialButton setSelected:NO];
-            [self.prefCats setValue:@"1" forKey:@"Social"];
+            [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]];
         } else {
             [self.socialButton setSelected:YES];
-            [self.prefCats setValue:@"0" forKey:@"Social"];
+            [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]];
         }
         
-    } else if ([btn.currentTitle isEqualToString:@"Sports"]) {
+    } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]]) {
         
         if (self.sportsButton.selected) {
             [self.sportsButton setSelected:NO];
-            [self.prefCats setValue:@"1" forKey:@"Sports"];
+            [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]];
         } else {
             [self.sportsButton setSelected:YES];
-            [self.prefCats setValue:@"0" forKey:@"Sports"];
+            [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]];
         }
         
-    } else if ([btn.currentTitle isEqualToString:@"Tech"])  {
+    } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]])  {
         
         if (self.techButton.selected) {
             [self.techButton setSelected:NO];
-            [self.prefCats setValue:@"1" forKey:@"Tech"];
+            [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]];
         } else {
             [self.techButton setSelected:YES];
-            [self.prefCats setValue:@"0" forKey:@"Tech"];
+            [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]];
         }
             
     }   else {
@@ -433,9 +447,7 @@
     
     }
     
-    NSLog(@" Dictionary %@", self.prefCats);
-    
-    
+    self.relevantUpdates=false;
 }
 
 

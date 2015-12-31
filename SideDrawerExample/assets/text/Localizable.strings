@@ -1,0 +1,54 @@
+/* 
+  en_text.strings
+  dropin
+
+  Created by tenqyu on 28/12/15.
+  Copyright © 2015 tenqyu. All rights reserved.
+*/
+
+/* Game Name URL */
+
+"game" = "drop.in";
+"welcome" = "Welcome to drop.in";
+"sign-in-true" = " signed in.";
+"sign-in-false" = " not signed in.";
+
+"api-base-url" = "https://choose.tenqyu.com/index.php";
+"api-v1-url" = "https://choose.tenqyu.com/v1/activity/index.php";
+
+
+/* Asset Array */
+
+"category[0]" = "Arts";
+"category[1]" = "Business";
+"category[2]" = "Education";
+"category[3]" = "Entertainment";
+"category[4]" = "Family";
+"category[5]" = "Food";
+"category[6]" = "Social";
+"category[7]" = "Large";
+"category[8]" = "Meeting";
+"category[9]" = "Sports";
+"category[10]" = "Tech";
+"category[11]" = "Other";
+
+/* Login */
+
+"press" = "Press to start";
+"help" = "Help";
+
+
+/* Settings */
+
+"dist" = "distance (km)";
+"time" = "time (hrs)";
+"de-select"= "[de]select categories";
+"quote"= "The only way to discover the limits of the possible is to go beyond them into the impossible.";
+
+/* Error Messages */
+"err-loc" = "Location Service Disabled. To re-enable, please go to Settings and turn on Location Service for this app.";
+"err-bg" = "Background updates are disabled; app experience might change.";
+"err-lost" = "Network connection error. Lost connection to web service";
+"err-spam" = "You have reported this event as SPAM";
+
+

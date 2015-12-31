@@ -99,8 +99,8 @@
     
     if (![CLLocationManager locationServicesEnabled]){
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Services"
-                                                        message:@"Location Service disabled. You can set Location Services in Settings."
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+                                                        message:[NSString stringWithFormat:NSLocalizedString(@"err-loc", nil)]
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -183,12 +183,12 @@
         
         // Inform the user that the connection failed.
         
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tenqyu.com"
-                                                          message:@"Lost Connection"
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+                                                        message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
   
         
     }
@@ -250,13 +250,12 @@ if (theConnection)
     
     // Inform the user that the connection failed.
     
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tenqyu.com"  
-                                                      message:@"Lost Connection" 
-                                                     delegate:nil  
-                                            cancelButtonTitle:@"OK"  
-                                            otherButtonTitles:nil];  
-    [message show];  
-    //[message release];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+                                                    message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
     
 }
 
@@ -345,8 +344,8 @@ if (theConnection)
         
         // Inform the user that the connection failed.
         
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tenqyu.com"
-                                                          message:@"Lost Connection"
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+                                                          message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)]
                                                          delegate:nil
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
@@ -410,12 +409,12 @@ if (theConnection)
         
         // Inform the user that the connection failed.
         
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Tenqyu.com"
-                                                          message:@"Lost Connection"
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        [message show];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+                                                        message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
         
         
     }
@@ -442,8 +441,8 @@ if (theConnection)
     NSLog(@"didFailWithError %@ at URL %@", error, connection.currentRequest.URL.absoluteString );
 
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Services"
-                                                    message:[error localizedDescription]
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+                                                    message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)]
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];

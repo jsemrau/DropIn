@@ -17,6 +17,7 @@
     IBOutlet UISlider *dSlide;
     IBOutlet UISlider *tSlide;
     
+    
 }
 @property (nonatomic, retain) IBOutlet UISlider *dSlide;
 @property (nonatomic, retain) IBOutlet UISlider *tSlide;
@@ -25,6 +26,11 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *distanceLabel;
 @property (nonatomic, retain) IBOutlet UILabel *timeLabel;
+@property (nonatomic, retain) IBOutlet UILabel *distanceString;
+@property (nonatomic, retain) IBOutlet UILabel *timeString;
+@property (nonatomic, retain) IBOutlet UILabel *deSelectString;
+@property (nonatomic, retain) IBOutlet UILabel *quoteString;
+
 @property (nonatomic, retain) IBOutlet UIImageView *logo;
 
 @property (nonatomic, retain) IBOutlet UIButton *artsButton;
@@ -39,6 +45,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *socialButton;
 @property (nonatomic, retain) IBOutlet UIButton *sportsButton;
 @property (nonatomic, retain) IBOutlet UIButton *techButton;
+
+@property (assign) bool relevantUpdates;
 
 @property (nonatomic, retain) NSMutableDictionary *prefCats; //there are 12 categories
 
