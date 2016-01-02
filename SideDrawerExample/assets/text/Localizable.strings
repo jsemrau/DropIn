@@ -32,6 +32,12 @@
 "category[10]" = "Tech";
 "category[11]" = "Other";
 
+/* Error Messages */
+"err-loc" = "Location Service Disabled. To re-enable, please go to Settings and turn on Location Service for this app.";
+"err-bg" = "Background updates are disabled; app experience might change.";
+"err-lost" = "Network connection error. Lost connection to web service";
+"err-spam" = "You have reported this event as SPAM";
+
 /* Login */
 
 "press" = "Press to start";
@@ -45,10 +51,6 @@
 "de-select"= "[de]select categories";
 "quote"= "The only way to discover the limits of the possible is to go beyond them into the impossible.";
 
-/* Error Messages */
-"err-loc" = "Location Service Disabled. To re-enable, please go to Settings and turn on Location Service for this app.";
-"err-bg" = "Background updates are disabled; app experience might change.";
-"err-lost" = "Network connection error. Lost connection to web service";
-"err-spam" = "You have reported this event as SPAM";
+
 
 

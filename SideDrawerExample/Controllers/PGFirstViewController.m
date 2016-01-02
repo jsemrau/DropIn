@@ -351,6 +351,13 @@
             }
         }
         
+        if ([[text objectForKey:@"recommend_flag"] isEqualToString:@"1"]){
+            
+            cell.inXMinutes.text=@"recommended";
+            cell.inXMinutes.textColor=[UIColor greenColor];
+            
+        }
+        
         int durationCheck= [[text objectForKey:@"duration"] intValue]*-1 ;
         //which one is more negative
         if (tInterval <= durationCheck ){
@@ -802,7 +809,7 @@
         
         for (NSDictionary* campaignData in resultData) {
             
-          //  NSLog(@"Outputting cData %@", campaignData);
+           NSLog(@"Outputting cData %@", campaignData);
             [data addObject:campaignData];
             
             

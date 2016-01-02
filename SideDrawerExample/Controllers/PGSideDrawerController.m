@@ -53,7 +53,7 @@
     }
 
     if (centerViewController) {
-        self.currentIndex = indexPath.row;
+        self.currentIndex = (int)indexPath.row;
         [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
     } else {
         [self.mm_drawerController closeDrawerAnimated:YES completion:nil];

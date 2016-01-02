@@ -1645,7 +1645,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PGFirstViewController.m"
@@ -1814,38 +1814,6 @@
             endingLineNumber = "48"
             landmarkName = "@interface TQ_EventDetailsViewController"
             landmarkType = "2">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TQ_EventDetailsViewController distance]"
-                  moduleName = "dropin"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tenqyu/Desktop/Tenqyu/Products/Drop-in/SideDrawerExample/Controllers/TQ_EventDetailsViewController.h"
-                  timestampString = "473234359.80807"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TQ_EventDetailsViewController setDistance:]"
-                  moduleName = "dropin"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tenqyu/Desktop/Tenqyu/Products/Drop-in/SideDrawerExample/Controllers/TQ_EventDetailsViewController.h"
-                  timestampString = "473234359.80841"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1861,6 +1829,38 @@
             startingLineNumber = "522"
             endingLineNumber = "522"
             landmarkName = "-reportSpam:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
+            timestampString = "473265953.455263"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/PGFirstViewController.m"
+            timestampString = "473314655.10177"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "806"
+            endingLineNumber = "806"
+            landmarkName = "-locationsReceived:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

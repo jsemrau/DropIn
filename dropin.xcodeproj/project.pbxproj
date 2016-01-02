@@ -241,6 +241,7 @@
 		06A557BC1BC17E81004152C8 /* stepThree.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A5574B1BC17E81004152C8 /* stepThree.png */; };
 		06A557BD1BC17E81004152C8 /* stepTwo.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A5574C1BC17E81004152C8 /* stepTwo.png */; };
 		06A609431BE4B8E8009DF9D9 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A609421BE4B8E8009DF9D9 /* line.png */; };
+		06ABB48D1C37F84E00BA9432 /* sortByTimeNew32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 06ABB48C1C37F84E00BA9432 /* sortByTimeNew32x32.png */; };
 		06AC42721BB83B8B00872A9D /* GFLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AC42691BB83B8B00872A9D /* GFLocationManager.m */; };
 		06AC42731BB83B8B00872A9D /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AC426B1BB83B8B00872A9D /* LocationController.m */; };
 		06AC42741BB83B8B00872A9D /* MapOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AC426D1BB83B8B00872A9D /* MapOverlay.m */; };
@@ -620,6 +621,7 @@
 		06A5574B1BC17E81004152C8 /* stepThree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stepThree.png; sourceTree = "<group>"; };
 		06A5574C1BC17E81004152C8 /* stepTwo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stepTwo.png; sourceTree = "<group>"; };
 		06A609421BE4B8E8009DF9D9 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = ../../../../../../Assets/Visual/CI/16_DropIn/app/line.png; sourceTree = "<group>"; };
+		06ABB48C1C37F84E00BA9432 /* sortByTimeNew32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sortByTimeNew32x32.png; sourceTree = "<group>"; };
 		06AC42681BB83B8B00872A9D /* GFLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFLocationManager.h; sourceTree = "<group>"; };
 		06AC42691BB83B8B00872A9D /* GFLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFLocationManager.m; sourceTree = "<group>"; };
 		06AC426A1BB83B8B00872A9D /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
@@ -989,6 +991,7 @@
 		06A556EB1BC17E81004152C8 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				06ABB48C1C37F84E00BA9432 /* sortByTimeNew32x32.png */,
 				06F38D331C34872E00EBBBBF /* action */,
 				0631CE4A1C30B6F2000CEC95 /* question.png */,
 				066E48F61C1E260800897133 /* table */,
@@ -1796,6 +1799,7 @@
 				06A557B81BC17E81004152C8 /* profile.png in Resources */,
 				06CFEDDC1C21948900A2D7C5 /* city-loop-69.png in Resources */,
 				06A556C41BC17E74004152C8 /* Icon-72@2x.png in Resources */,
+				06ABB48D1C37F84E00BA9432 /* sortByTimeNew32x32.png in Resources */,
 				062FBC671BF11664002D9BBC /* Randi_00033.png in Resources */,
 				06A557731BC17E81004152C8 /* save_icon-40x.png in Resources */,
 				06CFEDD21C21948900A2D7C5 /* city-loop-59.png in Resources */,
