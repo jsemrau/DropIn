@@ -59,7 +59,6 @@
 "attend-unlimit" = "unlimited";
 "empty-string" = "   ";
 "no-venue" = "Unnamed Venue";
-"sms-pitch" = "Yo! Check you this event %@ where I will drop in now!";
 "sms-complete" ="finishedSMS";
 
 /* Titles */

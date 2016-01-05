@@ -642,7 +642,7 @@ else
     
     
     NSArray *recipents = @[@""];
-    NSString *message = [NSString stringWithFormat:[NSString stringWithFormat:NSLocalizedString(@"sms-pitch", nil)], file];
+    NSString *message = [NSString stringWithFormat:@"Yo! Check you this event %@ where I will drop in now!", file];
     
     MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
     messageController.messageComposeDelegate = self;

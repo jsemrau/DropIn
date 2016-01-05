@@ -13,6 +13,9 @@
 		0606B52A1C15BFAD0005F035 /* drop-logo 33x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 0606B5291C15BFAD0005F035 /* drop-logo 33x20.png */; };
 		060CE88F1C13CAE10073685F /* eventfinda.png in Resources */ = {isa = PBXBuildFile; fileRef = 060CE88D1C13CAE10073685F /* eventfinda.png */; };
 		060CE8901C13CAE10073685F /* meetup.png in Resources */ = {isa = PBXBuildFile; fileRef = 060CE88E1C13CAE10073685F /* meetup.png */; };
+		0619F78D1C3C08C600EA29F8 /* Launchimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0619F78C1C3C08C600EA29F8 /* Launchimage.png */; };
+		0619F7901C3C0B6600EA29F8 /* LaunchImage@Ret47.png in Resources */ = {isa = PBXBuildFile; fileRef = 0619F78E1C3C0B6600EA29F8 /* LaunchImage@Ret47.png */; };
+		0619F7911C3C0B6600EA29F8 /* LaunchImage@Ret55.png in Resources */ = {isa = PBXBuildFile; fileRef = 0619F78F1C3C0B6600EA29F8 /* LaunchImage@Ret55.png */; };
 		061B7B941BBC316C0059A840 /* TQ_EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061B7B931BBC316C0059A840 /* TQ_EventDetailsViewController.m */; };
 		0620D4521BE9D03700A7D9CE /* logo120x194.png in Resources */ = {isa = PBXBuildFile; fileRef = 0620D4511BE9D03700A7D9CE /* logo120x194.png */; };
 		062691851C25924D00B68D88 /* arts-button-unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 062691781C25924D00B68D88 /* arts-button-unselected.png */; };
@@ -384,6 +387,9 @@
 		0606B5291C15BFAD0005F035 /* drop-logo 33x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "drop-logo 33x20.png"; path = "assets/ui/icons/drop-logo 33x20.png"; sourceTree = "<group>"; };
 		060CE88D1C13CAE10073685F /* eventfinda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventfinda.png; sourceTree = "<group>"; };
 		060CE88E1C13CAE10073685F /* meetup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meetup.png; sourceTree = "<group>"; };
+		0619F78C1C3C08C600EA29F8 /* Launchimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Launchimage.png; path = assets/ci/Launchimage.png; sourceTree = "<group>"; };
+		0619F78E1C3C0B6600EA29F8 /* LaunchImage@Ret47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage@Ret47.png"; path = "assets/ci/LaunchImage@Ret47.png"; sourceTree = "<group>"; };
+		0619F78F1C3C0B6600EA29F8 /* LaunchImage@Ret55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage@Ret55.png"; path = "assets/ci/LaunchImage@Ret55.png"; sourceTree = "<group>"; };
 		061B7B921BBC316C0059A840 /* TQ_EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQ_EventDetailsViewController.h; sourceTree = "<group>"; };
 		061B7B931BBC316C0059A840 /* TQ_EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQ_EventDetailsViewController.m; sourceTree = "<group>"; };
 		0620D44F1BE9CFA700A7D9CE /* logo420x285.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo420x285.png; path = assets/ci/logo420x285.png; sourceTree = "<group>"; };
@@ -824,7 +830,10 @@
 			isa = PBXGroup;
 			children = (
 				0606B5271C150E0F0005F035 /* logo-final_400.png */,
+				0619F78C1C3C08C600EA29F8 /* Launchimage.png */,
 				0677718B1C11CDB2001993CA /* LaunchImage@2x.png */,
+				0619F78E1C3C0B6600EA29F8 /* LaunchImage@Ret47.png */,
+				0619F78F1C3C0B6600EA29F8 /* LaunchImage@Ret55.png */,
 				069499511C0A8AEE0009EAC9 /* dropin-logo.png */,
 				06F3514C1BEADAF8004D1727 /* drop-in-logo.png */,
 				0620D4511BE9D03700A7D9CE /* logo120x194.png */,
@@ -1541,6 +1550,7 @@
 				065584E11C1CDD5E0089D4F8 /* sports.png in Resources */,
 				065584DF1C1CDD5E0089D4F8 /* meeting.png in Resources */,
 				06CFEDC71C21948900A2D7C5 /* city-loop-48.png in Resources */,
+				0619F78D1C3C08C600EA29F8 /* Launchimage.png in Resources */,
 				069499521C0A8AEE0009EAC9 /* dropin-logo.png in Resources */,
 				06A5578F1BC17E81004152C8 /* PR_2_00003.png in Resources */,
 				0677718C1C11CDB2001993CA /* LaunchImage@2x.png in Resources */,
@@ -1639,6 +1649,7 @@
 				062FBC641BF11664002D9BBC /* Randi_00030.png in Resources */,
 				06CFEDA51C21948900A2D7C5 /* city-loop-11.png in Resources */,
 				06A5575A1BC17E81004152C8 /* pk_compo_button_white.png in Resources */,
+				0619F7911C3C0B6600EA29F8 /* LaunchImage@Ret55.png in Resources */,
 				06CFEDB21C21948900A2D7C5 /* city-loop-24.png in Resources */,
 				06A5574E1BC17E81004152C8 /* background.png in Resources */,
 				0606B5281C150E0F0005F035 /* logo-final_400.png in Resources */,
@@ -1739,6 +1750,7 @@
 				06F9FEBD1C0DFBD0008DA44C /* background-01.png in Resources */,
 				062FBC631BF11664002D9BBC /* Randi_00029.png in Resources */,
 				06A557A91BC17E81004152C8 /* PR_2_00029.png in Resources */,
+				0619F7901C3C0B6600EA29F8 /* LaunchImage@Ret47.png in Resources */,
 				06A556C21BC17E74004152C8 /* Icon-60@3x.png in Resources */,
 				062FBC6A1BF11664002D9BBC /* Randi_00036.png in Resources */,
 				0660A8071C1335E200457B2E /* page1.png in Resources */,
@@ -2030,6 +2042,7 @@
 			baseConfigurationReference = E99F2354DB1DA00DA223091C /* Pods-dropin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SideDrawerExample/dropin-Prefix.pch";
@@ -2046,6 +2059,7 @@
 			baseConfigurationReference = DB0966AAF2D8ED0FCD581690 /* Pods-dropin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SideDrawerExample/dropin-Prefix.pch";

@@ -289,6 +289,11 @@
 
 #pragma mark UITableView Methods
 
+/*- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 60;
+}*/
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 
 {
@@ -325,7 +330,7 @@
         }
     }
     
-    
+    cell.contentMode=UIViewContentModeScaleAspectFill;
     
     if ([self.filteredEventList count]>0){
         
