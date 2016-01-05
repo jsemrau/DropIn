@@ -11,6 +11,7 @@
 @interface TQ_PrivacyPolicy : UIViewController
 
 @property (retain, nonatomic) IBOutlet UITextView *privacyPolicy;
+@property (retain, nonatomic) IBOutlet UIButton *headerText;
 
 
 @end

@@ -17,7 +17,8 @@
 
 @implementation PGFirstViewController
 
-@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter,prefCats,hasCategories,hasUpdates;
+@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter,prefCats,hasCategories,hasUpdates,
+    gotoSettings,gotoRefresh;
 
 -(void) viewWillAppear:(BOOL)animated{
     
@@ -51,7 +52,6 @@
         NSString *dateString = [self.notiDictionary objectForKey:@"timeStamp"];
         NSDateFormatter *startDateFormat = [[NSDateFormatter alloc] init];
         [startDateFormat setDateFormat:@"yyyy-MM-dd H:mm:ss"];
-        //        NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
         NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
         
         [startDateFormat setTimeZone:timeZone];
@@ -69,7 +69,11 @@
     
     if (([self.weatherString.text isEqualToString:@""])) {
        self.weatherNeedsUpdates=true;
+        self.weatherString.text=[[NSDate date] description];
+        // timer is set & will be triggered each second
+        [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(showTime) userInfo:nil repeats:YES];
     }
+    
     if (!locationAllowed)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Service Disabled"
@@ -222,10 +226,17 @@
     
     [super viewDidLoad];
     
-  
-    
-    
 }
+
+-(void)showTime{
+    
+    NSDateFormatter *formatter1=[[NSDateFormatter alloc]init];
+    [formatter1 setDateFormat:@"HH:mm:ss"];
+    
+    self.weatherString.text=[formatter1 stringFromDate:[NSDate date] ];
+}
+
+
 - (void)setupLeftMenuButton {
     MMDrawerBarButtonItem * leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
     [self.navigationItem setLeftBarButtonItem:leftDrawerButton];
@@ -245,7 +256,16 @@
 }
 */
 
-- (void)refreshButtonPress:(id)sender {
+- (IBAction)settingsButtonPress:(id)sender{
+    
+    UINavigationController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"THIRD_TOP_VIEW_CONTROLLER"];
+    
+    //UIViewController *vc= [centerViewController.viewControllers objectAtIndex:0];
+   
+    [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
+    
+}
+- (IBAction)refreshButtonPress:(id)sender {
     
     self.messager.alpha=0.0;
     
@@ -768,6 +788,7 @@
     }
     
     
+    
     //for (NSDictionary* notification in resultData) {
     //}
     
@@ -855,7 +876,7 @@
     if(weatherNeedsUpdates){
 
         
-        [self getweatherContext:self.currentLocation];
+        //[self getweatherContext:self.currentLocation];
         
         /*
         __block NSDictionary *tempTmp = nil;

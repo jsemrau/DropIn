@@ -82,7 +82,7 @@
              } else {
              */
             
-            self.price.text=@"Free";
+            self.price.text=[NSString stringWithFormat:NSLocalizedString(@"price-free", nil)];
             
             // }
             
@@ -110,7 +110,7 @@
             
             self.going_count.text=[NSString stringWithFormat:@"%@", [self.handOver valueForKey:@"going_count"]];
         } else {
-            self.going_count.text=@"unlimited";
+            self.going_count.text=[NSString stringWithFormat:NSLocalizedString(@"attend-unlimit", nil)];
         }
         
         
@@ -133,8 +133,6 @@
     NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:startDate1];
     
     NSString *startString =[NSString stringWithFormat:@"%02ld%@%02ld", (long)[components hour] , @":", (long)[components minute] ];
-    
-    
     
     dateString = [[self.handOver valueForKey:@"stop_time"] lowercaseString];
     startDate1 = [startDateFormat dateFromString:dateString];
@@ -194,7 +192,7 @@
     
     if([[self.handOver objectForKey:@"recur_string"] isEqualToString:@""]) {
         //do something clever here:
-        self.vRecur.text=@" ";
+        self.vRecur.text=[NSString stringWithFormat:NSLocalizedString(@"empty-string", nil)];
     } else {
         self.vRecur.text=[self.handOver objectForKey:@"recur_string"];
     }
@@ -263,7 +261,7 @@
     NSLog(@"********** %@ **************",self.eURL);
     
     if ([self.vNameStr isEqualToString:@""]) {
-        self.vName.text=@"Unnamed Venue";
+        self.vName.text=[NSString stringWithFormat:NSLocalizedString(@"no-venue", nil)];
         [self geoLookUp];
     }
     
@@ -329,7 +327,7 @@
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    [webby saveImpression:@"seen" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-seen", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
    
@@ -398,8 +396,8 @@
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
             [webby setDelegate:self];
-            
-            [webby saveImpression:@"unliked" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+        
+            [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-unliked", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             
         }
@@ -421,7 +419,7 @@
             QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
             [webby setDelegate:self];
           
-            [webby saveImpression:@"liked" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+            [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-liked", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
              [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             
         }
@@ -442,7 +440,7 @@
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    [webby saveImpression:@"openedURL" onAsset:self.eURL email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-url", nil)] onAsset:self.eURL email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
 }
@@ -455,7 +453,7 @@
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    [webby saveImpression:@"checkedMap" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-map", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   
     
@@ -471,9 +469,6 @@
         [self.myMapView .layer setMasksToBounds:YES];
         self.myMapView.layer.shadowOpacity = 0.5f;
    
-        
-      //  [self.myMapView setRegion:region animated:NO];
-        
         CLLocation *location = [[CLLocation alloc] initWithLatitude:(CLLocationDegrees)self.latitude  longitude:(CLLocationDegrees)self.longitude ];
         
         MapPin *marker = [[MapPin alloc] initWithCoordinates:location.coordinate placeName:@"" description:@""];
@@ -508,7 +503,8 @@
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    [webby saveImpression:@"startedSMS" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-sms", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
         [self showSMS:self.eURL];
@@ -523,7 +519,7 @@
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    [webby saveImpression:@"reportSpam" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-spam", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
@@ -638,13 +634,15 @@ else
 - (void)showSMS:(NSString*)file {
     
     if(![MFMessageComposeViewController canSendText]) {
-        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your device doesn't support SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-sms", nil)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [warningAlert show];
         return;
     }
     
+    
+    
     NSArray *recipents = @[@""];
-    NSString *message = [NSString stringWithFormat:@"Yo! Check you this event %@ where I will drop in now!", file];
+    NSString *message = [NSString stringWithFormat:[NSString stringWithFormat:NSLocalizedString(@"sms-pitch", nil)], file];
     
     MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
     messageController.messageComposeDelegate = self;
@@ -663,7 +661,7 @@ else
             
         case MessageComposeResultFailed:
         {
-            UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to send SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-sms-send", nil)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [warningAlert show];
             break;
         }
@@ -681,7 +679,7 @@ else
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    [webby saveImpression:@"finishedSMS" onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"sms-complete", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 

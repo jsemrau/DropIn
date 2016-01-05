@@ -25,7 +25,7 @@
     [self setupLeftMenuButton];
     
     UILabel *lblTitle = [[UILabel alloc] init];
-    lblTitle.text = @"About";
+    lblTitle.text = [NSString stringWithFormat:NSLocalizedString(@"title-about", nil)];
     lblTitle.backgroundColor = [UIColor clearColor];
     lblTitle.textColor = [UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];
     lblTitle.shadowColor = [UIColor whiteColor];

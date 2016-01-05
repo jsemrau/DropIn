@@ -11,7 +11,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "GFLocationManager.h"
 #import "lotCell.h"
-
+//#import "TQ_SettingsVC.h"
 
 @interface PGFirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,QyuWebDelegate,GFLocationManagerDelegate>
 
@@ -63,6 +63,11 @@
 @property(nonatomic, retain) IBOutlet UILabel *messagerLabel;
 @property(nonatomic, retain) IBOutlet UIImageView * loading ;
 @property(nonatomic, retain) IBOutlet UIImageView * whiter ;
+
+@property (nonatomic, retain) IBOutlet UIButton* gotoSettings;
+@property (nonatomic, retain) IBOutlet UIButton* gotoRefresh;
+
+
 @property(nonatomic )bool needsUpdates;
 @property(nonatomic )bool weatherNeedsUpdates;
 
@@ -75,6 +80,7 @@
 
 - (void) playSound:(NSString*) path;
 - (IBAction)refreshButtonPress:(id)sender;
+- (IBAction)settingsButtonPress:(id)sender;
 
 -(IBAction) sortByDate :(id)sender ;
 -(IBAction) sortByDistance :(id)sender;
