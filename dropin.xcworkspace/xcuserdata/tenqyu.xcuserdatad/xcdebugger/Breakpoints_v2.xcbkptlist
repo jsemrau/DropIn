@@ -661,6 +661,15 @@
                </BreakpointActionProxy>
             </Actions>
             <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UIViewAlertForUnsatisfiableConstraints"
+                  moduleName = "UIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  offsetFromSymbolStart = "0">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1798,6 +1807,38 @@
             endingLineNumber = "48"
             landmarkName = "@interface TQ_EventDetailsViewController"
             landmarkType = "2">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TQ_EventDetailsViewController distance]"
+                  moduleName = "dropin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tenqyu/Desktop/Tenqyu/Products/Drop-in/SideDrawerExample/Controllers/TQ_EventDetailsViewController.h"
+                  timestampString = "473697783.208848"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TQ_EventDetailsViewController setDistance:]"
+                  moduleName = "dropin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tenqyu/Desktop/Tenqyu/Products/Drop-in/SideDrawerExample/Controllers/TQ_EventDetailsViewController.h"
+                  timestampString = "473697783.20897"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
