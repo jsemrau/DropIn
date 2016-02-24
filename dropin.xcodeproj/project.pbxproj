@@ -132,6 +132,7 @@
 		0677718A1C11C663001993CA /* save2.png in Resources */ = {isa = PBXBuildFile; fileRef = 067771891C11C663001993CA /* save2.png */; };
 		0677718C1C11CDB2001993CA /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0677718B1C11CDB2001993CA /* LaunchImage@2x.png */; };
 		0677718E1C11CF2F001993CA /* logo420x285.png in Resources */ = {isa = PBXBuildFile; fileRef = 0677718D1C11CF2F001993CA /* logo420x285.png */; };
+		068A20631C79FF4500B4694F /* Liked-orig.png in Resources */ = {isa = PBXBuildFile; fileRef = 068A20621C79FF4500B4694F /* Liked-orig.png */; };
 		068A86841BC96F0500578BCA /* TQ_AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 068A86831BC96F0500578BCA /* TQ_AboutVC.m */; };
 		068A86871BC96F1400578BCA /* TQ_SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 068A86861BC96F1400578BCA /* TQ_SettingsVC.m */; };
 		068A868A1BC96F2400578BCA /* TQ_MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 068A86891BC96F2400578BCA /* TQ_MapVC.m */; };
@@ -511,6 +512,7 @@
 		067771891C11C663001993CA /* save2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save2.png; sourceTree = "<group>"; };
 		0677718B1C11CDB2001993CA /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage@2x.png"; path = "assets/ci/LaunchImage@2x.png"; sourceTree = "<group>"; };
 		0677718D1C11CF2F001993CA /* logo420x285.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo420x285.png; path = assets/ci/logo420x285.png; sourceTree = "<group>"; };
+		068A20621C79FF4500B4694F /* Liked-orig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Liked-orig.png"; sourceTree = "<group>"; };
 		068A86821BC96F0500578BCA /* TQ_AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQ_AboutVC.h; sourceTree = "<group>"; };
 		068A86831BC96F0500578BCA /* TQ_AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQ_AboutVC.m; sourceTree = "<group>"; };
 		068A86851BC96F1400578BCA /* TQ_SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQ_SettingsVC.h; sourceTree = "<group>"; };
@@ -998,6 +1000,7 @@
 		06A556EB1BC17E81004152C8 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				068A20621C79FF4500B4694F /* Liked-orig.png */,
 				06F38D331C34872E00EBBBBF /* action */,
 				0631CE4A1C30B6F2000CEC95 /* question.png */,
 				066E48F61C1E260800897133 /* table */,
@@ -1631,6 +1634,7 @@
 				062FBC601BF11664002D9BBC /* Randi_00026.png in Resources */,
 				06CFEDA21C21948900A2D7C5 /* city-loop-8.png in Resources */,
 				062691861C25924D00B68D88 /* business-button-unselected.png in Resources */,
+				068A20631C79FF4500B4694F /* Liked-orig.png in Resources */,
 				065584CC1C1CDD5E0089D4F8 /* business.png in Resources */,
 				06A557561BC17E81004152C8 /* pk_compo_button_empty_round.png in Resources */,
 				06A557651BC17E81004152C8 /* pk_icon_refresh.png in Resources */,
@@ -2044,6 +2048,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SideDrawerExample/dropin-Prefix.pch";
 				INFOPLIST_FILE = "SideDrawerExample/dropin-Info.plist";
@@ -2061,6 +2066,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SideDrawerExample/dropin-Prefix.pch";
 				INFOPLIST_FILE = "SideDrawerExample/dropin-Info.plist";

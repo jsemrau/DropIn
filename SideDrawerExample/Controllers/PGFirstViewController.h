@@ -13,6 +13,9 @@
 #import "lotCell.h"
 //#import "TQ_SettingsVC.h"
 
+@import GoogleMobileAds;
+
+
 @interface PGFirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,QyuWebDelegate,GFLocationManagerDelegate>
 
 {
@@ -76,6 +79,7 @@
 @property (nonatomic, retain) NSMutableDictionary *prefCats; //there are 12 categories
 
 @property (nonatomic, retain) IBOutlet UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet GADBannerView  *bannerView;
 
 
 - (void) playSound:(NSString*) path;

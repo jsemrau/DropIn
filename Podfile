@@ -13,6 +13,11 @@ target "dropin" do
 
 	pod "EFCircularSlider", "> 0.1.0"
 
+	source 'https://github.com/CocoaPods/Specs.git'
+
+	#platform :ios, '7.0'
+	pod 'Google-Mobile-Ads-SDK', '~> 7.0'
+	
 end
 
 #target "SideDrawerExampleTests" do

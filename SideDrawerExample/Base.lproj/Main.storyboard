@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yEV-Ye-adc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yEV-Ye-adc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -1167,7 +1167,7 @@ Cg
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B4r-Wn-UXQ">
-                                <rect key="frame" x="0.0" y="60" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="60" width="600" height="550"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="T9d-Ai-mQp">
@@ -1231,7 +1231,7 @@ Cg
                                     </variation>
                                 </view>
                                 <adBannerView key="tableFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1Mt-gB-VLd">
-                                    <rect key="frame" x="0.0" y="132" width="600" height="66"/>
+                                    <rect key="frame" x="0.0" y="135" width="600" height="63"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 </adBannerView>
                                 <prototypes>
@@ -1250,10 +1250,18 @@ Cg
                                     <outlet property="delegate" destination="qFL-Rp-FAW" id="me0-ta-Bdw"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="798-9z-EPi" customClass="GADBannerView">
+                                <rect key="frame" x="140" y="550" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="dvf-A3-h1x"/>
+                                    <constraint firstAttribute="height" constant="50" id="q30-h9-epj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="B4r-Wn-UXQ" firstAttribute="centerY" secondItem="Xoh-uT-o1T" secondAttribute="centerY" constant="60" id="3p0-7w-Bc6"/>
+                            <constraint firstItem="B4r-Wn-UXQ" firstAttribute="centerY" secondItem="Xoh-uT-o1T" secondAttribute="centerY" constant="35" id="3p0-7w-Bc6"/>
                             <constraint firstItem="pR4-IQ-5Ho" firstAttribute="centerY" secondItem="Xoh-uT-o1T" secondAttribute="centerY" id="4Ny-Bh-VNA"/>
                             <constraint firstItem="LHU-IS-9Zk" firstAttribute="top" secondItem="uAZ-ee-pVu" secondAttribute="bottom" constant="156" id="JD6-8U-oF6"/>
                             <constraint firstItem="B4r-Wn-UXQ" firstAttribute="leading" secondItem="Xoh-uT-o1T" secondAttribute="leading" id="JSo-jr-vGj"/>
@@ -1264,9 +1272,11 @@ Cg
                             <constraint firstItem="B4r-Wn-UXQ" firstAttribute="centerX" secondItem="Xoh-uT-o1T" secondAttribute="centerX" id="RJ5-NH-nxo"/>
                             <constraint firstItem="LHU-IS-9Zk" firstAttribute="centerX" secondItem="B4r-Wn-UXQ" secondAttribute="centerX" id="W6e-wo-ZGD"/>
                             <constraint firstItem="B4r-Wn-UXQ" firstAttribute="top" secondItem="Xoh-uT-o1T" secondAttribute="top" constant="60" id="YnQ-Cf-EK5"/>
+                            <constraint firstItem="798-9z-EPi" firstAttribute="centerX" secondItem="Xoh-uT-o1T" secondAttribute="centerX" id="bC0-hK-bzb"/>
                             <constraint firstItem="LHU-IS-9Zk" firstAttribute="centerY" secondItem="Xoh-uT-o1T" secondAttribute="centerY" id="fd1-6q-kwQ"/>
                             <constraint firstItem="LHU-IS-9Zk" firstAttribute="centerX" secondItem="Xoh-uT-o1T" secondAttribute="centerX" id="iJY-Tr-9kZ"/>
                             <constraint firstItem="pR4-IQ-5Ho" firstAttribute="centerX" secondItem="Xoh-uT-o1T" secondAttribute="centerX" id="mWh-UB-sbp"/>
+                            <constraint firstItem="s3G-Xm-2d6" firstAttribute="top" secondItem="798-9z-EPi" secondAttribute="bottom" id="nMr-4S-cV2"/>
                             <constraint firstItem="LHU-IS-9Zk" firstAttribute="leading" secondItem="Xoh-uT-o1T" secondAttribute="leading" constant="180" id="o2C-oC-ww1"/>
                         </constraints>
                         <variation key="default">
@@ -1304,6 +1314,7 @@ Cg
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="bannerView" destination="798-9z-EPi" id="gGm-ha-MeS"/>
                         <outlet property="cityHeader" destination="T9d-Ai-mQp" id="uma-Sh-zfa"/>
                         <outlet property="eventTable" destination="B4r-Wn-UXQ" id="hjd-GW-lr0"/>
                         <outlet property="gotoRefresh" destination="f68-iQ-Uko" id="Rph-uX-XSQ"/>
@@ -1843,8 +1854,8 @@ Cg
                                             <constraint firstAttribute="height" constant="40" id="jtm-R8-St5"/>
                                         </constraints>
                                         <state key="normal" image="fav.png"/>
-                                        <state key="selected" image="Liked.png"/>
-                                        <state key="highlighted" image="Liked.png"/>
+                                        <state key="selected" image="Liked-orig.png"/>
+                                        <state key="highlighted" image="Liked-orig.png"/>
                                         <connections>
                                             <action selector="sendFavorite:" destination="eA8-Os-q1r" eventType="touchUpInside" id="Goa-ye-yNy"/>
                                         </connections>
@@ -2372,7 +2383,7 @@ Cg
     </scenes>
     <resources>
         <image name="Edition_Edition-10-01.png" width="61" height="61"/>
-        <image name="Liked.png" width="74" height="71"/>
+        <image name="Liked-orig.png" width="74" height="71"/>
         <image name="Shopping_Shopping-25-01.png" width="61" height="61"/>
         <image name="Time_Time-03-01.png" width="61" height="61"/>
         <image name="Users_Users-24-01.png" width="61" height="61"/>
@@ -2417,6 +2428,6 @@ Cg
         <image name="vertical_line.png" width="2" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BX2-7E-RiK"/>
+        <segue reference="F6X-Rd-5TQ"/>
     </inferredMetricsTieBreakers>
 </document>

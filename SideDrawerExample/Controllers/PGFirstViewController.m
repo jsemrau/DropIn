@@ -11,6 +11,8 @@
 #import "UIViewController+MMDrawerController.h"
 #import "TQ_EventDetailsViewController.h"
 
+@import GoogleMobileAds;
+
 @interface PGFirstViewController ()
 
 @end
@@ -26,6 +28,11 @@
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"likedItems"];
     [[NSUserDefaults standardUserDefaults] synchronize];
    */
+    
+    self.bannerView.adUnitID = @"ca-app-pub-7857198660418019/3237842480";
+    self.bannerView.rootViewController = self;
+    [self.bannerView loadRequest:[GADRequest request]];
+
     
     if ([self.eventList count]==0) {
         self.eventTable.alpha=0.0;
@@ -159,7 +166,7 @@
             self.needsUpdates=TRUE;
             //self.eventTable.alpha=0.0;
             [self fadeOutTableView];
-            [self fadeInImage];\
+            [self fadeInImage];
             //self.loader.alpha=1.0;
             [self startingLoadingAnimation];
             
@@ -173,58 +180,33 @@
     
     if(!self.refreshControl){
         self.refreshControl = [UIRefreshControl new];
-        //self.refreshControl.backgroundColor=[UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:0.8];
+        
         self.refreshControl.backgroundColor=[UIColor whiteColor];
         self.refreshControl.tintColor=[UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];
 
         [refreshControl addTarget:self action:@selector(refreshButtonPress:) forControlEvents:UIControlEventValueChanged];
       
-        /*UIImageView *rcImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Icon-76@2x.png"]];
-       // rcImageView.contentMode = UIViewContentModeCenter;
-        rcImageView.contentMode = UIViewContentModeScaleAspectFill;
-        
-        [refreshControl insertSubview:rcImageView atIndex:0];*/
         
         [self.eventTable addSubview:refreshControl];
         [self.eventTable sendSubviewToBack:refreshControl];
     }
     
-   /* if(!self.navigationItem.titleView){
-   
-        UILabel *lblTitle = [[UILabel alloc] init];
-        lblTitle.text = @"Upcoming";
-        lblTitle.backgroundColor = [UIColor clearColor];
-        lblTitle.textColor = [UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];
-        lblTitle.shadowColor = [UIColor whiteColor];
-        lblTitle.shadowOffset = CGSizeMake(0, 1);
-        lblTitle.font = [UIFont fontWithName:@"AvenirNext-Regular" size:17.0];
-        [lblTitle sizeToFit];
-        
-    self.navigationItem.titleView = lblTitle;
-    }
-    */
+ 
     
     self.cityHeader.layer.shadowColor = [UIColor grayColor].CGColor;
     self.cityHeader.layer.shadowOffset = CGSizeMake(0, 2);
     self.cityHeader.layer.shadowOpacity = 0.5;
     self.cityHeader.layer.shadowRadius = 1.0;
     
-    /*
-    UIVisualEffect *blurEffect;
-    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    
-    UIVisualEffectView *visualEffectView;
-    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    
-    visualEffectView.frame = whiter.bounds;
-    [whiter addSubview:visualEffectView];
-    */
-    
+    NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
+
 }
 
 - (void) viewDidLoad:(BOOL) animated {
     
     [super viewDidLoad];
+
+   
     
 }
 
@@ -416,15 +398,15 @@
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]]) {
-            cell.category.image = [UIImage imageNamed:@"mass.png"];
+            cell.category.image = [UIImage imageNamed:@"social.png"];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]]) {
-            cell.category.image = [UIImage imageNamed:@"meeting.png"];
+            cell.category.image = [UIImage imageNamed:@"mass.png"];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]]) {
-            cell.category.image = [UIImage imageNamed:@"other.png"];
+            cell.category.image = [UIImage imageNamed:@"meeting.png"];
         }
         
         
@@ -433,12 +415,12 @@
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]]) {
-            cell.category.image = [UIImage imageNamed:@"social.png"];
+            cell.category.image = [UIImage imageNamed:@"tech.png"];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]]) {
            
-            cell.category.image = [UIImage imageNamed:@"tech.png"];
+            cell.category.image = [UIImage imageNamed:@"other.png"];
             
         } else {
             
@@ -752,7 +734,7 @@
     NSMutableDictionary *text=[self.filteredEventList objectAtIndex:indexPath.row];
     
     
-    NSLog(@"%@", text);
+    //NSLog(@"%@", text);
     eventDetails.handOver=text;
     
     [self.navigationController pushViewController:eventDetails animated:YES];
@@ -835,7 +817,7 @@
         
         for (NSDictionary* campaignData in resultData) {
             
-           NSLog(@"Outputting cData %@", campaignData);
+          // NSLog(@"Outputting cData %@", campaignData);
             [data addObject:campaignData];
             
             
@@ -902,14 +884,16 @@
        
     }
     
-    if(self.needsUpdates){
+    NSLog(@" Getting location updates horizontalAccuracy is %f", location.horizontalAccuracy);
     
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
-    [webby setDelegate:self];
-    [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude];
-    gettingUpdates=YES;
-        
+    if(self.needsUpdates ){
+    
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
+        [webby setDelegate:self];
+        [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude];
+        gettingUpdates=YES;
+            
     }
     
 }
@@ -970,7 +954,7 @@
     NSMutableArray *parr = [NSMutableArray array];
     
     for (id star in self.prefCats) {
-        NSLog(@" Start : %@", [self.prefCats valueForKey:star]);
+       // NSLog(@" Start : %@", [self.prefCats valueForKey:star]);
         if ([[self.prefCats valueForKey:star] isEqualToString:@"1"]) {
            [parr addObject:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"%@%@%s",@"category == '",star,"'"]]];
         }

@@ -695,7 +695,7 @@ else
 
 - (void)notificationsReceived:(NSDictionary *)resultData{
     
-    NSLog(@"%@",resultData);
+   // NSLog(@"%@",resultData);
     
 }
 
@@ -703,7 +703,7 @@ else
 - (void)locationsReceived:(NSDictionary *)resultData
 {
     
-   NSLog(@"%@",resultData);
+  // NSLog(@"%@",resultData);
     
 }
 

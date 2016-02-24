@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A378C41991F5219E9959E3A250E9A03 /* MMDrawerVisualState.h in Headers */ = {isa = PBXBuildFile; fileRef = E97D6C209267E1B17EFCA76EEF485071 /* MMDrawerVisualState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22BE900AB1C0081B9492A28983593521 /* EFCircularSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = CF2A0BD4096EA581BFFAD122887396B0 /* EFCircularSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2C81EA4C5A75BB0575122F2446ABC4FB /* EFCircularSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B431FB0194361397D5141C6C70FBC9 /* EFCircularSlider-dummy.m */; };
+		1A378C41991F5219E9959E3A250E9A03 /* MMDrawerVisualState.h in Headers */ = {isa = PBXBuildFile; fileRef = 06995AF1BA3FBA7136EE85EF23C34D45 /* MMDrawerVisualState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22BE900AB1C0081B9492A28983593521 /* EFCircularSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 01480C69E2F4C959A4C6B889340D66B1 /* EFCircularSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C81EA4C5A75BB0575122F2446ABC4FB /* EFCircularSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDB5DEFFE69641338F97187C0E83398 /* EFCircularSlider-dummy.m */; };
 		2ECC7AD3251B544A06458ECBDE439CDD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */; };
-		529A38EA9243FD532B23CE6731C41062 /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C81A6280FFE3E204E6C3A53A47159C44 /* MMDrawerBarButtonItem.m */; };
+		529A38EA9243FD532B23CE6731C41062 /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F414AA2090E422AAD534845543ED6 /* MMDrawerBarButtonItem.m */; };
 		5CD819353C30C805E53265229D515F63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */; };
 		62445D56D62979170E9966104FDFBFBE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18F24645AA4D651DFC7B69A3A0833DB /* QuartzCore.framework */; };
-		6B90CF1457514AE8D0945B49D8D0F5D7 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC700AA42EA547EA764B0FA20A19C26E /* UIViewController+MMDrawerController.m */; };
-		6DCAAD460D5EDE19E9C93E52945F9D4B /* MMDrawerController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4AC47A8BFAFC818E8576326382FD9D /* MMDrawerController-dummy.m */; };
-		706A26834B840DE5BD0267E5B501981C /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B59BA917C296EB9EE8AB3794BCAE86 /* MMDrawerVisualState.m */; };
-		947575549E0193C1A5A2379EA9D95D46 /* MMDrawerController+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = A0A0E6533E69A54B22A68AB2E5C6B854 /* MMDrawerController+Subclass.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		984DD4BA68A399F50B9D7849E72385F8 /* UIViewController+MMDrawerController.h in Headers */ = {isa = PBXBuildFile; fileRef = DCFD37F6E262A93ED9B23CAD80328980 /* UIViewController+MMDrawerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9A7F170BE65EFFD69B5986DB55C1920A /* MMDrawerBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 484F5B7CD969F60498D4D89DF41A3BDD /* MMDrawerBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B90CF1457514AE8D0945B49D8D0F5D7 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34FC58F87C08B184E07F158DF752237 /* UIViewController+MMDrawerController.m */; };
+		6DCAAD460D5EDE19E9C93E52945F9D4B /* MMDrawerController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59029AEF87F5A51678EBBB58CD916C3E /* MMDrawerController-dummy.m */; };
+		706A26834B840DE5BD0267E5B501981C /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = F86D012145780B53067EEE0E1BDDB1D9 /* MMDrawerVisualState.m */; };
+		947575549E0193C1A5A2379EA9D95D46 /* MMDrawerController+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F9FA0852E31D4323A066E00839AE94A /* MMDrawerController+Subclass.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		984DD4BA68A399F50B9D7849E72385F8 /* UIViewController+MMDrawerController.h in Headers */ = {isa = PBXBuildFile; fileRef = BA3F79E65108971E22C9738029FE63A8 /* UIViewController+MMDrawerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A7F170BE65EFFD69B5986DB55C1920A /* MMDrawerBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 5249C79D226E313154980572A8CA7EA7 /* MMDrawerBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9BB23EDA661671C7CA4594F412AAEFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */; };
 		DCFC67F21495C649CEE10418C21BF5CD /* Pods-dropin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDFD34C02FD4F4DE868EC1D47DBAA02 /* Pods-dropin-dummy.m */; };
-		EAF1B631E04649105430153F1018D5D6 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849939B882B11606F4D0E7749A0817B /* EFCircularSlider.m */; };
-		F733730F57E794BCFB4B18DC00E2FF9B /* MMDrawerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 17338790B25954C259D2844E39D57EB3 /* MMDrawerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB8782C801FCC735C4CAED59846EFACF /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D2A38B3111DA9811085D83F64E79B7 /* MMDrawerController.m */; };
+		EAF1B631E04649105430153F1018D5D6 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 554F9E22944B92C188C59373C39060BB /* EFCircularSlider.m */; };
+		F733730F57E794BCFB4B18DC00E2FF9B /* MMDrawerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 69C4D86A108E05FAB9870EF9A43D5A06 /* MMDrawerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB8782C801FCC735C4CAED59846EFACF /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5495DABB6F45762311C4434DD9BFBE5A /* MMDrawerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,36 +45,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		17338790B25954C259D2844E39D57EB3 /* MMDrawerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMDrawerController.h; path = MMDrawerController/MMDrawerController.h; sourceTree = "<group>"; };
+		01480C69E2F4C959A4C6B889340D66B1 /* EFCircularSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EFCircularSlider.h; path = EFCircularSlider/EFCircularSlider.h; sourceTree = "<group>"; };
+		06995AF1BA3FBA7136EE85EF23C34D45 /* MMDrawerVisualState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMDrawerVisualState.h; path = MMDrawerController/MMDrawerVisualState.h; sourceTree = "<group>"; };
 		17EC26EDC6BF4A43608C1167669741AB /* Pods-dropin-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-dropin-acknowledgements.plist"; sourceTree = "<group>"; };
-		1849939B882B11606F4D0E7749A0817B /* EFCircularSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EFCircularSlider.m; path = EFCircularSlider/EFCircularSlider.m; sourceTree = "<group>"; };
 		258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		2A09FC24A7CDB1B5DC4E8C582CC275F4 /* EFCircularSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EFCircularSlider-prefix.pch"; sourceTree = "<group>"; };
+		2B3343B64164D53F6AFF5DF69D178FD3 /* MMDrawerController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController-prefix.pch"; sourceTree = "<group>"; };
+		2DDB5DEFFE69641338F97187C0E83398 /* EFCircularSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EFCircularSlider-dummy.m"; sourceTree = "<group>"; };
 		43F32DAAA8CA3EB90EA58382B514FBD8 /* Pods-dropin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-dropin.release.xcconfig"; sourceTree = "<group>"; };
 		466445F442360EF3AE267B5E9D3C75FF /* libMMDrawerController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMMDrawerController.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		484F5B7CD969F60498D4D89DF41A3BDD /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMDrawerBarButtonItem.h; path = MMDrawerController/MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
-		57D2A38B3111DA9811085D83F64E79B7 /* MMDrawerController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMDrawerController.m; path = MMDrawerController/MMDrawerController.m; sourceTree = "<group>"; };
+		4ADF27FAFF17BC22886BF667796E5B0F /* EFCircularSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EFCircularSlider-prefix.pch"; sourceTree = "<group>"; };
+		4F9FA0852E31D4323A066E00839AE94A /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MMDrawerController+Subclass.h"; path = "MMDrawerController/MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		5249C79D226E313154980572A8CA7EA7 /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMDrawerBarButtonItem.h; path = MMDrawerController/MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		5495DABB6F45762311C4434DD9BFBE5A /* MMDrawerController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMDrawerController.m; path = MMDrawerController/MMDrawerController.m; sourceTree = "<group>"; };
+		554F9E22944B92C188C59373C39060BB /* EFCircularSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EFCircularSlider.m; path = EFCircularSlider/EFCircularSlider.m; sourceTree = "<group>"; };
 		58C58B61D6DD09A0769ED4265D9CB3CA /* libEFCircularSlider.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEFCircularSlider.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		59029AEF87F5A51678EBBB58CD916C3E /* MMDrawerController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MMDrawerController-dummy.m"; sourceTree = "<group>"; };
+		59C782E175FDC05F9BD5E7B5EA804266 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "GoogleMobileAdsSdkiOS-7.6.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		64644A955AC1282E7A9BE62131DD30AB /* Pods-dropin-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-dropin-resources.sh"; sourceTree = "<group>"; };
+		69C4D86A108E05FAB9870EF9A43D5A06 /* MMDrawerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMDrawerController.h; path = MMDrawerController/MMDrawerController.h; sourceTree = "<group>"; };
 		777D8C3EC6C15C4EE50716EB82C4D796 /* Pods-dropin-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-dropin-frameworks.sh"; sourceTree = "<group>"; };
+		7B2F414AA2090E422AAD534845543ED6 /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMDrawerBarButtonItem.m; path = MMDrawerController/MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
 		7DDFD34C02FD4F4DE868EC1D47DBAA02 /* Pods-dropin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dropin-dummy.m"; sourceTree = "<group>"; };
-		87B59BA917C296EB9EE8AB3794BCAE86 /* MMDrawerVisualState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMDrawerVisualState.m; path = MMDrawerController/MMDrawerVisualState.m; sourceTree = "<group>"; };
 		8FDF0A8DADD5E60D8AF0BF2E909F79D7 /* Pods-dropin-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-dropin-acknowledgements.markdown"; sourceTree = "<group>"; };
+		973523A3573C8234431AEF0B8B1B8621 /* EFCircularSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EFCircularSlider.xcconfig; sourceTree = "<group>"; };
 		994097BA28A2AE849AEF68E5838B5F95 /* libPods-dropin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dropin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0A0E6533E69A54B22A68AB2E5C6B854 /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MMDrawerController+Subclass.h"; path = "MMDrawerController/MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
-		AA4AC47A8BFAFC818E8576326382FD9D /* MMDrawerController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MMDrawerController-dummy.m"; sourceTree = "<group>"; };
 		B18F24645AA4D651DFC7B69A3A0833DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		B384D02502944276C9AD493559BFED5B /* MMDrawerController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MMDrawerController.xcconfig; sourceTree = "<group>"; };
+		B436C03EAA5274C7601AE4F03AB96C96 /* MMDrawerController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MMDrawerController.xcconfig; sourceTree = "<group>"; };
+		BA3F79E65108971E22C9738029FE63A8 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+MMDrawerController.h"; path = "MMDrawerController/UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C81A6280FFE3E204E6C3A53A47159C44 /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMDrawerBarButtonItem.m; path = MMDrawerController/MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
-		CF2A0BD4096EA581BFFAD122887396B0 /* EFCircularSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EFCircularSlider.h; path = EFCircularSlider/EFCircularSlider.h; sourceTree = "<group>"; };
-		DCFD37F6E262A93ED9B23CAD80328980 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+MMDrawerController.h"; path = "MMDrawerController/UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		E34FC58F87C08B184E07F158DF752237 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+MMDrawerController.m"; path = "MMDrawerController/UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 		E384F474CB493BEA8B6FA27F6F2996A4 /* Pods-dropin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-dropin.debug.xcconfig"; sourceTree = "<group>"; };
-		E97D6C209267E1B17EFCA76EEF485071 /* MMDrawerVisualState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMDrawerVisualState.h; path = MMDrawerController/MMDrawerVisualState.h; sourceTree = "<group>"; };
-		EC700AA42EA547EA764B0FA20A19C26E /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+MMDrawerController.m"; path = "MMDrawerController/UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
-		F7D92D48D986F02C7ABED01FD711CD75 /* MMDrawerController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController-prefix.pch"; sourceTree = "<group>"; };
-		F9B431FB0194361397D5141C6C70FBC9 /* EFCircularSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EFCircularSlider-dummy.m"; sourceTree = "<group>"; };
-		FAA38083E85D3A9F067CD166FE862691 /* EFCircularSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EFCircularSlider.xcconfig; sourceTree = "<group>"; };
+		F86D012145780B53067EEE0E1BDDB1D9 /* MMDrawerVisualState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MMDrawerVisualState.m; path = MMDrawerController/MMDrawerVisualState.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +115,13 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		185FA94BDEE004A507EE9368632E99D2 /* Subclass */ = {
+		0BBA2323A6D45C692EA3DB20D8E1819E /* MMDrawerVisualStates */ = {
 			isa = PBXGroup;
 			children = (
-				A0A0E6533E69A54B22A68AB2E5C6B854 /* MMDrawerController+Subclass.h */,
+				06995AF1BA3FBA7136EE85EF23C34D45 /* MMDrawerVisualState.h */,
+				F86D012145780B53067EEE0E1BDDB1D9 /* MMDrawerVisualState.m */,
 			);
-			name = Subclass;
+			name = MMDrawerVisualStates;
 			sourceTree = "<group>";
 		};
 		1F74817B0EE2A84DED53A84C062B632E /* Products */ = {
@@ -132,15 +134,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2FF60389C4B7FA3BE8FCA359FEA2305E /* Support Files */ = {
+		2038E2BACA336A8F7BFCCFD02581C0E8 /* MMDrawerController */ = {
 			isa = PBXGroup;
 			children = (
-				FAA38083E85D3A9F067CD166FE862691 /* EFCircularSlider.xcconfig */,
-				F9B431FB0194361397D5141C6C70FBC9 /* EFCircularSlider-dummy.m */,
-				2A09FC24A7CDB1B5DC4E8C582CC275F4 /* EFCircularSlider-prefix.pch */,
+				880E9B2BE0A94853ED827FE7590871C5 /* Core */,
+				5F2A473DEDCBBF81FD13F7DCB066B33E /* MMDrawerBarButtonItem */,
+				0BBA2323A6D45C692EA3DB20D8E1819E /* MMDrawerVisualStates */,
+				67872ECEF9196378A44F7B8EFF2DB68C /* Subclass */,
+				DF96730C7764D9FF2D481315B25F76A2 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/EFCircularSlider";
+			path = MMDrawerController;
 			sourceTree = "<group>";
 		};
 		34C54F82DF63FFEB826132701109638B /* Pods-dropin */ = {
@@ -167,18 +170,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		3D71D849BE1AA5130A22C70D55F4ADF2 /* MMDrawerController */ = {
-			isa = PBXGroup;
-			children = (
-				F1C9969DEAE9DD918188C5B38143D855 /* Core */,
-				B6A9A2CA65B89C81FE2EEF79751BA96C /* MMDrawerBarButtonItem */,
-				FA6BD4F5D66395FBE52E6A4F3BE8E121 /* MMDrawerVisualStates */,
-				185FA94BDEE004A507EE9368632E99D2 /* Subclass */,
-				AF0727642B250307203E76D77C87DA49 /* Support Files */,
-			);
-			path = MMDrawerController;
-			sourceTree = "<group>";
-		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,74 +178,101 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		43E8B3911F0534471319575E581ECE49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59C782E175FDC05F9BD5E7B5EA804266 /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		464CB865742E8DFE8492CEBA16C076EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D663BD525E2DE3AAFFCB69791F1B5AE /* EFCircularSlider */,
+				B2E041F8F2F6B29E01C22F553797C6C2 /* Google-Mobile-Ads-SDK */,
+				2038E2BACA336A8F7BFCCFD02581C0E8 /* MMDrawerController */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5F2A473DEDCBBF81FD13F7DCB066B33E /* MMDrawerBarButtonItem */ = {
+			isa = PBXGroup;
+			children = (
+				5249C79D226E313154980572A8CA7EA7 /* MMDrawerBarButtonItem.h */,
+				7B2F414AA2090E422AAD534845543ED6 /* MMDrawerBarButtonItem.m */,
+			);
+			name = MMDrawerBarButtonItem;
+			sourceTree = "<group>";
+		};
+		67872ECEF9196378A44F7B8EFF2DB68C /* Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				4F9FA0852E31D4323A066E00839AE94A /* MMDrawerController+Subclass.h */,
+			);
+			name = Subclass;
+			sourceTree = "<group>";
+		};
+		6D663BD525E2DE3AAFFCB69791F1B5AE /* EFCircularSlider */ = {
+			isa = PBXGroup;
+			children = (
+				01480C69E2F4C959A4C6B889340D66B1 /* EFCircularSlider.h */,
+				554F9E22944B92C188C59373C39060BB /* EFCircularSlider.m */,
+				BF40893C0AF84D24474ABCB81E834BD9 /* Support Files */,
+			);
+			path = EFCircularSlider;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				CDAC4CAF5B54AFFB5CA4230357E2591B /* Pods */,
+				464CB865742E8DFE8492CEBA16C076EF /* Pods */,
 				1F74817B0EE2A84DED53A84C062B632E /* Products */,
 				07386521F69C358D916F6E3178438938 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		AF0727642B250307203E76D77C87DA49 /* Support Files */ = {
+		880E9B2BE0A94853ED827FE7590871C5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B384D02502944276C9AD493559BFED5B /* MMDrawerController.xcconfig */,
-				AA4AC47A8BFAFC818E8576326382FD9D /* MMDrawerController-dummy.m */,
-				F7D92D48D986F02C7ABED01FD711CD75 /* MMDrawerController-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/MMDrawerController";
-			sourceTree = "<group>";
-		};
-		B6A9A2CA65B89C81FE2EEF79751BA96C /* MMDrawerBarButtonItem */ = {
-			isa = PBXGroup;
-			children = (
-				484F5B7CD969F60498D4D89DF41A3BDD /* MMDrawerBarButtonItem.h */,
-				C81A6280FFE3E204E6C3A53A47159C44 /* MMDrawerBarButtonItem.m */,
-			);
-			name = MMDrawerBarButtonItem;
-			sourceTree = "<group>";
-		};
-		CDAC4CAF5B54AFFB5CA4230357E2591B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D43CD4D46CCF6726C32C786FC16E7804 /* EFCircularSlider */,
-				3D71D849BE1AA5130A22C70D55F4ADF2 /* MMDrawerController */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		D43CD4D46CCF6726C32C786FC16E7804 /* EFCircularSlider */ = {
-			isa = PBXGroup;
-			children = (
-				CF2A0BD4096EA581BFFAD122887396B0 /* EFCircularSlider.h */,
-				1849939B882B11606F4D0E7749A0817B /* EFCircularSlider.m */,
-				2FF60389C4B7FA3BE8FCA359FEA2305E /* Support Files */,
-			);
-			path = EFCircularSlider;
-			sourceTree = "<group>";
-		};
-		F1C9969DEAE9DD918188C5B38143D855 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				17338790B25954C259D2844E39D57EB3 /* MMDrawerController.h */,
-				57D2A38B3111DA9811085D83F64E79B7 /* MMDrawerController.m */,
-				DCFD37F6E262A93ED9B23CAD80328980 /* UIViewController+MMDrawerController.h */,
-				EC700AA42EA547EA764B0FA20A19C26E /* UIViewController+MMDrawerController.m */,
+				69C4D86A108E05FAB9870EF9A43D5A06 /* MMDrawerController.h */,
+				5495DABB6F45762311C4434DD9BFBE5A /* MMDrawerController.m */,
+				BA3F79E65108971E22C9738029FE63A8 /* UIViewController+MMDrawerController.h */,
+				E34FC58F87C08B184E07F158DF752237 /* UIViewController+MMDrawerController.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
 		};
-		FA6BD4F5D66395FBE52E6A4F3BE8E121 /* MMDrawerVisualStates */ = {
+		B2E041F8F2F6B29E01C22F553797C6C2 /* Google-Mobile-Ads-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				E97D6C209267E1B17EFCA76EEF485071 /* MMDrawerVisualState.h */,
-				87B59BA917C296EB9EE8AB3794BCAE86 /* MMDrawerVisualState.m */,
+				43E8B3911F0534471319575E581ECE49 /* Frameworks */,
 			);
-			name = MMDrawerVisualStates;
+			path = "Google-Mobile-Ads-SDK";
+			sourceTree = "<group>";
+		};
+		BF40893C0AF84D24474ABCB81E834BD9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				973523A3573C8234431AEF0B8B1B8621 /* EFCircularSlider.xcconfig */,
+				2DDB5DEFFE69641338F97187C0E83398 /* EFCircularSlider-dummy.m */,
+				4ADF27FAFF17BC22886BF667796E5B0F /* EFCircularSlider-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/EFCircularSlider";
+			sourceTree = "<group>";
+		};
+		DF96730C7764D9FF2D481315B25F76A2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B436C03EAA5274C7601AE4F03AB96C96 /* MMDrawerController.xcconfig */,
+				59029AEF87F5A51678EBBB58CD916C3E /* MMDrawerController-dummy.m */,
+				2B3343B64164D53F6AFF5DF69D178FD3 /* MMDrawerController-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MMDrawerController";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,7 +465,7 @@
 		};
 		089E966539226B97EDC4E63B04C061B3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAA38083E85D3A9F067CD166FE862691 /* EFCircularSlider.xcconfig */;
+			baseConfigurationReference = 973523A3573C8234431AEF0B8B1B8621 /* EFCircularSlider.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/EFCircularSlider/EFCircularSlider-prefix.pch";
@@ -465,7 +483,7 @@
 		};
 		0B599344D0A4532B2730171262DF99F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B384D02502944276C9AD493559BFED5B /* MMDrawerController.xcconfig */;
+			baseConfigurationReference = B436C03EAA5274C7601AE4F03AB96C96 /* MMDrawerController.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/MMDrawerController/MMDrawerController-prefix.pch";
@@ -483,7 +501,7 @@
 		};
 		65E275BE2651E302330C088CD69FD742 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAA38083E85D3A9F067CD166FE862691 /* EFCircularSlider.xcconfig */;
+			baseConfigurationReference = 973523A3573C8234431AEF0B8B1B8621 /* EFCircularSlider.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/EFCircularSlider/EFCircularSlider-prefix.pch";
@@ -557,7 +575,7 @@
 		};
 		F42D00DFFE5EB0CC2B3A5506FFD18D59 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B384D02502944276C9AD493559BFED5B /* MMDrawerController.xcconfig */;
+			baseConfigurationReference = B436C03EAA5274C7601AE4F03AB96C96 /* MMDrawerController.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/MMDrawerController/MMDrawerController-prefix.pch";

@@ -460,7 +460,7 @@ if (theConnection)
   
     NSString *messageStr = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
     
-    NSLog(@" return value %@", messageStr);
+    //NSLog(@" return value %@", messageStr);
     
     if ([messageStr isEqual:@""]) {
         NSLog(@"Empty string !!");
