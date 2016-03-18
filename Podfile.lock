@@ -1,6 +1,6 @@
 PODS:
   - EFCircularSlider (0.2.0)
-  - Google-Mobile-Ads-SDK (7.6.0)
+  - Google-Mobile-Ads-SDK (7.7.0)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
     - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
@@ -21,7 +21,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   EFCircularSlider: 3af1dd6f86eb3eeeeaab0345ef3d6d1c2fc93d17
-  Google-Mobile-Ads-SDK: 0290020329c61183c4685304264b73382bc49fb4
+  Google-Mobile-Ads-SDK: d290e523a6e2f223256abcbf8e0c778b55b1f04e
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
 
 COCOAPODS: 0.39.0

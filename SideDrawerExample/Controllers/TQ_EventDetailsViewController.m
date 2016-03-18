@@ -166,6 +166,10 @@
         self.vSource.image = [UIImage imageNamed:@"eventful.png"];
     }
     
+    if([[self.handOver valueForKey:@"source"] isEqualToString:@"active"] ){
+        self.vSource.image = [UIImage imageNamed:@"power-by--drk.png"];
+    }
+    
     NSAttributedString *tmpStr = [[NSAttributedString alloc] initWithData:[[self.handOver valueForKey:@"description"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
     
     [self.eDescription  setScrollEnabled:NO];

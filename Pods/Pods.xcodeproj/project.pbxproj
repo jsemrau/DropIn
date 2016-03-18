@@ -48,6 +48,7 @@
 		01480C69E2F4C959A4C6B889340D66B1 /* EFCircularSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EFCircularSlider.h; path = EFCircularSlider/EFCircularSlider.h; sourceTree = "<group>"; };
 		06995AF1BA3FBA7136EE85EF23C34D45 /* MMDrawerVisualState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMDrawerVisualState.h; path = MMDrawerController/MMDrawerVisualState.h; sourceTree = "<group>"; };
 		17EC26EDC6BF4A43608C1167669741AB /* Pods-dropin-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-dropin-acknowledgements.plist"; sourceTree = "<group>"; };
+		1FF91230566217503F944558C0F372BD /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "GoogleMobileAdsSdkiOS-7.7.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		258B0C8029B3982F03A30ED9FB271283 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		2B3343B64164D53F6AFF5DF69D178FD3 /* MMDrawerController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController-prefix.pch"; sourceTree = "<group>"; };
 		2DDB5DEFFE69641338F97187C0E83398 /* EFCircularSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EFCircularSlider-dummy.m"; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		554F9E22944B92C188C59373C39060BB /* EFCircularSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EFCircularSlider.m; path = EFCircularSlider/EFCircularSlider.m; sourceTree = "<group>"; };
 		58C58B61D6DD09A0769ED4265D9CB3CA /* libEFCircularSlider.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEFCircularSlider.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59029AEF87F5A51678EBBB58CD916C3E /* MMDrawerController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MMDrawerController-dummy.m"; sourceTree = "<group>"; };
-		59C782E175FDC05F9BD5E7B5EA804266 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "GoogleMobileAdsSdkiOS-7.6.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		64644A955AC1282E7A9BE62131DD30AB /* Pods-dropin-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-dropin-resources.sh"; sourceTree = "<group>"; };
 		69C4D86A108E05FAB9870EF9A43D5A06 /* MMDrawerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MMDrawerController.h; path = MMDrawerController/MMDrawerController.h; sourceTree = "<group>"; };
 		777D8C3EC6C15C4EE50716EB82C4D796 /* Pods-dropin-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-dropin-frameworks.sh"; sourceTree = "<group>"; };
@@ -178,14 +178,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		43E8B3911F0534471319575E581ECE49 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				59C782E175FDC05F9BD5E7B5EA804266 /* GoogleMobileAds.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		464CB865742E8DFE8492CEBA16C076EF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +226,14 @@
 			);
 			sourceTree = "<group>";
 		};
+		806FC2834A281D7B1547A926D22A1A06 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FF91230566217503F944558C0F372BD /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		880E9B2BE0A94853ED827FE7590871C5 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,7 +248,7 @@
 		B2E041F8F2F6B29E01C22F553797C6C2 /* Google-Mobile-Ads-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				43E8B3911F0534471319575E581ECE49 /* Frameworks */,
+				806FC2834A281D7B1547A926D22A1A06 /* Frameworks */,
 			);
 			path = "Google-Mobile-Ads-SDK";
 			sourceTree = "<group>";
