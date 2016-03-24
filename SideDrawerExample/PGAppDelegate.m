@@ -7,6 +7,8 @@
 //
 
 #import "PGAppDelegate.h"
+#import <Fabric/Fabric.h>
+#import <TwitterKit/TwitterKit.h>
 
 @implementation PGAppDelegate
 
@@ -28,6 +30,8 @@
             [navigationController pushViewController:entityLoader animated:YES];
         }
     }];*/
+
+    [Fabric with:@[[Twitter class]]];
 
     
     return YES;

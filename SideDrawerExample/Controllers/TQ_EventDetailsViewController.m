@@ -8,6 +8,8 @@
 
 #import "TQ_EventDetailsViewController.h"
 
+
+
 @interface TQ_EventDetailsViewController ()
 
 @end
@@ -25,6 +27,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"dropin-header-bg.png"]];
+    self.summaryView.backgroundColor=background;
+
+
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
