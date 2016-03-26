@@ -16,11 +16,29 @@
 
 @implementation TQ_EventDetailsViewController
 
-@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver;
+@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage;
 
 - (void)viewWillAppear:(BOOL)animated{
     
-       self.debugView.alpha=0;
+    self.debugView.alpha=0;
+    
+    /* setup the swipes*/
+    UISwipeGestureRecognizer * swipeleftShare=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(toggleSwipe:)];
+    swipeleftShare.direction=UISwipeGestureRecognizerDirectionLeft;
+    [self.shareView addGestureRecognizer:swipeleftShare];
+    
+    UISwipeGestureRecognizer * swiperightShare=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(toggleSwipe:)];
+    swiperightShare.direction=UISwipeGestureRecognizerDirectionRight;
+    [self.shareView addGestureRecognizer:swiperightShare];
+    
+    UISwipeGestureRecognizer * swipeleftSoc=[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toggleSwipe:)];
+    swipeleftSoc.direction=UISwipeGestureRecognizerDirectionLeft;
+    [self.socialView addGestureRecognizer:swipeleftSoc];
+    
+    UISwipeGestureRecognizer * swiperightSoc=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(toggleSwipe:)];
+    swiperightSoc.direction=UISwipeGestureRecognizerDirectionRight;
+    [self.socialView addGestureRecognizer:swiperightSoc];
+    
     
 }
 - (void)viewDidLoad {
@@ -333,6 +351,14 @@
         self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
     }
     
+    
+        self.socialView.alpha=0.0;
+        self.shareView.alpha=1.0;
+        self.activePage=1;
+        
+  
+  
+    
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
@@ -381,6 +407,41 @@
     
     
     
+}
+
+- (IBAction)sendTweet:(id)sender{
+    
+    NSLog(@" we are tweeting");
+   
+    // Objective-C
+    TWTRComposer *composer = [[TWTRComposer alloc] init];
+    
+   NSString *file =  [self.handOver objectForKey:@"url"];
+    
+    NSString *message;
+
+    if([[self.handOver objectForKey:@"city_name"] length]>0){
+    NSString *loc = [self.handOver objectForKey:@"city_name"];
+    
+    message = [NSString stringWithFormat:@"Yo! Check you this event %@ in %@ I will drop!in !", file, loc];
+                                                        
+    } else {
+        
+    message = [NSString stringWithFormat:@"Yo! Check you this event %@ I will drop!in!", file];
+    }
+
+    [composer setText:message];
+    [composer setImage:[UIImage imageNamed:@"dropin-logo.png"]];
+    
+    // Called from a UIViewController
+    [composer showFromViewController:self completion:^(TWTRComposerResult result) {
+        if (result == TWTRComposerResultCancelled) {
+            NSLog(@"Tweet composition cancelled");
+        }
+        else {
+            NSLog(@"Sending Tweet!");
+        }
+    }];
 }
 
 - (IBAction)sendFavorite:(id)sender{
@@ -716,6 +777,30 @@ else
   // NSLog(@"%@",resultData);
     
 }
+
+#pragma mark swipeGestureRecognizers
+
+
+
+-(void)toggleSwipe:(UISwipeGestureRecognizer*)gestureRecognizer
+{
+    NSLog(@"Swiped right");
+    //Do what you want here
+    if(self.activePage==1){
+        
+        self.socialView.alpha=1.0;
+        self.shareView.alpha=10.0;
+        self.activePage=2;
+        
+    } else {
+        
+        self.socialView.alpha=0.0;
+        self.shareView.alpha=1.0;
+        self.activePage=1;
+        
+    }
+}
+
 
 
 @end

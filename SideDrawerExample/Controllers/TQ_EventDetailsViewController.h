@@ -14,6 +14,9 @@
 //#import <Socialize/Socialize.h>
 #import <MessageUI/MessageUI.h>
 #import "QyuWebAccess.h"
+#import <Fabric/Fabric.h>
+#import <TwitterKit/TwitterKit.h>
+
 
 @interface TQ_EventDetailsViewController : UIViewController <MKMapViewDelegate,MFMessageComposeViewControllerDelegate,QyuWebDelegate>
 
@@ -55,12 +58,16 @@
     IBOutlet UIButton *openURL;
     IBOutlet UIButton *favButton;
     IBOutlet UIButton *spamButton;
+    IBOutlet UIButton *tweetButton;
+
     
     IBOutlet UIView *summaryView;
     
     UIView *debugView;
     UIView *mapView;
     UIView *shareView;
+    UIView *socialView;
+   
     
     IBOutlet MKMapView *myMapView;
     IBOutlet UIImageView *vSource;
@@ -68,6 +75,8 @@
     NSMutableDictionary *likedIDs;
     NSMutableDictionary *userDetails;
     NSMutableDictionary *handOver;
+    
+    int activePage;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *distance;
@@ -76,6 +85,7 @@
 @property (nonatomic) IBOutlet UILabel *max_count;
 @property (nonatomic) float latitude;
 @property (nonatomic) float longitude;
+@property (nonatomic) int activePage;
 @property (nonatomic) NSString *vNameStr;
 @property (nonatomic) NSString *idStr;
 @property (retain, nonatomic) IBOutlet UILabel *price;
@@ -100,12 +110,14 @@
 @property (retain, nonatomic) IBOutlet UIButton *openLocation;
 @property (retain, nonatomic) IBOutlet UIButton *openURL;
 @property (retain, nonatomic) IBOutlet UIButton *favButton;
+@property (retain, nonatomic) IBOutlet UIButton *tweetButton;
 @property (retain, nonatomic) IBOutlet UIButton *spamButton;
 
 @property(nonatomic, retain) IBOutlet UIView * debugView ;
 @property(nonatomic, retain) IBOutlet UIView * mapView ;
 @property(nonatomic, retain) IBOutlet UIView * shareView ;
 @property(nonatomic, retain) IBOutlet UIView * summaryView ;
+@property(nonatomic, retain) IBOutlet UIView * socialView ;
 
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
 
@@ -116,6 +128,8 @@
 
 @property (retain, nonatomic) IBOutlet UIImageView *vSource;
 
+@property (nonatomic, strong) IBOutlet UISwipeGestureRecognizer *page1TapRecognizer;
+@property (nonatomic, strong) IBOutlet UISwipeGestureRecognizer *page2TapRecognizer;
 
 //@property (nonatomic, retain) SZActionBar *actionBar;
 //@property (nonatomic, retain) id<SZEntity> entity;
