@@ -38,14 +38,7 @@
         self.eventTable.alpha=0.0;
     }
     
-    if (self.hasUpdates) {
-        self.eventTable.alpha=0.0;
-        self.messager.alpha=0.0;
-        [self fadeInImage];
-        
-        [self refreshButtonPress:self];
-        self.hasUpdates=FALSE;
-    }
+    
     
     self.hasCategories=TRUE;
     
@@ -202,6 +195,18 @@
     self.cityHeader.layer.shadowRadius = 1.0;
     
     NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
+    
+    /* If need to get updates do that now */
+    
+    if (self.hasUpdates) {
+        
+        self.eventTable.alpha=0.0;
+        self.messager.alpha=0.0;
+        [self fadeInImage];
+        
+        [self refreshButtonPress:self];
+        self.hasUpdates=FALSE;
+    }
 
 }
 
