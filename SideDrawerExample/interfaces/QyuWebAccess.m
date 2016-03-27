@@ -199,7 +199,7 @@
 } //End submitQRScan Function
 
 
--(id) submitLocationScan:(double)lat andLong:(double)lon{
+-(id) submitLocationScan:(double)lat andLong:(double)lon email:(NSString *)email pwd:(NSString *)pwd  mongoId:(NSString *)mongoId{
 
 
     // Configure the new event with information from the location
@@ -218,9 +218,13 @@ NSString *longitude = [NSString stringWithFormat:@"%f", lon];
 NSString *latStr = [@"&lat=" stringByAppendingString:latitude];
 NSString *longStr = [@"&lng=" stringByAppendingString:longitude ];
     
+NSString *mailStr = [@"&email=" stringByAppendingString:email ];
+NSString *pwdStr = [@"&pwd=" stringByAppendingString:pwd];
+NSString *mongoStr = [@"&mongoId=" stringByAppendingString:mongoId];
+    
 NSString *eventHrsStr = [@"&nextHours=" stringByAppendingString:self.timeFrame];
   
-NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@", latStr,longStr,distanceStr,eventHrsStr];
+NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@", latStr,longStr,distanceStr,eventHrsStr,mailStr,pwdStr,mongoStr];
 
 //NSLog(@"URL %@", requestVars);
     
@@ -468,6 +472,13 @@ if (theConnection)
         // return;
         
         self.jsondata=nil;
+        
+        if(delegate && [delegate respondsToSelector:@selector(noLocationsReceived)]) {
+            //  NSLog(@"Delegating! %@",self.jsondata);
+            [delegate noLocationsReceived];
+        } else {
+            NSLog(@"Not Delegating. I dont know why.");
+        }
         
     } else {
         

@@ -440,6 +440,14 @@
         }
         else {
             NSLog(@"Sending Tweet!");
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+            [webby setDelegate:self];
+            
+            [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"tweeted", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            
         }
     }];
 }
@@ -770,6 +778,17 @@ else
     
 }
 
+- (void) noLocationsReceived{
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No locations received"
+                                                    message:@"Please adjust your Settings for this app."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+}
 
 - (void)locationsReceived:(NSDictionary *)resultData
 {

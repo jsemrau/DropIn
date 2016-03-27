@@ -20,7 +20,7 @@
 @implementation PGFirstViewController
 
 @synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter,prefCats,hasCategories,hasUpdates,
-    gotoSettings,gotoRefresh;
+    gotoSettings,gotoRefresh,userDetails;
 
 -(void) viewWillAppear:(BOOL)animated{
     
@@ -39,6 +39,9 @@
     }
     
     if (self.hasUpdates) {
+        self.eventTable.alpha=0.0;
+        self.messager.alpha=0.0;
+        [self fadeInImage];
         
         [self refreshButtonPress:self];
         self.hasUpdates=FALSE;
@@ -249,10 +252,6 @@
 }
 - (IBAction)refreshButtonPress:(id)sender {
     
-    self.messager.alpha=0.0;
-    
-    self.eventTable.alpha=0.0;
-    [self fadeInImage];
     // self.loader.alpha=1.0;
     [self startingLoadingAnimation];
     //data not available anymore
@@ -759,6 +758,20 @@
     }
 }
 
+- (void) noLocationsReceived{
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No locations received"
+                                                    message:@"Please adjust your Settings for this app."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+    [self stoppingLoadingAnimation ];
+    
+}
+
 - (void)notificationsReceived:(NSDictionary *)resultData{
     
     //You ned to set "count" new updates.
@@ -800,6 +813,8 @@
         
         self.messagerLabel.text=@" There are no events around, you could try to adjust your settings!";
         self.messager.alpha=1.0;
+        
+        //
         
         
     } else {
@@ -848,6 +863,7 @@
     }
     
     [refreshControl endRefreshing];
+    [self stoppingLoadingAnimation ];
     [self.eventTable reloadData];
     
 }
@@ -888,10 +904,18 @@
     
     if(self.needsUpdates ){
     
+        if([self.userDetails count]==0) {
+        
+            
+            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+            self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
+            
+        }
+        
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
         [webby setDelegate:self];
-        [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude];
+        [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] ];
         gettingUpdates=YES;
             
     }

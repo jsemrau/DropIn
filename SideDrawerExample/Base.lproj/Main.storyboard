@@ -1238,7 +1238,7 @@ Cg
                                         </mask>
                                     </variation>
                                 </view>
-                                <adBannerView key="tableFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1Mt-gB-VLd">
+                                <adBannerView key="tableFooterView" hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1Mt-gB-VLd">
                                     <rect key="frame" x="0.0" y="135" width="600" height="63"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 </adBannerView>
@@ -1932,10 +1932,10 @@ Cg
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page1.png" translatesAutoresizingMaskIntoConstraints="NO" id="LW3-Kq-BBK">
-                                        <rect key="frame" x="287" y="5" width="30" height="15"/>
+                                        <rect key="frame" x="297" y="5" width="20" height="10"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="FcO-V6-lt0"/>
-                                            <constraint firstAttribute="width" constant="30" id="feX-hd-ilk"/>
+                                            <constraint firstAttribute="height" constant="10" id="FcO-V6-lt0"/>
+                                            <constraint firstAttribute="width" constant="20" id="feX-hd-ilk"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -2080,11 +2080,11 @@ Cg
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page2.png" translatesAutoresizingMaskIntoConstraints="NO" id="aif-Qb-ImM">
-                                        <rect key="frame" x="287" y="5" width="30" height="15"/>
+                                        <rect key="frame" x="297" y="5" width="20" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="h2l-ih-9za"/>
-                                            <constraint firstAttribute="width" constant="30" id="i22-Gk-xQY"/>
-                                            <constraint firstAttribute="height" constant="15" id="sKh-Jn-Mbm"/>
+                                            <constraint firstAttribute="width" constant="20" id="i22-Gk-xQY"/>
+                                            <constraint firstAttribute="height" constant="10" id="sKh-Jn-Mbm"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="xms-uv-k3C"/>
                                         </constraints>
                                         <variation key="default">

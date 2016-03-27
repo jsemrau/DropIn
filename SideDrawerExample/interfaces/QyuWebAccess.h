@@ -16,6 +16,7 @@
 
 - (void)notificationsReceived:(NSDictionary *)resultData;
 - (void)locationsReceived:(NSDictionary *)resultData;
+- (void) noLocationsReceived;
 @end
 
 @interface QyuWebAccess : NSObject
@@ -60,8 +61,8 @@
 -(id)initWithConnectionType:(NSString *) cType;
 //-(id) submitLocationScan:(NSString *)latitude longitude:(NSString *)longitude distance:(NSString *)distance ;
 
--(id) submitLocationScan:(double)lat andLong:(double)lon;
--(id) submitQRScan:(NSString *)qrcode email:(NSString *)email pwd:(NSString *)pwd  mongoId:(NSString *)mongoId withLat:(double)lat andLong:(double)lon;
+-(id) submitLocationScan:(double)lat andLong:(double)lon email:(NSString *)email pwd:(NSString *)pwd  mongoId:(NSString *)mongoId;
+-(id) submitQRScan:(NSString *)qrcode email:(NSString *)email pwd:(NSString *)pwd  mongoId:(NSString *)mongoId withLat:(double)lat andLong:(double)lon ;
 -(id) saveImpression:(NSString *)impression onAsset:(NSString*)onAsset email:(NSString *)email pwd:(NSString *)pwd  mongoId:(NSString *)mongoId withLat:(double)lat andLong:(double)lon;
 -(id) submitWeatherRequest:(double)lat andLong:(double)lon;
 
