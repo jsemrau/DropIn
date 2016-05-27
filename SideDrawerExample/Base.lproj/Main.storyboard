@@ -1174,8 +1174,9 @@ Cg
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropin-header-bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="kVf-cu-IYw">
+                                        <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dropin-header.png" translatesAutoresizingMaskIntoConstraints="NO" id="kVf-cu-IYw">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="D9q-ec-EHz"/>
                                             </constraints>
@@ -1789,9 +1790,10 @@ Cg
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fe8-Sz-g4l">
                                 <rect key="frame" x="215" y="522" width="169" height="78"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="debug" backgroundImage="pk_compo_2_button_blue.png"/>
                                 <connections>
-                                    <action selector="toggleDebugView:" destination="eA8-Os-q1r" eventType="touchUpInside" id="epp-zl-ShB"/>
+                                    <action selector="sendWhatsApp:" destination="eA8-Os-q1r" eventType="touchUpInside" id="lQp-9v-22S"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9j-ZH-QEa">
@@ -2040,7 +2042,7 @@ Cg
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSu-VR-85k" userLabel="chatButton">
-                                        <rect key="frame" x="188" y="5" width="40" height="40"/>
+                                        <rect key="frame" x="177" y="5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="D8c-sM-HZh"/>
                                             <constraint firstAttribute="height" constant="40" id="Xc2-22-LjY"/>
@@ -2051,7 +2053,7 @@ Cg
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="15" text="Tweet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElX-UI-qBh">
-                                        <rect key="frame" x="188" y="45" width="40" height="15"/>
+                                        <rect key="frame" x="177" y="45" width="40" height="15"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="11"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2079,6 +2081,23 @@ Cg
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HD-lm-oGn" userLabel="chatButton">
+                                        <rect key="frame" x="22" y="5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="FN1-11-kEu"/>
+                                            <constraint firstAttribute="height" constant="40" id="rd0-Y8-afV"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="whatsapp-64-black.png"/>
+                                        <connections>
+                                            <action selector="sendWhatsApp:" destination="eA8-Os-q1r" eventType="touchUpInside" id="jyG-hE-jbu"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="15" text="Whats App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEs-zb-hFq">
+                                        <rect key="frame" x="22" y="45" width="40" height="15"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="8"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page2.png" translatesAutoresizingMaskIntoConstraints="NO" id="aif-Qb-ImM">
                                         <rect key="frame" x="297" y="5" width="20" height="10"/>
                                         <constraints>
@@ -2094,14 +2113,34 @@ Cg
                                             </mask>
                                         </variation>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjQ-S1-LVv" userLabel="chatButton">
+                                        <rect key="frame" x="244" y="5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="NG8-xK-LGO"/>
+                                            <constraint firstAttribute="width" constant="40" id="ZSO-b7-wWf"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="facebook-64-black.png"/>
+                                        <connections>
+                                            <action selector="sendFB:" destination="eA8-Os-q1r" eventType="touchUpInside" id="3il-YV-q5F"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="15" text="FB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6d-8E-tmF">
+                                        <rect key="frame" x="244" y="45" width="40" height="15"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="11"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="9GT-kb-5Ct" secondAttribute="trailing" id="17W-gZ-yfW"/>
                                     <constraint firstAttribute="height" constant="65" id="3wg-yx-FLr"/>
+                                    <constraint firstItem="yjQ-S1-LVv" firstAttribute="top" secondItem="ZSu-VR-85k" secondAttribute="top" id="4ff-yc-2pE"/>
                                     <constraint firstAttribute="trailing" secondItem="lUg-Dt-0s0" secondAttribute="trailing" id="8AI-Z9-YUm"/>
                                     <constraint firstAttribute="bottom" secondItem="lUg-Dt-0s0" secondAttribute="bottom" constant="0.5" id="L46-8j-g9v"/>
+                                    <constraint firstItem="7HD-lm-oGn" firstAttribute="top" secondItem="and-kK-dNc" secondAttribute="top" id="L5E-Fq-fcT"/>
+                                    <constraint firstAttribute="trailing" secondItem="yjQ-S1-LVv" secondAttribute="trailing" constant="36" id="MA5-8g-LfM"/>
                                     <constraint firstItem="6jI-le-GBs" firstAttribute="centerX" secondItem="and-kK-dNc" secondAttribute="centerX" id="Nsi-Nj-s1Z"/>
                                     <constraint firstItem="ZSu-VR-85k" firstAttribute="top" secondItem="lSy-KD-LXl" secondAttribute="top" constant="5" id="OY1-Rx-MzG"/>
                                     <constraint firstAttribute="trailing" secondItem="ZSu-VR-85k" secondAttribute="trailing" constant="92" id="Ufz-kc-SQ5"/>
@@ -2111,16 +2150,23 @@ Cg
                                     <constraint firstItem="aif-Qb-ImM" firstAttribute="top" secondItem="lSy-KD-LXl" secondAttribute="top" constant="5" id="ZxY-jw-LJZ"/>
                                     <constraint firstItem="and-kK-dNc" firstAttribute="top" secondItem="lSy-KD-LXl" secondAttribute="top" constant="5" id="aTB-S9-KbT"/>
                                     <constraint firstItem="6jI-le-GBs" firstAttribute="top" secondItem="and-kK-dNc" secondAttribute="bottom" id="gDZ-hq-BpM"/>
+                                    <constraint firstItem="WEs-zb-hFq" firstAttribute="centerX" secondItem="7HD-lm-oGn" secondAttribute="centerX" id="iq4-0R-vn6"/>
                                     <constraint firstAttribute="trailing" secondItem="aif-Qb-ImM" secondAttribute="trailing" constant="3" id="mUz-h3-Zu2"/>
+                                    <constraint firstItem="7HD-lm-oGn" firstAttribute="leading" secondItem="lSy-KD-LXl" secondAttribute="leading" constant="22" id="nRj-7F-AXc"/>
                                     <constraint firstItem="lUg-Dt-0s0" firstAttribute="leading" secondItem="lSy-KD-LXl" secondAttribute="leading" id="rDL-nc-AG9"/>
                                     <constraint firstItem="9GT-kb-5Ct" firstAttribute="leading" secondItem="lSy-KD-LXl" secondAttribute="leading" id="saW-FS-bDT"/>
+                                    <constraint firstItem="yjQ-S1-LVv" firstAttribute="leading" secondItem="ZSu-VR-85k" secondAttribute="trailing" constant="27" id="thG-00-FPk"/>
+                                    <constraint firstItem="and-kK-dNc" firstAttribute="leading" secondItem="7HD-lm-oGn" secondAttribute="trailing" constant="28" id="vFP-Ur-sNW"/>
+                                    <constraint firstItem="WEs-zb-hFq" firstAttribute="top" secondItem="7HD-lm-oGn" secondAttribute="bottom" id="xXv-wk-Ag0"/>
                                     <constraint firstAttribute="width" constant="320" id="yV6-vb-FlL"/>
                                     <constraint firstItem="6jI-le-GBs" firstAttribute="top" secondItem="and-kK-dNc" secondAttribute="bottom" id="zwU-5C-Irj"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="XfT-jc-xIf"/>
                                         <exclude reference="gDZ-hq-BpM"/>
                                         <exclude reference="zwU-5C-Irj"/>
+                                        <exclude reference="Ufz-kc-SQ5"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -2502,10 +2548,11 @@ Cg
         <image name="di_menu_item_drops.png" width="553" height="80"/>
         <image name="di_menu_item_privacy.png" width="553" height="80"/>
         <image name="drop-in-logo.png" width="806" height="1313"/>
-        <image name="dropin-header-bg.png" width="600" height="100"/>
+        <image name="dropin-header.png" width="600" height="100"/>
         <image name="dropin-header240x50.png" width="240" height="50"/>
         <image name="education-button-unselected.png" width="340" height="90"/>
         <image name="entertainment-button-unselected.png" width="340" height="90"/>
+        <image name="facebook-64-black.png" width="64" height="64"/>
         <image name="family-button-unselected.png" width="340" height="90"/>
         <image name="fav.png" width="74" height="71"/>
         <image name="food-button-unselected.png" width="340" height="90"/>
@@ -2537,6 +2584,7 @@ Cg
         <image name="tweet.png" width="1024" height="1024"/>
         <image name="url.png" width="73" height="78"/>
         <image name="vertical_line.png" width="2" height="20"/>
+        <image name="whatsapp-64-black.png" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BX2-7E-RiK"/>

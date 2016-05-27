@@ -32,7 +32,7 @@
     self.bannerView.adUnitID = @"ca-app-pub-7857198660418019/3237842480";
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];
-
+    self.bannerView.alpha=0.0;
     
     if ([self.eventList count]==0) {
         self.eventTable.alpha=0.0;
@@ -257,7 +257,8 @@
 }
 - (IBAction)refreshButtonPress:(id)sender {
     
-    // self.loader.alpha=1.0;
+     self.loader.alpha=1.0;
+    self.eventTable.alpha=0.0;
     [self startingLoadingAnimation];
     //data not available anymore
     self.eventList=nil;
@@ -1004,6 +1005,8 @@
 }
 
 - (void) startingLoadingAnimation {
+    
+    [self fadeInBanner];
    
     NSArray * imageArray  = [[NSArray alloc] initWithObjects:
                              [UIImage imageNamed:@"Randi_00000.png"],
@@ -1144,9 +1147,28 @@
     
 }
 
+- (void)fadeInBanner
+{
+    [UIView beginAnimations:@"fade in" context:nil];
+    [UIView setAnimationDuration:1.5];
+    self.bannerView.alpha = 1.0;
+    [UIView commitAnimations];
+    
+}
+
+- (void)fadeOutBanner
+{
+    [UIView beginAnimations:@"fade in" context:nil];
+    [UIView setAnimationDuration:1.5];
+    self.bannerView.alpha = 0.0;
+    [UIView commitAnimations];
+    
+}
+
 - (void) stoppingLoadingAnimation{
     
     [self.loading stopAnimating];
+    [self fadeOutBanner];
     
 }
 

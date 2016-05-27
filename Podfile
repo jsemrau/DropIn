@@ -17,6 +17,12 @@ target "dropin" do
 
 	#platform :ios, '7.0'
 	pod 'Google-Mobile-Ads-SDK', '~> 7.0'
+
+	pod 'FSOpenInWhatsApp', '~> 2.1'
+
+	pod 'FBSDKCoreKit'
+	pod 'FBSDKShareKit'
+	pod 'FBSDKLoginKit'
 	
 end
 

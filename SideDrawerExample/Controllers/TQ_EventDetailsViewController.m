@@ -7,7 +7,7 @@
 //
 
 #import "TQ_EventDetailsViewController.h"
-
+#import "FSOpenInWhatsApp.h"
 
 
 @interface TQ_EventDetailsViewController ()
@@ -16,7 +16,7 @@
 
 @implementation TQ_EventDetailsViewController
 
-@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage;
+@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage,wAppButton;
 
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -45,7 +45,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"dropin-header-bg.png"]];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"dropin-header2.png"]];
     self.summaryView.backgroundColor=background;
 
 
@@ -379,6 +379,7 @@
 }
 
 
+
 - (void) geoLookUp {
     
     
@@ -612,6 +613,51 @@
 }
 
 
+- (IBAction) sendWhatsApp:(id)sender {
+
+    
+    if ([FSOpenInWhatsApp canSendWhatsApp]) {
+        //WhatsApp app is installed
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+        [webby setDelegate:self];
+        
+        [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-whapp", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        NSString *message = [NSString stringWithFormat:@"Yo! Check you this event %@ where I will drop in now!", self.eURL];
+        
+        [FSOpenInWhatsApp sendText:message];
+        
+    } else {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+                                                        message:[NSString stringWithFormat:NSLocalizedString(@"err-wapp", nil)]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    
+        
+    }
+    
+}
+
+- (IBAction) sendFB:(id)sender {
+    
+    NSLog(@" starting fb share");
+    
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    content.contentURL = [NSURL URLWithString:self.eURL];
+    content.contentTitle=self.eTitle.text;
+    content.contentDescription=self.eDescription.text;
+    
+   // [FBSDKMessageDialog showWithContent:content delegate:nil];
+    
+    [FBSDKShareDialog showFromViewController:self withContent:content delegate:nil];
+    
+}
 
 - (IBAction)toggleDebugView:(id)sender{
     

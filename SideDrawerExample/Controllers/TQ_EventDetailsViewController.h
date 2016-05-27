@@ -16,7 +16,7 @@
 #import "QyuWebAccess.h"
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
-
+#import <FBSDKShareKit/FBSDKShareKit.h>
 
 @interface TQ_EventDetailsViewController : UIViewController <MKMapViewDelegate,MFMessageComposeViewControllerDelegate,QyuWebDelegate>
 
@@ -112,6 +112,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *favButton;
 @property (retain, nonatomic) IBOutlet UIButton *tweetButton;
 @property (retain, nonatomic) IBOutlet UIButton *spamButton;
+@property (retain, nonatomic) IBOutlet UIButton *wAppButton;
 
 @property(nonatomic, retain) IBOutlet UIView * debugView ;
 @property(nonatomic, retain) IBOutlet UIView * mapView ;
@@ -136,5 +137,7 @@
 
 - (IBAction)openURL:(id)sender;
 - (IBAction) sendSMS ;
+- (IBAction) sendWhatsApp:(id)sender;
+- (IBAction) sendFB:(id)sender;
 
 @end

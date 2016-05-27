@@ -348,13 +348,13 @@ if (theConnection)
     } else {
         
         // Inform the user that the connection failed.
-        
+        /*
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                           message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)]
                                                          delegate:nil
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
-        [message show];
+        [message show];*/
         
         
     }
