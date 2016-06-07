@@ -119,9 +119,6 @@
 		066E49051C1F8F4A00897133 /* sortByCategory.png in Resources */ = {isa = PBXBuildFile; fileRef = 066E49041C1F8F4A00897133 /* sortByCategory.png */; };
 		06735BB41CF8946100E607EF /* whatsapp-64-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 06735BB31CF8946100E607EF /* whatsapp-64-black.png */; };
 		06735BB61CF89AF500E607EF /* facebook-64-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 06735BB51CF89AF500E607EF /* facebook-64-black.png */; };
-		06735BBA1CF8A1A400E607EF /* libFBSDKCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06735BB71CF8A1A400E607EF /* libFBSDKCoreKit.a */; };
-		06735BBB1CF8A1A400E607EF /* libFBSDKLoginKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06735BB81CF8A1A400E607EF /* libFBSDKLoginKit.a */; };
-		06735BBC1CF8A1A400E607EF /* libFBSDKShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06735BB91CF8A1A400E607EF /* libFBSDKShareKit.a */; };
 		067771701C0F4D95001993CA /* asia-blue-stretch-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0677716B1C0F4D95001993CA /* asia-blue-stretch-01.png */; };
 		067771711C0F4D95001993CA /* asia-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 0677716C1C0F4D95001993CA /* asia-blue.png */; };
 		067771721C0F4D95001993CA /* asia-img.png in Resources */ = {isa = PBXBuildFile; fileRef = 0677716D1C0F4D95001993CA /* asia-img.png */; };
@@ -380,7 +377,7 @@
 		06F9FEBA1C0D6227008DA44C /* map-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 06F9FEB91C0D6227008DA44C /* map-icon.png */; };
 		06F9FEBD1C0DFBD0008DA44C /* background-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 06F9FEBB1C0DFBD0008DA44C /* background-01.png */; };
 		06F9FEBE1C0DFBD0008DA44C /* background-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 06F9FEBC1C0DFBD0008DA44C /* background-white.png */; };
-		6E60DEAF76652394A90A6D19 /* libPods-dropin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 992EEFA5250E2701EC35571B /* libPods-dropin.a */; };
+		258430FD49B1CC8ACF3C8775 /* Pods_dropin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EEE27C5F455F76CD67A78B /* Pods_dropin.framework */; };
 		ED7368A819CB2E0A00B69BEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED73689519CB2E0A00B69BEC /* Main.storyboard */; };
 		ED7368A919CB2E0A00B69BEC /* PGFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED73689919CB2E0A00B69BEC /* PGFirstViewController.m */; };
 		ED7368AB19CB2E0A00B69BEC /* PGSideDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED73689D19CB2E0A00B69BEC /* PGSideDrawerController.m */; };
@@ -800,8 +797,8 @@
 		06F9FEBB1C0DFBD0008DA44C /* background-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-01.png"; sourceTree = "<group>"; };
 		06F9FEBC1C0DFBD0008DA44C /* background-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-white.png"; sourceTree = "<group>"; };
 		401DC5D0CB7915E23E3EA90A /* Pods-dropin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dropin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dropin/Pods-dropin.debug.xcconfig"; sourceTree = "<group>"; };
+		65EEE27C5F455F76CD67A78B /* Pods_dropin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dropin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EB9DFEE5FB6BD71724FAE1 /* Pods-dropin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dropin.release.xcconfig"; path = "Pods/Target Support Files/Pods-dropin/Pods-dropin.release.xcconfig"; sourceTree = "<group>"; };
-		992EEFA5250E2701EC35571B /* libPods-dropin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dropin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED73689619CB2E0A00B69BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED73689819CB2E0A00B69BEC /* PGFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGFirstViewController.h; sourceTree = "<group>"; };
 		ED73689919CB2E0A00B69BEC /* PGFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGFirstViewController.m; sourceTree = "<group>"; };
@@ -831,9 +828,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06735BBA1CF8A1A400E607EF /* libFBSDKCoreKit.a in Frameworks */,
-				06735BBB1CF8A1A400E607EF /* libFBSDKLoginKit.a in Frameworks */,
-				06735BBC1CF8A1A400E607EF /* libFBSDKShareKit.a in Frameworks */,
 				06C5B3561CA0D50C002EE661 /* Fabric.framework in Frameworks */,
 				06B397661BDBC4AB0012DCB2 /* MapKit.framework in Frameworks */,
 				06B397641BDBC4A40012DCB2 /* iAd.framework in Frameworks */,
@@ -842,7 +836,7 @@
 				EDB058081858C5BD000EAA9C /* CoreGraphics.framework in Frameworks */,
 				EDB0580A1858C5BD000EAA9C /* UIKit.framework in Frameworks */,
 				EDB058061858C5BD000EAA9C /* Foundation.framework in Frameworks */,
-				6E60DEAF76652394A90A6D19 /* libPods-dropin.a in Frameworks */,
+				258430FD49B1CC8ACF3C8775 /* Pods_dropin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1496,7 +1490,7 @@
 				EDB058071858C5BD000EAA9C /* CoreGraphics.framework */,
 				EDB058091858C5BD000EAA9C /* UIKit.framework */,
 				EDB058241858C5BE000EAA9C /* XCTest.framework */,
-				992EEFA5250E2701EC35571B /* libPods-dropin.a */,
+				65EEE27C5F455F76CD67A78B /* Pods_dropin.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

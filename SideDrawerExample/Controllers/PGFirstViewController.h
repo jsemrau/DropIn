@@ -11,12 +11,13 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "GFLocationManager.h"
 #import "lotCell.h"
-//#import "TQ_SettingsVC.h"
+#import "UIScrollView+EmptyDataSet.h"
+
 
 @import GoogleMobileAds;
 
 
-@interface PGFirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,QyuWebDelegate,GFLocationManagerDelegate>
+@interface PGFirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,QyuWebDelegate,GFLocationManagerDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 {
     

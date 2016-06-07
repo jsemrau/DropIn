@@ -5,6 +5,11 @@ PODS:
   - Bolts/AppLinks (1.7.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.7.0)
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
+  - DGActivityIndicatorView (2.0)
+  - DZNEmptyDataSet (1.8.1)
   - EFCircularSlider (0.2.0)
   - FBSDKCoreKit (4.12.0):
     - Bolts (~> 1.7)
@@ -12,8 +17,25 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.12.0):
     - FBSDKCoreKit
+  - FontAwesomeKit (2.2.0):
+    - FontAwesomeKit/Core (= 2.2.0)
+    - FontAwesomeKit/FontAwesome (= 2.2.0)
+    - FontAwesomeKit/FoundationIcons (= 2.2.0)
+    - FontAwesomeKit/IonIcons (= 2.2.0)
+    - FontAwesomeKit/Zocial (= 2.2.0)
+  - FontAwesomeKit/Core (2.2.0)
+  - FontAwesomeKit/FontAwesome (2.2.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/FoundationIcons (2.2.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/IonIcons (2.2.0):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/Zocial (2.2.0):
+    - FontAwesomeKit/Core
   - FSOpenInWhatsApp (2.1)
   - Google-Mobile-Ads-SDK (7.8.1)
+  - iRate (1.11.4)
+  - MGSwipeTableCell (1.5.5)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
     - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
@@ -26,26 +48,57 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.6.0):
     - MMDrawerController/Core
+  - PKRevealController (2.0.6)
+  - RKDropdownAlert (0.3.0)
+  - Spring (1.0.3)
 
 DEPENDENCIES:
+  - ChameleonFramework
+  - DGActivityIndicatorView
+  - DZNEmptyDataSet
   - EFCircularSlider (> 0.1.0)
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - FontAwesomeKit
   - FSOpenInWhatsApp (~> 2.1)
   - Google-Mobile-Ads-SDK (~> 7.0)
+  - iRate
+  - MGSwipeTableCell
   - MMDrawerController (~> 0.6)
+  - PKRevealController
+  - RKDropdownAlert
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
+
+EXTERNAL SOURCES:
+  Spring:
+    :branch: swift2
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
+    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  DGActivityIndicatorView: 52875b025a6ccf6a431a905285c12e2bb95eb559
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EFCircularSlider: 3af1dd6f86eb3eeeeaab0345ef3d6d1c2fc93d17
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
+  FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
   FSOpenInWhatsApp: 9122fd285faef1ef5c980b4acb649eece9720a3e
   Google-Mobile-Ads-SDK: 3c2a6656117989469bfe7645640aa1de024a4c6c
+  iRate: 599ed07c854e0695f3c605d1b2a64c67d912acb7
+  MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
+  PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
+  RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: 8fed13b9cc2ef0a29198fb92fc75c3fc74a2c246
+PODFILE CHECKSUM: 8258821d7c70089c26f684ddf0606fb3d33cc46d
 
 COCOAPODS: 1.0.0

@@ -1,6 +1,8 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, "6.0"
 
+use_frameworks!
+
 target "dropin" do
 	source 'https://github.com/CocoaPods/Specs.git'
 	pod 'MMDrawerController', '~> 0.6'
@@ -24,6 +26,20 @@ target "dropin" do
 	pod 'FBSDKShareKit'
 	pod 'FBSDKLoginKit'
 	
+	pod 'iRate'
+	pod 'FontAwesomeKit'
+	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+
+	pod 'ChameleonFramework'
+	pod 'DZNEmptyDataSet'
+	pod 'MGSwipeTableCell'
+	pod 'RKDropdownAlert'
+	
+	pod 'PKRevealController'
+	#pod 'SVProgressHUD'
+	pod 'DGActivityIndicatorView'
+
+
 end
 
 #target "SideDrawerExampleTests" do
