@@ -99,12 +99,17 @@
     
     if (![CLLocationManager locationServicesEnabled]){
         
+        /*
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                         message:[NSString stringWithFormat:NSLocalizedString(@"err-loc", nil)]
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        */
+        
+        [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-loc", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+        
         
         return false;
     }
@@ -182,13 +187,16 @@
     } else {
         
         // Inform the user that the connection failed.
-        
+        /*
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                         message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)]
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
-        [alert show];
+        [alert show];*/
+        
+        [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+        
   
         
     }
@@ -253,17 +261,19 @@ if (theConnection)
 } else { 
     
     // Inform the user that the connection failed.
-    
+    /*
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                     message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)]
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
-    [alert show];
+    [alert show];*/
+    
+    [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+    
     
 }
 
-    
     return self;
     
 } //End submitQRScan Function
@@ -413,13 +423,15 @@ if (theConnection)
     } else {
         
         // Inform the user that the connection failed.
-        
+       /*
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                         message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)]
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
-        [alert show];
+        [alert show];*/
+        
+        [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
         
         
     }
@@ -444,15 +456,23 @@ if (theConnection)
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     
     NSLog(@"didFailWithError %@ at URL %@", error, connection.currentRequest.URL.absoluteString );
-
+/*
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                     message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)]
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
-    [alert show];
+    [alert show];*/
     
+    [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+    
+    
+    if(delegate && [delegate respondsToSelector:@selector(noLocationsReceived)]) {
+        NSLog(@"Delegating no locations");
+        [delegate noLocationsReceived];
+        
+    }
     
 }
 

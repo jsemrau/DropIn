@@ -28,6 +28,12 @@ target "dropin" do
 	
 	pod 'iRate'
 	pod 'FontAwesomeKit'
+	pod 'FontAwesomeKit/FoundationIcons'
+	pod 'FontAwesomeKit/Zocial'
+	pod 'FontAwesomeKit/IonIcons' 
+	#pod 'FontAwesomeKit/Octicons' 
+	#pod 'FontAwesomeKit/Material'
+
 	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 
 	pod 'ChameleonFramework'
@@ -35,10 +41,11 @@ target "dropin" do
 	pod 'MGSwipeTableCell'
 	pod 'RKDropdownAlert'
 	
-	pod 'PKRevealController'
+	#pod 'PKRevealController'
 	#pod 'SVProgressHUD'
 	pod 'DGActivityIndicatorView'
-
+	
+	pod 'MaterialKit', '~> 0.4'
 
 end
 

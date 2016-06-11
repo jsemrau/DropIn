@@ -16,11 +16,43 @@
 
 @implementation TQ_EventDetailsViewController
 
-@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage,wAppButton;
+@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage,wAppButton,fbButton,chatButton;
 
 - (void)viewWillAppear:(BOOL)animated{
     
     self.debugView.alpha=0;
+    
+    /* setup the fontawesome buttons */
+   
+    FAKZocial *twitterIcon = [FAKZocial twitterIconWithSize:35];
+    [twitterIcon addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0]];
+    UIImage *iconImage = [twitterIcon imageWithSize:CGSizeMake(40, 40)];
+    self.tweetButton.contentMode=UIViewContentModeScaleAspectFit;
+    [self.tweetButton setBackgroundImage:iconImage forState:UIControlStateNormal];
+    
+    FAKZocial *fbIcon = [FAKZocial facebookIconWithSize:35];
+    [fbIcon addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0]];
+    iconImage = [fbIcon imageWithSize:CGSizeMake(40, 40)];
+    self.fbButton.contentMode=UIViewContentModeScaleAspectFit;
+    [self.fbButton setBackgroundImage:iconImage forState:UIControlStateNormal];
+    
+    NSError *error;
+   //FAKFontAwesome *wIcon = [FAKFontAwesome iconWithIdentifier:@"fa-whatsapp" size:35 error:error];
+ 
+    FAKZocial *wIcon= [FAKZocial weiboIconWithSize:35];
+    [wIcon addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0]];
+    iconImage = [wIcon imageWithSize:CGSizeMake(40, 40)];
+    self.wAppButton.contentMode=UIViewContentModeScaleAspectFit;
+    [self.wAppButton setBackgroundImage:iconImage forState:UIControlStateNormal];
+    
+    // FAKZocial *wIcon = [FAKZocial :35];
+    FAKZocial *smsIcon =[FAKZocial smashingIconWithSize:35];
+    [smsIcon addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0]];
+    iconImage = [smsIcon imageWithSize:CGSizeMake(40, 40)];
+    self.chatButton.contentMode=UIViewContentModeScaleAspectFit;
+    [self.chatButton setBackgroundImage:iconImage forState:UIControlStateNormal];
+    
+    
     
     /* setup the swipes*/
     UISwipeGestureRecognizer * swipeleftShare=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(toggleSwipe:)];
@@ -602,12 +634,17 @@
     [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-spam", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
+    /*
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                     message:[NSString stringWithFormat:NSLocalizedString(@"err-spam", nil)]
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+    */
+    
+    [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-spam", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:10];
+    
     
     
 }
@@ -632,12 +669,16 @@
         
     } else {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+        /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                         message:[NSString stringWithFormat:NSLocalizedString(@"err-wapp", nil)]
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        */
+        
+        [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-wapp", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:10];
+        
     
         
     }
@@ -759,8 +800,12 @@ else
 - (void)showSMS:(NSString*)file {
     
     if(![MFMessageComposeViewController canSendText]) {
-        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-sms", nil)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [warningAlert show];
+        /*UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-sms", nil)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [warningAlert show];*/
+        
+        [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-sms", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:10];
+        
+        
         return;
     }
     
@@ -786,8 +831,11 @@ else
             
         case MessageComposeResultFailed:
         {
-            UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-sms-send", nil)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [warningAlert show];
+            /*UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-sms-send", nil)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [warningAlert show];*/
+            
+            [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-sms-send", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:10];
+            
             break;
         }
             
@@ -827,12 +875,16 @@ else
 - (void) noLocationsReceived{
     
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No locations received"
+    /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No locations received"
                                                     message:@"Please adjust your Settings for this app."
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+    */
+    [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"no-loc", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:10];
+    
+  
     
 }
 
@@ -854,7 +906,7 @@ else
     if(self.activePage==1){
         
         self.socialView.alpha=1.0;
-        self.shareView.alpha=10.0;
+        self.shareView.alpha=0.0;
         self.activePage=2;
         
     } else {

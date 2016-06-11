@@ -35,6 +35,7 @@ PODS:
   - FSOpenInWhatsApp (2.1)
   - Google-Mobile-Ads-SDK (7.8.1)
   - iRate (1.11.4)
+  - MaterialKit (0.4)
   - MGSwipeTableCell (1.5.5)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
@@ -48,7 +49,6 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.6.0):
     - MMDrawerController/Core
-  - PKRevealController (2.0.6)
   - RKDropdownAlert (0.3.0)
   - Spring (1.0.3)
 
@@ -61,12 +61,15 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FBSDKShareKit
   - FontAwesomeKit
+  - FontAwesomeKit/FoundationIcons
+  - FontAwesomeKit/IonIcons
+  - FontAwesomeKit/Zocial
   - FSOpenInWhatsApp (~> 2.1)
   - Google-Mobile-Ads-SDK (~> 7.0)
   - iRate
+  - MaterialKit (~> 0.4)
   - MGSwipeTableCell
   - MMDrawerController (~> 0.6)
-  - PKRevealController
   - RKDropdownAlert
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
 
@@ -93,12 +96,12 @@ SPEC CHECKSUMS:
   FSOpenInWhatsApp: 9122fd285faef1ef5c980b4acb649eece9720a3e
   Google-Mobile-Ads-SDK: 3c2a6656117989469bfe7645640aa1de024a4c6c
   iRate: 599ed07c854e0695f3c605d1b2a64c67d912acb7
+  MaterialKit: 2e5267bcf410b82793f2b92d2111f8ae4ed2c3f2
   MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
-  PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
   RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: 8258821d7c70089c26f684ddf0606fb3d33cc46d
+PODFILE CHECKSUM: 300eb6b0b364ae03ddeb01ffd3ada3f84fca6557
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

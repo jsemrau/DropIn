@@ -12,7 +12,10 @@
 #import "GFLocationManager.h"
 #import "lotCell.h"
 #import "UIScrollView+EmptyDataSet.h"
-
+#import <Spring/spring-Swift.h>
+#import <ChameleonFramework/Chameleon.h>
+#import "RKDropdownAlert.h"
+#import "UIScrollView+EmptyDataSet.h"
 
 @import GoogleMobileAds;
 
@@ -30,13 +33,15 @@
     bool weatherNeedsUpdates;
     
     CLLocation *currentLocation;
-    IBOutlet UIView *loader ;
+//    IBOutlet SpringView *loader ;
     IBOutlet UILabel *weatherString ;
     IBOutlet UIView *messager ;
     IBOutlet UILabel *messagerLabel;
     IBOutlet UIView *cityHeader;
     
-    UIImageView * loading ;
+  //  UIImageView * loading ;
+    
+    CGRect *loadingLocation;
     
     NSMutableDictionary *notiDictionary;
     NSMutableDictionary *likedIDs;
@@ -46,6 +51,7 @@
 }
 
 @property (retain, nonatomic) CLLocation *currentLocation;
+//@property (retain, nonatomic) CGRect *loadingLocation;
 
 @property (nonatomic, retain) IBOutlet UIButton* refreshButton;
 
@@ -60,12 +66,10 @@
 @property(nonatomic, retain) NSArray *eventList;
 @property(nonatomic, retain) NSArray *filteredEventList;
 
-
-@property(nonatomic, retain) IBOutlet UIView * loader ;
 @property(nonatomic, retain) IBOutlet UIView * messager ;
 @property(nonatomic, retain) IBOutlet UIView * cityHeader ;
 @property(nonatomic, retain) IBOutlet UILabel *messagerLabel;
-@property(nonatomic, retain) IBOutlet UIImageView * loading ;
+//@property(nonatomic, retain) IBOutlet UIImageView * loading ;
 @property(nonatomic, retain) IBOutlet UIImageView * whiter ;
 
 @property (nonatomic, retain) IBOutlet UIButton* gotoSettings;

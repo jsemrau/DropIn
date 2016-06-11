@@ -16,6 +16,9 @@
 
 @interface PGFirstViewController ()
 
+@property(weak,nonatomic) IBOutlet SpringView *loader ;
+@property(weak,nonatomic) IBOutlet SpringImageView *loading ;
+
 @end
 
 @implementation PGFirstViewController
@@ -30,13 +33,30 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
    */
     
+    
+    //NSMutableArray *colorArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeAnalogous with:[UIColor flatTealColor] flatScheme:YES]];
+    
+    [self.navigationController setHidesNavigationBarHairline:YES];
+    
+    [self.eventTable setDataSource:self];
+    self.eventTable.delegate = self;
+    self.eventTable = eventTable;
+    
+    /* Set delegate for empty data source */
+    self.eventTable.emptyDataSetSource = self;
+    self.eventTable.emptyDataSetDelegate = self;
+    
+    self.eventTable.tableFooterView = [UIView new];
+    
+    
     self.bannerView.adUnitID = @"ca-app-pub-7857198660418019/3237842480";
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];
     self.bannerView.alpha=0.0;
     
-    if ([self.eventList count]==0) {
-        self.eventTable.alpha=0.0;
+// changed
+   if ([self.eventList count]==0) {
+       [self fadeOutTableView];
     }
     
     
@@ -44,9 +64,9 @@
     
     [self setupLeftMenuButton];
     
+    /*  Make sure only the table is displayed on start */
     self.messager.alpha=0.0;
-    //[self fadeOutImage];
-    self.loader.alpha=0.0;
+    self.loading.alpha=0.0;
     
     BOOL locationAllowed = [CLLocationManager locationServicesEnabled];
     
@@ -79,21 +99,28 @@
     
     if (!locationAllowed)
     {
+        
+       [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"err-loc-disable", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-loc-enable", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+        
+        
+        /*
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Service Disabled"
                                                         message:@"To re-enable, please go to Settings and turn on Location Service for this app."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+         
+         */
+        
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"prefs:root=LOCATION_SERVICES"]];
     }
     
     [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
     
     
-    [self.eventTable setDataSource:self];
-    self.eventTable.delegate = self;
-    self.eventTable = eventTable;
+   
     
     
   /*
@@ -160,10 +187,8 @@
         } else {
             
             self.needsUpdates=TRUE;
-            //self.eventTable.alpha=0.0;
             [self fadeOutTableView];
             [self fadeInImage];
-            //self.loader.alpha=1.0;
             [self startingLoadingAnimation];
             
             
@@ -207,19 +232,21 @@
         [self refreshButtonPress:self];
         self.hasUpdates=FALSE;
     }
+    
 
+    
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [self.view addSubview:self.loader];
+    
+}
 - (void) viewDidLoad:(BOOL) animated {
     
     [super viewDidLoad];
 
-    self.eventTable.emptyDataSetSource = self;
-    self.eventTable.emptyDataSetDelegate = self;
     
-    // A little trick for removing the cell separators
-    self.eventTable.tableFooterView = [UIView new];
-   
     
 }
 
@@ -262,8 +289,10 @@
 }
 - (IBAction)refreshButtonPress:(id)sender {
     
-     self.loader.alpha=1.0;
+    // self.loader.alpha=1.0;
     self.eventTable.alpha=0.0;
+    self.messager.alpha=0.0;
+    
     [self startingLoadingAnimation];
     //data not available anymore
     self.eventList=nil;
@@ -771,13 +800,12 @@
 
 - (void) noLocationsReceived{
     
+   
+    self.eventTable.alpha=0.0;
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No locations received"
-                                                    message:@"Please adjust your Settings for this app."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    /* Show dbemtydata*/
+    self.messagerLabel.text=[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
+    self.messager.alpha=1.0;
     
     [self stoppingLoadingAnimation ];
     
@@ -813,7 +841,7 @@
     
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     
-    self.loader.alpha=0.0;
+    //self.loader.alpha=0.0;
     //[self fadeOutImage];
     self.messager.alpha=0.0;
     
@@ -823,7 +851,7 @@
         
         //Now you need to do the empty screen
         
-        self.messagerLabel.text=@" There are no events around, you could try to adjust your settings!";
+        self.messagerLabel.text=[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
         self.messager.alpha=1.0;
         
         //
@@ -856,10 +884,9 @@
             
         }
         
-        //self.eventTable.alpha=1.0;
-        
+    
         [self fadeInTableView];
-        self.loader.alpha=0.0;
+        //self.loader.alpha=0.0;
         self.eventList = [[NSArray alloc] initWithArray:data];
         self.filteredEventList = [self filterArrayWithCategories:self.eventList];
         
@@ -1010,74 +1037,40 @@
     
 }
 
+#pragma mark animations
 - (void) startingLoadingAnimation {
     
+    SpringImageView *springView = [[SpringImageView alloc] initWithFrame:CGRectMake(
+                                    (([[UIScreen mainScreen] bounds].size.width)/2)-50,  (([[UIScreen mainScreen] bounds].size.width)/2)+50, 100, 100)];
+    self.loading = springView;
+    self.loading.image= [UIImage imageNamed:@"drop-in-logo.png"];
+    self.loading.backgroundColor = [UIColor clearColor];
+    self.loading.animation = @"morph";
+    self.loading.delay = 0;
+    self.loading.duration = 3;
+    self.loading.repeatCount=6;
+    self.loading.autostart = true;
+    self.loading.contentMode= UIViewContentModeScaleAspectFit;
+    
+    [self.view addSubview:self.loading];
+    [self.loading animate];
     [self fadeInBanner];
    
-    NSArray * imageArray  = [[NSArray alloc] initWithObjects:
-                             [UIImage imageNamed:@"Randi_00000.png"],
-                             [UIImage imageNamed:@"Randi_00001.png"],
-                             [UIImage imageNamed:@"Randi_00002.png"],
-                             [UIImage imageNamed:@"Randi_00003.png"],
-                             [UIImage imageNamed:@"Randi_00004.png"],
-                             [UIImage imageNamed:@"Randi_00005.png"],
-                             [UIImage imageNamed:@"Randi_00006.png"],
-                             [UIImage imageNamed:@"Randi_00007.png"],
-                             [UIImage imageNamed:@"Randi_00008.png"],
-                             [UIImage imageNamed:@"Randi_00009.png"],
-                             [UIImage imageNamed:@"Randi_00010.png"],
-                             [UIImage imageNamed:@"Randi_00011.png"],
-                             [UIImage imageNamed:@"Randi_00012.png"],
-                             [UIImage imageNamed:@"Randi_00013.png"],
-                             [UIImage imageNamed:@"Randi_00014.png"],
-                             [UIImage imageNamed:@"Randi_00015.png"],
-                             [UIImage imageNamed:@"Randi_00016.png"],
-                             [UIImage imageNamed:@"Randi_00017.png"],
-                             [UIImage imageNamed:@"Randi_00018.png"],
-                             [UIImage imageNamed:@"Randi_00019.png"],
-                             [UIImage imageNamed:@"Randi_00020.png"],
-                             [UIImage imageNamed:@"Randi_00021.png"],
-                             [UIImage imageNamed:@"Randi_00022.png"],
-                             [UIImage imageNamed:@"Randi_00023.png"],
-                             [UIImage imageNamed:@"Randi_00024.png"],
-                             [UIImage imageNamed:@"Randi_00025.png"],
-                             [UIImage imageNamed:@"Randi_00026.png"],
-                             [UIImage imageNamed:@"Randi_00027.png"],
-                             [UIImage imageNamed:@"Randi_00028.png"],
-                             [UIImage imageNamed:@"Randi_00029.png"],
-                             [UIImage imageNamed:@"Randi_00030.png"],
-                             [UIImage imageNamed:@"Randi_00031.png"],
-                             [UIImage imageNamed:@"Randi_00032.png"],
-                             [UIImage imageNamed:@"Randi_00033.png"],
-                             [UIImage imageNamed:@"Randi_00034.png"],
-                             [UIImage imageNamed:@"Randi_00035.png"],
-                             [UIImage imageNamed:@"Randi_00036.png"],
-                             [UIImage imageNamed:@"Randi_00037.png"],
-                             [UIImage imageNamed:@"Randi_00038.png"],
-                             [UIImage imageNamed:@"Randi_00039.png"],
-                             [UIImage imageNamed:@"Randi_00040.png"],
-                             [UIImage imageNamed:@"Randi_00041.png"],
-                             [UIImage imageNamed:@"Randi_00042.png"],
-                             [UIImage imageNamed:@"Randi_00043.png"],
-                             [UIImage imageNamed:@"Randi_00044.png"],
-                             [UIImage imageNamed:@"Randi_00045.png"],
-                             [UIImage imageNamed:@"Randi_00046.png"],
-                             [UIImage imageNamed:@"Randi_00047.png"],
-                             [UIImage imageNamed:@"Randi_00048.png"],
-                             [UIImage imageNamed:@"Randi_00049.png"],
-                             
-                             
-                             nil];
-    CGRect rect=CGRectMake(self.loading.frame.origin.x, self.loading.frame.origin.y, 100 , 100);
-  //  NSLog(@" Rect .x %f , .y %f",rect.origin.x, rect.origin.y);
-    self.loading = [[UIImageView alloc] initWithFrame:rect];
-  
-    self.loading.animationImages = imageArray;
-    self.loading.animationDuration = 1.5;
-    self.loading.contentMode = UIViewContentModeCenter;
-    [self.loader addSubview:self.loading];
-    [self.loading startAnimating];
 }
+
+- (void) stoppingLoadingAnimation{
+    
+   //
+   
+    if ([self.loading isDescendantOfView:self.view]){
+    
+        [self.loading removeFromSuperview];
+        
+    }
+    [self fadeOutBanner];
+    
+}
+
 
 -(void) getweatherContext:(CLLocation*)wLocation{
     
@@ -1121,7 +1114,7 @@
 {
     [UIView beginAnimations:@"fade in" context:nil];
     [UIView setAnimationDuration:1.5];
-    self.loader.alpha = 1.0;
+    self.loading.alpha = 1.0;
     [UIView commitAnimations];
     
 }
@@ -1130,7 +1123,7 @@
 {
     [UIView beginAnimations:@"fade out" context:nil];
     [UIView setAnimationDuration:1.5];
-    self.loader.alpha = 0.0;
+    self.loading.alpha = 0.0;
     [UIView commitAnimations];
     
 }
@@ -1165,24 +1158,19 @@
 - (void)fadeOutBanner
 {
     [UIView beginAnimations:@"fade in" context:nil];
-    [UIView setAnimationDuration:1.5];
+    [UIView setAnimationDuration:2.5];
     self.bannerView.alpha = 0.0;
     [UIView commitAnimations];
     
 }
 
-- (void) stoppingLoadingAnimation{
-    
-    [self.loading stopAnimating];
-    [self fadeOutBanner];
-    
-}
+
 
 #pragma mark empty data set delegate
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
-    return [UIImage imageNamed:@"empty_placeholder"];
+    return [UIImage imageNamed:@"asia-color.png"];
 }
 
 - (CAAnimation *)imageAnimationForEmptyDataSet:(UIScrollView *)scrollView
@@ -1233,12 +1221,12 @@
 
 - (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
-    return [UIImage imageNamed:@"button_image"];
+    return [UIImage imageNamed:@"asia-color.png"];
 }
 
 - (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
 {
-    return [UIColor whiteColor];
+    return [UIColor blueColor];
 }
 
 - (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView

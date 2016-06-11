@@ -17,6 +17,9 @@
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import "FontAwesomeKit/FontAwesomeKit.h"
+#import <ChameleonFramework/Chameleon.h>
+#import "RKDropdownAlert.h"
 
 @interface TQ_EventDetailsViewController : UIViewController <MKMapViewDelegate,MFMessageComposeViewControllerDelegate,QyuWebDelegate>
 
@@ -110,9 +113,13 @@
 @property (retain, nonatomic) IBOutlet UIButton *openLocation;
 @property (retain, nonatomic) IBOutlet UIButton *openURL;
 @property (retain, nonatomic) IBOutlet UIButton *favButton;
-@property (retain, nonatomic) IBOutlet UIButton *tweetButton;
 @property (retain, nonatomic) IBOutlet UIButton *spamButton;
+
+@property (retain, nonatomic) IBOutlet UIButton *tweetButton;
 @property (retain, nonatomic) IBOutlet UIButton *wAppButton;
+@property (retain, nonatomic) IBOutlet UIButton *fbButton;
+@property (retain, nonatomic) IBOutlet UIButton *chatButton;
+
 
 @property(nonatomic, retain) IBOutlet UIView * debugView ;
 @property(nonatomic, retain) IBOutlet UIView * mapView ;

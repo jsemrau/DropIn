@@ -10,7 +10,7 @@
 #import "PGFirstViewController.h"
 
 
-@interface TQ_SettingsVC : UIViewController <UIAlertViewDelegate>
+@interface TQ_SettingsVC : UIViewController <UIAlertViewDelegate,RKDropdownAlertDelegate>
 
 {
     

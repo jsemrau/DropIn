@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GFLocationManager.h"
+#import <ChameleonFramework/Chameleon.h>
+
 //#import "Socialize.h"
 
-@interface PGAppDelegate : UIResponder <UIApplicationDelegate>
+@interface PGAppDelegate : UIResponder <UIApplicationDelegate,GFLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

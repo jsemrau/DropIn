@@ -242,6 +242,35 @@
     
     [message show];
     
+    /*
+     
+    [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"Saved", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:10];
+    */
+    
+}
+
+-(BOOL)dropdownAlertWasTapped:(RKDropdownAlert*)alert {
+    // Handle the tap, then return whether or not the alert should hide.
+    
+    UINavigationController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FIRST_TOP_VIEW_CONTROLLER"];
+    
+    if(self.relevantUpdates){
+        PGFirstViewController *vc= [centerViewController.viewControllers objectAtIndex:0];
+        vc.hasUpdates=TRUE;
+    }
+    
+    //  [[self navigationController] presentViewController:centerViewController animated:YES completion:nil];
+    
+    [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
+    
+    return true;
+}
+
+- (BOOL)dropdownAlertWasDismissed{ return YES; }
+
+-(BOOL)dropdownAlertWasDismissed:(RKDropdownAlert*)alert{
+    
+    return true;
     
 }
 

@@ -64,7 +64,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PKRevealController.xcscheme</key>
+		<key>MaterialKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -127,11 +127,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>31BA6AF40A9A3DC29A22E79432A11D82</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
 		<dict>
 			<key>primary</key>
@@ -143,6 +138,16 @@
 			<true/>
 		</dict>
 		<key>6EDC37F3FA92533C6AC3562458AA91F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>73850773DC05DB0F801C716B2A9E95F5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8457990EACFECC7422E38355CFEA8B50</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,17 +167,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC100B6421D7ECE359C26FBDE634F24A</key>
+		<key>B3247269ECDE95EF4EE2B4565DF17C73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CF59E4B34F1EC47E8E19422DA2B2BA5C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FBF452D9313EF913EA92AD5D72258A8E</key>
+		<key>ED6DDCD3597DCF41700F1DCD92AFCC77</key>
 		<dict>
 			<key>primary</key>
 			<true/>
