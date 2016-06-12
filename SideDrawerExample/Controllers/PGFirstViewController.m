@@ -28,10 +28,6 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     
-  /*
-    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"likedItems"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-   */
     
     
     //NSMutableArray *colorArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeAnalogous with:[UIColor flatTealColor] flatScheme:YES]];
@@ -135,6 +131,9 @@
     
     
     prefs= [NSUserDefaults standardUserDefaults];
+    
+    self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
+
     
     //Try to load the prefcat
     self.prefCats =[prefs objectForKey:@"pref_Categories"];
@@ -324,7 +323,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return 110;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -353,14 +352,51 @@
     
     cell.contentMode=UIViewContentModeScaleAspectFill;
     
+    
+    
     if ([self.filteredEventList count]>0){
         
         
         NSDictionary *text=[self.filteredEventList objectAtIndex:indexPath.row];
         
+        //configure interaction buttons
+        
+        MGSwipeButton *likeBtn = [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"fav.png"] backgroundColor:[UIColor flatBlueColor] callback:^BOOL(MGSwipeTableCell *sender) {
+            
+            NSLog(@"Convenience callback for swipe buttons!");
+             [self sendFavorite:sender withId:[text objectForKey:@"id"]];
+            
+            return true;
+            
+        } ];
+        
+        
+        cell.leftButtons = @[likeBtn];
+        cell.leftSwipeSettings.transition = MGSwipeTransitionDrag;
+        
+        //configure right buttons -- default as the array
+        // cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:[UIColor flatRedColor]],[MGSwipeButton buttonWithTitle:@"More" backgroundColor:[UIColor flatGrayColor]]];
+        
+        MGSwipeButton *spamBtn = [MGSwipeButton buttonWithTitle:@"Spam" backgroundColor:[UIColor flatRedColor] callback:^BOOL(MGSwipeTableCell *sender) {
+            NSLog(@"Convenience callback for reportSpam:!");
+            
+            [self reportSpam:[text objectForKey:@"id"]];
+            
+            return true;
+        } ];
+        
+        
+        cell.rightButtons = @[spamBtn];
+        cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
+    
+        
         
         cell.title.text=[text objectForKey:@"title"];
         
+        NSAttributedString *tmpStr = [[NSAttributedString alloc] initWithData:[[text objectForKey:@"description"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
+        
+        cell.desc.text=[tmpStr string];
+
         
         NSString *dateString = [text objectForKey:@"start_time"];
         NSDateFormatter *startDateFormat = [[NSDateFormatter alloc] init];
@@ -1276,5 +1312,81 @@
 {
     // Do something
 }
+
+#pragma mark interactions
+- (void) reportSpam:(NSString*)idStr {
+    
+
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+    [webby setDelegate:self];
+    
+    NSLog(@" trying to send for user : %@ and id %@", [userDetails objectForKey:@"email"], idStr);
+    
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-spam", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude  andLong:(double)(double)self.currentLocation.coordinate.longitude];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+    
+    [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-spam", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:10];
+    
+    
+    
+}
+
+- (void)sendFavorite:(id)sender withId:(NSString*)idStr{
+    
+    
+    UIButton *tempButton = (UIButton *)sender;
+    if(tempButton.isSelected){
+        [tempButton setSelected:NO];
+        
+        if ([self.likedIDs objectForKey: idStr]) // YES
+        {
+            // Do something
+            
+            [self.likedIDs removeObjectForKey:idStr];
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+            [webby setDelegate:self];
+            
+            [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-unliked", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            
+        }
+        
+    } else {
+        [tempButton setSelected:YES];
+        
+        if(idStr && self.likedIDs) //or if(str != nil) or if(str.length>0)
+        {
+            
+            if([self.likedIDs count]>0){
+                [self.likedIDs setObject:[NSDate date] forKey:idStr];
+            } else {
+                
+                self.likedIDs = [[[NSDictionary alloc] initWithObjectsAndKeys:[NSDate date ],idStr,nil] mutableCopy];
+            }
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+            [webby setDelegate:self];
+            
+            [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-liked", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            
+        }
+        NSLog(@"%@", idStr);
+        
+        
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.likedIDs forKey:@"likedItems"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self.eventTable reloadData];
+}
+
+
 
 @end

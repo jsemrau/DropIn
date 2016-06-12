@@ -45,7 +45,11 @@ target "dropin" do
 	#pod 'SVProgressHUD'
 	pod 'DGActivityIndicatorView'
 	
-	pod 'MaterialKit', '~> 0.4'
+	#pod 'MaterialKit', '~> 0.4'
+	pod 'Onboard'
+
+	pod 'BLKFlexibleHeightBar'
+
 
 end
 

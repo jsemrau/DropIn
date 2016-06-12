@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGSwipeTableCell.h"
 
-@interface lotCell : UITableViewCell
+@interface lotCell : MGSwipeTableCell
 
 {
     
     IBOutlet UILabel *title;
+    IBOutlet UILabel *desc;
     IBOutlet UILabel *inXMinutes;
     IBOutlet UILabel *goingCount;
     IBOutlet UILabel *maxCount;
@@ -41,6 +43,7 @@
 
 
 @property (nonatomic, retain) IBOutlet UILabel *title;
+@property (nonatomic, retain) IBOutlet UILabel *desc;
 @property (nonatomic, retain) IBOutlet UILabel *inXMinutes;
 @property (nonatomic, retain) IBOutlet UILabel *goingCount;
 @property (nonatomic, retain) IBOutlet UILabel *maxCount;
