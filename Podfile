@@ -50,7 +50,6 @@ target "dropin" do
 
 	pod 'BLKFlexibleHeightBar'
 
-
 end
 
 #target "SideDrawerExampleTests" do

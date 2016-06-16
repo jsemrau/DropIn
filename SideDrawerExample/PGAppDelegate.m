@@ -15,6 +15,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
      // Override point for customization after application launch.
+   
+    UIBarButtonItem *barButtonAppearance = [UIBarButtonItem appearance];
+    [barButtonAppearance setTintColor:[UIColor flatSkyBlueColor]];
+    
+                                  
+    
     // [Socialize storeConsumerKey:@"92c84474-5d99-4825-8a97-bccf2b413f93"];
     //[Socialize storeConsumerSecret:@"ce5251ad-8b7b-409d-9721-6532b9a4c82b"];
    

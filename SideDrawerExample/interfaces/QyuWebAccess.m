@@ -108,8 +108,9 @@
         [alert show];
         */
         
-        [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-loc", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+       // [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-loc", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
         
+         [self notifyMe:@"game" withMessage:@"err-loc"];
         
         return false;
     }
@@ -195,9 +196,9 @@
                                               otherButtonTitles:nil];
         [alert show];*/
         
-        [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+     //   [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
         
-  
+        [self notifyMe:@"game" withMessage:@"err-lost"];
         
     }
 
@@ -269,8 +270,9 @@ if (theConnection)
                                           otherButtonTitles:nil];
     [alert show];*/
     
-    [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+   // [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
     
+    [self notifyMe:@"game" withMessage:@"err-lost"];
     
 }
 
@@ -431,9 +433,9 @@ if (theConnection)
                                               otherButtonTitles:nil];
         [alert show];*/
         
-        [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+       // [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
         
-        
+        [self notifyMe:@"game" withMessage:@"err-lost"];
     }
     
     
@@ -465,7 +467,9 @@ if (theConnection)
                                           otherButtonTitles:nil];
     [alert show];*/
     
-    [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+  //  [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+    
+    [self notifyMe:@"game" withMessage:@"err-lost"];
     
     
     if(delegate && [delegate respondsToSelector:@selector(noLocationsReceived)]) {
@@ -562,6 +566,12 @@ if (theConnection)
                                                                NULL,
                                                                (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
                                                                CFStringConvertNSStringEncodingToEncoding(encoding)));
+}
+
+- (void) notifyMe:(NSString*)ttl withMessage:(NSString*)msg {
+    
+    [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(ttl, nil)] message:[NSString stringWithFormat:NSLocalizedString(msg, nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+    
 }
 
 - (void)dealloc {

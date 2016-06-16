@@ -16,6 +16,8 @@
 #import <ChameleonFramework/Chameleon.h>
 #import "RKDropdownAlert.h"
 #import "UIScrollView+EmptyDataSet.h"
+#import "UIViewController+MMDrawerController.h"
+
 
 @import GoogleMobileAds;
 
@@ -71,6 +73,8 @@
 @property(nonatomic, retain) IBOutlet UILabel *messagerLabel;
 //@property(nonatomic, retain) IBOutlet UIImageView * loading ;
 @property(nonatomic, retain) IBOutlet UIImageView * whiter ;
+@property(nonatomic, retain) IBOutlet UIImageView * footerImageView ;
+
 
 @property (nonatomic, retain) IBOutlet UIButton* gotoSettings;
 @property (nonatomic, retain) IBOutlet UIButton* gotoRefresh;

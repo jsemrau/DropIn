@@ -1372,6 +1372,30 @@
 			name = tableCell;
 			sourceTree = "<group>";
 		};
+		06B166271D12F9BA009C0F49 /* SideDrawerTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				ED73689C19CB2E0A00B69BEC /* PGSideDrawerController.h */,
+				ED73689D19CB2E0A00B69BEC /* PGSideDrawerController.m */,
+				ED73689E19CB2E0A00B69BEC /* PGViewController.h */,
+				ED73689F19CB2E0A00B69BEC /* PGViewController.m */,
+			);
+			name = SideDrawerTemplates;
+			sourceTree = "<group>";
+		};
+		06B166281D12F9D4009C0F49 /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				06F9FEAD1C0C9389008DA44C /* TQ_IntroViewController.h */,
+				06F9FEAE1C0C9389008DA44C /* TQ_IntroViewController.m */,
+				0660A7FF1C13349D00457B2E /* PageContentViewController.h */,
+				0660A8001C13349D00457B2E /* PageContentViewController.m */,
+				0660A80B1C133C2200457B2E /* TQInitPageViewController.h */,
+				0660A80C1C133C2200457B2E /* TQInitPageViewController.m */,
+			);
+			name = PageView;
+			sourceTree = "<group>";
+		};
 		06DDCB741C036940008B9F98 /* slider */ = {
 			isa = PBXGroup;
 			children = (
@@ -1445,14 +1469,12 @@
 		ED73689719CB2E0A00B69BEC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				06B166281D12F9D4009C0F49 /* PageView */,
+				06B166271D12F9BA009C0F49 /* SideDrawerTemplates */,
 				06377C901BDD20C3004FE094 /* PG_LoginVC.h */,
 				06377C911BDD20C3004FE094 /* PG_LoginVC.m */,
 				ED73689819CB2E0A00B69BEC /* PGFirstViewController.h */,
 				ED73689919CB2E0A00B69BEC /* PGFirstViewController.m */,
-				ED73689C19CB2E0A00B69BEC /* PGSideDrawerController.h */,
-				ED73689D19CB2E0A00B69BEC /* PGSideDrawerController.m */,
-				ED73689E19CB2E0A00B69BEC /* PGViewController.h */,
-				ED73689F19CB2E0A00B69BEC /* PGViewController.m */,
 				061B7B921BBC316C0059A840 /* TQ_EventDetailsViewController.h */,
 				061B7B931BBC316C0059A840 /* TQ_EventDetailsViewController.m */,
 				068A86821BC96F0500578BCA /* TQ_AboutVC.h */,
@@ -1463,12 +1485,6 @@
 				068A86861BC96F1400578BCA /* TQ_SettingsVC.m */,
 				068A86881BC96F2400578BCA /* TQ_MapVC.h */,
 				068A86891BC96F2400578BCA /* TQ_MapVC.m */,
-				06F9FEAD1C0C9389008DA44C /* TQ_IntroViewController.h */,
-				06F9FEAE1C0C9389008DA44C /* TQ_IntroViewController.m */,
-				0660A7FF1C13349D00457B2E /* PageContentViewController.h */,
-				0660A8001C13349D00457B2E /* PageContentViewController.m */,
-				0660A80B1C133C2200457B2E /* TQInitPageViewController.h */,
-				0660A80C1C133C2200457B2E /* TQInitPageViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

@@ -71,6 +71,7 @@
     UIView *shareView;
     UIView *socialView;
    
+    UIColor *themeColor;
     
     IBOutlet MKMapView *myMapView;
     IBOutlet UIImageView *vSource;
@@ -99,6 +100,9 @@
 @property (retain, nonatomic) IBOutlet UILabel *eTitle;
 @property (retain, nonatomic) IBOutlet UITextView *eDescription;
 @property (retain, nonatomic) NSString *eURL;
+@property (retain, nonatomic) UIColor *themeColor;
+
+
 @property (retain, nonatomic) IBOutlet UILabel *scannedURL;
 
 @property (retain, nonatomic) IBOutlet UILabel *eSource;

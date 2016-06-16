@@ -8,7 +8,6 @@
 
 #import "PGFirstViewController.h"
 #import "MMDrawerBarButtonItem.h"
-#import "UIViewController+MMDrawerController.h"
 #import "TQ_EventDetailsViewController.h"
 
 
@@ -24,7 +23,7 @@
 @implementation PGFirstViewController
 
 @synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter,prefCats,hasCategories,hasUpdates,
-    gotoSettings,gotoRefresh,userDetails;
+    gotoSettings,gotoRefresh,userDetails,footerImageView;
 
 -(void) viewWillAppear:(BOOL)animated{
     
@@ -42,17 +41,17 @@
     self.eventTable.emptyDataSetSource = self;
     self.eventTable.emptyDataSetDelegate = self;
     
-    self.eventTable.tableFooterView = [UIView new];
-    
+   // self.eventTable.tableFooterView = [UIView new];
+  //  [self.eventTable addSubview:self.footerImageView];
     
     self.bannerView.adUnitID = @"ca-app-pub-7857198660418019/3237842480";
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];
     self.bannerView.alpha=0.0;
     
-// changed
+// this needs to be 0 immediately because no info is available.
    if ([self.eventList count]==0) {
-       [self fadeOutTableView];
+       self.eventTable.alpha=0.0;
     }
     
     
@@ -96,8 +95,9 @@
     if (!locationAllowed)
     {
         
-       [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"err-loc-disable", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-loc-enable", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+
         
+         [self notifyMe:@"err-loc-disable" withMessage:@"err-loc-enable"];
         
         /*
         
@@ -202,8 +202,16 @@
         self.refreshControl = [UIRefreshControl new];
         
         self.refreshControl.backgroundColor=[UIColor whiteColor];
-        self.refreshControl.tintColor=[UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];
-
+        self.refreshControl.tintColor=[UIColor flatSkyBlueColor];
+    
+        //[UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];s
+        
+        UIImageView *rcImageView =
+        [[UIImageView alloc] initWithImage:
+         [UIImage imageNamed: @"asia-blue.png"]];
+        [self.refreshControl insertSubview:rcImageView atIndex:0];
+        
+        
         [refreshControl addTarget:self action:@selector(refreshButtonPress:) forControlEvents:UIControlEventValueChanged];
       
         
@@ -259,6 +267,7 @@
 
 
 - (void)setupLeftMenuButton {
+    
     MMDrawerBarButtonItem * leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
     [self.navigationItem setLeftBarButtonItem:leftDrawerButton];
 }
@@ -361,6 +370,7 @@
         
         //configure interaction buttons
         
+        
         MGSwipeButton *likeBtn = [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"fav.png"] backgroundColor:[UIColor flatBlueColor] callback:^BOOL(MGSwipeTableCell *sender) {
             
             NSLog(@"Convenience callback for swipe buttons!");
@@ -369,15 +379,10 @@
             return true;
             
         } ];
+        cell.rightButtons = @[likeBtn];
+        cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
         
-        
-        cell.leftButtons = @[likeBtn];
-        cell.leftSwipeSettings.transition = MGSwipeTransitionDrag;
-        
-        //configure right buttons -- default as the array
-        // cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"Delete" backgroundColor:[UIColor flatRedColor]],[MGSwipeButton buttonWithTitle:@"More" backgroundColor:[UIColor flatGrayColor]]];
-        
-        MGSwipeButton *spamBtn = [MGSwipeButton buttonWithTitle:@"Spam" backgroundColor:[UIColor flatRedColor] callback:^BOOL(MGSwipeTableCell *sender) {
+        MGSwipeButton *spamBtn = [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"reportSpam.png"] backgroundColor:[UIColor flatRedColor] callback:^BOOL(MGSwipeTableCell *sender) {
             NSLog(@"Convenience callback for reportSpam:!");
             
             [self reportSpam:[text objectForKey:@"id"]];
@@ -385,10 +390,8 @@
             return true;
         } ];
         
-        
-        cell.rightButtons = @[spamBtn];
-        cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
-    
+        cell.leftButtons = @[spamBtn];
+        cell.leftSwipeSettings.transition = MGSwipeTransitionDrag;
         
         
         cell.title.text=[text objectForKey:@"title"];
@@ -410,10 +413,14 @@
         
         int tInterval = (int)[startDate1 timeIntervalSinceNow]/60;
         
+        
         if(tInterval<=0){
             
             cell.inXMinutes.text=@"started";
-            cell.inXMinutes.textColor=[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0];
+            
+           // cell.inXMinutes.textColor=[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0];
+            cell.inXMinutes.textColor=[UIColor flatSkyBlueColor];
+            
             
         } else {
             if (tInterval>60) {
@@ -429,14 +436,15 @@
                // NSLog(@" My Interval %d", tInterval);
                 
                 cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" min"]];
-                cell.inXMinutes.textColor=[UIColor colorWithRed:57/255.0 green:181/255.0 blue:74/255.0 alpha:1.0];
+                cell.inXMinutes.textColor= [UIColor flatSkyBlueColor];
+                //[UIColor colorWithRed:57/255.0 green:181/255.0 blue:74/255.0 alpha:1.0];
             }
         }
         
         if ([[text objectForKey:@"recommend_flag"] isEqualToString:@"1"]){
             
             cell.inXMinutes.text=@"recommended";
-            cell.inXMinutes.textColor=[UIColor greenColor];
+            cell.inXMinutes.textColor=[UIColor flatGreenColor];
             
         }
         
@@ -444,67 +452,85 @@
         //which one is more negative
         if (tInterval <= durationCheck ){
             cell.inXMinutes.text=@"expired";
-            cell.inXMinutes.textColor=[UIColor redColor];
+            cell.inXMinutes.textColor=[UIColor flatRedColor];
         }
         
     
         if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"arts.png"];
+            cell.category.backgroundColor=[UIColor flatRedColor];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"business.png"];
+            cell.category.backgroundColor=[UIColor flatPowderBlueColor];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"education.png"];
+            cell.category.backgroundColor=[UIColor flatMintColorDark];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"entertainment.png"];
+            cell.category.backgroundColor=[UIColor flatMintColor];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"family.png"];
+            cell.category.backgroundColor=[UIColor flatPinkColor];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"food.png"];
+            cell.category.backgroundColor=[UIColor flatSandColor];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"social.png"];
+            cell.category.backgroundColor=[UIColor flatPurpleColor];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"mass.png"];
+            cell.category.backgroundColor=[UIColor flatBlueColor];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"meeting.png"];
+            cell.category.backgroundColor=[UIColor flatWatermelonColorDark];
         }
         
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"sports.png"];
+            cell.category.backgroundColor=[UIColor flatBrownColor];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"tech.png"];
+            cell.category.backgroundColor=[UIColor flatSkyBlueColorDark];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]]) {
            
             cell.category.image = [UIImage imageNamed:@"other.png"];
+            cell.category.backgroundColor=[UIColor flatWhiteColorDark];
             
         } else {
             
             cell.category.image = [UIImage imageNamed:@"other.png"];
+            cell.category.backgroundColor=[UIColor flatWhiteColorDark];
+
             
         }
         
         
         /* Rounded Edges */
+        
+       /// cell.inXMinutes.textColor= [cell.category.backgroundColor darkenByPercentage:0.1];
+        cell.category.layer.cornerRadius = cell.category.frame.size.height/2; // this value vary as per your desire
+        cell.category.clipsToBounds = YES;
         
         //CGSizeMake(3.0,3.0)
         //CGSizeMake(cell.category.frame.size.width/2, cell.category.frame.size.height/2)
@@ -700,7 +726,8 @@
             //cell.priceInd2.alpha=1;
             //cell.priceInd3.alpha=1;
          
-            cell.priceLabel1.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
+            cell.priceLabel1.textColor =[UIColor flatBlueColor];
+            //[UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
             cell.priceLabel1.alpha=1.0;
             cell.priceLabel2.alpha=0.35;
             cell.priceLabel3.alpha=0.35;
@@ -806,10 +833,16 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     TQ_EventDetailsViewController *eventDetails = [storyboard instantiateViewControllerWithIdentifier:@"EVENT_DETAILS"];
     
+    
     NSMutableDictionary *text=[self.filteredEventList objectAtIndex:indexPath.row];
     
+    lotCell *cell = [self.eventTable cellForRowAtIndexPath:indexPath];
     
-    //NSLog(@"%@", text);
+    NSString* colorString = [cell.category.backgroundColor description];
+    
+   // eventDetails.themeColor = ;
+    
+    NSLog(@"%@", colorString);
     eventDetails.handOver=text;
     
     [self.navigationController pushViewController:eventDetails animated:YES];
@@ -1228,7 +1261,7 @@
     NSString *text = @"Please Allow Photo Access";
     
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
-                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+                                 NSForegroundColorAttributeName: [UIColor flatGrayColorDark]};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
@@ -1242,7 +1275,7 @@
     paragraph.alignment = NSTextAlignmentCenter;
     
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0f],
-                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
+                                 NSForegroundColorAttributeName: [UIColor flatGrayColor],
                                  NSParagraphStyleAttributeName: paragraph};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
@@ -1262,7 +1295,7 @@
 
 - (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
 {
-    return [UIColor blueColor];
+    return [UIColor flatBlueColor];
 }
 
 - (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
@@ -1326,10 +1359,7 @@
     [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-spam", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude  andLong:(double)(double)self.currentLocation.coordinate.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
-    
-    [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-spam", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:10];
-    
-    
+    [self notifyMe:@"game" withMessage:@"err-spam"];
     
 }
 
@@ -1387,6 +1417,10 @@
     [self.eventTable reloadData];
 }
 
-
+- (void) notifyMe:(NSString*)ttl withMessage:(NSString*)msg {
+    
+    [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(ttl, nil)] message:[NSString stringWithFormat:NSLocalizedString(msg, nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+    
+}
 
 @end
