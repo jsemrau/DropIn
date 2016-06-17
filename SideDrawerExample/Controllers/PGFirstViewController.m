@@ -248,6 +248,16 @@
     
     [self.view addSubview:self.loader];
     
+    //disable scroll to top for all text views
+    for (UITextView *view in self.view.subviews) {
+        if ([view isKindOfClass:[UITextView class]]) {
+            view.scrollsToTop = NO;
+        }
+    }
+    
+    self.eventTable.scrollsToTop =YES;
+    
+    
 }
 - (void) viewDidLoad:(BOOL) animated {
     
@@ -370,8 +380,15 @@
         
         //configure interaction buttons
         
+        //get image
+        FAKFontAwesome *likeIcon = [FAKFontAwesome heartOIconWithSize:50];
+        [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatWhiteColor]];
+        UIImage *iconImage = [likeIcon imageWithSize:CGSizeMake(75, 75)];
+        cell.lotViewIndicator.contentMode=UIViewContentModeScaleAspectFit;
         
-        MGSwipeButton *likeBtn = [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"fav.png"] backgroundColor:[UIColor flatBlueColor] callback:^BOOL(MGSwipeTableCell *sender) {
+        //[UIImage imageNamed:@"fav.png"]
+        
+        MGSwipeButton *likeBtn = [MGSwipeButton buttonWithTitle:@"" icon:iconImage backgroundColor:[UIColor flatBlueColor] callback:^BOOL(MGSwipeTableCell *sender) {
             
             NSLog(@"Convenience callback for swipe buttons!");
              [self sendFavorite:sender withId:[text objectForKey:@"id"]];
@@ -379,18 +396,34 @@
             return true;
             
         } ];
-        cell.rightButtons = @[likeBtn];
-        cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
         
         MGSwipeButton *spamBtn = [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"reportSpam.png"] backgroundColor:[UIColor flatRedColor] callback:^BOOL(MGSwipeTableCell *sender) {
             NSLog(@"Convenience callback for reportSpam:!");
             
-            [self reportSpam:[text objectForKey:@"id"]];
+            [self reportSpam:[text objectForKey:@"id"] atIndex:indexPath];
             
             return true;
         } ];
         
-        cell.leftButtons = @[spamBtn];
+        //get image
+        FAKFontAwesome *dislikeIcon = [FAKFontAwesome thumbsDownIconWithSize:50];
+        [dislikeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatWhiteColor]];
+        iconImage = [dislikeIcon imageWithSize:CGSizeMake(75, 75)];
+        cell.lotViewIndicator.contentMode=UIViewContentModeScaleAspectFit;
+        
+        MGSwipeButton *dislikeBtn = [MGSwipeButton buttonWithTitle:@"" icon:iconImage backgroundColor:[UIColor flatRedColorDark] callback:^BOOL(MGSwipeTableCell *sender) {
+            NSLog(@"Convenience callback for dislikeBtn:!");
+            
+            [self sendDislike:sender withId:[text objectForKey:@"id"] atIndex:indexPath];
+            
+            return true;
+        } ];
+        
+        
+        cell.rightButtons = @[dislikeBtn,spamBtn];
+        cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
+        
+        cell.leftButtons = @[likeBtn];
         cell.leftSwipeSettings.transition = MGSwipeTransitionDrag;
         
         
@@ -660,9 +693,10 @@
                 cell.priceInd3.image=filledCoin;
                 */
                 
-                cell.priceLabel1.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
-                cell.priceLabel2.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
-                cell.priceLabel3.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
+                cell.priceLabel1.textColor = [UIColor flatYellowColorDark];
+               // [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
+                cell.priceLabel2.textColor =[UIColor flatYellowColorDark];
+                cell.priceLabel3.textColor =[UIColor flatYellowColorDark];
                 
                 cell.priceLabel1.alpha=1.0;
                 cell.priceLabel2.alpha=1.0;
@@ -675,8 +709,8 @@
               /* cell.priceInd1.image=filledCoin;
                cell.priceInd2.image=filledCoin;*/
                
-               cell.priceLabel1.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
-               cell.priceLabel2.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
+               cell.priceLabel1.textColor =[UIColor flatYellowColorDark];
+               cell.priceLabel2.textColor =[UIColor flatYellowColorDark];
                
                cell.priceLabel1.alpha=1.0;
                cell.priceLabel2.alpha=1.0;
@@ -686,7 +720,8 @@
             
               // cell.priceInd1.image=filledCoin;
                
-               cell.priceLabel1.textColor = [UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
+               cell.priceLabel1.textColor =[UIColor flatYellowColorDark];
+               //[UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
                cell.priceLabel1.alpha=1.0;
                cell.priceLabel2.alpha=0.35;
                cell.priceLabel3.alpha=0.35;
@@ -771,7 +806,25 @@
         if (self.likedIDs) {
             //if it does not exists then create array
             if ([self.likedIDs objectForKey:[text objectForKey:@"id"]]) {
-                [cell.lotViewIndicator setImage:[UIImage imageNamed:@"Liked.png"]];
+                
+                //get image
+                FAKFontAwesome *likeIcon = [FAKFontAwesome heartIconWithSize:10];
+                [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
+                UIImage *iconImage = [likeIcon imageWithSize:CGSizeMake(20, 20)];
+                cell.lotViewIndicator.contentMode=UIViewContentModeScaleAspectFit;
+               
+                //set image
+                //[self.favButton setBackgroundImage:iconImage forState:UIControlStateNormal];
+                cell.lotViewIndicator.backgroundColor = [UIColor flatWhiteColor];
+                [cell.lotViewIndicator setImage:iconImage];
+                
+                //round edges
+                cell.lotViewIndicator.layer.cornerRadius = cell.lotViewIndicator.frame.size.height/2; // this value vary as per your desire
+                cell.lotViewIndicator.clipsToBounds = YES;
+                
+                
+              //--orig  [cell.lotViewIndicator setImage:[UIImage imageNamed:@"Liked.png"]];
+                
             }
         }
         
@@ -869,6 +922,7 @@
 
 - (void) noLocationsReceived{
     
+    gettingUpdates=NO;
    
     self.eventTable.alpha=0.0;
     
@@ -881,6 +935,8 @@
 }
 
 - (void)notificationsReceived:(NSDictionary *)resultData{
+    
+    gettingUpdates=NO;
     
     //You ned to set "count" new updates.
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -1019,12 +1075,17 @@
             self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
             
         }
+       
+     //   *fix that later
+     //   if(!gettingUpdates){
         
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
-        [webby setDelegate:self];
-        [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] ];
-        gettingUpdates=YES;
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
+            [webby setDelegate:self];
+            [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] ];
+            gettingUpdates=YES;
+                
+     //   }
             
     }
     
@@ -1347,7 +1408,7 @@
 }
 
 #pragma mark interactions
-- (void) reportSpam:(NSString*)idStr {
+- (void) reportSpam:(NSString*)idStr atIndex:(NSIndexPath *)indexPath {
     
 
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -1366,10 +1427,6 @@
 - (void)sendFavorite:(id)sender withId:(NSString*)idStr{
     
     
-    UIButton *tempButton = (UIButton *)sender;
-    if(tempButton.isSelected){
-        [tempButton setSelected:NO];
-        
         if ([self.likedIDs objectForKey: idStr]) // YES
         {
             // Do something
@@ -1383,10 +1440,8 @@
             [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-unliked", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             
-        }
         
-    } else {
-        [tempButton setSelected:YES];
+     } else {
         
         if(idStr && self.likedIDs) //or if(str != nil) or if(str.length>0)
         {
@@ -1406,12 +1461,40 @@
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             
         }
-        NSLog(@"%@", idStr);
+   
+         NSLog(@"%@", idStr);
         
         
     }
     
     [[NSUserDefaults standardUserDefaults] setObject:self.likedIDs forKey:@"likedItems"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self.eventTable reloadData];
+}
+
+
+- (void)sendDislike:(id)sender withId:(NSString*)idStr atIndex:(NSIndexPath *)indexPath{
+    
+  /*  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+    [webby setDelegate:self];
+    
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-disliked", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+  */
+    //[self.likedIDs removeObjectForKey:idStr];
+    
+  //  NSDictionary *Tst = [self.eventList objectAtIndex:indexPath.row];
+    
+    NSMutableArray *tmpArray = [NSMutableArray arrayWithArray:self.eventList];
+    [tmpArray removeObjectAtIndex:indexPath.row];
+    
+    //Now sync back.
+    self.eventList = [NSArray arrayWithArray: tmpArray];
+    self.filteredEventList=self.eventList;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.eventList forKey:@"currentEvents"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self.eventTable reloadData];

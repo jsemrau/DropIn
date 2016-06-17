@@ -35,6 +35,7 @@
 /* impressions */
 "imp-liked" = "liked";
 "imp-unliked" = "unliked";
+"imp-disliked" = "disliked";
 "imp-seen" = "seen";
 "imp-url"="openedURL" ;
 "imp-map" ="checkedMap";
@@ -58,7 +59,7 @@
 "err-set-adjust"="Please adjust your Settings for this app or try again later.";
 
 /* Login */
-
+"load" =  "...Loading...";
 "press" = "Press to start";
 "help" = "Help";
 

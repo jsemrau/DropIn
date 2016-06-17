@@ -360,8 +360,8 @@
     }
     
     
-        self.socialView.alpha=0.0;
-        self.shareView.alpha=1.0;
+        self.socialView.alpha=1.0;
+        self.shareView.alpha=0.0;
         self.activePage=1;
         
   
@@ -874,14 +874,14 @@ else
     //Do what you want here
     if(self.activePage==1){
         
-        self.socialView.alpha=1.0;
-        self.shareView.alpha=0.0;
+        self.socialView.alpha=0.0;
+        self.shareView.alpha=1.0;
         self.activePage=2;
         
     } else {
         
-        self.socialView.alpha=0.0;
-        self.shareView.alpha=1.0;
+        self.socialView.alpha=1.0;
+        self.shareView.alpha=0.0;
         self.activePage=1;
         
     }
@@ -911,14 +911,16 @@ else
     self.fbButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.fbButton setBackgroundImage:iconImage forState:UIControlStateNormal];
     
-    FAKZocial *wIcon= [FAKZocial weiboIconWithSize:25];
+   // FAKZocial *wIcon= [FAKZocial weiboIconWithSize:25];
+     FAKFontAwesome *wIcon = [FAKFontAwesome wechatIconWithSize:25];
     [wIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
     iconImage = [wIcon imageWithSize:CGSizeMake(40, 40)];
     self.wAppButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.wAppButton setBackgroundImage:iconImage forState:UIControlStateNormal];
     
     // FAKZocial *wIcon = [FAKZocial :35];
-    FAKZocial *smsIcon =[FAKZocial emailIconWithSize:25];
+   // FAKZocial *smsIcon =[FAKZocial emailIconWithSize:25];
+    FAKFontAwesome *smsIcon = [FAKFontAwesome commentsIconWithSize:25];
     [smsIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
     iconImage = [smsIcon imageWithSize:CGSizeMake(40, 40)];
     self.chatButton.contentMode=UIViewContentModeScaleAspectFit;
@@ -939,7 +941,7 @@ else
     self.spamButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.spamButton setBackgroundImage:iconImage forState:UIControlStateNormal];
     
-    FAKFontAwesome *mapIcon = [FAKFontAwesome shareIconWithSize:25];
+    FAKFontAwesome *mapIcon = [FAKFontAwesome globeIconWithSize:30];
     [mapIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
     iconImage = [mapIcon imageWithSize:CGSizeMake(40, 40)];
     self.openLocation.contentMode=UIViewContentModeScaleAspectFit;
@@ -949,7 +951,7 @@ else
     //FAKFontAwesome *webIcon = [FAKFontAwesome :25];
     
    // FAKIonIcons *webIcon = [FAKIonIcons iosFlagIconWithSize:25];
-     FAKFontAwesome *webIcon = [FAKFontAwesome globeIconWithSize:30];
+     FAKFontAwesome *webIcon = [FAKFontAwesome infoCircleIconWithSize:30];
     [webIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
     iconImage = [webIcon imageWithSize:CGSizeMake(40, 40)];
     self.openURL.contentMode=UIViewContentModeScaleAspectFit;
