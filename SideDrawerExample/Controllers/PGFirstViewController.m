@@ -28,9 +28,6 @@
 -(void) viewWillAppear:(BOOL)animated{
     
     
-    
-    //NSMutableArray *colorArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeAnalogous with:[UIColor flatTealColor] flatScheme:YES]];
-    
     [self.navigationController setHidesNavigationBarHairline:YES];
     
     [self.eventTable setDataSource:self];
@@ -40,9 +37,6 @@
     /* Set delegate for empty data source */
     self.eventTable.emptyDataSetSource = self;
     self.eventTable.emptyDataSetDelegate = self;
-    
-   // self.eventTable.tableFooterView = [UIView new];
-  //  [self.eventTable addSubview:self.footerImageView];
     
     self.bannerView.adUnitID = @"ca-app-pub-7857198660418019/3237842480";
     self.bannerView.rootViewController = self;
@@ -189,7 +183,7 @@
             [self fadeOutTableView];
             [self fadeInImage];
             [self startingLoadingAnimation];
-            
+            [self refreshButtonPress:self];
             
         }
         
@@ -209,6 +203,7 @@
         UIImageView *rcImageView =
         [[UIImageView alloc] initWithImage:
          [UIImage imageNamed: @"asia-blue.png"]];
+        [rcImageView setContentMode:UIViewContentModeScaleAspectFit];
         [self.refreshControl insertSubview:rcImageView atIndex:0];
         
         
@@ -761,9 +756,9 @@
             //cell.priceInd2.alpha=1;
             //cell.priceInd3.alpha=1;
          
-            cell.priceLabel1.textColor =[UIColor flatBlueColor];
+           // cell.priceLabel1.textColor =[UIColor flatYellowColorDark];
             //[UIColor colorWithRed:251/255.0 green:176.0/255.0 blue:64.0/255.0 alpha:1.0];
-            cell.priceLabel1.alpha=1.0;
+            cell.priceLabel1.alpha=0.35;
             cell.priceLabel2.alpha=0.35;
             cell.priceLabel3.alpha=0.35;
 
@@ -923,14 +918,13 @@
 - (void) noLocationsReceived{
     
     gettingUpdates=NO;
-   
-    self.eventTable.alpha=0.0;
+    [self stoppingLoadingAnimation ];
     
+    self.eventTable.alpha=0.0;
+
     /* Show dbemtydata*/
     self.messagerLabel.text=[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
     self.messager.alpha=1.0;
-    
-    [self stoppingLoadingAnimation ];
     
 }
 
@@ -966,7 +960,7 @@
     
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     
-    //self.loader.alpha=0.0;
+    self.loader.alpha=0.0;
     //[self fadeOutImage];
     self.messager.alpha=0.0;
     
@@ -1198,6 +1192,7 @@
         
     }
     [self fadeOutBanner];
+    [self fadeOutImage];
     
 }
 

@@ -16,7 +16,7 @@
 
 @implementation TQ_EventDetailsViewController
 
-@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage,wAppButton,fbButton,chatButton,themeColor;
+@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage,wAppButton,fbButton,chatButton,themeColor,category, clockImg;
 
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -24,8 +24,6 @@
     
     [self setupButtons];
     
-   // self.themeColor = ;
-    //NSLog(@" test %@", [self.themeColor description]);
     
     /* setup the swipes*/
     UISwipeGestureRecognizer * swipeleftShare=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(toggleSwipe:)];
@@ -45,15 +43,87 @@
     [self.socialView addGestureRecognizer:swiperightSoc];
     
     
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
    // UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"dropin-header2.png"]];
+    if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]]) {
+        self.category.image = [UIImage imageNamed:@"arts.png"];
+        self.themeColor=[UIColor flatRedColor];
+    }
     
-    self.summaryView.backgroundColor= [UIColor flatSkyBlueColor];
+    else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]]) {
+        self.category.image = [UIImage imageNamed:@"business.png"];
+        self.themeColor=[UIColor flatPowderBlueColor];
+    }
+    
+    else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]]) {
+        self.category.image = [UIImage imageNamed:@"education.png"];
+        self.themeColor=[UIColor flatMintColorDark];
+    }
+    
+    else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]]) {
+        self.category.image = [UIImage imageNamed:@"entertainment.png"];
+        self.themeColor=[UIColor flatMintColor];
+    }
+    
+    else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]]) {
+        self.category.image = [UIImage imageNamed:@"family.png"];
+        self.themeColor=[UIColor flatPinkColor];
+    }
+    
+    else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]]) {
+        self.category.image = [UIImage imageNamed:@"food.png"];
+        self.themeColor=[UIColor flatSandColor];
+    }
+    
+    else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]]) {
+        self.category.image = [UIImage imageNamed:@"social.png"];
+        self.themeColor=[UIColor flatPurpleColor];
+    }
+    
+    else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]]) {
+        self.category.image = [UIImage imageNamed:@"mass.png"];
+        self.themeColor=[UIColor flatBlueColor];
+    }
+    
+    else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]]) {
+        self.category.image = [UIImage imageNamed:@"meeting.png"];
+        self.themeColor=[UIColor flatWatermelonColorDark];
+    }
+    
+    
+    else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]]) {
+        self.category.image = [UIImage imageNamed:@"sports.png"];
+        self.themeColor=[UIColor flatBrownColor];
+    }
+    
+    else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]]) {
+        self.category.image = [UIImage imageNamed:@"tech.png"];
+        self.themeColor=[UIColor flatSkyBlueColorDark];
+    }
+    
+    else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]]) {
+        
+        self.category.image = [UIImage imageNamed:@"other.png"];
+        self.themeColor=[UIColor flatWhiteColorDark];
+        
+    } else {
+        
+        self.category.image = [UIImage imageNamed:@"other.png"];
+        self.themeColor=[UIColor flatWhiteColorDark];
+        
+        
+    }
+    
 
+    
+    self.summaryView.backgroundColor= self.themeColor;
+    
+    
     NSLog(@" Category %@", [self.handOver valueForKey:@"category"]);
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -179,11 +249,15 @@
         ;
         
         
+        
     } else {
         
         self.eTitle.text=[self.handOver valueForKey:@"title"];
         
     }
+    
+    self.eTitle.textColor=self.themeColor;
+
     
     if([[self.handOver valueForKey:@"source"] isEqualToString:@"meetup.com"] ){
         self.vSource.image = [UIImage imageNamed:@"meetup.png"];
@@ -440,7 +514,7 @@
     }
 
     [composer setText:message];
-    [composer setImage:[UIImage imageNamed:@"dropin-logo.png"]];
+    [composer setImage:[UIImage imageNamed:@"logo-final_400.png"]];
     
     // Called from a UIViewController
     [composer showFromViewController:self completion:^(TWTRComposerResult result) {
@@ -475,6 +549,13 @@
     if(tempButton.isSelected){
         [tempButton setSelected:NO];
         
+        FAKFontAwesome *likeIcon = [FAKFontAwesome heartOIconWithSize:25];
+        [likeIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
+        UIImage *iconImage = [likeIcon imageWithSize:CGSizeMake(40, 40)];
+        self.favButton.contentMode=UIViewContentModeScaleAspectFit;
+        [self.favButton setBackgroundImage:iconImage forState:UIControlStateNormal];
+        
+        
         if ([self.likedIDs objectForKey: self.idStr]) // YES
         {
             // Do something
@@ -492,6 +573,12 @@
         
     } else {
         [tempButton setSelected:YES];
+        FAKFontAwesome *likeIcon = [FAKFontAwesome heartIconWithSize:25];
+        [likeIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
+        UIImage *iconImage = [likeIcon imageWithSize:CGSizeMake(40, 40)];
+        self.favButton.contentMode=UIViewContentModeScaleAspectFit;
+        [self.favButton setBackgroundImage:iconImage forState:UIControlStateSelected];
+        
     
         if(self.idStr && self.likedIDs) //or if(str != nil) or if(str.length>0)
         {
@@ -898,22 +985,29 @@ else
     
     /* setup the fontawesome buttons */
     
+    FAKFontAwesome *clockIcon = [FAKFontAwesome clockOIconWithSize:20];
+    [clockIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
+    UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(25, 25)];
+    self.clockImg.contentMode=UIViewContentModeScaleAspectFit;
+    [self.clockImg setImage:iconImage];
+    
+    
     FAKZocial *twitterIcon = [FAKZocial twitterIconWithSize:25];
-    [twitterIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
+    [twitterIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
     //[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0]];
-    UIImage *iconImage = [twitterIcon imageWithSize:CGSizeMake(40, 40)];
+    iconImage = [twitterIcon imageWithSize:CGSizeMake(40, 40)];
     self.tweetButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.tweetButton setBackgroundImage:iconImage forState:UIControlStateNormal];
     
     FAKZocial *fbIcon = [FAKZocial facebookIconWithSize:25];
-    [fbIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
+    [fbIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
     iconImage = [fbIcon imageWithSize:CGSizeMake(40, 40)];
     self.fbButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.fbButton setBackgroundImage:iconImage forState:UIControlStateNormal];
     
    // FAKZocial *wIcon= [FAKZocial weiboIconWithSize:25];
      FAKFontAwesome *wIcon = [FAKFontAwesome wechatIconWithSize:25];
-    [wIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
+    [wIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
     iconImage = [wIcon imageWithSize:CGSizeMake(40, 40)];
     self.wAppButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.wAppButton setBackgroundImage:iconImage forState:UIControlStateNormal];
@@ -921,7 +1015,7 @@ else
     // FAKZocial *wIcon = [FAKZocial :35];
    // FAKZocial *smsIcon =[FAKZocial emailIconWithSize:25];
     FAKFontAwesome *smsIcon = [FAKFontAwesome commentsIconWithSize:25];
-    [smsIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
+    [smsIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
     iconImage = [smsIcon imageWithSize:CGSizeMake(40, 40)];
     self.chatButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.chatButton setBackgroundImage:iconImage forState:UIControlStateNormal];
@@ -930,19 +1024,19 @@ else
     /* now for the activities */
     
     FAKFontAwesome *likeIcon = [FAKFontAwesome heartOIconWithSize:25];
-    [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
+    [likeIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
     iconImage = [likeIcon imageWithSize:CGSizeMake(40, 40)];
     self.favButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.favButton setBackgroundImage:iconImage forState:UIControlStateNormal];
     
     FAKFontAwesome *reportIcon = [FAKFontAwesome warningIconWithSize:25];
-    [reportIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
+    [reportIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
     iconImage = [reportIcon imageWithSize:CGSizeMake(40, 40)];
     self.spamButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.spamButton setBackgroundImage:iconImage forState:UIControlStateNormal];
     
     FAKFontAwesome *mapIcon = [FAKFontAwesome globeIconWithSize:30];
-    [mapIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
+    [mapIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
     iconImage = [mapIcon imageWithSize:CGSizeMake(40, 40)];
     self.openLocation.contentMode=UIViewContentModeScaleAspectFit;
     [self.openLocation setBackgroundImage:iconImage forState:UIControlStateNormal];
@@ -952,7 +1046,7 @@ else
     
    // FAKIonIcons *webIcon = [FAKIonIcons iosFlagIconWithSize:25];
      FAKFontAwesome *webIcon = [FAKFontAwesome infoCircleIconWithSize:30];
-    [webIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
+    [webIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
     iconImage = [webIcon imageWithSize:CGSizeMake(40, 40)];
     self.openURL.contentMode=UIViewContentModeScaleAspectFit;
     [self.openURL setBackgroundImage:iconImage forState:UIControlStateNormal];

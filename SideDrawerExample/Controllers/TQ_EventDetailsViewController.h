@@ -93,6 +93,7 @@
 @property (nonatomic) NSString *vNameStr;
 @property (nonatomic) NSString *idStr;
 @property (retain, nonatomic) IBOutlet UILabel *price;
+@property (retain, nonatomic) IBOutlet UIImageView *category;
 @property (retain, nonatomic) IBOutlet UILabel *start_time;
 @property (retain, nonatomic) IBOutlet UILabel *stop_time;
 @property (retain, nonatomic) NSString *vStart_time;
@@ -102,6 +103,7 @@
 @property (retain, nonatomic) NSString *eURL;
 @property (retain, nonatomic) UIColor *themeColor;
 
+@property (retain, nonatomic) IBOutlet UIImageView *clockImg;
 
 @property (retain, nonatomic) IBOutlet UILabel *scannedURL;
 

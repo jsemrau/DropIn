@@ -31,6 +31,15 @@
 	<string>1.2.5</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb262075090811013</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.2.5</string>
 	<key>Fabric</key>
@@ -52,12 +61,21 @@
 			</dict>
 		</array>
 	</dict>
+	<key>FacebookAppID</key>
+	<string>262075090811013</string>
+	<key>FacebookDisplayName</key>
+	<string>drop!in</string>
 	<key>Item 0</key>
 	<string>whatsapp</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
-	<array/>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
@@ -77,25 +95,5 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb262075090811013</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>262075090811013</string>
-    <key>FacebookDisplayName</key>
-    <string>drop!in</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
 </dict>
 </plist>
