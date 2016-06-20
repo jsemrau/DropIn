@@ -27,7 +27,7 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     
-    
+    [self setupLeftMenuButton];
     [self.navigationController setHidesNavigationBarHairline:YES];
     
     [self.eventTable setDataSource:self];
@@ -43,74 +43,37 @@
     [self.bannerView loadRequest:[GADRequest request]];
     self.bannerView.alpha=0.0;
     
-// this needs to be 0 immediately because no info is available.
-   if ([self.eventList count]==0) {
-       self.eventTable.alpha=0.0;
-    }
     
-    
+    /* for future release you can have that based on the selection configuration*/
     self.hasCategories=TRUE;
     
-    [self setupLeftMenuButton];
+    //if there were updates then you need to reload data
+    if(hasUpdates){
+        
+        self.eventTable.alpha=0.0;
+        
+    }
     
     /*  Make sure only the table is displayed on start */
+    //don't show anything
+    
     self.messager.alpha=0.0;
     self.loading.alpha=0.0;
+    self.eventTable.alpha=0.0;
     
     BOOL locationAllowed = [CLLocationManager locationServicesEnabled];
     
-    if([self.notiDictionary count]>0){
-        
-        NSString *dateString = [self.notiDictionary objectForKey:@"timeStamp"];
-        NSDateFormatter *startDateFormat = [[NSDateFormatter alloc] init];
-        [startDateFormat setDateFormat:@"yyyy-MM-dd H:mm:ss"];
-        NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
-        
-        [startDateFormat setTimeZone:timeZone];
-        [startDateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
-        NSDate *startDate1 = [startDateFormat dateFromString:dateString];
-        
-        float fInterval= [startDate1 timeIntervalSinceNow]/60;
-
-        if (fInterval<-60) {
-             self.weatherNeedsUpdates=true;
-        }
-        
-        
-    }
     
-    if (([self.weatherString.text isEqualToString:@""])) {
-       self.weatherNeedsUpdates=true;
-        self.weatherString.text=[[NSDate date] description];
-        // timer is set & will be triggered each second
-        [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(showTime) userInfo:nil repeats:YES];
-    }
     
     if (!locationAllowed)
     {
         
-
-        
          [self notifyMe:@"err-loc-disable" withMessage:@"err-loc-enable"];
-        
-        /*
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Service Disabled"
-                                                        message:@"To re-enable, please go to Settings and turn on Location Service for this app."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-         
-         */
         
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"prefs:root=LOCATION_SERVICES"]];
     }
     
     [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
-    
-    
-   
     
     
   /*
@@ -123,42 +86,16 @@
     NSUserDefaults *prefs;
     NSArray *eventDetails;
     
-    
     prefs= [NSUserDefaults standardUserDefaults];
-    
-    self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
+    self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"]] ;
 
-    
-    //Try to load the prefcat
-    self.prefCats =[prefs objectForKey:@"pref_Categories"];
-    
-    if (!self.prefCats) {
-        //if there is no prefcat
-        //  NSMutableDictionary
-        self.prefCats = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)],
-                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)],
-                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)],
-                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)],
-                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)],
-                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)],
-                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)],
-                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)],
-                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)],
-                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)],
-                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)],
-                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]
-                         ,nil] ;
-        
-        [[NSUserDefaults standardUserDefaults] setObject:self.prefCats forKey:@"pref_Categories"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
+    [self loadPreferences];
     
     self.likedIDs=[[prefs objectForKey:@"likedItems"] mutableCopy];
     //if I don't already have data
     if ([self.eventList count]==0) {
         
-        
+        //First try to reload from local
          eventDetails= [prefs objectForKey:@"currentEvents"];
  
         /**
@@ -169,21 +106,32 @@
             self.eventList=eventDetails;
             self.filteredEventList=[self filterArrayWithCategories:self.eventList];
             
+            //since you handle the error string; better remove this.
+            
             if ([self.filteredEventList count]==0){
                 
-                self.filteredEventList=self.eventList;
+            //    self.filteredEventList=self.eventList;
+                self.messagerLabel.text=[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
+                self.loader.alpha=0.0;
+                self.messager.alpha=1.0;
                 
+            } else {
+                
+                [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+                [self fadeInTableView];
             }
             
-            [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+            
+            
             
         } else {
             
             self.needsUpdates=TRUE;
-            [self fadeOutTableView];
-            [self fadeInImage];
-            [self startingLoadingAnimation];
-            [self refreshButtonPress:self];
+            
+            
+           // [self fadeInImage];
+           // [self startingLoadingAnimation];
+            //[self refreshButtonPress:self];
             
         }
         
@@ -202,7 +150,7 @@
         
         UIImageView *rcImageView =
         [[UIImageView alloc] initWithImage:
-         [UIImage imageNamed: @"asia-blue.png"]];
+         [UIImage imageNamed: @"asia-color.png"]];
         [rcImageView setContentMode:UIViewContentModeScaleAspectFit];
         [self.refreshControl insertSubview:rcImageView atIndex:0];
         
@@ -227,7 +175,6 @@
     
     if (self.hasUpdates) {
         
-        self.eventTable.alpha=0.0;
         self.messager.alpha=0.0;
         [self fadeInImage];
         
@@ -303,13 +250,17 @@
 - (IBAction)refreshButtonPress:(id)sender {
     
     // self.loader.alpha=1.0;
+    self.hasUpdates=true;
     self.eventTable.alpha=0.0;
     self.messager.alpha=0.0;
     
     [self startingLoadingAnimation];
+  
     //data not available anymore
-    self.eventList=nil;
-    self.filteredEventList=nil;
+    //don't do this here you don't know if the call to update will be successful.
+    //self.eventList=nil;
+    //self.filteredEventList=nil;
+    
     self.needsUpdates=TRUE;
     
    // NSLog(@" current location lat %f and lng %f", self.currentLocation.coordinate.latitude,self.currentLocation.coordinate.longitude
@@ -781,6 +732,7 @@
         
         
         /* round edges */
+        /*
         UIBezierPath * maskPath = [UIBezierPath bezierPathWithRoundedRect:cell.lotViewIndicator.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
         // Create the shape layer and set its path
         CAShapeLayer *maskLayer = [CAShapeLayer layer];
@@ -789,6 +741,7 @@
         // Set the newly created shape layer as the mask for the image view's layer
         cell.lotViewIndicator.layer.mask = maskLayer;
         cell.lotViewIndicator.clipsToBounds = NO;
+        */
         
         NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
         fmt.numberStyle=NSNumberFormatterDecimalStyle;
@@ -918,13 +871,16 @@
 - (void) noLocationsReceived{
     
     gettingUpdates=NO;
-    [self stoppingLoadingAnimation ];
     
+    [self stoppingLoadingAnimation ];
     self.eventTable.alpha=0.0;
-
-    /* Show dbemtydata*/
-    self.messagerLabel.text=[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
-    self.messager.alpha=1.0;
+    //[self.eventTable removeFromSuperview];
+    
+    if ([self.filteredEventList count]==0){
+        /* Show message*/
+        self.messagerLabel.text=[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
+        self.messager.alpha=1.0;
+    }
     
 }
 
@@ -960,21 +916,20 @@
     
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     
-    self.loader.alpha=0.0;
-    //[self fadeOutImage];
-    self.messager.alpha=0.0;
-    
-    [self stoppingLoadingAnimation];
+    /* Case there are no events around you */
     
     if ([resultData count] ==0){
         
         //Now you need to do the empty screen
         
         self.messagerLabel.text=[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
+        
+        [self stoppingLoadingAnimation];
+        [self fadeOutImage];
         self.messager.alpha=1.0;
         
         //
-        
+        self.needsUpdates=TRUE;
         
     } else {
     
@@ -997,14 +952,8 @@
             
         }
         
-        if([self.loading isAnimating]) {
-            
-            //  [self stoppingLoadingAnimation];
-            
-        }
         
-    
-        [self fadeInTableView];
+        //[self fadeInTableView];
         //self.loader.alpha=0.0;
         self.eventList = [[NSArray alloc] initWithArray:data];
         self.filteredEventList = [self filterArrayWithCategories:self.eventList];
@@ -1017,12 +966,22 @@
         [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
         
         [[self.view viewWithTag:12] removeFromSuperview];
+        
+        //Now it is time to show the table again
+        [self.eventTable reloadData];
+      
+        
     
     }
     
     [refreshControl endRefreshing];
-    [self stoppingLoadingAnimation ];
-    [self.eventTable reloadData];
+    
+    if(!self.needsUpdates){
+        [self stoppingLoadingAnimation ];
+        [self fadeInTableView];
+    }
+    
+   
     
 }
 
@@ -1151,13 +1110,15 @@
     NSPredicate *applePred = [NSCompoundPredicate orPredicateWithSubpredicates:parr];
     filteredDict=[dict filteredArrayUsingPredicate:applePred];
     
+    /* --temp disable
     if ([filteredDict count]==0) {
         self.messagerLabel.text=@" No events found";
         return dict;
     } else {
         return filteredDict;
-    }
+    }*/
     
+     return filteredDict;
     
 }
 
@@ -1172,7 +1133,7 @@
     self.loading.animation = @"morph";
     self.loading.delay = 0;
     self.loading.duration = 3;
-    self.loading.repeatCount=6;
+    self.loading.repeatCount=20;
     self.loading.autostart = true;
     self.loading.contentMode= UIViewContentModeScaleAspectFit;
     
@@ -1351,7 +1312,7 @@
 
 - (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
 {
-    return [UIColor flatBlueColor];
+    return [UIColor flatSkyBlueColor];
 }
 
 - (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
@@ -1482,15 +1443,45 @@
     
   //  NSDictionary *Tst = [self.eventList objectAtIndex:indexPath.row];
     
-    NSMutableArray *tmpArray = [NSMutableArray arrayWithArray:self.eventList];
-    [tmpArray removeObjectAtIndex:indexPath.row];
+    // 1. find the element at current row.index from filteredEvent
+    // 2. take the index and find it in the eventlist
+    // 3. remove item in event list
+    // 4. refilter
     
-    //Now sync back.
-    self.eventList = [NSArray arrayWithArray: tmpArray];
-    self.filteredEventList=self.eventList;
+    NSDictionary *tmpCell= [self.filteredEventList objectAtIndex:indexPath.row];
     
-    [[NSUserDefaults standardUserDefaults] setObject:self.eventList forKey:@"currentEvents"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSLog(@" testing %@", [tmpCell objectForKey:@"id"]                              );
+
+   // for(NSDictionary *vDic in self.eventList){
+    
+    int iValue=-1;
+    for(int i=0; i < [self.eventList count]; i++){
+        
+        NSDictionary *vDic = self.eventList[i];
+        
+        if([tmpCell objectForKey:@"id"]  == [vDic objectForKey:@"id"] ){
+            
+            NSLog(@" Found it %@", [vDic objectForKey:@"title"]);
+            iValue= i;
+            break;
+            
+        }
+    }
+    
+    if (iValue!=-1) {
+        
+        NSMutableArray *tmpArray = [NSMutableArray arrayWithArray:self.eventList];
+        [tmpArray removeObjectAtIndex:(NSInteger)iValue];
+        self.eventList = [NSArray arrayWithArray: tmpArray];
+        self.filteredEventList=[self filterArrayWithCategories:self.eventList];
+        //Now sync back.
+        [[NSUserDefaults standardUserDefaults] setObject:self.eventList forKey:@"currentEvents"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }
+    
+   
+   
     
     [self.eventTable reloadData];
 }
@@ -1498,6 +1489,36 @@
 - (void) notifyMe:(NSString*)ttl withMessage:(NSString*)msg {
     
     [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(ttl, nil)] message:[NSString stringWithFormat:NSLocalizedString(msg, nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
+    
+}
+
+- (void) loadPreferences {
+    
+    //Try to load the prefcat
+    NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
+    self.prefCats =[prefs objectForKey:@"pref_Categories"];
+    
+    if (!self.prefCats) {
+        //if there is no prefcat
+        //  NSMutableDictionary
+        self.prefCats = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)],
+                         @"1",[NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]
+                         ,nil] ;
+        
+        [[NSUserDefaults standardUserDefaults] setObject:self.prefCats forKey:@"pref_Categories"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
 }
 

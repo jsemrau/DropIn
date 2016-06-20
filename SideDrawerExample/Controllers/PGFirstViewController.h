@@ -93,6 +93,8 @@
 
 
 - (void) playSound:(NSString*) path;
+- (void) loadPreferences;
+
 - (IBAction)refreshButtonPress:(id)sender;
 - (IBAction)settingsButtonPress:(id)sender;
 
