@@ -173,6 +173,10 @@
         [self fadeInImage];
         [self refreshButtonPress:self];
         
+    } else {
+        
+         [self fadeInTableView];
+        
     }
     
 
