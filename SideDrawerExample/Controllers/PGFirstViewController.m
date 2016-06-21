@@ -175,7 +175,9 @@
         
     } else {
         
-         [self fadeInTableView];
+        [self fadeOutImage];
+        [self fadeOutBanner];
+        [self fadeInTableView];
         
     }
     
@@ -1013,7 +1015,7 @@
     
     NSLog(@" Getting location updates horizontalAccuracy is %f", location.horizontalAccuracy);
     
-    if(self.needsUpdates && location.horizontalAccuracy < 50){
+    if(self.needsUpdates ){
     
         if([self.userDetails count]==0) {
         
@@ -1033,7 +1035,7 @@
             gettingUpdates=TRUE;
             
             //stop updating locations
-            [[GFLocationManager sharedInstance] removeLocationManagerDelegate:self];
+            //[[GFLocationManager sharedInstance] removeLocationManagerDelegate:self];
                 
         }
             
