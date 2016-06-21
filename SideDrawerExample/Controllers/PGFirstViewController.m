@@ -48,9 +48,21 @@
     self.hasCategories=TRUE;
     
     //if there were updates then you need to reload data
-    if(hasUpdates){
+    if(needsUpdates){
         
         self.eventTable.alpha=0.0;
+  
+        BOOL locationAllowed = [CLLocationManager locationServicesEnabled];
+        
+        if (!locationAllowed)
+        {
+            
+            [self notifyMe:@"err-loc-disable" withMessage:@"err-loc-enable"];
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"prefs:root=LOCATION_SERVICES"]];
+        }
+        
+        [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
         
     }
     
@@ -61,21 +73,7 @@
     self.loading.alpha=0.0;
     self.eventTable.alpha=0.0;
     
-    BOOL locationAllowed = [CLLocationManager locationServicesEnabled];
-    
-    
-    
-    if (!locationAllowed)
-    {
-        
-         [self notifyMe:@"err-loc-disable" withMessage:@"err-loc-enable"];
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"prefs:root=LOCATION_SERVICES"]];
-    }
-    
-    [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
-    
-    
+  
   /*
     
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"submitScan"];
@@ -128,11 +126,6 @@
             
             self.needsUpdates=TRUE;
             
-            
-           // [self fadeInImage];
-           // [self startingLoadingAnimation];
-            //[self refreshButtonPress:self];
-            
         }
         
     }
@@ -150,7 +143,8 @@
         
         UIImageView *rcImageView =
         [[UIImageView alloc] initWithImage:
-         [UIImage imageNamed: @"asia-color.png"]];
+         [UIImage imageNamed: @"asia-blue.png"]];
+        
         [rcImageView setContentMode:UIViewContentModeScaleAspectFit];
         [self.refreshControl insertSubview:rcImageView atIndex:0];
         
@@ -173,13 +167,12 @@
     
     /* If need to get updates do that now */
     
-    if (self.hasUpdates) {
+    if (self.needsUpdates) {
         
         self.messager.alpha=0.0;
         [self fadeInImage];
-        
         [self refreshButtonPress:self];
-        self.hasUpdates=FALSE;
+        
     }
     
 
@@ -250,7 +243,9 @@
 - (IBAction)refreshButtonPress:(id)sender {
     
     // self.loader.alpha=1.0;
-    self.hasUpdates=true;
+    self.hasUpdates=FALSE;
+    self.needsUpdates=TRUE;
+    
     self.eventTable.alpha=0.0;
     self.messager.alpha=0.0;
     
@@ -258,15 +253,10 @@
   
     //data not available anymore
     //don't do this here you don't know if the call to update will be successful.
-    //self.eventList=nil;
-    //self.filteredEventList=nil;
-    
-    self.needsUpdates=TRUE;
-    
-   // NSLog(@" current location lat %f and lng %f", self.currentLocation.coordinate.latitude,self.currentLocation.coordinate.longitude
-         // );
-    [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
-    //[self startingLoadingAnimation];
+ 
+    if(!gettingUpdates){
+        [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
+    }
     
     
 }
@@ -776,13 +766,6 @@
             }
         }
         
-        
-        if(self.eventTable.alpha==0.0){
-        
-           // self.eventTable.alpha=1.0;
-            [self fadeInTableView];
-        }
-        
             
         
     } // self.eventlist - this one checks if there are more than one item in the list
@@ -870,7 +853,7 @@
 
 - (void) noLocationsReceived{
     
-    gettingUpdates=NO;
+    gettingUpdates=FALSE;
     
     [self stoppingLoadingAnimation ];
     self.eventTable.alpha=0.0;
@@ -886,7 +869,7 @@
 
 - (void)notificationsReceived:(NSDictionary *)resultData{
     
-    gettingUpdates=NO;
+    gettingUpdates=FALSE;
     
     //You ned to set "count" new updates.
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -918,6 +901,8 @@
     
     /* Case there are no events around you */
     
+    gettingUpdates=FALSE;
+    
     if ([resultData count] ==0){
         
         //Now you need to do the empty screen
@@ -934,6 +919,8 @@
     } else {
     
         self.needsUpdates=FALSE;
+        self.hasUpdates=TRUE;
+        
         
         NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:[resultData count]];
         
@@ -952,9 +939,6 @@
             
         }
         
-        
-        //[self fadeInTableView];
-        //self.loader.alpha=0.0;
         self.eventList = [[NSArray alloc] initWithArray:data];
         self.filteredEventList = [self filterArrayWithCategories:self.eventList];
         
@@ -977,8 +961,10 @@
     [refreshControl endRefreshing];
     
     if(!self.needsUpdates){
+        
         [self stoppingLoadingAnimation ];
         [self fadeInTableView];
+        
     }
     
    
@@ -989,6 +975,10 @@
 #pragma mark location delegate
 
 - (void) locationManagerDidUpdateLocation:(CLLocation *)location {
+    
+    
+  //  NSTimeInterval locationAge = -[location.timestamp timeIntervalSinceNow];
+   // if (locationAge > 5.0) return;
     
     //store the current location in object
     self.currentLocation = location;
@@ -1019,7 +1009,7 @@
     
     NSLog(@" Getting location updates horizontalAccuracy is %f", location.horizontalAccuracy);
     
-    if(self.needsUpdates ){
+    if(self.needsUpdates && location.horizontalAccuracy < 50){
     
         if([self.userDetails count]==0) {
         
@@ -1030,15 +1020,18 @@
         }
        
      //   *fix that later
-     //   if(!gettingUpdates){
+        if(!gettingUpdates){
         
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
             [webby setDelegate:self];
             [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] ];
-            gettingUpdates=YES;
+            gettingUpdates=TRUE;
+            
+            //stop updating locations
+            [[GFLocationManager sharedInstance] removeLocationManagerDelegate:self];
                 
-     //   }
+        }
             
     }
     

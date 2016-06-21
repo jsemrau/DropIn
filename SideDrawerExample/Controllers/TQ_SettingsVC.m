@@ -256,10 +256,8 @@
     
     if(self.relevantUpdates){
         PGFirstViewController *vc= [centerViewController.viewControllers objectAtIndex:0];
-        vc.hasUpdates=TRUE;
+        vc.needsUpdates=TRUE;
     }
-    
-    //  [[self navigationController] presentViewController:centerViewController animated:YES completion:nil];
     
     [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
     
@@ -280,7 +278,8 @@
     
     if(self.relevantUpdates){
         PGFirstViewController *vc= [centerViewController.viewControllers objectAtIndex:0];
-        vc.hasUpdates=TRUE;
+        vc.hasUpdates=FALSE;
+        vc.needsUpdates=TRUE;
     }
     
     //  [[self navigationController] presentViewController:centerViewController animated:YES completion:nil];
