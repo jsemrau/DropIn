@@ -47,78 +47,120 @@
 
     
     //Loop over categories
-    
-    
+   
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]] isEqualToString:@"0"]) {
         self.artsButton.selected=TRUE;
+        self.artsButton.backgroundColor=[UIColor flatWhiteColor];
+        
     } else {
         self.artsButton.selected=FALSE;
-    }
+        self.artsButton.backgroundColor=[UIColor flatRedColor];
+        }
     
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]] isEqualToString:@"0"]) {
         self.businessButton.selected=TRUE;
+        self.businessButton.backgroundColor=[UIColor flatWhiteColor];
+        
     } else {
         self.businessButton.selected=FALSE;
+        self.businessButton.backgroundColor=[UIColor flatPowderBlueColor];
+        
     }
     
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]] isEqualToString:@"0"]) {
         self.educationButton.selected=TRUE;
+        self.educationButton.backgroundColor=[UIColor flatWhiteColor];
+        
     } else {
         self.educationButton.selected=FALSE;
+        self.educationButton.backgroundColor=[UIColor flatMintColorDark];
+        
     }
     
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]] isEqualToString:@"0"]) {
         self.entertainmentButton.selected=TRUE;
+        self.entertainmentButton.backgroundColor=[UIColor flatWhiteColor];
+        
     } else {
         self.entertainmentButton.selected=FALSE;
+        self.entertainmentButton.backgroundColor=[UIColor flatMintColor];
     }
     
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]] isEqualToString:@"0"]) {
         self.familyButton.selected=TRUE;
+        self.familyButton.backgroundColor=[UIColor flatWhiteColor];
+        
+        
     } else {
         self.familyButton.selected=FALSE;
+        self.familyButton.backgroundColor=[UIColor flatPinkColor];
     }
     
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]] isEqualToString:@"0"]) {
         self.foodButton.selected=TRUE;
+        self.foodButton.backgroundColor=[UIColor flatWhiteColor];
+        
     } else {
         self.foodButton.selected=FALSE;
+        self.foodButton.backgroundColor=[UIColor flatSandColor];
     }
     
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]] isEqualToString:@"0"]) {
         self.socialButton.selected=TRUE;
+        self.socialButton.backgroundColor=[UIColor flatWhiteColor];
+       
     } else {
         self.socialButton.selected=FALSE;
+        self.socialButton.backgroundColor=[UIColor flatPurpleColor];
+        
     }
     
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]] isEqualToString:@"0"]) {
         self.massButton.selected=TRUE;
+        self.massButton.backgroundColor=[UIColor flatWhiteColor];
+       
     } else {
         self.massButton.selected=FALSE;
+        self.massButton.backgroundColor=[UIColor flatBlueColor];
     }
     
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]] isEqualToString:@"0"]) {
         self.meetingButton.selected=TRUE;
+        self.meetingButton.backgroundColor=[UIColor flatWhiteColor];
+       
     } else {
         self.meetingButton.selected=FALSE;
+        self.meetingButton.backgroundColor=[UIColor flatWatermelonColorDark];
     }
     
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]] isEqualToString:@"0"]) {
         self.sportsButton.selected=TRUE;
+         self.sportsButton.backgroundColor=[UIColor flatWhiteColor];
+     
+        
     } else {
         self.sportsButton.selected=FALSE;
+        self.sportsButton.backgroundColor=[UIColor flatBrownColor];
     }
     
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]] isEqualToString:@"0"]) {
         self.techButton.selected=TRUE;
+         self.techButton.backgroundColor=[UIColor flatWhiteColor];
+        
     } else {
         self.techButton.selected=FALSE;
+        self.techButton.backgroundColor=[UIColor flatSkyBlueColorDark];
+       
     }
     
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]] isEqualToString:@"0"]) {
         self.otherButton.selected=TRUE;
+        self.otherButton.backgroundColor=[UIColor flatWhiteColor];
+        
     } else {
         self.otherButton.selected=FALSE;
+        self.otherButton.backgroundColor=[UIColor flatWhiteColorDark];
+        
     }
     
     
@@ -291,19 +333,18 @@
     
     UIButton *btn = (UIButton*)sender;
     
-    
-    
     if([btn.currentTitle isEqualToString:[NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]]){
         
         if (self.artsButton.selected) {
             [self.artsButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey:[NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]];
+            self.artsButton.backgroundColor=[UIColor flatRedColor];
             
         } else {
             [self.artsButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey:[NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]];
             
-            
+            self.artsButton.backgroundColor=[UIColor flatWhiteColor];
         }
         
     } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]]) {
@@ -311,9 +352,11 @@
         if (self.businessButton.selected) {
             [self.businessButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]];
+            self.businessButton.backgroundColor=[UIColor flatPowderBlueColor ];
         } else {
             [self.businessButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]];
+            self.businessButton.backgroundColor=[UIColor flatWhiteColor ];
         }
         
     } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]]) {
@@ -321,9 +364,11 @@
         if (self.educationButton.selected) {
             [self.educationButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]];
+            self.educationButton.backgroundColor=[UIColor flatMintColorDark];
         } else {
             [self.educationButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]];
+            self.educationButton.backgroundColor=[UIColor flatWhiteColor];
         }
         
     } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]]) {
@@ -331,9 +376,11 @@
         if (self.entertainmentButton.selected) {
             [self.entertainmentButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]];
+            self.entertainmentButton.backgroundColor=[UIColor flatMintColor];
         } else {
             [self.entertainmentButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]];
+            self.entertainmentButton.backgroundColor=[UIColor flatWhiteColor];
         }
     
     } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]]) {
@@ -341,9 +388,11 @@
         if (self.familyButton.selected) {
             [self.familyButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]];
+            self.familyButton.backgroundColor=[UIColor flatPinkColor];
         } else {
             [self.familyButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]];
+            self.familyButton.backgroundColor=[UIColor flatWhiteColor];
         }
         
     } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]]) {
@@ -351,18 +400,23 @@
         if (self.foodButton.selected) {
             [self.foodButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]];
+            self.foodButton.backgroundColor=[UIColor flatSandColor];
         } else {
             [self.foodButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]];
+            self.foodButton.backgroundColor=[UIColor flatWhiteColor];
         }
     } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]]) {
         
         if (self.socialButton.selected) {
             [self.socialButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]];
+            self.socialButton.backgroundColor=[UIColor flatPurpleColor];
+            
         } else {
             [self.socialButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]];
+            self.socialButton.backgroundColor=[UIColor  flatWhiteColor];
         }
     
     } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]]) {
@@ -370,9 +424,11 @@
         if (self.massButton.selected) {
             [self.massButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]];
+            self.massButton.backgroundColor=[UIColor flatBlueColor];
         } else {
             [self.massButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]];
+            self.massButton.backgroundColor=[UIColor flatWhiteColor];
         }
         
     } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]]) {
@@ -380,9 +436,11 @@
         if (self.meetingButton.selected) {
             [self.meetingButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]];
+            self.meetingButton.backgroundColor=[UIColor flatWatermelonColorDark];
         } else {
             [self.meetingButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]];
+            self.meetingButton.backgroundColor=[UIColor flatWhiteColor];
         }
         
     } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]]) {
@@ -390,9 +448,11 @@
         if (self.sportsButton.selected) {
             [self.sportsButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]];
+            self.sportsButton.backgroundColor=[UIColor flatBrownColor];
         } else {
             [self.sportsButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]];
+            self.sportsButton.backgroundColor=[UIColor flatWhiteColor];
         }
     
     } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]])  {
@@ -400,9 +460,11 @@
         if (self.techButton.selected) {
             [self.techButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]];
+            self.techButton.backgroundColor=[UIColor flatSkyBlueColorDark];
         } else {
             [self.techButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]];
+            self.techButton.backgroundColor=[UIColor flatWhiteColor];
         }
 
     } else if ([btn.currentTitle isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]]) {
@@ -410,9 +472,11 @@
         if (self.otherButton.selected) {
             [self.otherButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]];
+            self.otherButton.backgroundColor=[UIColor flatWhiteColorDark];
         } else {
             [self.otherButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]];
+            self.otherButton.backgroundColor=[UIColor flatWhiteColor];
         }
         
         
@@ -435,5 +499,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

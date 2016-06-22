@@ -632,11 +632,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "473033537.874736"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "-timeSliderChanged:"
             landmarkType = "5">
          </BreakpointContent>
@@ -648,11 +648,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "473033537.874736"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "-distanceSliderChanged:"
             landmarkType = "5">
          </BreakpointContent>
@@ -664,11 +664,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "480698157.113884"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
             landmarkName = "-distanceSettingUpdate:"
             landmarkType = "5">
          </BreakpointContent>
@@ -680,11 +680,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "473033537.874736"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -888,11 +888,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "473033537.874736"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1016,11 +1016,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "473033537.874736"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1042,7 +1042,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PGFirstViewController.m"
@@ -1062,11 +1062,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "480698157.113884"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "-distanceSettingUpdate:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1242,11 +1242,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "488206000.724311"
+            timestampString = "488281662.007185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "426"
-            endingLineNumber = "426"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
             landmarkName = "@implementation TQ_SettingsVC"
             landmarkType = "3">
          </BreakpointContent>
@@ -1258,11 +1258,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "488206000.724311"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "339"
+            endingLineNumber = "339"
             landmarkName = "-buttonSelected:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1274,11 +1274,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "488206000.724311"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "336"
+            endingLineNumber = "336"
             landmarkName = "-buttonSelected:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1322,11 +1322,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "473033537.874736"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2390,11 +2390,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "487281393.211838"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "-dropdownAlertWasTapped:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2402,15 +2402,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "488204186.17231"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
             landmarkName = "-dropdownAlertWasDismissed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2978,7 +2978,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PGFirstViewController.m"
@@ -3142,11 +3142,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
-            timestampString = "488205731.696015"
+            timestampString = "488280991.771167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
             landmarkName = "-dropdownAlertWasTapped:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3218,7 +3218,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PGFirstViewController.m"
@@ -3234,7 +3234,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PGFirstViewController.m"
@@ -3244,6 +3244,86 @@
             startingLineNumber = "94"
             endingLineNumber = "94"
             landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/PGFirstViewController.m"
+            timestampString = "488278747.971674"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
+            timestampString = "488280991.771167"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
+            timestampString = "488280991.771167"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
+            timestampString = "488281952.403122"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
+            landmarkName = "-buttonSelected:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/TQ_SettingsVC.m"
+            timestampString = "488281953.337855"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
+            landmarkName = "-buttonSelected:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

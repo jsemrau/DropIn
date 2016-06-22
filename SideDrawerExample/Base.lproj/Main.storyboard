@@ -315,7 +315,7 @@
                                             <constraint firstAttribute="width" constant="43" id="h0g-PS-N83"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                        <state key="normal" title="Arts" backgroundImage="arts-button-unselected.png">
+                                        <state key="normal" title="Arts">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="grey-selected-button.png">
@@ -332,7 +332,7 @@
                                             <constraint firstAttribute="height" constant="25" id="qni-ap-C0b"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                        <state key="normal" title="Business" backgroundImage="business-button-unselected.png">
+                                        <state key="normal" title="Business">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="grey-selected-button.png">
@@ -349,7 +349,7 @@
                                             <constraint firstAttribute="height" constant="25" id="wLD-BL-JD8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                        <state key="normal" title="Education" backgroundImage="education-button-unselected.png">
+                                        <state key="normal" title="Education">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="grey-selected-button.png">
@@ -366,7 +366,7 @@
                                             <constraint firstAttribute="height" constant="25" id="Xw8-dJ-1Ry"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                        <state key="normal" title="Entertainment" backgroundImage="entertainment-button-unselected.png">
+                                        <state key="normal" title="Entertainment">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="grey-selected-button.png">
@@ -383,7 +383,7 @@
                                             <constraint firstAttribute="width" constant="55" id="oWB-QC-IG2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                        <state key="normal" title="Family" backgroundImage="family-button-unselected.png">
+                                        <state key="normal" title="Family">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="grey-selected-button.png">
@@ -400,7 +400,7 @@
                                             <constraint firstAttribute="width" constant="64" id="vyL-Gu-M2E"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                        <state key="normal" title="Food" backgroundImage="food-button-unselected.png">
+                                        <state key="normal" title="Food">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="grey-selected-button.png">
@@ -417,7 +417,7 @@
                                             <constraint firstAttribute="height" constant="25" id="V7j-pW-32Y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                        <state key="normal" title="Large" backgroundImage="mass-button-unselected.png">
+                                        <state key="normal" title="Large">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="grey-selected-button.png">
@@ -434,7 +434,7 @@
                                             <constraint firstAttribute="height" constant="25" id="iza-Ix-TnY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                        <state key="normal" title="Meeting" backgroundImage="meeting-button-unselected.png">
+                                        <state key="normal" title="Meeting">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="grey-selected-button.png">
@@ -451,7 +451,7 @@
                                             <constraint firstAttribute="width" constant="72" id="pau-gO-JTb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                        <state key="normal" title="Other" backgroundImage="other-button-unselected.png">
+                                        <state key="normal" title="Other">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="grey-selected-button.png">
@@ -468,7 +468,7 @@
                                             <constraint firstAttribute="height" constant="25" id="bx4-9V-ONT"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                        <state key="normal" title="Sports" backgroundImage="sports-button-unselected.png">
+                                        <state key="normal" title="Sports">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="grey-selected-button.png">
@@ -485,7 +485,7 @@
                                             <constraint firstAttribute="width" constant="75" id="cLT-JR-F1j"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                        <state key="normal" title="Tech" backgroundImage="tech-button-unselected.png">
+                                        <state key="normal" title="Tech">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="grey-selected-button.png">
@@ -502,7 +502,7 @@
                                             <constraint firstAttribute="height" constant="25" id="nmq-18-JzF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
-                                        <state key="normal" title="Social" backgroundImage="social-button-unselected.png">
+                                        <state key="normal" title="Social">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" backgroundImage="grey-selected-button.png">
@@ -2791,7 +2791,6 @@ Cg
         <image name="Shopping_Shopping-25-01.png" width="61" height="61"/>
         <image name="Time_Time-03-01.png" width="61" height="61"/>
         <image name="Users_Users-24-01.png" width="61" height="61"/>
-        <image name="arts-button-unselected.png" width="340" height="90"/>
         <image name="asia-img.png" width="384" height="273"/>
         <image name="business-button-unselected.png" width="340" height="90"/>
         <image name="di_menu_item_about.png" width="553" height="80"/>
@@ -2799,18 +2798,11 @@ Cg
         <image name="di_menu_item_privacy.png" width="553" height="80"/>
         <image name="drop-in-logo.png" width="806" height="1313"/>
         <image name="dropin-header.png" width="600" height="100"/>
-        <image name="education-button-unselected.png" width="340" height="90"/>
-        <image name="entertainment-button-unselected.png" width="340" height="90"/>
-        <image name="family-button-unselected.png" width="340" height="90"/>
-        <image name="food-button-unselected.png" width="340" height="90"/>
         <image name="grey-selected-button.png" width="342" height="92"/>
         <image name="horizontal_line.png" width="640" height="2"/>
         <image name="iTunesArtwork.png" width="512" height="512"/>
         <image name="logo120x194.png" width="194" height="120"/>
-        <image name="mass-button-unselected.png" width="340" height="90"/>
-        <image name="meeting-button-unselected.png" width="340" height="90"/>
         <image name="name.png" width="640" height="160"/>
-        <image name="other-button-unselected.png" width="340" height="90"/>
         <image name="page1ind.png" width="1024" height="512"/>
         <image name="page2ind.png" width="1024" height="512"/>
         <image name="pk_compo_2_button_blue.png" width="169" height="78"/>
@@ -2819,12 +2811,9 @@ Cg
         <image name="pk_menu_item_settings.png" width="553" height="80"/>
         <image name="question.png" width="25" height="25"/>
         <image name="save2.png" width="20" height="20"/>
-        <image name="social-button-unselected.png" width="340" height="90"/>
         <image name="sortByCategory.png" width="38" height="32"/>
         <image name="sortByDistance32x32.png" width="32" height="32"/>
         <image name="sortByTime32x32.png" width="32" height="33"/>
-        <image name="sports-button-unselected.png" width="340" height="90"/>
-        <image name="tech-button-unselected.png" width="340" height="90"/>
         <image name="url.png" width="73" height="78"/>
         <image name="vertical_line.png" width="2" height="20"/>
     </resources>
