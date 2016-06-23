@@ -47,6 +47,17 @@
     /* for future release you can have that based on the selection configuration*/
     self.hasCategories=TRUE;
     
+    /* round edges */
+    
+    UIBezierPath * maskPath = [UIBezierPath bezierPathWithRoundedRect:self.messager.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
+    // Create the shape layer and set its path
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = self.messager.bounds;
+    maskLayer.path = maskPath.CGPath;
+    // Set the newly created shape layer as the mask for the image view's layer
+   self.messager.layer.mask = maskLayer;
+   self.messager.clipsToBounds = NO;
+    
     //if there were updates then you need to reload data
     if(needsUpdates){
         
@@ -728,7 +739,7 @@
         
         
         /* round edges */
-        /*
+        
         UIBezierPath * maskPath = [UIBezierPath bezierPathWithRoundedRect:cell.lotViewIndicator.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
         // Create the shape layer and set its path
         CAShapeLayer *maskLayer = [CAShapeLayer layer];
@@ -737,7 +748,7 @@
         // Set the newly created shape layer as the mask for the image view's layer
         cell.lotViewIndicator.layer.mask = maskLayer;
         cell.lotViewIndicator.clipsToBounds = NO;
-        */
+        
         
         NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
         fmt.numberStyle=NSNumberFormatterDecimalStyle;
@@ -1366,6 +1377,38 @@
 - (void) reportSpam:(NSString*)idStr atIndex:(NSIndexPath *)indexPath {
     
 
+    NSDictionary *tmpCell= [self.filteredEventList objectAtIndex:indexPath.row];
+    
+    NSLog(@" testing %@", [tmpCell objectForKey:@"id"]                              );
+    
+    // for(NSDictionary *vDic in self.eventList){
+    
+    int iValue=-1;
+    for(int i=0; i < [self.eventList count]; i++){
+        
+        NSDictionary *vDic = self.eventList[i];
+        
+        if([tmpCell objectForKey:@"id"]  == [vDic objectForKey:@"id"] ){
+            
+            NSLog(@" Found it %@", [vDic objectForKey:@"title"]);
+            iValue= i;
+            break;
+            
+        }
+    }
+    
+    if (iValue!=-1) {
+        
+        NSMutableArray *tmpArray = [NSMutableArray arrayWithArray:self.eventList];
+        [tmpArray removeObjectAtIndex:(NSInteger)iValue];
+        self.eventList = [NSArray arrayWithArray: tmpArray];
+        self.filteredEventList=[self filterArrayWithCategories:self.eventList];
+        //Now sync back.
+        [[NSUserDefaults standardUserDefaults] setObject:self.eventList forKey:@"currentEvents"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }
+    
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
@@ -1376,6 +1419,8 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     [self notifyMe:@"game" withMessage:@"err-spam"];
+    
+    [self.eventTable reloadData];
     
 }
 
@@ -1431,13 +1476,13 @@
 
 - (void)sendDislike:(id)sender withId:(NSString*)idStr atIndex:(NSIndexPath *)indexPath{
     
-  /*  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
     [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-disliked", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-  */
+  
     //[self.likedIDs removeObjectForKey:idStr];
     
   //  NSDictionary *Tst = [self.eventList objectAtIndex:indexPath.row];

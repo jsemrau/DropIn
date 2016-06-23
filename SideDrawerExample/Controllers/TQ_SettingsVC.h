@@ -54,5 +54,6 @@
 -(IBAction)distanceSliderChanged:(id)sender;
 -(IBAction)timeSliderChanged:(id)sender ;
 -(IBAction)buttonSelected:(id)sender ;
+- (void) configureButtons :(id)sender ;
 
 @end

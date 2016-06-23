@@ -750,6 +750,14 @@
     
     NSLog(@" starting fb share");
     
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+    [webby setDelegate:self];
+    
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"startedFB", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+    
     FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
     content.contentURL = [NSURL URLWithString:self.eURL];
     content.contentTitle=self.eTitle.text;
