@@ -256,7 +256,7 @@
         
     }
     
-    self.eTitle.textColor=self.themeColor;
+    self.eTitle.textColor=[UIColor flatGrayColorDark];
 
     
     if([[self.handOver valueForKey:@"source"] isEqualToString:@"meetup.com"] ){

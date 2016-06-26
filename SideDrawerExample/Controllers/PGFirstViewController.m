@@ -30,6 +30,7 @@
     [self setupLeftMenuButton];
     [self.navigationController setHidesNavigationBarHairline:YES];
     
+    
     [self.eventTable setDataSource:self];
     self.eventTable.delegate = self;
     self.eventTable = eventTable;
@@ -123,6 +124,7 @@
                 self.messagerLabel.text=[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
                 self.loader.alpha=0.0;
                 self.messager.alpha=1.0;
+                self.eventTable.alpha=1.0;
                 
             } else {
                 
@@ -152,11 +154,12 @@
     
         //[UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];s
         
-        UIImageView *rcImageView =
-        [[UIImageView alloc] initWithImage:
-         [UIImage imageNamed: @"asia-blue.png"]];
+        SpringImageView *rcImageView =[[SpringImageView alloc] initWithFrame:CGRectMake(
+                                                          ((self.refreshControl.bounds.size.width)/2)-50, self.refreshControl.bounds.size.height/2,328, 228)];
         
-        [rcImageView setContentMode:UIViewContentModeScaleAspectFit];
+        rcImageView.image =[UIImage imageNamed: @"asia-blue.png"];
+        
+        [rcImageView setContentMode:UIViewContentModeCenter];
         [self.refreshControl insertSubview:rcImageView atIndex:0];
         
         
@@ -809,7 +812,7 @@
     
     if ( [self.eventList count]==0) {
         
-        return 1;
+        return 0;
     
     } else {
         
@@ -880,6 +883,7 @@
         /* Show message*/
         self.messagerLabel.text=[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
         self.messager.alpha=1.0;
+        self.eventTable.alpha=1.0;
     }
     
 }
@@ -1266,7 +1270,7 @@
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
-    return [UIImage imageNamed:@"asia-color.png"];
+    return [UIImage imageNamed:@"asia-blue.png"];
 }
 
 - (CAAnimation *)imageAnimationForEmptyDataSet:(UIScrollView *)scrollView
@@ -1285,7 +1289,8 @@
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
-    NSString *text = @"Please Allow Photo Access";
+   
+    NSString *text =  [NSString stringWithFormat:NSLocalizedString(@"game", nil)];
     
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
                                  NSForegroundColorAttributeName: [UIColor flatGrayColorDark]};
@@ -1295,7 +1300,8 @@
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
 {
-    NSString *text = @"This allows you to share photos from your library and save photos to your camera roll.";
+    NSString *text =[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
+    //@"This allows you to share photos from your library and save photos to your camera roll.";
     
     NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
@@ -1310,26 +1316,33 @@
 
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
+   // NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
     
-    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
+    //return [[NSAttributedString alloc] initWithString:@"Settings" attributes:attributes];
+    return nil;
 }
 
 - (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
-    return [UIImage imageNamed:@"asia-color.png"];
+    //return [UIImage imageNamed:@"asia-color.png"];
+    return nil;
+    
 }
 
 - (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
 {
-    return [UIColor flatSkyBlueColor];
+    return [UIColor flatWhiteColor];
 }
 
 - (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
 {
-    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    NSLog(@" this is here");
+   /* UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [activityView startAnimating];
-    return activityView;
+    return activityView;*/
+    
+    return nil;
 }
 
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
@@ -1565,5 +1578,38 @@
     }
     
 }
+
+- (void) configureButtons {
+    
+    /* round edges */
+    
+    UIBezierPath * maskPath;
+    CAShapeLayer *maskLayer;
+    
+    for(int i=1; i<=2;i++){
+        
+        UIButton *button = (UIButton*) [self.view viewWithTag:i];
+        
+        button.backgroundColor=[UIColor flatSkyBlueColor];
+        
+        maskPath = [UIBezierPath bezierPathWithRoundedRect:button.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5.0,5.0)];
+        
+        // Create the shape layer and set its path
+        maskLayer = [CAShapeLayer layer];
+        maskLayer.frame = button.bounds;
+        maskLayer.path = maskPath.CGPath;
+        
+        // Set the newly created shape layer as the mask for the image view's layer
+        button.layer.mask = maskLayer;
+        button.clipsToBounds = NO;
+        
+    }
+    
+    
+    
+    
+}
+
+
 
 @end

@@ -148,7 +148,7 @@
     NSString *qrcodeStr = [@"&qrcode=" stringByAppendingString:escapedQRCode];
     
     
-    NSString *mongoStr = [@"&mongoId=" stringByAppendingString:mongoId];
+    NSString *mongoStr = [@"&playerId=" stringByAppendingString:mongoId];
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *langPref = [@"&langPref=" stringByAppendingString:language];
@@ -229,7 +229,7 @@ NSString *longStr = [@"&lng=" stringByAppendingString:longitude ];
     
 NSString *mailStr = [@"&email=" stringByAppendingString:email ];
 NSString *pwdStr = [@"&pwd=" stringByAppendingString:pwd];
-NSString *mongoStr = [@"&mongoId=" stringByAppendingString:mongoId];
+NSString *mongoStr = [@"&playerId=" stringByAppendingString:mongoId];
     
 NSString *eventHrsStr = [@"&nextHours=" stringByAppendingString:self.timeFrame];
   

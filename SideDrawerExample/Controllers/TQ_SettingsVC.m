@@ -210,13 +210,8 @@
    
     /* Loop over all buttons */
      
-     for (UIView *btn in self.view.subviews) {
-     [btn description];
-     if ([btn isKindOfClass:[UIButton class]]) {
-     [self configureButtons:btn];
-     }
-     }
-     
+    [self configureButtons];
+    
     
     [self.view sendSubviewToBack:self.logo];
     
@@ -513,20 +508,32 @@
 */
 
 
-- (void) configureButtons:(id)sender {
-    
-    UIButton *btn = (UIButton*)sender;
+- (void) configureButtons {
     
     /* round edges */
+   
+    UIBezierPath * maskPath;
+    CAShapeLayer *maskLayer;
     
-    UIBezierPath * maskPath = [UIBezierPath bezierPathWithRoundedRect:btn.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5.0,5.0)];
-    // Create the shape layer and set its path
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = self.artsButton.bounds;
-    maskLayer.path = maskPath.CGPath;
-    // Set the newly created shape layer as the mask for the image view's layer
-    btn.layer.mask = maskLayer;
-    btn.clipsToBounds = NO;
+    for(int i=1; i<=12;i++){
+        
+        UIButton *button = (UIButton*) [self.view viewWithTag:i];
+      
+        maskPath = [UIBezierPath bezierPathWithRoundedRect:button.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5.0,5.0)];
+        
+        // Create the shape layer and set its path
+        maskLayer = [CAShapeLayer layer];
+        maskLayer.frame = button.bounds;
+        maskLayer.path = maskPath.CGPath;
+        
+        // Set the newly created shape layer as the mask for the image view's layer
+        button.layer.mask = maskLayer;
+        button.clipsToBounds = NO;
+        
+    }
+    
+    
+    
     
 }
 
