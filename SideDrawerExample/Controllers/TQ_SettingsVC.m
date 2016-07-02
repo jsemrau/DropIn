@@ -104,7 +104,7 @@
         
     } else {
         self.foodButton.selected=FALSE;
-        self.foodButton.backgroundColor=[UIColor flatSandColor];
+        self.foodButton.backgroundColor=[UIColor flatSandColorDark];
     }
     
     if ([[self.prefCats valueForKey:[NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]] isEqualToString:@"0"]) {
@@ -407,7 +407,7 @@
         if (self.foodButton.selected) {
             [self.foodButton setSelected:NO];
             [self.prefCats setValue:@"1" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]];
-            self.foodButton.backgroundColor=[UIColor flatSandColor];
+            self.foodButton.backgroundColor=[UIColor flatSandColorDark];
         } else {
             [self.foodButton setSelected:YES];
             [self.prefCats setValue:@"0" forKey: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]];

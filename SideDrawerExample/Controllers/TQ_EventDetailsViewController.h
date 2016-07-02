@@ -20,6 +20,7 @@
 #import "FontAwesomeKit/FontAwesomeKit.h"
 #import <ChameleonFramework/Chameleon.h>
 #import "RKDropdownAlert.h"
+#import <Spring/spring-Swift.h>
 
 @interface TQ_EventDetailsViewController : UIViewController <MKMapViewDelegate,MFMessageComposeViewControllerDelegate,QyuWebDelegate>
 
@@ -69,18 +70,23 @@
     UIView *debugView;
     UIView *mapView;
     UIView *shareView;
-    UIView *socialView;
+    
    
     UIColor *themeColor;
     
     IBOutlet MKMapView *myMapView;
     IBOutlet UIImageView *vSource;
+    IBOutlet UIImageView *triangle;
     
     NSMutableDictionary *likedIDs;
     NSMutableDictionary *userDetails;
     NSMutableDictionary *handOver;
     
     int activePage;
+    bool socialActive;
+    
+     CGRect socialLocation;
+    
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *distance;
@@ -90,6 +96,7 @@
 @property (nonatomic) float latitude;
 @property (nonatomic) float longitude;
 @property (nonatomic) int activePage;
+@property (nonatomic) bool socialActive;
 @property (nonatomic) NSString *vNameStr;
 @property (nonatomic) NSString *idStr;
 @property (retain, nonatomic) IBOutlet UILabel *price;
@@ -131,7 +138,6 @@
 @property(nonatomic, retain) IBOutlet UIView * mapView ;
 @property(nonatomic, retain) IBOutlet UIView * shareView ;
 @property(nonatomic, retain) IBOutlet UIView * summaryView ;
-@property(nonatomic, retain) IBOutlet UIView * socialView ;
 
 @property (nonatomic, retain) IBOutlet MKMapView *myMapView;
 
@@ -141,6 +147,10 @@
 @property (nonatomic, strong) NSMutableDictionary *handOver;
 
 @property (retain, nonatomic) IBOutlet UIImageView *vSource;
+@property (retain, nonatomic) IBOutlet UIImageView *triangle;
+@property (nonatomic) CGRect socialLocation;
+@property (retain,nonatomic) NSMutableArray *constraintArray;
+
 
 @property (nonatomic, strong) IBOutlet UISwipeGestureRecognizer *page1TapRecognizer;
 @property (nonatomic, strong) IBOutlet UISwipeGestureRecognizer *page2TapRecognizer;
@@ -152,5 +162,8 @@
 - (IBAction) sendSMS ;
 - (IBAction) sendWhatsApp:(id)sender;
 - (IBAction) sendFB:(id)sender;
+
+-(IBAction) toggleSocial:(id)sender;
+- (void) configureButtons ;
 
 @end

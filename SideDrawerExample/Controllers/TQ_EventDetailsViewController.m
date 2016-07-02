@@ -12,11 +12,13 @@
 
 @interface TQ_EventDetailsViewController ()
 
+@property(nonatomic, retain) IBOutlet SpringView * socialView ;
+
 @end
 
 @implementation TQ_EventDetailsViewController
 
-@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage,wAppButton,fbButton,chatButton,themeColor,category, clockImg;
+@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage,wAppButton,fbButton,chatButton,themeColor,category, clockImg, socialLocation, socialActive,constraintArray, triangle;
 
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -49,6 +51,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.socialView.alpha=0.0;
+    
+    //store constraints in array
+    self.constraintArray = [NSMutableArray new];
+    for (NSLayoutConstraint *con in self.view.constraints) {
+        if (con.firstItem == self.socialView ) {
+            [self.constraintArray addObject:con];
+        }
+    }
+    
    // UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"dropin-header2.png"]];
     if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]]) {
         self.category.image = [UIImage imageNamed:@"arts.png"];
@@ -77,7 +89,7 @@
     
     else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]]) {
         self.category.image = [UIImage imageNamed:@"food.png"];
-        self.themeColor=[UIColor flatSandColor];
+        self.themeColor=[UIColor flatSandColorDark];
     }
     
     else if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]]) {
@@ -415,13 +427,26 @@
     self.eDescription.superview.layer.mask = gradient;
     */
   
+    if(self.themeColor==[UIColor flatSandColorDark]){
+      
+        for (UIView *view in self.summaryView.subviews){
+            
+            
+            if([view isKindOfClass:[UILabel class]]){
+                UILabel *tLabel = (UILabel*) view;
+                tLabel.textColor =[UIColor flatGrayColorDark];
+            }
+            
+        }
+    }
     
-    self.summaryView.layer.shadowColor = [UIColor flatGrayColorDark].CGColor;
-    self.summaryView.layer.shadowOffset = CGSizeMake(0, 1);
-    self.summaryView.layer.shadowOpacity = 0.5;
-    self.summaryView.layer.shadowRadius = 0.5;
+        self.summaryView.layer.shadowColor = [UIColor flatGrayColorDark].CGColor;
+        self.summaryView.layer.shadowOffset = CGSizeMake(0, 1);
+        self.summaryView.layer.shadowOpacity = 0.5;
+        self.summaryView.layer.shadowRadius = 0.5;
+        
     
-    /*
+        /*
     self.shareView.layer.shadowColor = [UIColor grayColor].CGColor;
     self.shareView.layer.shadowOffset = CGSizeMake(0, 2);
     self.shareView.layer.shadowOpacity = 0.5;
@@ -434,12 +459,11 @@
     }
     
     
-        self.socialView.alpha=1.0;
-        self.shareView.alpha=0.0;
-        self.activePage=1;
-        
-  
-  
+    self.socialView.alpha=0.0;
+    self.shareView.alpha=1.0;
+    self.activePage=2;
+    self.socialActive=false;
+    
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
@@ -999,6 +1023,12 @@ else
     self.clockImg.contentMode=UIViewContentModeScaleAspectFit;
     [self.clockImg setImage:iconImage];
     
+    FAKFontAwesome *caretIcon = [FAKFontAwesome caretUpIconWithSize:15];
+    [caretIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
+    iconImage = [caretIcon imageWithSize:CGSizeMake(15, 15)];
+    self.triangle.contentMode=UIViewContentModeScaleAspectFit;
+    [self.triangle setImage:iconImage];
+    
     
     FAKZocial *twitterIcon = [FAKZocial twitterIconWithSize:25];
     [twitterIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
@@ -1037,7 +1067,7 @@ else
     self.favButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.favButton setBackgroundImage:iconImage forState:UIControlStateNormal];
     
-    FAKFontAwesome *reportIcon = [FAKFontAwesome warningIconWithSize:25];
+    FAKFontAwesome *reportIcon = [FAKFontAwesome shareIconWithSize:25];
     [reportIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
     iconImage = [reportIcon imageWithSize:CGSizeMake(40, 40)];
     self.spamButton.contentMode=UIViewContentModeScaleAspectFit;
@@ -1062,4 +1092,66 @@ else
     
 }
 
+#pragma mark animations
+- (void) startingSocialAnimation {
+    
+    NSLog(@" Starting Social with at location" );
+      ;
+    
+    self.socialView.alpha=1.0;
+    self.socialActive=TRUE;
+    
+   // self.socialView.backgroundColor = [UIColor flatSkyBlueColor];
+    self.socialView.animation = @"slideRight";
+    self.socialView.delay = 0;
+    self.socialView.duration = 1.5;
+    self.socialView.repeatCount=1;
+    self.socialView.contentMode= UIViewContentModeScaleAspectFit;
+    
+    [self.socialView animate];
+
+    
+}
+
+- (void) stoppingSocialAnimation{
+    
+    
+    self.socialView.animation = @"fadeOut";
+    self.socialView.delay = 0;
+    self.socialView.duration = 1.5;
+    self.socialView.repeatCount=1;
+    self.socialView.contentMode= UIViewContentModeScaleAspectFit;
+    
+    [self.socialView animate];
+    
+    self.socialView.alpha=0.0;
+    self.socialActive=FALSE;
+    
+    /*
+    NSLog(@" Closing Social with alpha %f", self.socialView.frame.origin.x);
+    
+    //store old location
+    self.socialLocation = self.socialView.frame;
+    
+   //
+    
+    
+    if ([self.socialView isDescendantOfView:self.view]){
+     //
+        [self.socialView removeFromSuperview];
+        
+    }
+    */
+}
+
+
+-(IBAction) toggleSocial:(id)sender{
+    
+    if(self.socialActive){
+        [self stoppingSocialAnimation];
+    } else {
+        [self startingSocialAnimation];
+    }
+    
+}
 @end

@@ -154,12 +154,15 @@
     
         //[UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];s
         
-        SpringImageView *rcImageView =[[SpringImageView alloc] initWithFrame:CGRectMake(
-                                                          ((self.refreshControl.bounds.size.width)/2)-50, self.refreshControl.bounds.size.height/2,328, 228)];
+        //SpringImageView *rcImageView =[[SpringImageView alloc] initWithFrame:CGRectMake(
+          //                                                ((self.refreshControl.bounds.size.width)/2)-50, self.refreshControl.bounds.size.height/2,328, 228)];
+       // SpringImageView *rcImageView =SpringImageView
+        //;
         
-        rcImageView.image =[UIImage imageNamed: @"asia-blue.png"];
+        UIImageView *rcImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"asia-blue.png"]];
         
-        [rcImageView setContentMode:UIViewContentModeCenter];
+        [rcImageView setContentMode:UIViewContentModeScaleAspectFill];
+        //UIViewContentModeScaleAspectFit
         [self.refreshControl insertSubview:rcImageView atIndex:0];
         
         
@@ -400,7 +403,7 @@
         [startDateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
         NSDate *startDate1 = [startDateFormat dateFromString:dateString];
         
-        int tInterval = (int)[startDate1 timeIntervalSinceNow]/60;
+        int tInterval = (int)round([startDate1 timeIntervalSinceNow]/60);
         
         
         if(tInterval<=0){
@@ -472,7 +475,7 @@
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"food.png"];
-            cell.category.backgroundColor=[UIColor flatSandColor];
+            cell.category.backgroundColor=[UIColor flatSandColorDark];
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]]) {
