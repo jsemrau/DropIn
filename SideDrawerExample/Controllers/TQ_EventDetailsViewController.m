@@ -427,18 +427,7 @@
     self.eDescription.superview.layer.mask = gradient;
     */
   
-    if(self.themeColor==[UIColor flatSandColorDark]){
-      
-        for (UIView *view in self.summaryView.subviews){
-            
-            
-            if([view isKindOfClass:[UILabel class]]){
-                UILabel *tLabel = (UILabel*) view;
-                tLabel.textColor =[UIColor flatGrayColorDark];
-            }
-            
-        }
-    }
+  
     
         self.summaryView.layer.shadowColor = [UIColor flatGrayColorDark].CGColor;
         self.summaryView.layer.shadowOffset = CGSizeMake(0, 1);
@@ -1031,21 +1020,21 @@ else
     
     
     FAKZocial *twitterIcon = [FAKZocial twitterIconWithSize:25];
-    [twitterIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
+    [twitterIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatWhiteColor] ];
     //[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0]];
     iconImage = [twitterIcon imageWithSize:CGSizeMake(40, 40)];
     self.tweetButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.tweetButton setBackgroundImage:iconImage forState:UIControlStateNormal];
     
     FAKZocial *fbIcon = [FAKZocial facebookIconWithSize:25];
-    [fbIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
+    [fbIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatWhiteColor] ];
     iconImage = [fbIcon imageWithSize:CGSizeMake(40, 40)];
     self.fbButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.fbButton setBackgroundImage:iconImage forState:UIControlStateNormal];
     
    // FAKZocial *wIcon= [FAKZocial weiboIconWithSize:25];
      FAKFontAwesome *wIcon = [FAKFontAwesome wechatIconWithSize:25];
-    [wIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
+    [wIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatWhiteColor] ];
     iconImage = [wIcon imageWithSize:CGSizeMake(40, 40)];
     self.wAppButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.wAppButton setBackgroundImage:iconImage forState:UIControlStateNormal];
@@ -1053,7 +1042,7 @@ else
     // FAKZocial *wIcon = [FAKZocial :35];
    // FAKZocial *smsIcon =[FAKZocial emailIconWithSize:25];
     FAKFontAwesome *smsIcon = [FAKFontAwesome commentsIconWithSize:25];
-    [smsIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
+    [smsIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatWhiteColor] ];
     iconImage = [smsIcon imageWithSize:CGSizeMake(40, 40)];
     self.chatButton.contentMode=UIViewContentModeScaleAspectFit;
     [self.chatButton setBackgroundImage:iconImage forState:UIControlStateNormal];
@@ -1089,6 +1078,28 @@ else
     self.openURL.contentMode=UIViewContentModeScaleAspectFit;
     [self.openURL setBackgroundImage:iconImage forState:UIControlStateNormal];
     
+    UIBezierPath * maskPath;
+    CAShapeLayer *maskLayer;
+    
+    for(int i=1; i<=4;i++){
+        
+        UIButton *button = (UIButton*) [self.view viewWithTag:i];
+        
+        button.backgroundColor=self.themeColor;
+        
+        maskPath = [UIBezierPath bezierPathWithRoundedRect:button.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5.0,5.0)];
+        
+        // Create the shape layer and set its path
+        maskLayer = [CAShapeLayer layer];
+        maskLayer.frame = button.bounds;
+        maskLayer.path = maskPath.CGPath;
+        
+        // Set the newly created shape layer as the mask for the image view's layer
+        button.layer.mask = maskLayer;
+        button.clipsToBounds = NO;
+        
+    }
+    
     
 }
 
@@ -1116,15 +1127,15 @@ else
 - (void) stoppingSocialAnimation{
     
     
-    self.socialView.animation = @"fadeOut";
+    self.socialView.animation = @"slideRight";
     self.socialView.delay = 0;
     self.socialView.duration = 1.5;
     self.socialView.repeatCount=1;
     self.socialView.contentMode= UIViewContentModeScaleAspectFit;
     
-    [self.socialView animate];
+    [self.socialView animateTo];
     
-    self.socialView.alpha=0.0;
+   // self.socialView.alpha=0.0;
     self.socialActive=FALSE;
     
     /*
