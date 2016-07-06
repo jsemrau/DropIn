@@ -31,8 +31,6 @@ target "dropin" do
 	pod 'FontAwesomeKit/FoundationIcons'
 	pod 'FontAwesomeKit/Zocial'
 	pod 'FontAwesomeKit/IonIcons' 
-	#pod 'FontAwesomeKit/Octicons' 
-	#pod 'FontAwesomeKit/Material'
 
 	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 
@@ -41,14 +39,16 @@ target "dropin" do
 	pod 'MGSwipeTableCell'
 	pod 'RKDropdownAlert'
 	
-	#pod 'PKRevealController'
-	#pod 'SVProgressHUD'
 	pod 'DGActivityIndicatorView'
 	
-	#pod 'MaterialKit', '~> 0.4'
 	pod 'Onboard'
 
 	pod 'BLKFlexibleHeightBar'
+
+    #pod 'LTMorphingLabel'
+
+
+	
 
 end
 

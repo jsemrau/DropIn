@@ -1273,7 +1273,7 @@
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
-    return [UIImage imageNamed:@"asia-blue.png"];
+    return [UIImage imageNamed:@"city-master-02 small.png"];
 }
 
 - (CAAnimation *)imageAnimationForEmptyDataSet:(UIScrollView *)scrollView
@@ -1310,7 +1310,7 @@
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
     paragraph.alignment = NSTextAlignmentCenter;
     
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0f],
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:17],
                                  NSForegroundColorAttributeName: [UIColor flatGrayColor],
                                  NSParagraphStyleAttributeName: paragraph};
     
@@ -1319,10 +1319,17 @@
 
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
 {
-   // NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
+   //NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
     
-    //return [[NSAttributedString alloc] initWithString:@"Settings" attributes:attributes];
-    return nil;
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:17],
+                                 NSForegroundColorAttributeName: [UIColor flatSkyBlueColor],
+                                 NSParagraphStyleAttributeName: paragraph};
+    
+    return [[NSAttributedString alloc] initWithString:@"go to settings" attributes:attributes];
+  //  return nil;
 }
 
 - (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
@@ -1382,11 +1389,24 @@
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view
 {
     // Do something
+    NSLog(@"Hey view, you should go to settings now");
+    
+    UINavigationController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"THIRD_TOP_VIEW_CONTROLLER"];
+    
+    [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
+    
 }
 
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button
 {
     // Do something
+    NSLog(@"Hey Button you should go to settings now");
+    
+    UINavigationController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"THIRD_TOP_VIEW_CONTROLLER"];
+    
+    [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
+    
+    
 }
 
 #pragma mark interactions

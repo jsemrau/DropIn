@@ -13,6 +13,8 @@
 @interface TQ_EventDetailsViewController ()
 
 @property(nonatomic, retain) IBOutlet SpringView * socialView ;
+@property(nonatomic, retain) IBOutlet SpringView * mapView ;
+
 
 @end
 
@@ -20,6 +22,14 @@
 
 @synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage,wAppButton,fbButton,chatButton,themeColor,category, clockImg, socialLocation, socialActive,constraintArray, triangle;
 
+- (void) viewWillDisappear:(BOOL)animated{
+    //there is a lag
+    if(self.socialActive){
+        //[self stoppingSocialAnimation];
+        self.socialView.alpha=0.0;
+    }
+    
+}
 - (void)viewWillAppear:(BOOL)animated{
     
     self.debugView.alpha=0;
@@ -27,7 +37,7 @@
     [self setupButtons];
     
     
-    /* setup the swipes*/
+    /* setup the swipes
     UISwipeGestureRecognizer * swipeleftShare=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(toggleSwipe:)];
     swipeleftShare.direction=UISwipeGestureRecognizerDirectionLeft;
     [self.shareView addGestureRecognizer:swipeleftShare];
@@ -44,7 +54,7 @@
     swiperightSoc.direction=UISwipeGestureRecognizerDirectionRight;
     [self.socialView addGestureRecognizer:swiperightSoc];
     
-    
+    */
     
 }
 - (void)viewDidLoad {
@@ -637,6 +647,12 @@
     
     //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.eURL]];
     
+    if(self.socialActive){
+        [self stoppingSocialAnimation];
+    }
+    
+    
+    
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
@@ -648,6 +664,8 @@
     if (self.mapView.alpha==1) {
         self.mapView.alpha=0;
     } else {
+        
+        [self startMapAnimation];
         
         [self.myMapView setDelegate:self];
         [self.myMapView setMapType:MKMapTypeStandard];
@@ -1089,6 +1107,7 @@ else
         
         maskPath = [UIBezierPath bezierPathWithRoundedRect:button.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5.0,5.0)];
         
+        
         // Create the shape layer and set its path
         maskLayer = [CAShapeLayer layer];
         maskLayer.frame = button.bounds;
@@ -1098,7 +1117,27 @@ else
         button.layer.mask = maskLayer;
         button.clipsToBounds = NO;
         
+        //button.layer.cornerRadius = button.frame.size.height/2;
+        
+        
     }
+    
+        //round edge for titleview
+    
+        UILabel *label = (UILabel*) [self.view viewWithTag:5];
+        
+        maskPath = [UIBezierPath bezierPathWithRoundedRect:label.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5.0,5.0)];
+        // Create the shape layer and set its path
+        maskLayer = [CAShapeLayer layer];
+        maskLayer.frame = label.bounds;
+        maskLayer.path = maskPath.CGPath;
+        
+        // Set the newly created shape layer as the mask for the image view's layer
+        label.layer.mask = maskLayer;
+        label.clipsToBounds = NO;
+        
+    
+    
     
     
 }
@@ -1112,7 +1151,6 @@ else
     self.socialView.alpha=1.0;
     self.socialActive=TRUE;
     
-   // self.socialView.backgroundColor = [UIColor flatSkyBlueColor];
     self.socialView.animation = @"slideRight";
     self.socialView.delay = 0;
     self.socialView.duration = 1.5;
@@ -1135,24 +1173,9 @@ else
     
     [self.socialView animateTo];
     
-   // self.socialView.alpha=0.0;
     self.socialActive=FALSE;
     
-    /*
-    NSLog(@" Closing Social with alpha %f", self.socialView.frame.origin.x);
-    
-    //store old location
-    self.socialLocation = self.socialView.frame;
-    
-   //
-    
-    
-    if ([self.socialView isDescendantOfView:self.view]){
-     //
-        [self.socialView removeFromSuperview];
-        
-    }
-    */
+   
 }
 
 
@@ -1163,6 +1186,25 @@ else
     } else {
         [self startingSocialAnimation];
     }
+    
+}
+
+- (void) startMapAnimation{
+    
+    //does not work for some reason
+    
+    
+    self.mapView.alpha=1.0;
+    
+    self.mapView.animation = @"zoomIn";
+    self.mapView.delay = 0;
+    self.mapView.duration = 1.5;
+    self.mapView.repeatCount=1;
+    self.mapView.contentMode= UIViewContentModeScaleAspectFit;
+    
+    [self.mapView animate];
+   
+    
     
 }
 @end

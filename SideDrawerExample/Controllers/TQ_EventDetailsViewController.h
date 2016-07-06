@@ -68,7 +68,6 @@
     IBOutlet UIView *summaryView;
     
     UIView *debugView;
-    UIView *mapView;
     UIView *shareView;
     
    
@@ -135,7 +134,6 @@
 
 
 @property(nonatomic, retain) IBOutlet UIView * debugView ;
-@property(nonatomic, retain) IBOutlet UIView * mapView ;
 @property(nonatomic, retain) IBOutlet UIView * shareView ;
 @property(nonatomic, retain) IBOutlet UIView * summaryView ;
 
@@ -164,6 +162,6 @@
 - (IBAction) sendFB:(id)sender;
 
 -(IBAction) toggleSocial:(id)sender;
-- (void) configureButtons ;
+- (void) setupButtons ;
 
 @end

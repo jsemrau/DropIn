@@ -18,8 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // Create the data model
-    _pageTitles = @[@"", @"Discover all events details", @"Explore, interact, enjoy!", @"Adjust drop!in to your needs"];
-    _pageImages = @[@"page1.png", @"page2.png", @"page3.png", @"page4.png"];
+    _pageTitles = @[@"", @"", @"",@"", @"",@""];
+    _pageImages = @[@"page0.png",@"page1.png", @"page2.png", @"page3.png", @"page4.png", @"page5.png"];
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
