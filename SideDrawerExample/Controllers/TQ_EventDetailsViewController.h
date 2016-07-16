@@ -164,4 +164,6 @@
 -(IBAction) toggleSocial:(id)sender;
 - (void) setupButtons ;
 
+- (void) getLocationFromAddressString: (NSString*) addressStr;
+
 @end

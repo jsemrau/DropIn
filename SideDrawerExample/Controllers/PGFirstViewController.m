@@ -23,17 +23,20 @@
 @implementation PGFirstViewController
 
 @synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter,prefCats,hasCategories,hasUpdates,
-    gotoSettings,gotoRefresh,userDetails,footerImageView;
+    gotoSettings,gotoRefresh,userDetails,footerImageView, bar1,bar2,bar3;
 
 -(void) viewWillAppear:(BOOL)animated{
     
     [self setupLeftMenuButton];
     [self.navigationController setHidesNavigationBarHairline:YES];
     
+   
     
     [self.eventTable setDataSource:self];
     self.eventTable.delegate = self;
     self.eventTable = eventTable;
+
+    
     
     /* Set delegate for empty data source */
     self.eventTable.emptyDataSetSource = self;
@@ -213,7 +216,37 @@
         }
     }
     
+    
     self.eventTable.scrollsToTop =YES;
+    
+    //distance
+    FAKFontAwesome *clockIcon = [FAKFontAwesome mapMarkerIconWithSize:25];
+    [clockIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
+    //[UIImage imageNamed:@"sortByDistance32x32.png"]
+    UIImage *image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.bar1 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByDistance:)];
+    
+    //time
+    clockIcon = [FAKFontAwesome clockOIconWithSize:25];
+    [clockIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
+    //[UIImage imageNamed:@"sortByDistance32x32.png"]
+    image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.bar2 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByDate:)];
+    
+    //cat
+    clockIcon = [FAKFontAwesome sortAlphaAscIconWithSize:25];
+    [clockIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
+    //[UIImage imageNamed:@"sortByDistance32x32.png"]
+    image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.bar3 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByCategory:)];
+    
+    NSMutableArray * arr = [NSMutableArray arrayWithObjects: self.bar3,self.bar2,self.bar1, nil];
+    
+    [self.navigationItem setRightBarButtonItems:arr];
+  
     
     
 }
@@ -301,7 +334,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 110;
+    return 90;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -520,12 +553,10 @@
         
         /* Rounded Edges */
         
-       /// cell.inXMinutes.textColor= [cell.category.backgroundColor darkenByPercentage:0.1];
-        cell.category.layer.cornerRadius = cell.category.frame.size.height/2; // this value vary as per your desire
-        cell.category.clipsToBounds = YES;
+       //Make it round
+        // cell.category.layer.cornerRadius = cell.category.frame.size.height/2; // this value vary as per your desire
+       // cell.category.clipsToBounds = YES;
         
-        //CGSizeMake(3.0,3.0)
-        //CGSizeMake(cell.category.frame.size.width/2, cell.category.frame.size.height/2)
         UIBezierPath *maskPathIcon = [UIBezierPath bezierPathWithRoundedRect:cell.category.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
         // Create the shape layer and set its path
         CAShapeLayer *maskLayerIcon = [CAShapeLayer layer];
@@ -1145,7 +1176,7 @@
     SpringImageView *springView = [[SpringImageView alloc] initWithFrame:CGRectMake(
                                     (([[UIScreen mainScreen] bounds].size.width)/2)-50,  (([[UIScreen mainScreen] bounds].size.width)/2)+50, 100, 100)];
     self.loading = springView;
-    self.loading.image= [UIImage imageNamed:@"drop-in-logo.png"];
+    self.loading.image= [UIImage imageNamed:@"drop-transparent.png"];
     self.loading.backgroundColor = [UIColor clearColor];
     self.loading.animation = @"morph";
     self.loading.delay = 0;

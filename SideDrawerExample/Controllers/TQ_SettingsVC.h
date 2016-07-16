@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PGFirstViewController.h"
+#import "FontAwesomeKit/FontAwesomeKit.h"
 
 
 @interface TQ_SettingsVC : UIViewController <UIAlertViewDelegate,RKDropdownAlertDelegate>
@@ -16,6 +17,9 @@
     
     IBOutlet UISlider *dSlide;
     IBOutlet UISlider *tSlide;
+    
+    IBOutlet UIBarButtonItem *bar1;
+    IBOutlet UIBarButtonItem *bar2;
     
     
 }
@@ -49,6 +53,10 @@
 @property (assign) bool relevantUpdates;
 
 @property (nonatomic, retain) NSMutableDictionary *prefCats; //there are 12 categories
+
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *bar1;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *bar2;
+
 
 //- (IBAction)distanceSettingUpdate:(id)sender;
 -(IBAction)distanceSliderChanged:(id)sender;

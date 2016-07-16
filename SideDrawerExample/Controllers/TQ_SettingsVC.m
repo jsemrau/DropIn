@@ -212,6 +212,21 @@
      
     [self configureButtons];
     
+    //save
+    FAKFontAwesome *clockIcon = [FAKFontAwesome saveIconWithSize:25];
+    [clockIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
+    //[UIImage imageNamed:@"sortByDistance32x32.png"]
+    UIImage *image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.bar1 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(distanceSettingUpdate:)];
+    
+
+    NSMutableArray * arr = [NSMutableArray arrayWithObjects: self.bar1, nil];
+    
+    [self.navigationItem setRightBarButtonItems:arr];
+    
+
+    
     
     [self.view sendSubviewToBack:self.logo];
     

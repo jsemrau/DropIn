@@ -37,6 +37,17 @@
     [self setupButtons];
     
     
+    //Now I am doing this for all.
+    //Apple will bear it.
+    //Still does not work.
+    
+    NSString *fulladdress = [[self.handOver objectForKey:@"city_name"] stringByAppendingString:[self.handOver objectForKey:@"venue_address"]];
+    
+    [self getLocationFromAddressString:fulladdress];
+    
+    //self.latitude=tmp.latitude;
+    //self.longitude=tmp.longitude;
+    
     /* setup the swipes
     UISwipeGestureRecognizer * swipeleftShare=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(toggleSwipe:)];
     swipeleftShare.direction=UISwipeGestureRecognizerDirectionLeft;
@@ -515,6 +526,63 @@
     
 }
 
+-(void) getLocationFromAddressString: (NSString*) addressStr {
+    
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    
+
+    __block bool updated = FALSE;
+
+    [geoCoder geocodeAddressString:addressStr completionHandler:^(NSArray *placemarks, NSError *error)
+ {
+     if(!error)
+     {
+         CLPlacemark *placemark = [placemarks objectAtIndex:0];
+         NSLog(@"%f",placemark.location.coordinate.latitude);
+         NSLog(@"%f",placemark.location.coordinate.longitude);
+         
+         //If I get a value
+         self.longitude= placemark.location.coordinate.longitude;
+         self.latitude = placemark.location.coordinate.latitude;
+         updated=TRUE;
+
+         
+       //  NSLog(@"%@",[NSString stringWithFormat:@"%@",[placemark description]]);
+     }
+     else
+     {
+         NSLog(@"There was a forward geocoding error\n%@",[error localizedDescription]);
+     }
+ }
+ ];
+    
+}
+
+/*-(CLLocationCoordinate2D) getLocationFromAddressString: (NSString*) addressStr {
+    
+    double latVar = 0, longVar = 0;
+    NSString *esc_addr =  [addressStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *req = [NSString stringWithFormat:@"https://maps.google.com/maps/api/geocode/json?sensor=false&address=%@", esc_addr];
+    NSString *result = [NSString stringWithContentsOfURL:[NSURL URLWithString:req] encoding:NSUTF8StringEncoding error:NULL];
+    if (result) {
+        NSScanner *scanner = [NSScanner scannerWithString:result];
+        if ([scanner scanUpToString:@"\"lat\" :" intoString:nil] && [scanner scanString:@"\"lat\" :" intoString:nil]) {
+            [scanner scanDouble:&latVar];
+            if ([scanner scanUpToString:@"\"lng\" :" intoString:nil] && [scanner scanString:@"\"lng\" :" intoString:nil]) {
+                [scanner scanDouble:&longVar];
+            }
+        }
+    }
+    CLLocationCoordinate2D center;
+    center.latitude=latVar;
+    center.longitude = longVar;
+    NSLog(@"View Controller get Location Logitute : %f",center.latitude);
+    NSLog(@"View Controller get Location Latitute : %f",center.longitude);
+    return center;
+    
+}
+*/
+
 - (IBAction)sendTweet:(id)sender{
     
     NSLog(@" we are tweeting");
@@ -529,11 +597,11 @@
     if([[self.handOver objectForKey:@"city_name"] length]>0){
     NSString *loc = [self.handOver objectForKey:@"city_name"];
     
-    message = [NSString stringWithFormat:@"Yo! Check you this event %@ in %@ I will drop!in !", file, loc];
+    message = [NSString stringWithFormat:@"Yo! Check out this event %@ in %@ I will drop!in !", file, loc];
                                                         
     } else {
         
-    message = [NSString stringWithFormat:@"Yo! Check you this event %@ I will drop!in!", file];
+    message = [NSString stringWithFormat:@"Yo! Check out this event %@ I will drop!in!", file];
     }
 
     [composer setText:message];
@@ -675,7 +743,10 @@
         [self.myMapView .layer setMasksToBounds:YES];
         self.myMapView.layer.shadowOpacity = 0.5f;
    
+        
         CLLocation *location = [[CLLocation alloc] initWithLatitude:(CLLocationDegrees)self.latitude  longitude:(CLLocationDegrees)self.longitude ];
+        
+        //CLLocation *location = [[CLLocation alloc] initWithLatitude:(CLLocationDegrees)tmp.latitude  longitude:(CLLocationDegrees)tmp.longitude ];
         
         MapPin *marker = [[MapPin alloc] initWithCoordinates:location.coordinate placeName:@"" description:@""];
         marker.coordinate=location.coordinate;
@@ -1090,9 +1161,9 @@ else
     //FAKFontAwesome *webIcon = [FAKFontAwesome :25];
     
    // FAKIonIcons *webIcon = [FAKIonIcons iosFlagIconWithSize:25];
-     FAKFontAwesome *webIcon = [FAKFontAwesome infoCircleIconWithSize:30];
+     FAKFontAwesome *webIcon = [FAKFontAwesome infoCircleIconWithSize:40];
     [webIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
-    iconImage = [webIcon imageWithSize:CGSizeMake(40, 40)];
+    iconImage = [webIcon imageWithSize:CGSizeMake(50, 50)];
     self.openURL.contentMode=UIViewContentModeScaleAspectFit;
     [self.openURL setBackgroundImage:iconImage forState:UIControlStateNormal];
     

@@ -41,6 +41,10 @@
     IBOutlet UILabel *messagerLabel;
     IBOutlet UIView *cityHeader;
     
+    IBOutlet UIBarButtonItem *bar1;
+    IBOutlet UIBarButtonItem *bar2;
+    IBOutlet UIBarButtonItem *bar3;
+    
   //  UIImageView * loading ;
     
     CGRect *loadingLocation;
@@ -78,6 +82,10 @@
 
 @property (nonatomic, retain) IBOutlet UIButton* gotoSettings;
 @property (nonatomic, retain) IBOutlet UIButton* gotoRefresh;
+
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *bar1;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *bar2;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *bar3;
 
 
 @property(nonatomic )bool needsUpdates;

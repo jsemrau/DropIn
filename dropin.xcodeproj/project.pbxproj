@@ -44,7 +44,6 @@
 		0626E6E81D2751DE00CA2D0F /* Tenqyu logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0626E6E71D2751DE00CA2D0F /* Tenqyu logo.png */; };
 		0626E6EA1D275FEE00CA2D0F /* city-master-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 0626E6E91D275FEE00CA2D0F /* city-master-02.png */; };
 		0626E6EC1D27612200CA2D0F /* city-master-02 small.png in Resources */ = {isa = PBXBuildFile; fileRef = 0626E6EB1D27612200CA2D0F /* city-master-02 small.png */; };
-		0626E6EE1D278BA900CA2D0F /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0626E6ED1D278BA900CA2D0F /* LTMorphingLabel.framework */; };
 		062AED201BE95DBC004FE681 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 062AED1E1BE95DBC004FE681 /* clock.png */; };
 		062AED211BE95DBC004FE681 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 062AED1F1BE95DBC004FE681 /* home.png */; };
 		062D6D2C1CD0F7CE0092D12D /* dropin-header.png in Resources */ = {isa = PBXBuildFile; fileRef = 062D6D2B1CD0F7CE0092D12D /* dropin-header.png */; };
@@ -129,6 +128,7 @@
 		066E49011C1F227D00897133 /* personRun_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 066E48FF1C1F227D00897133 /* personRun_blue.png */; };
 		066E49021C1F227D00897133 /* personRun.png in Resources */ = {isa = PBXBuildFile; fileRef = 066E49001C1F227D00897133 /* personRun.png */; };
 		066E49051C1F8F4A00897133 /* sortByCategory.png in Resources */ = {isa = PBXBuildFile; fileRef = 066E49041C1F8F4A00897133 /* sortByCategory.png */; };
+		06722DE51D369C3300FB32AB /* drop_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 06722DE41D369C3300FB32AB /* drop_white.png */; };
 		06735BB41CF8946100E607EF /* whatsapp-64-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 06735BB31CF8946100E607EF /* whatsapp-64-black.png */; };
 		06735BB61CF89AF500E607EF /* facebook-64-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 06735BB51CF89AF500E607EF /* facebook-64-black.png */; };
 		067771701C0F4D95001993CA /* asia-blue-stretch-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0677716B1C0F4D95001993CA /* asia-blue-stretch-01.png */; };
@@ -380,6 +380,7 @@
 		06DDCB781C036940008B9F98 /* master-slider_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DDCB761C036940008B9F98 /* master-slider_02.png */; };
 		06E146731BE6E7B0004AFD33 /* Liked.png in Resources */ = {isa = PBXBuildFile; fileRef = 06E146711BE6E7B0004AFD33 /* Liked.png */; };
 		06E146741BE6E7B0004AFD33 /* url.png in Resources */ = {isa = PBXBuildFile; fileRef = 06E146721BE6E7B0004AFD33 /* url.png */; };
+		06E8F2641D37E36F0011F8C3 /* dropin-logo-new.png in Resources */ = {isa = PBXBuildFile; fileRef = 06E8F2631D37E36F0011F8C3 /* dropin-logo-new.png */; };
 		06F3514D1BEADAF8004D1727 /* drop-in-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 06F3514C1BEADAF8004D1727 /* drop-in-logo.png */; };
 		06F38D351C34875A00EBBBBF /* reportSpam.png in Resources */ = {isa = PBXBuildFile; fileRef = 06F38D341C34875A00EBBBBF /* reportSpam.png */; };
 		06F9FEAB1C0C90CD008DA44C /* eventful.png in Resources */ = {isa = PBXBuildFile; fileRef = 06F9FEA81C0C90CD008DA44C /* eventful.png */; };
@@ -548,6 +549,7 @@
 		066E48FF1C1F227D00897133 /* personRun_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = personRun_blue.png; sourceTree = "<group>"; };
 		066E49001C1F227D00897133 /* personRun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = personRun.png; sourceTree = "<group>"; };
 		066E49041C1F8F4A00897133 /* sortByCategory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sortByCategory.png; sourceTree = "<group>"; };
+		06722DE41D369C3300FB32AB /* drop_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drop_white.png; path = assets/ci/drop_white.png; sourceTree = "<group>"; };
 		06735BB31CF8946100E607EF /* whatsapp-64-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whatsapp-64-black.png"; sourceTree = "<group>"; };
 		06735BB51CF89AF500E607EF /* facebook-64-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-64-black.png"; sourceTree = "<group>"; };
 		06735BB71CF8A1A400E607EF /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFBSDKCoreKit.a; path = "Pods/../build/Debug-iphoneos/FBSDKCoreKit/libFBSDKCoreKit.a"; sourceTree = "<group>"; };
@@ -812,6 +814,7 @@
 		06E146711BE6E7B0004AFD33 /* Liked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Liked.png; sourceTree = "<group>"; };
 		06E146721BE6E7B0004AFD33 /* url.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = url.png; sourceTree = "<group>"; };
 		06E32E501BCC6F7200F76109 /* dl_menu_table_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dl_menu_table_header.png; sourceTree = "<group>"; };
+		06E8F2631D37E36F0011F8C3 /* dropin-logo-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dropin-logo-new.png"; path = "assets/ci/dropin-logo-new.png"; sourceTree = "<group>"; };
 		06F3514C1BEADAF8004D1727 /* drop-in-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "drop-in-logo.png"; path = "assets/ui/drop-in-logo.png"; sourceTree = "<group>"; };
 		06F38D341C34875A00EBBBBF /* reportSpam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reportSpam.png; path = icons/action/reportSpam.png; sourceTree = "<group>"; };
 		06F9FEA81C0C90CD008DA44C /* eventful.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventful.png; sourceTree = "<group>"; };
@@ -856,7 +859,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0626E6EE1D278BA900CA2D0F /* LTMorphingLabel.framework in Frameworks */,
 				0607A9961D0AFE790037E99F /* QuartzCore.framework in Frameworks */,
 				0614CFBD1D077E6000260D45 /* CoreText.framework in Frameworks */,
 				06C5B3561CA0D50C002EE661 /* Fabric.framework in Frameworks */,
@@ -932,6 +934,8 @@
 		063823441BC01891004EECAD /* ci */ = {
 			isa = PBXGroup;
 			children = (
+				06E8F2631D37E36F0011F8C3 /* dropin-logo-new.png */,
+				06722DE41D369C3300FB32AB /* drop_white.png */,
 				0626E6E71D2751DE00CA2D0F /* Tenqyu logo.png */,
 				0626E6E31D27508200CA2D0F /* drop-logo.png */,
 				0626E6E41D27508200CA2D0F /* drop-transparent.png */,
@@ -1792,6 +1796,7 @@
 				062FBC711BF11664002D9BBC /* Randi_00043.png in Resources */,
 				06A556D01BC17E74004152C8 /* Icon@2x.png in Resources */,
 				06E146731BE6E7B0004AFD33 /* Liked.png in Resources */,
+				06E8F2641D37E36F0011F8C3 /* dropin-logo-new.png in Resources */,
 				06A556D11BC17E74004152C8 /* iTunesArtwork.png in Resources */,
 				062FBC6B1BF11664002D9BBC /* Randi_00037.png in Resources */,
 				06A557761BC17E81004152C8 /* x_icon.png in Resources */,
@@ -2021,6 +2026,7 @@
 				062FBC591BF11664002D9BBC /* Randi_00019.png in Resources */,
 				06CFEDA31C21948900A2D7C5 /* city-loop-9.png in Resources */,
 				06A557A81BC17E81004152C8 /* PR_2_00028.png in Resources */,
+				06722DE51D369C3300FB32AB /* drop_white.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
