@@ -47,6 +47,7 @@
     [self.bannerView loadRequest:[GADRequest request]];
     self.bannerView.alpha=0.0;
     
+    self.eventTable.separatorStyle=UITableViewCellSeparatorStyleNone;
     
     /* for future release you can have that based on the selection configuration*/
     self.hasCategories=TRUE;
@@ -177,11 +178,12 @@
     }
     
  
-    
+    /*
     self.cityHeader.layer.shadowColor = [UIColor grayColor].CGColor;
     self.cityHeader.layer.shadowOffset = CGSizeMake(0, 2);
     self.cityHeader.layer.shadowOpacity = 0.5;
     self.cityHeader.layer.shadowRadius = 1.0;
+    */
     
     NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
     
@@ -219,9 +221,11 @@
     
     self.eventTable.scrollsToTop =YES;
     
+    UIColor *btnColor =[UIColor flatWhiteColorDark];
+    
     //distance
     FAKFontAwesome *clockIcon = [FAKFontAwesome mapMarkerIconWithSize:25];
-    [clockIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
     UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
     //[UIImage imageNamed:@"sortByDistance32x32.png"]
     UIImage *image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -229,7 +233,7 @@
     
     //time
     clockIcon = [FAKFontAwesome clockOIconWithSize:25];
-    [clockIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
     iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
     //[UIImage imageNamed:@"sortByDistance32x32.png"]
     image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -237,7 +241,7 @@
     
     //cat
     clockIcon = [FAKFontAwesome sortAlphaAscIconWithSize:25];
-    [clockIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
     iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
     //[UIImage imageNamed:@"sortByDistance32x32.png"]
     image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -363,7 +367,7 @@
     
     cell.contentMode=UIViewContentModeScaleAspectFill;
     
-    
+     NSLog(@" Class %@ ", [cell class]);
     
     if ([self.filteredEventList count]>0){
         
@@ -473,6 +477,19 @@
             
         }
         
+        NSLog(@" print me %lu" , [[text objectForKey:@"recur_string"] length]);
+        
+        if ([[text objectForKey:@"recur_string"] length]==0) {
+            
+            cell.recurringLabel.alpha=0.0;
+
+        } else {
+
+            cell.recurringLabel.backgroundColor=[UIColor flatRedColor];
+            cell.recurringLabel.alpha=1.0;
+
+        }
+        
         int durationCheck= [[text objectForKey:@"duration"] intValue]*-1 ;
         //which one is more negative
         if (tInterval <= durationCheck ){
@@ -554,10 +571,10 @@
         /* Rounded Edges */
         
        //Make it round
-        // cell.category.layer.cornerRadius = cell.category.frame.size.height/2; // this value vary as per your desire
-       // cell.category.clipsToBounds = YES;
+        cell.category.layer.cornerRadius = cell.category.frame.size.height/2; // this value vary as per your desire
+        cell.category.clipsToBounds = YES;
         
-        UIBezierPath *maskPathIcon = [UIBezierPath bezierPathWithRoundedRect:cell.category.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
+     /*   UIBezierPath *maskPathIcon = [UIBezierPath bezierPathWithRoundedRect:cell.category.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
         // Create the shape layer and set its path
         CAShapeLayer *maskLayerIcon = [CAShapeLayer layer];
         maskLayerIcon.frame = cell.category.bounds;
@@ -565,7 +582,7 @@
         // Set the newly created shape layer as the mask for the image view's layer
        cell.category.layer.mask = maskLayerIcon;
        cell.category.clipsToBounds = NO;
-        
+        */
         
         
        
@@ -905,6 +922,8 @@
     }
 }
 
+#pragma mark web service functions
+
 - (void) noLocationsReceived{
     
     gettingUpdates=FALSE;
@@ -925,6 +944,8 @@
 - (void)notificationsReceived:(NSDictionary *)resultData{
     
     gettingUpdates=FALSE;
+    
+    NSLog(@" -> %@",resultData);
     
     //You ned to set "count" new updates.
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -950,6 +971,8 @@
 - (void)locationsReceived:(NSDictionary *)resultData
 {
     
+    NSLog(@" loc -> %@",resultData);
+    
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
@@ -962,11 +985,19 @@
         
         //Now you need to do the empty screen
         
+        self.eventList=nil;
+        self.filteredEventList=nil;
+      
+        
         self.messagerLabel.text=[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
         
         [self stoppingLoadingAnimation];
         [self fadeOutImage];
-        self.messager.alpha=1.0;
+        //self.messager.alpha=1.0;
+        self.eventTable.alpha=1.0;
+        [self.eventTable reloadData];
+        //[self reloadInputViews];
+        
         
         //
         self.needsUpdates=TRUE;
@@ -1007,8 +1038,8 @@
         [[self.view viewWithTag:12] removeFromSuperview];
         
         //Now it is time to show the table again
-        [self.eventTable reloadData];
-      
+       
+       [self.eventTable reloadData];
         
     
     }
@@ -1176,7 +1207,7 @@
     SpringImageView *springView = [[SpringImageView alloc] initWithFrame:CGRectMake(
                                     (([[UIScreen mainScreen] bounds].size.width)/2)-50,  (([[UIScreen mainScreen] bounds].size.width)/2)+50, 100, 100)];
     self.loading = springView;
-    self.loading.image= [UIImage imageNamed:@"drop-transparent.png"];
+    self.loading.image= [UIImage imageNamed:@"drop-in-1024.png"];
     self.loading.backgroundColor = [UIColor clearColor];
     self.loading.animation = @"morph";
     self.loading.delay = 0;
@@ -1314,7 +1345,7 @@
     animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
     animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI_2, 0.0, 0.0, 1.0)];
     
-    animation.duration = 0.25;
+    animation.duration = 5.0;
     animation.cumulative = YES;
     animation.repeatCount = MAXFLOAT;
     
@@ -1388,6 +1419,9 @@
 
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
 {
+    
+    NSLog (@" ***** table header : %f **** ",-self.eventTable.tableHeaderView.frame.size.height/2.0f);
+    
     return -self.eventTable.tableHeaderView.frame.size.height/2.0f;
 }
 

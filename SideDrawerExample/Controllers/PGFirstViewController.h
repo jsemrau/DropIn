@@ -17,7 +17,7 @@
 #import "RKDropdownAlert.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "UIViewController+MMDrawerController.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @import GoogleMobileAds;
 

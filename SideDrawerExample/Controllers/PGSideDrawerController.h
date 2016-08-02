@@ -8,7 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import <ChameleonFramework/Chameleon.h>
+#import "FontAwesomeKit/FontAwesomeKit.h"
 
 @interface PGSideDrawerController : UITableViewController
+
+{
+    
+    IBOutlet UIImage *settingImage;
+    IBOutlet UIImage *aboutImage;
+    IBOutlet UIImage *privacyImage;
+    
+}
+
+@property(nonatomic, retain) IBOutlet UIImage *settingImage;
+@property(nonatomic, retain) IBOutlet UIImage *aboutImage;
+@property(nonatomic, retain) IBOutlet UIImage *privacyImage;
 
 @end

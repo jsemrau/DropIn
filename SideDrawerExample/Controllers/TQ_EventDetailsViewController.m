@@ -43,7 +43,7 @@
     
     NSString *fulladdress = [[self.handOver objectForKey:@"city_name"] stringByAppendingString:[self.handOver objectForKey:@"venue_address"]];
     
-    [self getLocationFromAddressString:fulladdress];
+    //[self getLocationFromAddressString:fulladdress];
     
     //self.latitude=tmp.latitude;
     //self.longitude=tmp.longitude;
@@ -1049,7 +1049,8 @@ else
     [alert show];
     */
     
-    [self notifyMe:@"game" withMessage:@"no-loc"];
+    //[20160717] No need to notify anyone about his
+   // [self notifyMe:@"game" withMessage:@"no-loc"];
   
     
 }

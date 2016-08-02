@@ -16,10 +16,27 @@
 
 @implementation PGSideDrawerController
 
+@synthesize settingImage,aboutImage,privacyImage;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.currentIndex = 0;
+    
+    FAKFontAwesome *likeIcon = [FAKFontAwesome spaceShuttleIconWithSize:37.5];
+    [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    settingImage = [likeIcon imageWithSize:CGSizeMake(44, 43.5)];
+    
+    
+    likeIcon = [FAKFontAwesome heartOIconWithSize:37.5];
+    [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
+    aboutImage = [likeIcon imageWithSize:CGSizeMake(44, 43.5)];
+    
+    
+    likeIcon = [FAKFontAwesome heartOIconWithSize:37.5];
+    [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    privacyImage = [likeIcon imageWithSize:CGSizeMake(44, 43.5)];
+    
 }
 
 #pragma mark - Table View Delegate
