@@ -9,7 +9,7 @@ PODS:
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
-  - DGActivityIndicatorView (2.0)
+  - DGActivityIndicatorView (2.1)
   - DZNEmptyDataSet (1.8.1)
   - EFCircularSlider (0.2.0)
   - FBSDKCoreKit (4.14.0):
@@ -89,7 +89,7 @@ SPEC CHECKSUMS:
   BLKFlexibleHeightBar: b27572a69633d8e33f1f2bbc486b04d8e86f742d
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  DGActivityIndicatorView: 52875b025a6ccf6a431a905285c12e2bb95eb559
+  DGActivityIndicatorView: 1942ae657a8d247c035f229422b2d15a8adbe5b6
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EFCircularSlider: 3af1dd6f86eb3eeeeaab0345ef3d6d1c2fc93d17
   FBSDKCoreKit: 6e020b5db0b5bd1e01f5fb0902131befd129a502

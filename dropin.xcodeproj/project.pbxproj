@@ -13,11 +13,14 @@
 		0607A9961D0AFE790037E99F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0607A9951D0AFE790037E99F /* QuartzCore.framework */; };
 		060CE88F1C13CAE10073685F /* eventfinda.png in Resources */ = {isa = PBXBuildFile; fileRef = 060CE88D1C13CAE10073685F /* eventfinda.png */; };
 		060CE8901C13CAE10073685F /* meetup.png in Resources */ = {isa = PBXBuildFile; fileRef = 060CE88E1C13CAE10073685F /* meetup.png */; };
+		0611E9031D5B51B700C4A5C6 /* pk_tbl_icon_marker_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 0611E9021D5B51B700C4A5C6 /* pk_tbl_icon_marker_blue.png */; };
 		0614CFBD1D077E6000260D45 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0614CFBC1D077E6000260D45 /* CoreText.framework */; };
 		0614CFC21D078F9900260D45 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0614CFBE1D078F9900260D45 /* FontAwesome.otf */; };
 		0614CFC31D078F9900260D45 /* foundation-icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0614CFBF1D078F9900260D45 /* foundation-icons.ttf */; };
 		0614CFC41D078F9900260D45 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0614CFC01D078F9900260D45 /* ionicons.ttf */; };
 		0614CFC51D078F9900260D45 /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0614CFC11D078F9900260D45 /* zocial-regular-webfont.ttf */; };
+		0617315A1D5B53D600A7A29C /* drop-new@32.png in Resources */ = {isa = PBXBuildFile; fileRef = 061731591D5B53D600A7A29C /* drop-new@32.png */; };
+		0617315C1D5B546B00A7A29C /* drop-new@64.png in Resources */ = {isa = PBXBuildFile; fileRef = 0617315B1D5B546B00A7A29C /* drop-new@64.png */; };
 		0619F78D1C3C08C600EA29F8 /* Launchimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0619F78C1C3C08C600EA29F8 /* Launchimage.png */; };
 		0619F7901C3C0B6600EA29F8 /* LaunchImage@Ret47.png in Resources */ = {isa = PBXBuildFile; fileRef = 0619F78E1C3C0B6600EA29F8 /* LaunchImage@Ret47.png */; };
 		0619F7911C3C0B6600EA29F8 /* LaunchImage@Ret55.png in Resources */ = {isa = PBXBuildFile; fileRef = 0619F78F1C3C0B6600EA29F8 /* LaunchImage@Ret55.png */; };
@@ -431,11 +434,14 @@
 		0607A9951D0AFE790037E99F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		060CE88D1C13CAE10073685F /* eventfinda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventfinda.png; sourceTree = "<group>"; };
 		060CE88E1C13CAE10073685F /* meetup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meetup.png; sourceTree = "<group>"; };
+		0611E9021D5B51B700C4A5C6 /* pk_tbl_icon_marker_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pk_tbl_icon_marker_blue.png; path = icons/pk_tbl_icon_marker_blue.png; sourceTree = "<group>"; };
 		0614CFBC1D077E6000260D45 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		0614CFBE1D078F9900260D45 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = ../../../Pods/FontAwesomeKit/FontAwesomeKit/FontAwesome.otf; sourceTree = "<group>"; };
 		0614CFBF1D078F9900260D45 /* foundation-icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "foundation-icons.ttf"; path = "../../../Pods/FontAwesomeKit/FontAwesomeKit/foundation-icons.ttf"; sourceTree = "<group>"; };
 		0614CFC01D078F9900260D45 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ionicons.ttf; path = ../../../Pods/FontAwesomeKit/FontAwesomeKit/ionicons.ttf; sourceTree = "<group>"; };
 		0614CFC11D078F9900260D45 /* zocial-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zocial-regular-webfont.ttf"; path = "../../../Pods/FontAwesomeKit/FontAwesomeKit/zocial-regular-webfont.ttf"; sourceTree = "<group>"; };
+		061731591D5B53D600A7A29C /* drop-new@32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "drop-new@32.png"; path = "icons/drop-new@32.png"; sourceTree = "<group>"; };
+		0617315B1D5B546B00A7A29C /* drop-new@64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "drop-new@64.png"; path = "icons/drop-new@64.png"; sourceTree = "<group>"; };
 		0619F78C1C3C08C600EA29F8 /* Launchimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Launchimage.png; path = assets/ci/Launchimage.png; sourceTree = "<group>"; };
 		0619F78E1C3C0B6600EA29F8 /* LaunchImage@Ret47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage@Ret47.png"; path = "assets/ci/LaunchImage@Ret47.png"; sourceTree = "<group>"; };
 		0619F78F1C3C0B6600EA29F8 /* LaunchImage@Ret55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage@Ret55.png"; path = "assets/ci/LaunchImage@Ret55.png"; sourceTree = "<group>"; };
@@ -1064,6 +1070,9 @@
 		06A556D41BC17E81004152C8 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				0611E9021D5B51B700C4A5C6 /* pk_tbl_icon_marker_blue.png */,
+				061731591D5B53D600A7A29C /* drop-new@32.png */,
+				0617315B1D5B546B00A7A29C /* drop-new@64.png */,
 				0614CFC61D078FA300260D45 /* fonts */,
 				06A2A3C11CA197EB00EFD1C0 /* party */,
 				066E49031C1F8F4A00897133 /* sort */,
@@ -1722,6 +1731,7 @@
 				06A609431BE4B8E8009DF9D9 /* line.png in Resources */,
 				06CFEDD61C21948900A2D7C5 /* city-loop-63.png in Resources */,
 				065584E11C1CDD5E0089D4F8 /* sports.png in Resources */,
+				0611E9031D5B51B700C4A5C6 /* pk_tbl_icon_marker_blue.png in Resources */,
 				065584DF1C1CDD5E0089D4F8 /* meeting.png in Resources */,
 				06CFEDC71C21948900A2D7C5 /* city-loop-48.png in Resources */,
 				0619F78D1C3C08C600EA29F8 /* Launchimage.png in Resources */,
@@ -1979,9 +1989,11 @@
 				06A5579F1BC17E81004152C8 /* PR_2_00019.png in Resources */,
 				0606B52A1C15BFAD0005F035 /* drop-logo 33x20.png in Resources */,
 				06CFEDBB1C21948900A2D7C5 /* city-loop-36.png in Resources */,
+				0617315A1D5B53D600A7A29C /* drop-new@32.png in Resources */,
 				062FBC771BF11664002D9BBC /* Randi_00049.png in Resources */,
 				06B5E0371BECE4FF009A88CF /* round_button.png in Resources */,
 				0626E6E51D27508300CA2D0F /* drop-logo.png in Resources */,
+				0617315C1D5B546B00A7A29C /* drop-new@64.png in Resources */,
 				06CD9B411D50E8A9009CFB8A /* drop-new.png in Resources */,
 				06A557A01BC17E81004152C8 /* PR_2_00020.png in Resources */,
 				06A557891BC17E81004152C8 /* earthLoader_0000_frame-8.png in Resources */,

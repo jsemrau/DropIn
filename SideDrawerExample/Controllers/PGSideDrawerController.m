@@ -26,6 +26,7 @@
     self.currentIndex = 0;
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky"]];
+    imageView.alpha=0.64;
     self.tableView.backgroundView = imageView;
     self.tableView.contentMode=UIViewContentModeScaleToFill;
     
@@ -46,19 +47,19 @@
     [self.settingImage setImage:iconImage];
     
   
-    FAKIonIcons *mapIcon = [FAKIonIcons iosNavigateOutlineIconWithSize:tSize];
+    FAKIonIcons *mapIcon = [FAKIonIcons iosLocationOutlineIconWithSize:tSize];
     [mapIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
     iconImage = [mapIcon imageWithSize:CGSizeMake(44, 44)];
     self.mapImage.contentMode=UIViewContentModeScaleAspectFit;
     [self.mapImage setImage:iconImage];
     
-    FAKIonIcons *aboutIcon = [FAKIonIcons iosInfiniteOutlineIconWithSize:tSize];
+    FAKIonIcons *aboutIcon = [FAKIonIcons informationIconWithSize:tSize];
     [aboutIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
     iconImage = [aboutIcon imageWithSize:CGSizeMake(44, 44)];
     self.aboutImage.contentMode=UIViewContentModeScaleAspectFit;
     [self.aboutImage setImage:iconImage];
     
-    FAKIonIcons *privacyIcon = [FAKIonIcons clipboardIconWithSize:tSize];
+    FAKIonIcons *privacyIcon = [FAKIonIcons iosBookOutlineIconWithSize:tSize];
     [privacyIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
     iconImage = [privacyIcon imageWithSize:CGSizeMake(44, 44)];
     self.privacyImage.contentMode=UIViewContentModeScaleAspectFit;

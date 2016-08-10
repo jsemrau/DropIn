@@ -22,21 +22,20 @@
 
 @implementation PGFirstViewController
 
-@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter,prefCats,hasCategories,hasUpdates,
-    gotoSettings,gotoRefresh,userDetails,footerImageView, bar1,bar2,bar3;
+@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter,prefCats,hasCategories,hasUpdates, blurry, gotoSettings,gotoRefresh,userDetails,footerImageView, bar1,bar2,bar3;
 
 -(void) viewWillAppear:(BOOL)animated{
     
     [self setupLeftMenuButton];
     [self.navigationController setHidesNavigationBarHairline:YES];
     
-   
+    self.blurry.layer.cornerRadius = self.blurry.frame.size.height/2; // this value vary as per your desire
+    self.blurry.clipsToBounds = YES;
+    self.blurry.alpha=0.0;
     
     [self.eventTable setDataSource:self];
     self.eventTable.delegate = self;
     self.eventTable = eventTable;
-
-    
     
     /* Set delegate for empty data source */
     self.eventTable.emptyDataSetSource = self;
@@ -311,6 +310,7 @@
     
     self.eventTable.alpha=0.0;
     self.messager.alpha=0.0;
+    self.blurry.alpha=0.15;
     
     [self startingLoadingAnimation];
   
@@ -930,6 +930,7 @@
     
     [self stoppingLoadingAnimation ];
     self.eventTable.alpha=0.0;
+    self.blurry.alpha=0.0;
     //[self.eventTable removeFromSuperview];
     
     if ([self.filteredEventList count]==0){
@@ -1043,6 +1044,9 @@
         
     
     }
+    
+    //take away the blurry
+    self.blurry.alpha=0.0;
     
     [refreshControl endRefreshing];
     

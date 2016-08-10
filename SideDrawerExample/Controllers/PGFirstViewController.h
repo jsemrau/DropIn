@@ -54,6 +54,8 @@
  
     
     IBOutlet UIRefreshControl *refreshControl;
+    IBOutlet UIView *blurry;
+    
 }
 
 @property (retain, nonatomic) CLLocation *currentLocation;
@@ -74,8 +76,10 @@
 
 @property(nonatomic, retain) IBOutlet UIView * messager ;
 @property(nonatomic, retain) IBOutlet UIView * cityHeader ;
+@property(nonatomic,retain) IBOutlet UIView *blurry;
+
+
 @property(nonatomic, retain) IBOutlet UILabel *messagerLabel;
-//@property(nonatomic, retain) IBOutlet UIImageView * loading ;
 @property(nonatomic, retain) IBOutlet UIImageView * whiter ;
 @property(nonatomic, retain) IBOutlet UIImageView * footerImageView ;
 
