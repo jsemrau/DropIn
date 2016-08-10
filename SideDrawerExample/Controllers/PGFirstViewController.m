@@ -221,10 +221,13 @@
     
     self.eventTable.scrollsToTop =YES;
     
-    UIColor *btnColor =[UIColor flatWhiteColorDark];
+    UIColor *btnColor =[UIColor flatSkyBlueColor];
     
     //distance
-    FAKFontAwesome *clockIcon = [FAKFontAwesome mapMarkerIconWithSize:25];
+    
+    FAKIonIcons *clockIcon = [FAKIonIcons iosLocationOutlineIconWithSize:25];
+    
+  //  FAKFontAwesome *clockIcon = [FAKFontAwesome mapMarkerIconWithSize:25];
     [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
     UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
     //[UIImage imageNamed:@"sortByDistance32x32.png"]
@@ -232,7 +235,7 @@
     self.bar1 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByDistance:)];
     
     //time
-    clockIcon = [FAKFontAwesome clockOIconWithSize:25];
+    clockIcon = [FAKIonIcons iosClockOutlineIconWithSize:25];
     [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
     iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
     //[UIImage imageNamed:@"sortByDistance32x32.png"]
@@ -240,9 +243,9 @@
     self.bar2 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByDate:)];
     
     //cat
-    clockIcon = [FAKFontAwesome sortAlphaAscIconWithSize:25];
-    [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
-    iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
+   FAKIonIcons *sortIcon = [FAKIonIcons iosListOutlineIconWithSize:25];
+    [sortIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
+    iconImage = [sortIcon imageWithSize:CGSizeMake(35, 35)];
     //[UIImage imageNamed:@"sortByDistance32x32.png"]
     image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.bar3 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByCategory:)];
@@ -367,8 +370,6 @@
     
     cell.contentMode=UIViewContentModeScaleAspectFill;
     
-     NSLog(@" Class %@ ", [cell class]);
-    
     if ([self.filteredEventList count]>0){
         
         
@@ -477,7 +478,7 @@
             
         }
         
-        NSLog(@" print me %lu" , [[text objectForKey:@"recur_string"] length]);
+        NSLog(@" print me %@" , [text objectForKey:@"recur_string"]);
         
         if ([[text objectForKey:@"recur_string"] length]==0) {
             
@@ -897,7 +898,6 @@
     
    // eventDetails.themeColor = ;
     
-    NSLog(@"%@", colorString);
     eventDetails.handOver=text;
     
     [self.navigationController pushViewController:eventDetails animated:YES];
@@ -945,7 +945,7 @@
     
     gettingUpdates=FALSE;
     
-    NSLog(@" -> %@",resultData);
+    //NSLog(@" -> %@",resultData);
     
     //You ned to set "count" new updates.
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

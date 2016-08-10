@@ -16,26 +16,61 @@
 
 @implementation PGSideDrawerController
 
-@synthesize settingImage,aboutImage,privacyImage;
+@synthesize settingImage,aboutImage,privacyImage,mapImage,tnCImage,upcomingImage;
+@synthesize sideTable;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.currentIndex = 0;
     
-    FAKFontAwesome *likeIcon = [FAKFontAwesome spaceShuttleIconWithSize:37.5];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky"]];
+    self.tableView.backgroundView = imageView;
+    self.tableView.contentMode=UIViewContentModeScaleToFill;
+    
+    float tSize = 30;
+    
+    
+    FAKIonIcons *upCIcon = [FAKIonIcons waterdropIconWithSize:tSize];
+    [upCIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    UIImage *iconImage = [upCIcon imageWithSize:CGSizeMake(44, 44)];
+    self.upcomingImage.contentMode=UIViewContentModeScaleAspectFit;
+    [self.upcomingImage setImage:iconImage];
+    
+    
+    FAKIonIcons *mailIcon = [FAKIonIcons iosSettingsIconWithSize:tSize];
+    [mailIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    iconImage = [mailIcon imageWithSize:CGSizeMake(44, 44)];
+    self.settingImage.contentMode=UIViewContentModeScaleAspectFit;
+    [self.settingImage setImage:iconImage];
+    
+  
+    FAKIonIcons *mapIcon = [FAKIonIcons iosNavigateOutlineIconWithSize:tSize];
+    [mapIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    iconImage = [mapIcon imageWithSize:CGSizeMake(44, 44)];
+    self.mapImage.contentMode=UIViewContentModeScaleAspectFit;
+    [self.mapImage setImage:iconImage];
+    
+    FAKIonIcons *aboutIcon = [FAKIonIcons iosInfiniteOutlineIconWithSize:tSize];
+    [aboutIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    iconImage = [aboutIcon imageWithSize:CGSizeMake(44, 44)];
+    self.aboutImage.contentMode=UIViewContentModeScaleAspectFit;
+    [self.aboutImage setImage:iconImage];
+    
+    FAKIonIcons *privacyIcon = [FAKIonIcons clipboardIconWithSize:tSize];
+    [privacyIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    iconImage = [privacyIcon imageWithSize:CGSizeMake(44, 44)];
+    self.privacyImage.contentMode=UIViewContentModeScaleAspectFit;
+    [self.privacyImage setImage:iconImage];
+    
+    /*
+    likeIcon = [FAKFontAwesome laptopIconWithSize:tSize];
     [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
-    settingImage = [likeIcon imageWithSize:CGSizeMake(44, 43.5)];
-    
-    
-    likeIcon = [FAKFontAwesome heartOIconWithSize:37.5];
-    [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
-    aboutImage = [likeIcon imageWithSize:CGSizeMake(44, 43.5)];
-    
-    
-    likeIcon = [FAKFontAwesome heartOIconWithSize:37.5];
-    [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
-    privacyImage = [likeIcon imageWithSize:CGSizeMake(44, 43.5)];
+    iconImage = [likeIcon imageWithSize:CGSizeMake(44, 44)];
+    self.tnCImage.contentMode=UIViewContentModeScaleAspectFit;
+    [self.tnCImage setImage:iconImage];
+    */
     
 }
 
@@ -56,10 +91,10 @@
             centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"THIRD_TOP_VIEW_CONTROLLER"];
             break;
         case 2:
-            centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FOURTH_TOP_VIEW_CONTROLLER"];
+            centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SECOND_TOP_VIEW_CONTROLLER"];
             break;
         case 3:
-            centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PRIVACY_POLICY"];
+            centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FOURTH_TOP_VIEW_CONTROLLER"];
             break;
         case 4:
             centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PRIVACY_POLICY"];

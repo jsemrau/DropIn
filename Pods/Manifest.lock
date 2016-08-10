@@ -35,7 +35,7 @@ PODS:
     - FontAwesomeKit/Core
   - FSOpenInWhatsApp (2.1)
   - Google-Mobile-Ads-SDK (7.9.1)
-  - iRate (1.11.4)
+  - iRate (1.11.6)
   - MGSwipeTableCell (1.5.5)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
@@ -62,7 +62,7 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
-  - FontAwesomeKit
+  - FontAwesomeKit (~> 2.2.0)
   - FontAwesomeKit/FoundationIcons
   - FontAwesomeKit/IonIcons
   - FontAwesomeKit/Zocial
@@ -98,13 +98,13 @@ SPEC CHECKSUMS:
   FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
   FSOpenInWhatsApp: 9122fd285faef1ef5c980b4acb649eece9720a3e
   Google-Mobile-Ads-SDK: 575583d7eae25793bb81ad8673737d1b4ecbedc5
-  iRate: 599ed07c854e0695f3c605d1b2a64c67d912acb7
+  iRate: 61e558919c4a7fde63b3c22ebbd6c114a1eee658
   MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   Onboard: 75731d0b265f5b5bab0b4bceff1778d7f6e839af
   RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: b54b1de501b55af699265bd5f6264235c454937a
+PODFILE CHECKSUM: 72bc4540452a6a3da0b9502dd3de9b8eb7acf24e
 
 COCOAPODS: 1.0.1

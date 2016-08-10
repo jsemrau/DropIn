@@ -27,7 +27,8 @@ target "dropin" do
 	pod 'FBSDKLoginKit'
 	
 	pod 'iRate'
-	pod 'FontAwesomeKit'
+	pod 'FontAwesomeKit', '~>2.2.0'
+
 	pod 'FontAwesomeKit/FoundationIcons'
 	pod 'FontAwesomeKit/Zocial'
 	pod 'FontAwesomeKit/IonIcons' 
