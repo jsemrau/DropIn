@@ -16,10 +16,11 @@
 @interface MapPin : NSObject <MKAnnotation> {
     
     CLLocationCoordinate2D coordinate;
-    NSString *title;
-    NSString *subtitle;
-    NSString *status;
-    NSString *mapIconURL;
+    NSString *eTitle;
+    NSString *eDesc;
+    NSString *category;
+    NSString *idStr;
+    NSString *distance;
     UIImage  *coolImage;
     
     float latitude;
@@ -28,11 +29,14 @@
 }
 
 @property (nonatomic) CLLocationCoordinate2D coordinate;
+
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *subtitle;
-@property (nonatomic, retain) NSString *status;
-@property (nonatomic, retain) NSString *mapIconURL;
+@property (nonatomic, copy) NSString *subTitle;
+@property (nonatomic, retain) NSString *distance;
+@property (nonatomic, retain) NSString *category;
+@property (nonatomic, retain) NSString *idStr;
 @property (nonatomic, retain) UIImage *coolImage;
+
 @property (readwrite, nonatomic) float latitude;
 @property (readwrite, nonatomic) float longitude;
 

@@ -27,6 +27,7 @@
     IBOutlet UIView *selectDialog;
     
     bool gettingUpdates;
+    float distance;
     
     CLLocation *setLocation;
 }
@@ -40,6 +41,8 @@
 @property (nonatomic, retain) IBOutlet UIGestureRecognizer *tapRecog;
 @property (nonatomic, retain) IBOutlet UIView *explainer;
 @property (nonatomic, retain) IBOutlet UIView *selectDialog;
+
+@property (nonatomic) float distance;
 
 - (IBAction)removeClueView:(id)sender  ;
 

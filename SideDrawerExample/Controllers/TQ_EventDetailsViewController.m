@@ -41,7 +41,9 @@
     //Apple will bear it.
     //Still does not work.
     
-    NSString *fulladdress = [[self.handOver objectForKey:@"city_name"] stringByAppendingString:[self.handOver objectForKey:@"venue_address"]];
+    NSString *fulladdress = [NSString stringWithFormat:@"%@%@%@",[self.handOver objectForKey:@"country_name"] ,[self.handOver objectForKey:@"city_name"],[self.handOver objectForKey:@"venue_address"]];
+    
+    NSLog(@" %@ ", fulladdress);
     
     //[self getLocationFromAddressString:fulladdress];
     
@@ -750,7 +752,7 @@
         
         MapPin *marker = [[MapPin alloc] initWithCoordinates:location.coordinate placeName:@"" description:@""];
         marker.coordinate=location.coordinate;
-        marker.status=@"event here";
+        marker.idStr=@"event here";
         
         [self.myMapView addAnnotation:marker];
        

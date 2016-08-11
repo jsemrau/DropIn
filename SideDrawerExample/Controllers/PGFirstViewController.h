@@ -18,6 +18,8 @@
 #import "UIScrollView+EmptyDataSet.h"
 #import "UIViewController+MMDrawerController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "DGActivityIndicatorView.h"
+
 
 @import GoogleMobileAds;
 

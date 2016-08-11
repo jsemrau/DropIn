@@ -9,6 +9,7 @@
 #import "TQ_MapVC.h"
 #import "MMDrawerBarButtonItem.h"
 #import "UIViewController+MMDrawerController.h"
+#import "TQ_EventDetailsViewController.h"
 
 
 @interface TQ_MapVC ()
@@ -17,7 +18,7 @@
 
 @implementation TQ_MapVC
 
-@synthesize setLocation,currentLocation,eventList,myMapView,selectDialog,explainer;
+@synthesize setLocation,currentLocation,eventList,myMapView,selectDialog,explainer,distance;
 
 - (void) viewWillAppear:(BOOL)animated{
     
@@ -36,6 +37,10 @@
     self.explainer.alpha=0.65;
     self.selectDialog.alpha=0.0;
     
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    self.distance = [[[[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"distance"]] objectForKey:@"distance"] floatValue]*1000;
+    
     
     
 }
@@ -44,6 +49,8 @@
     
     NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:[self.eventList count]];
     NSMutableArray *placeArray = [NSMutableArray array];
+    
+    int index =0;
     
     for (NSDictionary* campaignData in self.eventList) {
         
@@ -60,11 +67,13 @@
         
         CLLocation *location = [[CLLocation alloc] initWithLatitude:(CLLocationDegrees)[lat floatValue] longitude:(CLLocationDegrees)[lng floatValue]];
         
-        MapPin *marker = [[MapPin alloc] initWithCoordinates:location.coordinate placeName:place description:@""];
+        MapPin *marker = [[MapPin alloc] initWithCoordinates:location.coordinate placeName:place description:[campaignData objectForKey:@"description"]];
+        
         marker.coordinate=location.coordinate;
-        marker.status=@"parked";
+        marker.idStr=[NSString stringWithFormat:@"%d",index];
         
         [placeArray addObject:marker];
+        index++;
     }
     
     [self.myMapView addAnnotations:placeArray];
@@ -120,7 +129,9 @@
          qItem.contentMode=UIViewContentModeScaleAspectFit;
         [qItem setImage:iconImage];
         
-        //rightButton.imageView.image=pinImage;
+        qItem.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
+        //qItem.rightButton.imageView.image=pinImage;
     }
     qItem.annotation = annotation;
     
@@ -134,11 +145,29 @@
 {
     MapPin *myAnn = (MapPin *)view.annotation;
     NSLog(@"callout button tapped for station id %@", myAnn.title);
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    TQ_EventDetailsViewController *eventDetails = [storyboard instantiateViewControllerWithIdentifier:@"EVENT_DETAILS"];
+    
+    NSLog(@"%@",myAnn.idStr );
+    
+    
+    NSMutableDictionary *text=[self.eventList objectAtIndex:[myAnn.idStr intValue] ];
+    
+    eventDetails.handOver=text;
+    
+    [self.navigationController pushViewController:eventDetails animated:YES];
+    
 }
 else
 {
     NSLog(@"callout button tapped for annotation %@", view.annotation);
 }
+    
+   
+    
+    
 }
 
 
@@ -154,7 +183,7 @@ else
     self.eventList= [prefs objectForKey:@"currentEvents"];
     [self configureMapData];
     
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 5000.0, 5000.0);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, self.distance, self.distance);
     MKCoordinateRegion adjustedRegion = [self.myMapView regionThatFits:region];
     adjustedRegion.center = location.coordinate;
     [self.myMapView setRegion:adjustedRegion animated:YES];
@@ -207,6 +236,8 @@ else
     
     NSLog(@"********************************");
     
+    int index=0;
+    
     for (NSDictionary* campaignData in resultData) {
         
         NSLog(@"Outputting cData %@", campaignData);
@@ -223,9 +254,12 @@ else
         
         MapPin *marker = [[MapPin alloc] initWithCoordinates:location.coordinate placeName:place description:[campaignData objectForKey:@"venue_address"]];
         marker.coordinate=location.coordinate;
-        marker.status=@"parked";
+        marker.idStr=[NSString stringWithFormat:@"%d",index];
+        
+        NSLog(@" marker %@", marker.idStr);
         
         [placeArray addObject:marker];
+        index++;
     }
     
     [self.myMapView addAnnotations:placeArray];

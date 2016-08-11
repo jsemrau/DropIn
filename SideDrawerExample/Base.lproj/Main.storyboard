@@ -1348,6 +1348,28 @@ Cg
                                     </mask>
                                 </variation>
                             </view>
+                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHw-cJ-fXF">
+                                <rect key="frame" x="185" y="185" width="230" height="230"/>
+                                <color key="backgroundColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="2Ay-g8-5mz"/>
+                                    <constraint firstAttribute="width" constant="230" id="GjG-6K-ukO"/>
+                                    <constraint firstAttribute="width" constant="230" id="JXb-fL-jH6"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="230" id="TBM-pN-SEW"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="230" id="a3t-aY-aS3"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="gAb-DG-Cj7"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="230" id="vmo-AF-kdL"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="GjG-6K-ukO"/>
+                                        <exclude reference="TBM-pN-SEW"/>
+                                        <exclude reference="a3t-aY-aS3"/>
+                                        <exclude reference="gAb-DG-Cj7"/>
+                                        <exclude reference="vmo-AF-kdL"/>
+                                    </mask>
+                                </variation>
+                            </view>
                             <view hidden="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-IQ-5Ho" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="250" y="250" width="100" height="100"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1367,22 +1389,6 @@ Cg
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHw-cJ-fXF">
-                                <rect key="frame" x="185" y="185" width="230" height="230"/>
-                                <color key="backgroundColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="230" id="2Ay-g8-5mz"/>
-                                    <constraint firstAttribute="width" constant="230" id="GjG-6K-ukO"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="230" id="TBM-pN-SEW"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="230" id="a3t-aY-aS3"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="gAb-DG-Cj7"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="TBM-pN-SEW"/>
-                                    </mask>
-                                </variation>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="798-9z-EPi" customClass="GADBannerView">
                                 <rect key="frame" x="140" y="550" width="320" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1396,14 +1402,18 @@ Cg
                         <constraints>
                             <constraint firstItem="pR4-IQ-5Ho" firstAttribute="centerY" secondItem="Xoh-uT-o1T" secondAttribute="centerY" id="4Ny-Bh-VNA"/>
                             <constraint firstItem="LHU-IS-9Zk" firstAttribute="centerY" secondItem="Xoh-uT-o1T" secondAttribute="centerY" id="9F9-qS-D7x"/>
+                            <constraint firstItem="pR4-IQ-5Ho" firstAttribute="centerX" secondItem="FHw-cJ-fXF" secondAttribute="centerX" id="B2S-d4-rib"/>
                             <constraint firstItem="s3G-Xm-2d6" firstAttribute="top" secondItem="B4r-Wn-UXQ" secondAttribute="bottom" id="FJ0-ZT-VtT"/>
+                            <constraint firstItem="pR4-IQ-5Ho" firstAttribute="top" secondItem="FHw-cJ-fXF" secondAttribute="top" id="GaV-MD-Uxh"/>
                             <constraint firstItem="LHU-IS-9Zk" firstAttribute="top" secondItem="uAZ-ee-pVu" secondAttribute="bottom" constant="156" id="JD6-8U-oF6"/>
                             <constraint firstItem="pR4-IQ-5Ho" firstAttribute="centerX" secondItem="Xoh-uT-o1T" secondAttribute="centerX" id="Lnb-eq-NTz"/>
                             <constraint firstItem="LHU-IS-9Zk" firstAttribute="centerX" secondItem="Xoh-uT-o1T" secondAttribute="centerX" id="Mnj-tC-4Ro"/>
                             <constraint firstItem="FHw-cJ-fXF" firstAttribute="centerY" secondItem="Xoh-uT-o1T" secondAttribute="centerY" id="Nyb-w9-Suk"/>
                             <constraint firstItem="LHU-IS-9Zk" firstAttribute="centerY" secondItem="Xoh-uT-o1T" secondAttribute="centerY" id="QZP-8w-mqH"/>
+                            <constraint firstItem="pR4-IQ-5Ho" firstAttribute="leading" secondItem="FHw-cJ-fXF" secondAttribute="leading" id="SpX-Cg-4Ek"/>
                             <constraint firstItem="798-9z-EPi" firstAttribute="centerX" secondItem="Xoh-uT-o1T" secondAttribute="centerX" id="bC0-hK-bzb"/>
                             <constraint firstItem="798-9z-EPi" firstAttribute="top" secondItem="LHU-IS-9Zk" secondAttribute="bottom" constant="2" id="d3M-zk-8hs"/>
+                            <constraint firstItem="pR4-IQ-5Ho" firstAttribute="centerY" secondItem="FHw-cJ-fXF" secondAttribute="centerY" id="dxZ-bq-nNW"/>
                             <constraint firstItem="LHU-IS-9Zk" firstAttribute="centerY" secondItem="Xoh-uT-o1T" secondAttribute="centerY" id="fd1-6q-kwQ"/>
                             <constraint firstItem="B4r-Wn-UXQ" firstAttribute="top" secondItem="uAZ-ee-pVu" secondAttribute="bottom" constant="-64" id="fe0-DZ-0hl"/>
                             <constraint firstItem="LHU-IS-9Zk" firstAttribute="centerX" secondItem="Xoh-uT-o1T" secondAttribute="centerX" id="iJY-Tr-9kZ"/>
@@ -1413,6 +1423,8 @@ Cg
                             <constraint firstItem="s3G-Xm-2d6" firstAttribute="top" secondItem="798-9z-EPi" secondAttribute="bottom" id="nMr-4S-cV2"/>
                             <constraint firstItem="FHw-cJ-fXF" firstAttribute="centerX" secondItem="Xoh-uT-o1T" secondAttribute="centerX" id="nhl-dO-dl1"/>
                             <constraint firstItem="LHU-IS-9Zk" firstAttribute="leading" secondItem="Xoh-uT-o1T" secondAttribute="leading" constant="180" id="o2C-oC-ww1"/>
+                            <constraint firstItem="pR4-IQ-5Ho" firstAttribute="bottom" secondItem="FHw-cJ-fXF" secondAttribute="bottom" id="okI-HS-gPo"/>
+                            <constraint firstItem="pR4-IQ-5Ho" firstAttribute="trailing" secondItem="FHw-cJ-fXF" secondAttribute="trailing" id="pgT-nC-5vc"/>
                             <constraint firstItem="B4r-Wn-UXQ" firstAttribute="leading" secondItem="Xoh-uT-o1T" secondAttribute="leadingMargin" constant="-20" id="vHl-bx-TlZ"/>
                             <constraint firstItem="s3G-Xm-2d6" firstAttribute="top" secondItem="798-9z-EPi" secondAttribute="bottom" id="vkF-hB-AeV"/>
                         </constraints>
@@ -1424,7 +1436,13 @@ Cg
                                 <exclude reference="fd1-6q-kwQ"/>
                                 <exclude reference="iJY-Tr-9kZ"/>
                                 <exclude reference="o2C-oC-ww1"/>
+                                <exclude reference="4Ny-Bh-VNA"/>
+                                <exclude reference="GaV-MD-Uxh"/>
+                                <exclude reference="Lnb-eq-NTz"/>
+                                <exclude reference="SpX-Cg-4Ek"/>
                                 <exclude reference="mWh-UB-sbp"/>
+                                <exclude reference="okI-HS-gPo"/>
+                                <exclude reference="pgT-nC-5vc"/>
                                 <exclude reference="d3M-zk-8hs"/>
                                 <exclude reference="nMr-4S-cV2"/>
                             </mask>

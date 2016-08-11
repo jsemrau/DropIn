@@ -14,22 +14,24 @@
 
 @synthesize coordinate;
 @synthesize title;
-@synthesize subtitle;
+@synthesize subTitle;
 @synthesize pinAnnotationView;
-@synthesize status;
+@synthesize distance, category;
 @synthesize coolImage;
-@synthesize latitude;
-@synthesize longitude;
-@synthesize mapIconURL;
+@synthesize latitude,longitude, idStr;
+
 
 - (id)initWithCoordinates:(CLLocationCoordinate2D)location placeName:placeName description:description {
     self = [super init];
+    
     if (self != nil) {
+        
         coordinate = location;
         title = placeName;
-        subtitle = description;
+        subTitle = description;
         
     }
+    
     return self;
 }
 

@@ -17,7 +17,7 @@
 
 @implementation TQ_SettingsVC
 
-@synthesize dSlide,tSlide,distanceLabel,timeLabel,saveButton, logo,relevantUpdates,distanceString,timeString,deSelectString,quoteString;
+@synthesize dSlide,tSlide,distanceLabel,timeLabel,saveButton, logo,relevantUpdates,distanceString,timeString,deSelectString,quoteString, bar1,bar2;
 
 - (void) viewWillAppear:(BOOL)animated{
     
@@ -210,7 +210,7 @@
    
     /* Loop over all buttons */
      
-    [self configureButtons];
+    [self configureButtons:self];
     
     //save
     FAKFontAwesome *clockIcon = [FAKFontAwesome saveIconWithSize:25];
@@ -523,7 +523,7 @@
 */
 
 
-- (void) configureButtons {
+- (void) configureButtons:(id)sender {
     
     /* round edges */
    

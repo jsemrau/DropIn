@@ -314,6 +314,7 @@
     
     [self startingLoadingAnimation];
   
+    
     //data not available anymore
     //don't do this here you don't know if the call to update will be successful.
  
@@ -892,9 +893,9 @@
     
     NSMutableDictionary *text=[self.filteredEventList objectAtIndex:indexPath.row];
     
-    lotCell *cell = [self.eventTable cellForRowAtIndexPath:indexPath];
+  //  lotCell *cell = [self.eventTable cellForRowAtIndexPath:indexPath];
     
-    NSString* colorString = [cell.category.backgroundColor description];
+    //NSString* colorString = [cell.category.backgroundColor description];
     
    // eventDetails.themeColor = ;
     
@@ -1207,6 +1208,13 @@
 
 #pragma mark animations
 - (void) startingLoadingAnimation {
+    
+    DGActivityIndicatorView *activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeTriplePulse tintColor:[UIColor flatSkyBlueColor] size: 230.0f];
+    
+    activityIndicatorView.frame = self.blurry.frame;
+    activityIndicatorView.layer.speed=1.0;
+
+    [self.view addSubview:activityIndicatorView];
     
     SpringImageView *springView = [[SpringImageView alloc] initWithFrame:CGRectMake(
                                     (([[UIScreen mainScreen] bounds].size.width)/2)-50,  (([[UIScreen mainScreen] bounds].size.width)/2)+50, 100, 100)];
