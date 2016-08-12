@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MGSwipeTableCell.h"
+#import "FontAwesomeKit/FontAwesomeKit.h"
+#import "FontAwesomeKit/FAKZocial.h"
+#import "FontAwesomeKit/FontAwesomeKit/FAKIonIcons.h"
 
 @interface lotCell : MGSwipeTableCell
 
@@ -39,7 +42,7 @@
     IBOutlet UILabel *priceLabel2;
     IBOutlet UILabel *priceLabel3;
     
-    IBOutlet UILabel *recurringLabel;
+    IBOutlet UIImageView *recurringLabel;
     
 }
 
@@ -55,7 +58,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *price;
 @property (nonatomic, retain) IBOutlet UILabel *catLabel;
 
-@property (nonatomic, retain) IBOutlet UILabel *recurringLabel;
+@property (nonatomic, retain) IBOutlet UIImageView *recurringLabel;
 
 
 @property (nonatomic, retain) IBOutlet UILabel *priceLabel1;

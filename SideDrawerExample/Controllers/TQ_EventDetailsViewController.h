@@ -42,6 +42,7 @@
    UILabel *scannedURL;
    NSString *vStart_time;
    NSString *vStop_time;
+   NSString *fullAddress;
     
    IBOutlet UILabel *price;
    IBOutlet UILabel *start_time;
@@ -56,6 +57,7 @@
    IBOutlet UILabel *vName;
    IBOutlet UILabel *vRecur;
     
+    
    IBOutlet UILabel *fScore;
    IBOutlet UILabel *timeDiff;
     IBOutlet UILabel *inXminutes;
@@ -65,7 +67,9 @@
     IBOutlet UIButton *favButton;
     IBOutlet UIButton *spamButton;
     IBOutlet UIButton *tweetButton;
-
+  
+    IBOutlet UIButton *checkInButton;
+    IBOutlet UIButton *directionsButton;
     
     IBOutlet UIView *summaryView;
     
@@ -100,6 +104,8 @@
 @property (nonatomic) bool socialActive;
 @property (nonatomic) NSString *vNameStr;
 @property (nonatomic) NSString *idStr;
+@property (nonatomic) NSString *fullAddress;
+
 @property (retain, nonatomic) IBOutlet UILabel *price;
 @property (retain, nonatomic) IBOutlet UIImageView *category;
 @property (retain, nonatomic) IBOutlet UILabel *start_time;
@@ -133,6 +139,8 @@
 @property (retain, nonatomic) IBOutlet UIButton *wAppButton;
 @property (retain, nonatomic) IBOutlet UIButton *fbButton;
 @property (retain, nonatomic) IBOutlet UIButton *chatButton;
+@property (retain, nonatomic)IBOutlet UIButton *checkInButton;
+@property (retain, nonatomic)IBOutlet UIButton *directionsButton;
 
 
 @property(nonatomic, retain) IBOutlet UIView * debugView ;
@@ -164,6 +172,9 @@
 - (IBAction) sendFB:(id)sender;
 
 -(IBAction) toggleSocial:(id)sender;
+-(IBAction) getDirections:(id)sender;
+-(IBAction) checkInVenue:(id)sender;
+
 - (void) setupButtons ;
 
 - (void) getLocationFromAddressString: (NSString*) addressStr;

@@ -1174,10 +1174,10 @@ Cg
                                             </constraints>
                                         </view>
                                         <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="0.5" placeholderIntrinsicHeight="35" translatesAutoresizingMaskIntoConstraints="NO" id="RPf-2Y-Jjc">
-                                            <rect key="frame" x="22" y="0.0" width="0.5" height="35"/>
+                                            <rect key="frame" x="21" y="0.0" width="2" height="35"/>
                                             <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="1" id="Lao-xN-1EA"/>
+                                                <constraint firstAttribute="width" constant="2" id="Lao-xN-1EA"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="Wrg-KT-Fkv"/>
                                                 <constraint firstAttribute="height" constant="35" id="djM-DT-aOt"/>
                                             </constraints>
@@ -1239,7 +1239,7 @@ Cg
                                         <constraint firstItem="RPf-2Y-Jjc" firstAttribute="top" secondItem="T9d-Ai-mQp" secondAttribute="top" id="IkM-tz-ogQ"/>
                                         <constraint firstItem="kVf-cu-IYw" firstAttribute="centerY" secondItem="T9d-Ai-mQp" secondAttribute="centerY" id="Ira-3d-2CE"/>
                                         <constraint firstItem="bOd-Yg-Ov7" firstAttribute="leading" secondItem="T9d-Ai-mQp" secondAttribute="leading" id="LFv-cp-VtH"/>
-                                        <constraint firstItem="RPf-2Y-Jjc" firstAttribute="leading" secondItem="T9d-Ai-mQp" secondAttribute="leading" constant="22" id="Lh0-mj-WBC"/>
+                                        <constraint firstItem="RPf-2Y-Jjc" firstAttribute="leading" secondItem="T9d-Ai-mQp" secondAttribute="leading" constant="21" id="Lh0-mj-WBC"/>
                                         <constraint firstAttribute="bottom" secondItem="ivh-L5-BNN" secondAttribute="bottom" id="Ocu-8A-67M"/>
                                         <constraint firstAttribute="bottom" secondItem="b5P-M2-ixD" secondAttribute="bottom" id="Ot7-vI-SyS"/>
                                         <constraint firstItem="kVf-cu-IYw" firstAttribute="leading" secondItem="T9d-Ai-mQp" secondAttribute="leading" id="Qw2-NT-LQc"/>
@@ -1937,6 +1937,17 @@ Cg
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" placeholderIntrinsicWidth="580" placeholderIntrinsicHeight="251" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ppK-tT-Rj5">
                                         <rect key="frame" x="0.0" y="0.0" width="540" height="251"/>
                                     </mapView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Yv-en-UxN">
+                                        <rect key="frame" x="482" y="193" width="50" height="50"/>
+                                        <color key="backgroundColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="5MG-Ul-abO"/>
+                                            <constraint firstAttribute="height" constant="50" id="QYT-j6-852"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="getDirections:" destination="cgo-Ta-dcC" eventType="touchUpInside" id="2C7-MN-yKd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1949,7 +1960,9 @@ Cg
                                     <constraint firstItem="ppK-tT-Rj5" firstAttribute="top" secondItem="iBh-cC-wcZ" secondAttribute="top" id="Luz-E5-1Jd"/>
                                     <constraint firstAttribute="bottom" secondItem="ppK-tT-Rj5" secondAttribute="bottom" id="SUa-gt-REw"/>
                                     <constraint firstItem="ppK-tT-Rj5" firstAttribute="leading" secondItem="iBh-cC-wcZ" secondAttribute="leading" id="W3g-uX-5AA"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Yv-en-UxN" secondAttribute="trailing" constant="8" id="Xpz-Vy-BTe"/>
                                     <constraint firstItem="ppK-tT-Rj5" firstAttribute="top" secondItem="iBh-cC-wcZ" secondAttribute="top" id="fpg-Ja-O4T"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Yv-en-UxN" secondAttribute="bottom" constant="8" id="mZk-a1-Tg8"/>
                                     <constraint firstItem="ppK-tT-Rj5" firstAttribute="centerX" secondItem="iBh-cC-wcZ" secondAttribute="centerX" id="r55-Qo-yGa"/>
                                     <constraint firstItem="ppK-tT-Rj5" firstAttribute="leading" secondItem="iBh-cC-wcZ" secondAttribute="leading" id="rBD-6c-oDc"/>
                                     <constraint firstAttribute="bottom" secondItem="ppK-tT-Rj5" secondAttribute="bottom" id="rRi-l0-fSW"/>
@@ -2508,6 +2521,7 @@ Cg
                         <outlet property="chatButton" destination="and-kK-dNc" id="gRK-uR-hnQ"/>
                         <outlet property="clockImg" destination="WLH-xG-qoB" id="ZQd-Mn-D4q"/>
                         <outlet property="debugView" destination="R9j-ZH-QEa" id="7ac-mw-3bV"/>
+                        <outlet property="directionsButton" destination="7Yv-en-UxN" id="kk8-E1-q5t"/>
                         <outlet property="distance" destination="Ghk-hQ-unF" id="PkM-9D-UhP"/>
                         <outlet property="eDescription" destination="fJb-uc-8B9" id="cDm-bo-xpW"/>
                         <outlet property="eSource" destination="Shd-Zo-h1S" id="bpI-6E-kuZ"/>

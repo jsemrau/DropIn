@@ -479,15 +479,29 @@
             
         }
         
-        NSLog(@" print me %@" , [text objectForKey:@"recur_string"]);
+        
         
         if ([[text objectForKey:@"recur_string"] length]==0) {
             
-            cell.recurringLabel.alpha=0.0;
-
+            NSLog(@" Length zero %@" , [text objectForKey:@"recur_string"]);
+            //cell.recurringLabel.alpha=0.0;
+            [cell.recurringLabel removeFromSuperview];
+            
         } else {
 
-            cell.recurringLabel.backgroundColor=[UIColor flatRedColor];
+            NSLog(@" Recurring %@" , [text objectForKey:@"recur_string"]);
+            
+            FAKIonIcons *clockIcon = [FAKIonIcons iosLoopIconWithSize:15];
+            UIColor *btnColor = [UIColor flatWhiteColorDark];
+            [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
+            UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(20, 20)];
+            UIImage *image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            cell.recurringLabel.image=image;
+            
+            cell.recurringLabel.layer.cornerRadius = cell.recurringLabel.frame.size.height/2;
+            cell.recurringLabel.clipsToBounds = YES;
+            
+           // cell.recurringLabel.backgroundColor=[UIColor flatRedColor];
             cell.recurringLabel.alpha=1.0;
 
         }

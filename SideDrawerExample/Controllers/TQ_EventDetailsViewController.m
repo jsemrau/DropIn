@@ -20,7 +20,7 @@
 
 @implementation TQ_EventDetailsViewController
 
-@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage,wAppButton,fbButton,chatButton,themeColor,category, clockImg, socialLocation, socialActive,constraintArray, triangle;
+@synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage,wAppButton,fbButton,chatButton,themeColor,category, clockImg, socialLocation, socialActive,constraintArray, triangle, checkInButton,directionsButton,fullAddress;
 
 - (void) viewWillDisappear:(BOOL)animated{
     //there is a lag
@@ -41,9 +41,12 @@
     //Apple will bear it.
     //Still does not work.
     
-    NSString *fulladdress = [NSString stringWithFormat:@"%@%@%@",[self.handOver objectForKey:@"country_name"] ,[self.handOver objectForKey:@"city_name"],[self.handOver objectForKey:@"venue_address"]];
+    NSString *fulladdress = [NSString stringWithFormat:@"%@%@%@%@%@",[[self.handOver objectForKey:@"country_name"] uppercaseString] ,@" ",[self.handOver objectForKey:@"city_name"] ,@" ",
+                             [self.handOver objectForKey:@"venue_address"]];
     
     NSLog(@" %@ ", fulladdress);
+    
+    self.fullAddress=fulladdress;
     
     //[self getLocationFromAddressString:fulladdress];
     
@@ -68,6 +71,9 @@
     [self.socialView addGestureRecognizer:swiperightSoc];
     
     */
+    
+    self.directionsButton.layer.cornerRadius = self.directionsButton.frame.size.height/2; // this value vary as per your desire
+    self.directionsButton.clipsToBounds = YES;
     
 }
 - (void)viewDidLoad {
@@ -800,16 +806,7 @@
     
     [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-spam", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    
-    /*
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
-                                                    message:[NSString stringWithFormat:NSLocalizedString(@"err-spam", nil)]
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-    */
-    
+
     
     [self notifyMe:@"game" withMessage:@"err-spam"];
     
@@ -1161,7 +1158,12 @@ else
     [self.openLocation setBackgroundImage:iconImage forState:UIControlStateNormal];
     
     
-    //FAKFontAwesome *webIcon = [FAKFontAwesome :25];
+    FAKFontAwesome *dirIcon = [FAKFontAwesome infoCircleIconWithSize:40];
+    [dirIcon addAttribute:NSForegroundColorAttributeName value:self.themeColor ];
+    iconImage = [dirIcon imageWithSize:CGSizeMake(50, 50)];
+    self.directionsButton.contentMode=UIViewContentModeScaleAspectFit;
+    [self.directionsButton setBackgroundImage:iconImage forState:UIControlStateNormal];
+    
     
    // FAKIonIcons *webIcon = [FAKIonIcons iosFlagIconWithSize:25];
      FAKFontAwesome *webIcon = [FAKFontAwesome infoCircleIconWithSize:40];
@@ -1278,6 +1280,32 @@ else
     
     [self.mapView animate];
    
+    
+    
+}
+
+- (void) getDirections:(id)sender{
+    
+    NSNumber *longg= [NSNumber numberWithFloat: self.longitude];
+    NSNumber *lattt = [NSNumber numberWithFloat:self.latitude];
+    
+    NSString *url_base;
+    NSString *url_base_to_send;
+    
+    if([[self.handOver valueForKey:@"source"] isEqualToString:@"meetup.com"] ){
+   
+        url_base = @"https://maps.apple.com/maps?q=%@,%@&z=22";
+        url_base_to_send = [NSString stringWithFormat:url_base  , lattt, longg];
+        
+    } else {
+
+        url_base = @"https://maps.apple.com/maps?q=%@";
+        url_base_to_send = [NSString stringWithFormat:url_base  ,[self.fullAddress stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding ]];
+    }
+    
+    NSLog(@" RQV %@",url_base_to_send);
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url_base_to_send]];
     
     
 }
