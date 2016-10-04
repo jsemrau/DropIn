@@ -14,21 +14,21 @@
 
 @synthesize coordinate;
 @synthesize title;
-@synthesize subTitle;
+@synthesize subtitle;
 @synthesize pinAnnotationView;
 @synthesize distance, category;
 @synthesize coolImage;
 @synthesize latitude,longitude, idStr;
 
 
-- (id)initWithCoordinates:(CLLocationCoordinate2D)location placeName:placeName description:description {
+- (id)initWithCoordinates:(CLLocationCoordinate2D)location placeName:placeName subTitle:(NSString*)sTitle description:description {
     self = [super init];
     
     if (self != nil) {
         
         coordinate = location;
         title = placeName;
-        subTitle = description;
+        subtitle = sTitle;
         
     }
     

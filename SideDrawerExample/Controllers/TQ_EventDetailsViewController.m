@@ -756,7 +756,7 @@
         
         //CLLocation *location = [[CLLocation alloc] initWithLatitude:(CLLocationDegrees)tmp.latitude  longitude:(CLLocationDegrees)tmp.longitude ];
         
-        MapPin *marker = [[MapPin alloc] initWithCoordinates:location.coordinate placeName:@"" description:@""];
+        MapPin *marker = [[MapPin alloc] initWithCoordinates:location.coordinate placeName:@"" subTitle:@"" description:@""];
         marker.coordinate=location.coordinate;
         marker.idStr=@"event here";
         

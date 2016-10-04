@@ -45,6 +45,6 @@
 @property (nonatomic) float distance;
 
 - (IBAction)removeClueView:(id)sender  ;
-
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 
 @end

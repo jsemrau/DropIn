@@ -67,10 +67,11 @@
         
         CLLocation *location = [[CLLocation alloc] initWithLatitude:(CLLocationDegrees)[lat floatValue] longitude:(CLLocationDegrees)[lng floatValue]];
         
-        MapPin *marker = [[MapPin alloc] initWithCoordinates:location.coordinate placeName:place description:[campaignData objectForKey:@"description"]];
+        MapPin *marker = [[MapPin alloc] initWithCoordinates:location.coordinate placeName:place subTitle:[campaignData objectForKey:@"description"] description:[campaignData objectForKey:@"description"]];
         
         marker.coordinate=location.coordinate;
         marker.idStr=[NSString stringWithFormat:@"%d",index];
+        marker.category=[campaignData objectForKey:@"category"];
         
         [placeArray addObject:marker];
         index++;
@@ -113,9 +114,21 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)lmapView viewForAnnotation:(id < MKAnnotation >)annotation{
     
+    
+          
     if ([[annotation title] isEqualToString:@"Current Location"]) {
         return nil;
     }
+    
+    MapPin *tPin;
+    
+    if([annotation isMemberOfClass:[MapPin class]]) {
+        
+       tPin  = (MapPin*)annotation;
+        
+        NSLog(@" **** %@", [tPin category]);
+    }
+        
     
     MapOverlay *qItem = (MapOverlay *)[lmapView dequeueReusableAnnotationViewWithIdentifier: @"qView"];
     
@@ -123,11 +136,18 @@
     {
         qItem = (MapOverlay*)[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"qView"];
         qItem.canShowCallout = YES;
-    
-        UIImage *iconImage = [UIImage imageNamed:@"drop-new@32.png"];
         
-         qItem.contentMode=UIViewContentModeScaleAspectFit;
-        [qItem setImage:iconImage];
+        UIImage *iconImage = [self getCategoryImage:[tPin category]] ;
+        qItem.contentMode=UIViewContentModeScaleAspectFit;
+        
+        UIImage *newImage = [self imageWithImage:iconImage scaledToSize:CGSizeMake(20, 20)];
+        [qItem setImage:newImage];
+        
+        qItem.backgroundColor = [self getCategoryColor:[tPin category]];
+        
+        qItem.layer.cornerRadius = qItem.frame.size.height/2;
+        qItem.clipsToBounds = NO;
+    
         
         qItem.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         
@@ -252,9 +272,12 @@ else
         
         CLLocation *location = [[CLLocation alloc] initWithLatitude:(CLLocationDegrees)[lat floatValue] longitude:(CLLocationDegrees)[lng floatValue]];
         
-        MapPin *marker = [[MapPin alloc] initWithCoordinates:location.coordinate placeName:place description:[campaignData objectForKey:@"venue_address"]];
+        MapPin *marker = [[MapPin alloc] initWithCoordinates:location.coordinate placeName:place subTitle:[campaignData objectForKey:@"description"] description:[campaignData objectForKey:@"venue_address"]];
+        
+        //marker.subTitle=;
         marker.coordinate=location.coordinate;
         marker.idStr=[NSString stringWithFormat:@"%d",index];
+        marker.category=[campaignData objectForKey:@"category"];
         
         NSLog(@" marker %@", marker.idStr);
         
@@ -284,7 +307,152 @@ else
     
 }
 
+-(UIImage*) getCategoryImage:(NSString *)category{
 
+    NSLog(@" *** Cat *** %@", category);
+    
+    UIImage *iconImage;
+   // UIImageView *tmpView;
+    
+    if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]]) {
+        iconImage = [UIImage imageNamed:@"arts.png"];
+    }
+
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]]) {
+        iconImage = [UIImage imageNamed:@"business.png"];
+    }
+
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]]) {
+        iconImage = [UIImage imageNamed:@"education.png"];
+    }
+
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]]) {
+        iconImage = [UIImage imageNamed:@"entertainment.png"];
+    }
+
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]]) {
+        iconImage = [UIImage imageNamed:@"family.png"];
+    }
+
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]]) {
+        iconImage = [UIImage imageNamed:@"food.png"];
+    }
+
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]]) {
+        iconImage = [UIImage imageNamed:@"social.png"];
+    }
+
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]]) {
+        iconImage = [UIImage imageNamed:@"mass.png"];
+    }
+
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]]) {
+        iconImage = [UIImage imageNamed:@"meeting.png"];
+    }
+
+
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]]) {
+        iconImage = [UIImage imageNamed:@"sports.png"];
+    }
+
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]]) {
+        iconImage = [UIImage imageNamed:@"tech.png"];
+    }
+
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]]) {
+        
+        iconImage = [UIImage imageNamed:@"other.png"];
+        
+    } else {
+        
+        iconImage = [UIImage imageNamed:@"other.png"];
+        
+        
+    }
+
+    return iconImage;
+    
+}
+
+-(UIColor*) getCategoryColor:(NSString *)category{
+    
+    NSLog(@" *** Cat *** %@", category);
+    
+    UIColor *returnColor;
+    // UIImageView *tmpView;
+    
+    if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]]) {
+        returnColor=[UIColor flatRedColor];
+    }
+    
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[1]", nil)]]) {
+        returnColor=[UIColor flatPowderBlueColor];
+    }
+    
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[2]", nil)]]) {
+        returnColor=[UIColor flatMintColorDark];
+    }
+    
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[3]", nil)]]) {
+        returnColor=[UIColor flatMintColor];
+    }
+    
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[4]", nil)]]) {
+        returnColor=[UIColor flatPinkColor];
+    }
+    
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[5]", nil)]]) {
+        returnColor=[UIColor flatSandColorDark];
+    }
+    
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[6]", nil)]]) {
+        returnColor=[UIColor flatPurpleColor];
+    }
+    
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[7]", nil)]]) {
+        
+        returnColor=[UIColor flatBlueColor];
+    }
+    
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[8]", nil)]]) {
+        returnColor=[UIColor flatWatermelonColorDark];
+    }
+    
+    
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[9]", nil)]]) {
+        returnColor=[UIColor flatBrownColor];
+    }
+    
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[10]", nil)]]) {
+       
+        returnColor=[UIColor flatSkyBlueColorDark];
+    }
+    
+    else if ([category isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]]) {
+        
+        returnColor=[UIColor flatWhiteColorDark];
+        
+    } else {
+        
+        returnColor=[UIColor flatWhiteColorDark];
+        
+        
+    }
+    
+    return returnColor;
+    
+}
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 
 /*
 #pragma mark - Navigation

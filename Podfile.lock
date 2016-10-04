@@ -12,11 +12,11 @@ PODS:
   - DGActivityIndicatorView (2.1)
   - DZNEmptyDataSet (1.8.1)
   - EFCircularSlider (0.2.0)
-  - FBSDKCoreKit (4.14.0):
+  - FBSDKCoreKit (4.16.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.14.0):
+  - FBSDKLoginKit (4.16.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.14.0):
+  - FBSDKShareKit (4.16.0):
     - FBSDKCoreKit
   - FontAwesomeKit (2.2.0):
     - FontAwesomeKit/Core (= 2.2.0)
@@ -34,9 +34,10 @@ PODS:
   - FontAwesomeKit/Zocial (2.2.0):
     - FontAwesomeKit/Core
   - FSOpenInWhatsApp (2.1)
-  - Google-Mobile-Ads-SDK (7.9.1)
+  - Google-Mobile-Ads-SDK (7.12.1)
+  - GoogleConversionTracking (3.4.0)
   - iRate (1.11.6)
-  - MGSwipeTableCell (1.5.5)
+  - MGSwipeTableCell (1.5.6)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
     - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
@@ -49,7 +50,7 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.6.0):
     - MMDrawerController/Core
-  - Onboard (2.2.1)
+  - Onboard (2.3.1)
   - RKDropdownAlert (0.3.0)
   - Spring (1.0.3)
 
@@ -68,21 +69,22 @@ DEPENDENCIES:
   - FontAwesomeKit/Zocial
   - FSOpenInWhatsApp (~> 2.1)
   - Google-Mobile-Ads-SDK (~> 7.0)
+  - GoogleConversionTracking
   - iRate
   - MGSwipeTableCell
   - MMDrawerController (~> 0.6)
   - Onboard
   - RKDropdownAlert
-  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
 
 EXTERNAL SOURCES:
   Spring:
-    :branch: swift2
+    :branch: swift3
     :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
   Spring:
-    :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
+    :commit: e5c127b7aa6ce31e5f4d01100a8991423a1eb498
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
@@ -92,19 +94,20 @@ SPEC CHECKSUMS:
   DGActivityIndicatorView: 1942ae657a8d247c035f229422b2d15a8adbe5b6
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EFCircularSlider: 3af1dd6f86eb3eeeeaab0345ef3d6d1c2fc93d17
-  FBSDKCoreKit: 6e020b5db0b5bd1e01f5fb0902131befd129a502
-  FBSDKLoginKit: da563567a108050ef83739c8c8c001ee9e25fa13
-  FBSDKShareKit: e8e5d4ccef69b41132fe33acda26db1e33143e33
+  FBSDKCoreKit: 7a6baaed4a2b2a244ba253346713bdbc74df135b
+  FBSDKLoginKit: 9a514a55a7d05190f64d4ef09502737588b5b561
+  FBSDKShareKit: e81505de17fc0624cbaa87b83cccc9f2a786e6cb
   FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
   FSOpenInWhatsApp: 9122fd285faef1ef5c980b4acb649eece9720a3e
-  Google-Mobile-Ads-SDK: 575583d7eae25793bb81ad8673737d1b4ecbedc5
+  Google-Mobile-Ads-SDK: 542eb24c1ce6c8fd5084ee9572fd9dcd2d06065a
+  GoogleConversionTracking: ca8c89abda2bd28bb6472b316eeb4ece9264e279
   iRate: 61e558919c4a7fde63b3c22ebbd6c114a1eee658
-  MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
+  MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
-  Onboard: 75731d0b265f5b5bab0b4bceff1778d7f6e839af
+  Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
   RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: 72bc4540452a6a3da0b9502dd3de9b8eb7acf24e
+PODFILE CHECKSUM: 48c7426fa64b903dfbe880cfebe7bd19de03589a
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

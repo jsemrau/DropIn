@@ -16,13 +16,13 @@
 @interface MapPin : NSObject <MKAnnotation> {
     
     CLLocationCoordinate2D coordinate;
-    NSString *eTitle;
-    NSString *eDesc;
+    NSString *title;
+    NSString *subtitle;
     NSString *category;
     NSString *idStr;
     NSString *distance;
     UIImage  *coolImage;
-    
+
     float latitude;
     float longitude;
    // MKPinAnnotationView *pinAnnotationView;
@@ -31,7 +31,7 @@
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *subTitle;
+@property (nonatomic, copy) NSString *subtitle;
 @property (nonatomic, retain) NSString *distance;
 @property (nonatomic, retain) NSString *category;
 @property (nonatomic, retain) NSString *idStr;
@@ -42,7 +42,7 @@
 
 @property (nonatomic, retain) MKPinAnnotationView *pinAnnotationView;;
 
-- (id)initWithCoordinates:(CLLocationCoordinate2D)location placeName:(NSString *)placeName description:(NSString *)description;
+- (id)initWithCoordinates:(CLLocationCoordinate2D)location placeName:(NSString *)placeName subTitle:(NSString*)sTitle description:(NSString *)description;
 
 @end
 

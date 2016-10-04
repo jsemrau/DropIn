@@ -9,6 +9,7 @@
 #import "PGAppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
+#import <GoogleConversionTracking/ACTReporter.h>
 
 @implementation PGAppDelegate
 
@@ -45,6 +46,13 @@
     */
     
     [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
+    
+    // drop!in October Attack
+    // Google iOS first open tracking snippet
+    // Add this code to your application delegate's
+    // application:didFinishLaunchingWithOptions: method.
+    
+    [ACTConversionReporter reportWithConversionID:@"979706255" label:@"ODXVCPCOyWoQj8OU0wM" value:@"1.00" isRepeatable:NO];
     
     return YES;
 }

@@ -33,7 +33,8 @@ target "dropin" do
 	pod 'FontAwesomeKit/Zocial'
 	pod 'FontAwesomeKit/IonIcons' 
 
-	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+	use_frameworks!
+	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 
 	pod 'ChameleonFramework'
 	pod 'DZNEmptyDataSet'
@@ -45,6 +46,7 @@ target "dropin" do
 	pod 'Onboard'
 
 	pod 'BLKFlexibleHeightBar'
+	pod 'GoogleConversionTracking'
 
     #pod 'LTMorphingLabel'
 

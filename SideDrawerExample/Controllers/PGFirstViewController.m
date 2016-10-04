@@ -491,10 +491,11 @@
 
             NSLog(@" Recurring %@" , [text objectForKey:@"recur_string"]);
             
-            FAKIonIcons *clockIcon = [FAKIonIcons iosLoopIconWithSize:15];
-            UIColor *btnColor = [UIColor flatWhiteColorDark];
+           // FAKIonIcons *clockIcon = [FAKIonIcons iosLoopStrongIconWithSize:15];
+            FAKIonIcons *clockIcon = [FAKIonIcons loopIconWithSize:15];
+            UIColor *btnColor = [UIColor flatRedColor];
             [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
-            UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(20, 20)];
+            UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(15, 15)];
             UIImage *image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
             cell.recurringLabel.image=image;
             
