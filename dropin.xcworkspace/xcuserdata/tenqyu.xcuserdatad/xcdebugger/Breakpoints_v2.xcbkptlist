@@ -160,7 +160,7 @@
             startingLineNumber = "511"
             endingLineNumber = "511"
             landmarkName = "-geoLookUp"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -176,7 +176,7 @@
             startingLineNumber = "533"
             endingLineNumber = "533"
             landmarkName = "-geoLookUp"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -192,7 +192,7 @@
             startingLineNumber = "694"
             endingLineNumber = "694"
             landmarkName = "-sendFavorite:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -288,7 +288,7 @@
             startingLineNumber = "619"
             endingLineNumber = "619"
             landmarkName = "-sendTweet:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -304,7 +304,7 @@
             startingLineNumber = "621"
             endingLineNumber = "621"
             landmarkName = "-sendTweet:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -496,7 +496,7 @@
             startingLineNumber = "670"
             endingLineNumber = "670"
             landmarkName = "-sendFavorite:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -512,7 +512,7 @@
             startingLineNumber = "687"
             endingLineNumber = "687"
             landmarkName = "-sendFavorite:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -528,7 +528,7 @@
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "-prepareForSegue:sender:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -735,13 +735,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/interfaces/QyuWebAccess.m"
-            timestampString = "487549675.507267"
+            timestampString = "498200701.479049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "375"
-            endingLineNumber = "375"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
             landmarkName = "-saveImpression:onAsset:email:pwd:mongoId:withLat:andLong:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -757,7 +757,7 @@
             startingLineNumber = "1021"
             endingLineNumber = "1021"
             landmarkName = "-messageComposeViewController:didFinishWithResult:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -773,7 +773,7 @@
             startingLineNumber = "633"
             endingLineNumber = "633"
             landmarkName = "-sendTweet:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -789,7 +789,7 @@
             startingLineNumber = "636"
             endingLineNumber = "636"
             landmarkName = "-sendFavorite:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -805,7 +805,7 @@
             startingLineNumber = "666"
             endingLineNumber = "666"
             landmarkName = "-sendFavorite:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -821,7 +821,7 @@
             startingLineNumber = "661"
             endingLineNumber = "661"
             landmarkName = "-sendFavorite:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -837,7 +837,7 @@
             startingLineNumber = "671"
             endingLineNumber = "671"
             landmarkName = "-sendFavorite:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -959,13 +959,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/interfaces/QyuWebAccess.m"
-            timestampString = "487549675.507267"
+            timestampString = "498200701.479049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "442"
-            endingLineNumber = "442"
+            startingLineNumber = "446"
+            endingLineNumber = "446"
             landmarkName = "-submitWeatherRequest:andLong:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -975,13 +975,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/interfaces/QyuWebAccess.m"
-            timestampString = "487549675.507267"
+            timestampString = "498200701.479049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "524"
-            endingLineNumber = "524"
+            startingLineNumber = "528"
+            endingLineNumber = "528"
             landmarkName = "-connectionDidFinishLoading:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1075,7 +1075,7 @@
             startingLineNumber = "497"
             endingLineNumber = "497"
             landmarkName = "-viewDidLayoutSubviews"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1091,7 +1091,7 @@
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1107,7 +1107,7 @@
             startingLineNumber = "101"
             endingLineNumber = "101"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1123,7 +1123,7 @@
             startingLineNumber = "98"
             endingLineNumber = "98"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1139,7 +1139,7 @@
             startingLineNumber = "87"
             endingLineNumber = "87"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1445,7 +1445,7 @@
             startingLineNumber = "35"
             endingLineNumber = "35"
             landmarkName = "-viewWillAppear:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1461,7 +1461,7 @@
             startingLineNumber = "450"
             endingLineNumber = "450"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1477,7 +1477,7 @@
             startingLineNumber = "456"
             endingLineNumber = "456"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1541,7 +1541,7 @@
             startingLineNumber = "788"
             endingLineNumber = "788"
             landmarkName = "-sendSMS"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1605,7 +1605,7 @@
             startingLineNumber = "86"
             endingLineNumber = "86"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1621,7 +1621,7 @@
             startingLineNumber = "43"
             endingLineNumber = "43"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1669,7 +1669,7 @@
             startingLineNumber = "605"
             endingLineNumber = "605"
             landmarkName = "-sendTweet:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1685,7 +1685,7 @@
             startingLineNumber = "608"
             endingLineNumber = "608"
             landmarkName = "-sendTweet:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1701,7 +1701,7 @@
             startingLineNumber = "612"
             endingLineNumber = "612"
             landmarkName = "-sendTweet:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1717,7 +1717,7 @@
             startingLineNumber = "479"
             endingLineNumber = "479"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1733,7 +1733,7 @@
             startingLineNumber = "1072"
             endingLineNumber = "1072"
             landmarkName = "-toggleSwipe:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1749,7 +1749,7 @@
             startingLineNumber = "1076"
             endingLineNumber = "1076"
             landmarkName = "-toggleSwipe:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1765,7 +1765,7 @@
             startingLineNumber = "1081"
             endingLineNumber = "1081"
             landmarkName = "-toggleSwipe:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1781,7 +1781,7 @@
             startingLineNumber = "1071"
             endingLineNumber = "1071"
             landmarkName = "-toggleSwipe:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1845,7 +1845,7 @@
             startingLineNumber = "365"
             endingLineNumber = "365"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1861,7 +1861,7 @@
             startingLineNumber = "363"
             endingLineNumber = "363"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1877,7 +1877,7 @@
             startingLineNumber = "413"
             endingLineNumber = "413"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1893,7 +1893,7 @@
             startingLineNumber = "412"
             endingLineNumber = "412"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1909,7 +1909,7 @@
             startingLineNumber = "187"
             endingLineNumber = "187"
             landmarkName = "-viewWillAppear:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1925,7 +1925,7 @@
             startingLineNumber = "194"
             endingLineNumber = "194"
             landmarkName = "-viewWillAppear:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1941,7 +1941,7 @@
             startingLineNumber = "239"
             endingLineNumber = "239"
             landmarkName = "-viewWillAppear:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1957,7 +1957,7 @@
             startingLineNumber = "276"
             endingLineNumber = "276"
             landmarkName = "-viewWillAppear:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1973,7 +1973,7 @@
             startingLineNumber = "501"
             endingLineNumber = "501"
             landmarkName = "-performAnimation"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1989,7 +1989,7 @@
             startingLineNumber = "512"
             endingLineNumber = "512"
             landmarkName = "-performAnimation"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2005,7 +2005,7 @@
             startingLineNumber = "503"
             endingLineNumber = "503"
             landmarkName = "-performAnimation"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2037,7 +2037,7 @@
             startingLineNumber = "329"
             endingLineNumber = "329"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2053,7 +2053,7 @@
             startingLineNumber = "332"
             endingLineNumber = "332"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2069,7 +2069,7 @@
             startingLineNumber = "370"
             endingLineNumber = "370"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2085,7 +2085,7 @@
             startingLineNumber = "293"
             endingLineNumber = "293"
             landmarkName = "-viewDidAppear:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2101,7 +2101,7 @@
             startingLineNumber = "560"
             endingLineNumber = "560"
             landmarkName = "-locationManagerDidUpdateLocation:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2117,7 +2117,7 @@
             startingLineNumber = "569"
             endingLineNumber = "569"
             landmarkName = "-locationManagerDidUpdateLocation:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2133,7 +2133,7 @@
             startingLineNumber = "561"
             endingLineNumber = "561"
             landmarkName = "-locationManagerDidUpdateLocation:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2149,7 +2149,7 @@
             startingLineNumber = "624"
             endingLineNumber = "624"
             landmarkName = "-locationsReceived:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2165,7 +2165,7 @@
             startingLineNumber = "627"
             endingLineNumber = "627"
             landmarkName = "-locationsReceived:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2181,7 +2181,7 @@
             startingLineNumber = "819"
             endingLineNumber = "819"
             landmarkName = "-sendWhatsApp:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2317,13 +2317,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/interfaces/QyuWebAccess.m"
-            timestampString = "487549675.507267"
+            timestampString = "498200701.479049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
             landmarkName = "-submitLocationScan:andLong:email:pwd:mongoId:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2333,13 +2333,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/interfaces/QyuWebAccess.m"
-            timestampString = "487549675.507267"
+            timestampString = "498200701.479049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "490"
-            endingLineNumber = "490"
+            startingLineNumber = "494"
+            endingLineNumber = "494"
             landmarkName = "-connectionDidFinishLoading:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2349,13 +2349,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/interfaces/QyuWebAccess.m"
-            timestampString = "487549675.507267"
+            timestampString = "498200701.479049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "460"
-            endingLineNumber = "460"
+            startingLineNumber = "464"
+            endingLineNumber = "464"
             landmarkName = "-connection:didFailWithError:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2483,7 +2483,7 @@
             startingLineNumber = "572"
             endingLineNumber = "572"
             landmarkName = "-locationManagerDidUpdateLocation:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2499,7 +2499,7 @@
             startingLineNumber = "1155"
             endingLineNumber = "1155"
             landmarkName = "-setupButtons"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2515,7 +2515,7 @@
             startingLineNumber = "295"
             endingLineNumber = "295"
             landmarkName = "-viewDidAppear:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2531,7 +2531,7 @@
             startingLineNumber = "57"
             endingLineNumber = "57"
             landmarkName = "-viewWillAppear:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2547,7 +2547,7 @@
             startingLineNumber = "170"
             endingLineNumber = "170"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2755,7 +2755,7 @@
             startingLineNumber = "647"
             endingLineNumber = "647"
             landmarkName = "-sendFavorite:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3139,7 +3139,7 @@
             startingLineNumber = "359"
             endingLineNumber = "359"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3155,7 +3155,7 @@
             startingLineNumber = "360"
             endingLineNumber = "360"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3347,7 +3347,7 @@
             startingLineNumber = "1260"
             endingLineNumber = "1260"
             landmarkName = "-toggleSocial:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3363,7 +3363,7 @@
             startingLineNumber = "1261"
             endingLineNumber = "1261"
             landmarkName = "-toggleSocial:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3379,7 +3379,7 @@
             startingLineNumber = "1263"
             endingLineNumber = "1263"
             landmarkName = "-toggleSocial:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3395,7 +3395,7 @@
             startingLineNumber = "1262"
             endingLineNumber = "1262"
             landmarkName = "-toggleSocial:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3411,7 +3411,7 @@
             startingLineNumber = "1259"
             endingLineNumber = "1259"
             landmarkName = "-toggleSocial:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3427,7 +3427,7 @@
             startingLineNumber = "459"
             endingLineNumber = "459"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3443,7 +3443,7 @@
             startingLineNumber = "1250"
             endingLineNumber = "1250"
             landmarkName = "-stoppingSocialAnimation"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3459,7 +3459,7 @@
             startingLineNumber = "1227"
             endingLineNumber = "1227"
             landmarkName = "-startingSocialAnimation"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3475,7 +3475,7 @@
             startingLineNumber = "753"
             endingLineNumber = "753"
             landmarkName = "-openLocationView:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3491,7 +3491,7 @@
             startingLineNumber = "552"
             endingLineNumber = "552"
             landmarkName = "-getLocationFromAddressString:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3507,7 +3507,7 @@
             startingLineNumber = "888"
             endingLineNumber = "888"
             landmarkName = "-mapView:didAddAnnotationViews:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3523,7 +3523,7 @@
             startingLineNumber = "566"
             endingLineNumber = "566"
             landmarkName = "-getLocationFromAddressString:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3603,7 +3603,7 @@
             startingLineNumber = "49"
             endingLineNumber = "49"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3619,7 +3619,7 @@
             startingLineNumber = "133"
             endingLineNumber = "133"
             landmarkName = "-mapView:viewForAnnotation:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3635,7 +3635,7 @@
             startingLineNumber = "115"
             endingLineNumber = "115"
             landmarkName = "-mapView:viewForAnnotation:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3651,7 +3651,7 @@
             startingLineNumber = "117"
             endingLineNumber = "117"
             landmarkName = "-mapView:viewForAnnotation:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3683,7 +3683,7 @@
             startingLineNumber = "156"
             endingLineNumber = "156"
             landmarkName = "-mapView:viewForAnnotation:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3699,7 +3699,7 @@
             startingLineNumber = "158"
             endingLineNumber = "158"
             landmarkName = "-mapView:viewForAnnotation:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3715,6 +3715,22 @@
             startingLineNumber = "713"
             endingLineNumber = "713"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/interfaces/QyuWebAccess.m"
+            timestampString = "498200630.985052"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
+            landmarkName = "-submitLocationScan:andLong:email:pwd:mongoId:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

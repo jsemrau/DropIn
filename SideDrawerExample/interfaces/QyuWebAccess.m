@@ -22,7 +22,7 @@
 @synthesize imgMongoId;
 @synthesize coreDataKey;
 //@synthesize locationManager;
-@synthesize iPath,distance,timeFrame;
+@synthesize iPath,distance,timeFrame,timeZone;
 
 
 - (id)init
@@ -48,6 +48,8 @@
     objName=@"Webby";
     finishedLoading=FALSE;
     connectionType = @"submitScan";
+    
+    self.timeZone = [[NSTimeZone localTimeZone] name];
     
     return self;
 }
@@ -84,6 +86,8 @@
         
         self.timeFrame=@"8";
     }
+    
+    self.timeZone = [[NSTimeZone localTimeZone] name];
     
     objName=@"Webby";
     finishedLoading=FALSE;
@@ -147,6 +151,7 @@
     NSString *idstr = [@"id=" stringByAppendingString:@"validateCode"];
     NSString *qrcodeStr = [@"&qrcode=" stringByAppendingString:escapedQRCode];
     
+    NSString *tzStr = [@"&tz=" stringByAppendingString:self.timeZone];
     
     NSString *mongoStr = [@"&playerId=" stringByAppendingString:mongoId];
     
@@ -159,7 +164,7 @@
     NSString *gameId = @"&gameId=5";
     
     
-    NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@",  latStr, longStr,mailStr,pwdStr,mongoStr,langPref, qrcodeStr,gameId];
+    NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@%@",  latStr, longStr,mailStr,pwdStr,mongoStr,langPref, tzStr, qrcodeStr,gameId];
     
     //NSLog(@"URL %@", requestVars);
     
@@ -232,10 +237,12 @@ NSString *pwdStr = [@"&pwd=" stringByAppendingString:pwd];
 NSString *mongoStr = [@"&playerId=" stringByAppendingString:mongoId];
     
 NSString *eventHrsStr = [@"&nextHours=" stringByAppendingString:self.timeFrame];
-  
-NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@", latStr,longStr,distanceStr,eventHrsStr,mailStr,pwdStr,mongoStr];
+NSString *tzStr = [@"&tz=" stringByAppendingString:self.timeZone];
+ 
+    
+NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@", latStr,longStr,distanceStr,eventHrsStr,mailStr,pwdStr,mongoStr,tzStr];
 
-//NSLog(@"URL %@", requestVars);
+NSLog(@"URL %@", tzStr);
     
 NSData *requestData = [NSData dataWithBytes: [requestVars UTF8String] length: [requestVars length]];
 
@@ -328,7 +335,6 @@ if (theConnection)
     NSString *longStr = [@"&lng=" stringByAppendingString:[NSString stringWithFormat:@"%f", lon]];
     
     NSString *gameId = @"&gameId=5";
-    
     
     NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@%@",  latStr, longStr,mailStr,pwdStr,mongoStr,langPref, impressionStr,onAssetStr,gameId];
     

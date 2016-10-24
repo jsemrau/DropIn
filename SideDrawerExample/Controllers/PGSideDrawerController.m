@@ -39,6 +39,11 @@
     self.upcomingImage.contentMode=UIViewContentModeScaleAspectFit;
     [self.upcomingImage setImage:iconImage];
     
+    FAKIonIcons *favCIcon = [FAKIonIcons waterdropIconWithSize:tSize];
+    [favCIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    iconImage = [favCIcon imageWithSize:CGSizeMake(44, 44)];
+    self.favImage.contentMode=UIViewContentModeScaleAspectFit;
+    [self.favImage setImage:iconImage];
     
     FAKIonIcons *mailIcon = [FAKIonIcons iosSettingsIconWithSize:tSize];
     [mailIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
@@ -89,18 +94,20 @@
             centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FIRST_TOP_VIEW_CONTROLLER"];
             break;
         case 1:
-            centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"THIRD_TOP_VIEW_CONTROLLER"];
+            centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FAVOURITES"];
             break;
         case 2:
-            centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SECOND_TOP_VIEW_CONTROLLER"];
+            centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"THIRD_TOP_VIEW_CONTROLLER"];
             break;
         case 3:
-            centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FOURTH_TOP_VIEW_CONTROLLER"];
+            centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SECOND_TOP_VIEW_CONTROLLER"];
             break;
         case 4:
+            centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FOURTH_TOP_VIEW_CONTROLLER"];
+            break;
+        case 5:
             centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PRIVACY_POLICY"];
             break;
-            
         default:
             break;
     }

@@ -25,6 +25,8 @@
     IBOutlet UIImageView *aboutImage;
     IBOutlet UIImageView *privacyImage;
     
+    IBOutlet UIImageView *favImage;
+    
     IBOutlet UITableView *sideTable;
 }
 
@@ -35,6 +37,7 @@
 @property(nonatomic, retain) IBOutlet UIImageView *privacyImage;
 @property(nonatomic, retain) IBOutlet UIImageView *tnCImage;
 @property(nonatomic, retain) IBOutlet UITableView *sideTable;
+@property(nonatomic, retain) IBOutlet UIImageView *favImage;
 
 
 @end

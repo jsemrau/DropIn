@@ -296,6 +296,9 @@
 		06C6C3901D27CBEE00A229DF /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = 06C6C38B1D27CBEE00A229DF /* page3.png */; };
 		06C6C3911D27CBEE00A229DF /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = 06C6C38C1D27CBEE00A229DF /* page4.png */; };
 		06C6C3931D27CD1D00A229DF /* page5.png in Resources */ = {isa = PBXBuildFile; fileRef = 06C6C3921D27CD1D00A229DF /* page5.png */; };
+		06C6FABC1DBD94860017D240 /* favCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C6FABA1DBD94860017D240 /* favCell.m */; };
+		06C6FABD1DBD94860017D240 /* favCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06C6FABB1DBD94860017D240 /* favCell.xib */; };
+		06C6FAC01DBD953C0017D240 /* TQ_Favorites.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C6FABF1DBD953C0017D240 /* TQ_Favorites.m */; };
 		06CD9B3F1D50E7D9009CFB8A /* drop_white_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CD9B3E1D50E7D9009CFB8A /* drop_white_new.png */; };
 		06CD9B411D50E8A9009CFB8A /* drop-new.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CD9B401D50E8A9009CFB8A /* drop-new.png */; };
 		06CD9B451D50EA50009CFB8A /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CD9B421D50EA50009CFB8A /* about.png */; };
@@ -748,6 +751,11 @@
 		06C6C38B1D27CBEE00A229DF /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
 		06C6C38C1D27CBEE00A229DF /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = "<group>"; };
 		06C6C3921D27CD1D00A229DF /* page5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page5.png; sourceTree = "<group>"; };
+		06C6FAB91DBD94860017D240 /* favCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = favCell.h; path = Controllers/tblCells/favCell.h; sourceTree = "<group>"; };
+		06C6FABA1DBD94860017D240 /* favCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = favCell.m; path = Controllers/tblCells/favCell.m; sourceTree = "<group>"; };
+		06C6FABB1DBD94860017D240 /* favCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = favCell.xib; path = Controllers/tblCells/favCell.xib; sourceTree = "<group>"; };
+		06C6FABE1DBD953C0017D240 /* TQ_Favorites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQ_Favorites.h; sourceTree = "<group>"; };
+		06C6FABF1DBD953C0017D240 /* TQ_Favorites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQ_Favorites.m; sourceTree = "<group>"; };
 		06CD9B3E1D50E7D9009CFB8A /* drop_white_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drop_white_new.png; path = assets/ui/icons/drop_white_new.png; sourceTree = "<group>"; };
 		06CD9B401D50E8A9009CFB8A /* drop-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "drop-new.png"; path = "assets/ui/icons/drop-new.png"; sourceTree = "<group>"; };
 		06CD9B421D50EA50009CFB8A /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about.png; path = drawer/about.png; sourceTree = "<group>"; };
@@ -1429,6 +1437,9 @@
 				06AC42781BB83F5300872A9D /* lotCell.h */,
 				06AC42791BB83F5300872A9D /* lotCell.m */,
 				06AC427A1BB83F5300872A9D /* lotCell.xib */,
+				06C6FAB91DBD94860017D240 /* favCell.h */,
+				06C6FABA1DBD94860017D240 /* favCell.m */,
+				06C6FABB1DBD94860017D240 /* favCell.xib */,
 			);
 			name = tableCell;
 			sourceTree = "<group>";
@@ -1545,6 +1556,8 @@
 				068A86861BC96F1400578BCA /* TQ_SettingsVC.m */,
 				068A86881BC96F2400578BCA /* TQ_MapVC.h */,
 				068A86891BC96F2400578BCA /* TQ_MapVC.m */,
+				06C6FABE1DBD953C0017D240 /* TQ_Favorites.h */,
+				06C6FABF1DBD953C0017D240 /* TQ_Favorites.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1882,6 +1895,7 @@
 				06A557A31BC17E81004152C8 /* PR_2_00023.png in Resources */,
 				06CFEDCF1C21948900A2D7C5 /* city-loop-56.png in Resources */,
 				0626E6EA1D275FEE00CA2D0F /* city-master-02.png in Resources */,
+				06C6FABD1DBD94860017D240 /* favCell.xib in Resources */,
 				06DB73A01C9C1A89000B30D3 /* power-by--drk.png in Resources */,
 				06A556CF1BC17E74004152C8 /* Icon.png in Resources */,
 				062FBC5D1BF11664002D9BBC /* Randi_00023.png in Resources */,
@@ -2151,6 +2165,7 @@
 				06AC42721BB83B8B00872A9D /* GFLocationManager.m in Sources */,
 				068A86841BC96F0500578BCA /* TQ_AboutVC.m in Sources */,
 				ED7368AF19CB2E0A00B69BEC /* main.m in Sources */,
+				06C6FAC01DBD953C0017D240 /* TQ_Favorites.m in Sources */,
 				068A86871BC96F1400578BCA /* TQ_SettingsVC.m in Sources */,
 				06F9FEAF1C0C9389008DA44C /* TQ_IntroViewController.m in Sources */,
 				ED7368B019CB2E0A00B69BEC /* PGAppDelegate.m in Sources */,
@@ -2158,6 +2173,7 @@
 				06AC42731BB83B8B00872A9D /* LocationController.m in Sources */,
 				06AC427B1BB83F5300872A9D /* lotCell.m in Sources */,
 				06AC42751BB83B8B00872A9D /* MapPin.m in Sources */,
+				06C6FABC1DBD94860017D240 /* favCell.m in Sources */,
 				ED7368AB19CB2E0A00B69BEC /* PGSideDrawerController.m in Sources */,
 				06AC42741BB83B8B00872A9D /* MapOverlay.m in Sources */,
 				0660A80D1C133C2200457B2E /* TQInitPageViewController.m in Sources */,

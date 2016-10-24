@@ -1,22 +1,20 @@
 //
-//  lotCell.m
-//  ParkerMeister
+//  favCell.m
+//  dropin
 //
-//  Created by Ganesha on 20/2/15.
-//  Copyright (c) 2015 tenqyu. All rights reserved.
+//  Created by tenqyu on 24/10/16.
+//  Copyright © 2016 tenqyu. All rights reserved.
 //
 
-#import "lotCell.h"
+#import "favCell.h"
 
-@implementation lotCell
+@implementation favCell
 
 @synthesize title,desc, goingCount, maxCount, distance, inXMinutes,price,recurringLabel;
 @synthesize lotViewIndicator,category,catLabel;
 @synthesize priceInd1,priceInd2,priceInd3,priceInd4 ;
 @synthesize priceLabel1,priceLabel2,priceLabel3 ;
 @synthesize favInd1,favInd2,favInd3,favInd4;
-
-
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -44,7 +42,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 

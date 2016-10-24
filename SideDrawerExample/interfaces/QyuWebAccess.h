@@ -37,6 +37,7 @@
     
     NSString *distance;
     NSString *timeFrame;
+    NSString *timeZone;
     
     __strong id<QyuWebDelegate> delegate;
      
@@ -55,6 +56,7 @@
 @property(nonatomic, retain) NSString *iPath ;
 @property(nonatomic, retain) NSString *distance ;
 @property(nonatomic, retain) NSString *timeFrame ;
+@property(nonatomic, retain) NSString *timeZone ;
 
 @property(nonatomic, assign) BOOL finishedLoading;
 @property (nonatomic, retain) __strong id <QyuWebDelegate> delegate;
