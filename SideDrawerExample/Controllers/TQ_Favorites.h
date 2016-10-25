@@ -10,4 +10,13 @@
 
 @interface TQ_Favorites : UIViewController
 
+{
+    
+    NSMutableDictionary *likedIDs;
+    
+}
+
+@property (nonatomic, retain) NSMutableDictionary *likedIDs;
+
+
 @end

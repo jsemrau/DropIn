@@ -80,11 +80,9 @@
 @property(nonatomic, retain) IBOutlet UIView * cityHeader ;
 @property(nonatomic,retain) IBOutlet UIView *blurry;
 
-
 @property(nonatomic, retain) IBOutlet UILabel *messagerLabel;
 @property(nonatomic, retain) IBOutlet UIImageView * whiter ;
 @property(nonatomic, retain) IBOutlet UIImageView * footerImageView ;
-
 
 @property (nonatomic, retain) IBOutlet UIButton* gotoSettings;
 @property (nonatomic, retain) IBOutlet UIButton* gotoRefresh;

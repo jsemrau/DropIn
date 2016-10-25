@@ -14,9 +14,17 @@
 
 @implementation TQ_Favorites
 
+@synthesize likedIDs;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSUserDefaults *prefs;
+    
+    prefs= [NSUserDefaults standardUserDefaults];
+    self.likedIDs=[[prefs objectForKey:@"likedItems"] mutableCopy];
+    
 }
 
 - (void)didReceiveMemoryWarning {

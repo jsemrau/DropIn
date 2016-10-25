@@ -148,23 +148,21 @@
     
     
     [self.eventTable reloadData];
+    [self.eventTable setNeedsLayout];
+    [self.eventTable layoutIfNeeded];
+    [self.eventTable reloadData];
+    
     
     if(!self.refreshControl){
         self.refreshControl = [UIRefreshControl new];
         
         self.refreshControl.backgroundColor=[UIColor whiteColor];
         self.refreshControl.tintColor=[UIColor flatSkyBlueColor];
-    
-        //[UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0];s
-        
-        //SpringImageView *rcImageView =[[SpringImageView alloc] initWithFrame:CGRectMake(
-          //                                                ((self.refreshControl.bounds.size.width)/2)-50, self.refreshControl.bounds.size.height/2,328, 228)];
-       // SpringImageView *rcImageView =SpringImageView
-        //;
         
         UIImageView *rcImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"asia-blue.png"]];
         
         [rcImageView setContentMode:UIViewContentModeScaleAspectFill];
+       
         //UIViewContentModeScaleAspectFit
         [self.refreshControl insertSubview:rcImageView atIndex:0];
         
@@ -176,17 +174,16 @@
         [self.eventTable sendSubviewToBack:refreshControl];
     }
     
- 
-    /*
-    self.cityHeader.layer.shadowColor = [UIColor grayColor].CGColor;
-    self.cityHeader.layer.shadowOffset = CGSizeMake(0, 2);
-    self.cityHeader.layer.shadowOpacity = 0.5;
-    self.cityHeader.layer.shadowRadius = 1.0;
-    */
     
     NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
     
     /* If need to get updates do that now */
+    
+   // [self.eventTable reloadInputViews];
+     [self.eventTable reloadData];
+    [self.eventTable setNeedsLayout];
+    [self.eventTable layoutIfNeeded];
+    [self.eventTable reloadData];
     
     if (self.needsUpdates) {
         
@@ -253,12 +250,20 @@
     
     [self.navigationItem setRightBarButtonItems:arr];
   
-    
+    [self.eventTable reloadData];
+    [self.eventTable setNeedsLayout];
+    [self.eventTable layoutIfNeeded];
+    [self.eventTable reloadData];
     
 }
 - (void) viewDidLoad:(BOOL) animated {
     
     [super viewDidLoad];
+    
+    [self.eventTable reloadData];
+    [self.eventTable setNeedsLayout];
+    [self.eventTable layoutIfNeeded];
+    [self.eventTable reloadData];
 
     
     
@@ -369,6 +374,8 @@
         }
     }
     
+    
+    
     cell.contentMode=UIViewContentModeScaleAspectFill;
     
     if ([self.filteredEventList count]>0){
@@ -382,7 +389,6 @@
         FAKFontAwesome *likeIcon = [FAKFontAwesome heartOIconWithSize:50];
         [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatWhiteColor]];
         UIImage *iconImage = [likeIcon imageWithSize:CGSizeMake(75, 75)];
-        cell.lotViewIndicator.contentMode=UIViewContentModeScaleAspectFit;
         
         //[UIImage imageNamed:@"fav.png"]
         
@@ -390,6 +396,7 @@
             
             NSLog(@"Convenience callback for swipe buttons!");
              [self sendFavorite:sender withId:[text objectForKey:@"id"]];
+            
             
             return true;
             
@@ -407,7 +414,6 @@
         FAKFontAwesome *dislikeIcon = [FAKFontAwesome thumbsDownIconWithSize:50];
         [dislikeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatWhiteColor]];
         iconImage = [dislikeIcon imageWithSize:CGSizeMake(75, 75)];
-        cell.lotViewIndicator.contentMode=UIViewContentModeScaleAspectFit;
         
         MGSwipeButton *dislikeBtn = [MGSwipeButton buttonWithTitle:@"" icon:iconImage backgroundColor:[UIColor flatRedColorDark] callback:^BOOL(MGSwipeTableCell *sender) {
             NSLog(@"Convenience callback for dislikeBtn:!");
@@ -483,8 +489,7 @@
         
         if ([[text objectForKey:@"recur_string"] length]==0) {
             
-            NSLog(@" Length zero %@" , [text objectForKey:@"recur_string"]);
-            //cell.recurringLabel.alpha=0.0;
+          //  NSLog(@" Length zero %@" , [text objectForKey:@"recur_string"]);
             [cell.recurringLabel removeFromSuperview];
             
         } else {
@@ -590,17 +595,6 @@
        //Make it round
         cell.category.layer.cornerRadius = cell.category.frame.size.height/2; // this value vary as per your desire
         cell.category.clipsToBounds = YES;
-        
-     /*   UIBezierPath *maskPathIcon = [UIBezierPath bezierPathWithRoundedRect:cell.category.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
-        // Create the shape layer and set its path
-        CAShapeLayer *maskLayerIcon = [CAShapeLayer layer];
-        maskLayerIcon.frame = cell.category.bounds;
-        maskLayerIcon.path = maskPathIcon.CGPath;
-        // Set the newly created shape layer as the mask for the image view's layer
-       cell.category.layer.mask = maskLayerIcon;
-       cell.category.clipsToBounds = NO;
-        */
-        
         
        
         NSString *maxTest;
@@ -797,18 +791,6 @@
         }
         
         
-        
-        /*
-        
-        if ([[text objectForKey:@"going_count"] intValue]<=25) {
-            cell.lotViewIndicator.image = [UIImage imageNamed:@"pk_map_icon_marker_red.png"];
-        } else if (25< [[text objectForKey:@"going_count"] intValue] && [[text objectForKey:@"lots"] intValue]<=50) {
-            cell.lotViewIndicator.image =[UIImage imageNamed:@"pk_map_icon_marker_yellow.png"];
-        } else {
-            cell.lotViewIndicator.image=[UIImage imageNamed:@"pk_map_icon_marker.png"];
-        }*/
-        
-        
         /* round edges */
         
         UIBezierPath * maskPath = [UIBezierPath bezierPathWithRoundedRect:cell.lotViewIndicator.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
@@ -838,7 +820,7 @@
                 [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
                 UIImage *iconImage = [likeIcon imageWithSize:CGSizeMake(20, 20)];
                 cell.lotViewIndicator.contentMode=UIViewContentModeScaleAspectFit;
-               
+                
                 //set image
                 //[self.favButton setBackgroundImage:iconImage forState:UIControlStateNormal];
                 cell.lotViewIndicator.backgroundColor = [UIColor flatWhiteColor];
@@ -905,14 +887,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     TQ_EventDetailsViewController *eventDetails = [storyboard instantiateViewControllerWithIdentifier:@"EVENT_DETAILS"];
     
-    
     NSMutableDictionary *text=[self.filteredEventList objectAtIndex:indexPath.row];
-    
-  //  lotCell *cell = [self.eventTable cellForRowAtIndexPath:indexPath];
-    
-    //NSString* colorString = [cell.category.backgroundColor description];
-    
-   // eventDetails.themeColor = ;
     
     eventDetails.handOver=text;
     
@@ -1012,7 +987,12 @@
         [self fadeOutImage];
         //self.messager.alpha=1.0;
         self.eventTable.alpha=1.0;
+        
         [self.eventTable reloadData];
+        [self.eventTable setNeedsLayout];
+        [self.eventTable layoutIfNeeded];
+        [self.eventTable reloadData];
+    
         //[self reloadInputViews];
         
         
@@ -1056,7 +1036,10 @@
         
         //Now it is time to show the table again
        
-       [self.eventTable reloadData];
+        [self.eventTable reloadData];
+        [self.eventTable setNeedsLayout];
+        [self.eventTable layoutIfNeeded];
+        [self.eventTable reloadData];
         
     
     }
@@ -1069,6 +1052,7 @@
     if(!self.needsUpdates){
         
         [self stoppingLoadingAnimation ];
+        [self.eventTable reloadInputViews];
         [self fadeInTableView];
         
     }
@@ -1549,16 +1533,20 @@
     [self notifyMe:@"game" withMessage:@"err-spam"];
     
     [self.eventTable reloadData];
+    [self.eventTable setNeedsLayout];
+    [self.eventTable layoutIfNeeded];
+    [self.eventTable reloadData];
+    
     
 }
 
 - (void)sendFavorite:(id)sender withId:(NSString*)idStr{
     
     
-        if ([self.likedIDs objectForKey: idStr]) // YES
+    if ([self.likedIDs objectForKey: idStr]) // YES
         {
             // Do something
-            
+           
             [self.likedIDs removeObjectForKey:idStr];
             
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -1592,13 +1580,17 @@
    
          NSLog(@"%@", idStr);
         
-        
+        self.likedIDs = [[[NSDictionary alloc] initWithObjectsAndKeys:[NSDate date ],idStr,nil] mutableCopy];
     }
     
     [[NSUserDefaults standardUserDefaults] setObject:self.likedIDs forKey:@"likedItems"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self.eventTable reloadData];
+    [self.eventTable setNeedsLayout];
+    [self.eventTable layoutIfNeeded];
+    [self.eventTable reloadData];
+    
 }
 
 
@@ -1656,6 +1648,10 @@
    
     
     [self.eventTable reloadData];
+    [self.eventTable setNeedsLayout];
+    [self.eventTable layoutIfNeeded];
+    [self.eventTable reloadData];
+    
 }
 
 - (void) notifyMe:(NSString*)ttl withMessage:(NSString*)msg {

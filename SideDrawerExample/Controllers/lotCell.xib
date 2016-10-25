@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="redraw" selectionStyle="default" indentationWidth="10" rowHeight="90" id="KGk-i7-Jjw" customClass="lotCell">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="lotCell" rowHeight="90" id="KGk-i7-Jjw" customClass="lotCell">
             <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -20,12 +20,6 @@
                         <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="2" id="Y8q-1p-v14"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vdd-Tp-X0s">
-                        <constraints>
-                            <constraint firstAttribute="height" constant="28" id="Vnd-mP-Ol6"/>
-                            <constraint firstAttribute="width" constant="28" id="sPL-88-I2A"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="49" placeholderIntrinsicHeight="16" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9L-NK-Wbq">
@@ -107,6 +101,12 @@
                         <color key="textColor" red="0.42655369639396667" green="0.47584608197212219" blue="0.48026475310325623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YE1-pe-hc9">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="bbr-yZ-Sh5"/>
+                            <constraint firstAttribute="height" constant="15" id="xLC-0R-1V0"/>
+                        </constraints>
+                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x7Q-R4-Pai" customClass="SpringImageView" customModule="Spring">
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="2u7-Jm-2VF"/>
@@ -120,10 +120,10 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YE1-pe-hc9">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vdd-Tp-X0s">
                         <constraints>
-                            <constraint firstAttribute="width" constant="15" id="bbr-yZ-Sh5"/>
-                            <constraint firstAttribute="height" constant="15" id="xLC-0R-1V0"/>
+                            <constraint firstAttribute="height" constant="28" id="Vnd-mP-Ol6"/>
+                            <constraint firstAttribute="width" constant="28" id="sPL-88-I2A"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -174,16 +174,16 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="NFn-Q9-y2a"/>
                         <exclude reference="2BO-3Y-YN6"/>
+                        <exclude reference="tLX-m6-XCJ"/>
+                        <exclude reference="NFn-Q9-y2a"/>
+                        <exclude reference="ITj-wG-esD"/>
+                        <exclude reference="EzT-RL-f1o"/>
                         <exclude reference="Ssn-HX-rje"/>
                         <exclude reference="UsB-9S-mcN"/>
                         <exclude reference="Zaq-ks-cgx"/>
                         <exclude reference="pv3-TM-0DR"/>
                         <exclude reference="zBI-18-qZ7"/>
-                        <exclude reference="ITj-wG-esD"/>
-                        <exclude reference="tLX-m6-XCJ"/>
-                        <exclude reference="EzT-RL-f1o"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
