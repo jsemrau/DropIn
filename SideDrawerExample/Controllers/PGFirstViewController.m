@@ -22,7 +22,7 @@
 
 @implementation PGFirstViewController
 
-@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter,prefCats,hasCategories,hasUpdates, blurry, gotoSettings,gotoRefresh,userDetails,footerImageView, bar1,bar2,bar3;
+@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter,prefCats,hasCategories,hasUpdates, blurry, gotoSettings,gotoRefresh,userDetails,footerImageView, bar1,bar2,bar3,favEvents;
 
 -(void) viewWillAppear:(BOOL)animated{
     
@@ -147,12 +147,6 @@
     }
     
     
-    [self.eventTable reloadData];
-    [self.eventTable setNeedsLayout];
-    [self.eventTable layoutIfNeeded];
-    [self.eventTable reloadData];
-    
-    
     if(!self.refreshControl){
         self.refreshControl = [UIRefreshControl new];
         
@@ -176,15 +170,48 @@
     
     
     NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
+    UIColor *btnColor =[UIColor flatSkyBlueColor];
     
-    /* If need to get updates do that now */
+    //distance
     
-   // [self.eventTable reloadInputViews];
-     [self.eventTable reloadData];
+    FAKIonIcons *clockIcon = [FAKIonIcons iosLocationOutlineIconWithSize:25];
+    
+    //  FAKFontAwesome *clockIcon = [FAKFontAwesome mapMarkerIconWithSize:25];
+    [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
+    UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
+    //[UIImage imageNamed:@"sortByDistance32x32.png"]
+    UIImage *image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.bar1 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByDistance:)];
+    
+    //time
+    clockIcon = [FAKIonIcons iosClockOutlineIconWithSize:25];
+    [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
+    iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
+    //[UIImage imageNamed:@"sortByDistance32x32.png"]
+    image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.bar2 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByDate:)];
+    
+    //cat
+    FAKIonIcons *sortIcon = [FAKIonIcons iosListOutlineIconWithSize:25];
+    [sortIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
+    iconImage = [sortIcon imageWithSize:CGSizeMake(35, 35)];
+    //[UIImage imageNamed:@"sortByDistance32x32.png"]
+    image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.bar3 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByCategory:)];
+    
+    NSMutableArray * arr = [NSMutableArray arrayWithObjects: self.bar3,self.bar2,self.bar1, nil];
+    
+    [self.navigationItem setRightBarButtonItems:arr];
+    
+
+    [self.eventTable reloadData];
     [self.eventTable setNeedsLayout];
     [self.eventTable layoutIfNeeded];
     [self.eventTable reloadData];
     
+    /* If need to get updates do that now */
+    
+
     if (self.needsUpdates) {
         
         self.messager.alpha=0.0;
@@ -217,39 +244,7 @@
     
     self.eventTable.scrollsToTop =YES;
     
-    UIColor *btnColor =[UIColor flatSkyBlueColor];
     
-    //distance
-    
-    FAKIonIcons *clockIcon = [FAKIonIcons iosLocationOutlineIconWithSize:25];
-    
-  //  FAKFontAwesome *clockIcon = [FAKFontAwesome mapMarkerIconWithSize:25];
-    [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
-    UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
-    //[UIImage imageNamed:@"sortByDistance32x32.png"]
-    UIImage *image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.bar1 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByDistance:)];
-    
-    //time
-    clockIcon = [FAKIonIcons iosClockOutlineIconWithSize:25];
-    [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
-    iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
-    //[UIImage imageNamed:@"sortByDistance32x32.png"]
-    image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.bar2 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByDate:)];
-    
-    //cat
-   FAKIonIcons *sortIcon = [FAKIonIcons iosListOutlineIconWithSize:25];
-    [sortIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
-    iconImage = [sortIcon imageWithSize:CGSizeMake(35, 35)];
-    //[UIImage imageNamed:@"sortByDistance32x32.png"]
-    image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.bar3 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByCategory:)];
-    
-    NSMutableArray * arr = [NSMutableArray arrayWithObjects: self.bar3,self.bar2,self.bar1, nil];
-    
-    [self.navigationItem setRightBarButtonItems:arr];
-  
     [self.eventTable reloadData];
     [self.eventTable setNeedsLayout];
     [self.eventTable layoutIfNeeded];
@@ -378,12 +373,15 @@
     
     cell.contentMode=UIViewContentModeScaleAspectFill;
     
+    /* Check that there is an element to display */
+    
     if ([self.filteredEventList count]>0){
         
+        /* 'text' will now hold the current event item */
         
         NSDictionary *text=[self.filteredEventList objectAtIndex:indexPath.row];
         
-        //configure interaction buttons
+        /* Design interaction buttons */
         
         //get image
         FAKFontAwesome *likeIcon = [FAKFontAwesome heartOIconWithSize:50];
@@ -437,6 +435,7 @@
         
         cell.desc.text=[tmpStr string];
 
+        /* Calculate time intervals */
         
         NSString *dateString = [text objectForKey:@"start_time"];
         NSDateFormatter *startDateFormat = [[NSDateFormatter alloc] init];
@@ -520,6 +519,8 @@
         }
         
     
+        /* Design category images */
+        
         if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"arts.png"];
             cell.category.backgroundColor=[UIColor flatRedColor];
@@ -596,6 +597,7 @@
         cell.category.layer.cornerRadius = cell.category.frame.size.height/2; // this value vary as per your desire
         cell.category.clipsToBounds = YES;
         
+        /* Calculate going count */
        
         NSString *maxTest;
         if ([[text valueForKey:@"max_count"] isEqualToString:@"0"]){
@@ -622,6 +624,8 @@
             
             
         }
+        
+        /* Populate people going indicator */
         
         UIImage *filledPerson = [UIImage imageNamed:@"personRun_blue.png"];
         
@@ -667,10 +671,12 @@
         
         
         float dist = [[text objectForKey:@"distance"] floatValue];
+        
         if (dist>=1) {
             
             cell.distance.text=[[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString: @" km"] ;
         } else {
+            
             dist=dist*1000;
             float new = [[NSString stringWithFormat:@"%.2f",dist]floatValue];
             cell.distance.text=[[NSString stringWithFormat:@"%d",(int)new] stringByAppendingString: @" mtrs"] ;
@@ -808,11 +814,10 @@
         [fmt setMaximumFractionDigits:0];
         [fmt setMinimumFractionDigits:0];
         
-        
-      
-        
         if (self.likedIDs) {
-            //if it does not exists then create array
+            
+            //if the current event is in the liked list then execute
+            
             if ([self.likedIDs objectForKey:[text objectForKey:@"id"]]) {
                 
                 //get image
@@ -840,17 +845,6 @@
         
     } // self.eventlist - this one checks if there are more than one item in the list
     
-    /*
-    if (indexPath.row % 2) {
-        
-        cell.contentView.backgroundColor = [UIColor colorWithRed:218.0/255.0 green:218.0/255.0 blue:218.0/255.0 alpha:1.0];
-        
-    } else {
-        
-        cell.contentView.backgroundColor = [[UIColor alloc]initWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1];
-        
-    }
-    */
     
     return cell;
     
@@ -1542,12 +1536,24 @@
 
 - (void)sendFavorite:(id)sender withId:(NSString*)idStr{
     
+    /* if there is no idString then there is nothing to write. Return */
+    
+    if(!idStr){
+        return;
+    }
+    
     
     if ([self.likedIDs objectForKey: idStr]) // YES
         {
-            // Do something
+            
+            /*
+            If the key already exists then we need to remove it
+            from the liked list and send the 'unliked' indicator to
+            the web service
+            */
            
             [self.likedIDs removeObjectForKey:idStr];
+            [self.favEvents removeObjectForKey:idStr];
             
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
@@ -1556,35 +1562,70 @@
             [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-unliked", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             
-        
      } else {
+     
+         /*
+          the event has not been liked yet
+          then create a mutable array as long as likedIds.
+          
+          if likedId's was empty then create a new array and add
+          the item
+          otherwise just add the item.
+          */
+         
+         NSMutableArray *data= [[NSMutableArray alloc] initWithCapacity:[self.likedIDs count]];
+         
+         for (NSMutableDictionary *event in self.eventList){
+             
+             if([idStr isEqualToString: [event objectForKey:@"id"]]){
+                 
+                 /* Now you got the event; Add it to the fav list */
+                 
+                 if([self.favEvents count]>0){
+                     
+                     [self.favEvents setObject:event forKey:idStr];
+                     
+                 } else {
+                     
+                     self.favEvents = [[[NSDictionary alloc] initWithObjectsAndKeys:idStr,event,nil] mutableCopy];
+                 }
+                 
+                 //[data addObject:event];
+                 
+             }
+             
+         }
+         
+         NSLog(@"data %@", data);
+         
+         
+        /* If likedID's does not exist create it. */
+         
+        if([self.likedIDs count]>0){
         
-        if(idStr && self.likedIDs) //or if(str != nil) or if(str.length>0)
-        {
-            
-            if([self.likedIDs count]>0){
-                [self.likedIDs setObject:[NSDate date] forKey:idStr];
-            } else {
+            [self.likedIDs setObject:[NSDate date] forKey:idStr];
+        
+        } else {
                 
-                self.likedIDs = [[[NSDictionary alloc] initWithObjectsAndKeys:[NSDate date ],idStr,nil] mutableCopy];
-            }
-            
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-            QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
-            [webby setDelegate:self];
-            
-            [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-liked", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-            
+            self.likedIDs = [[[NSDictionary alloc] initWithObjectsAndKeys:[NSDate date ],idStr,nil] mutableCopy];
         }
-   
-         NSLog(@"%@", idStr);
-        
-        self.likedIDs = [[[NSDictionary alloc] initWithObjectsAndKeys:[NSDate date ],idStr,nil] mutableCopy];
+         
+         /* In both cases you want to contact the web service and store your result. */
+
+         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+         QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+         [webby setDelegate:self];
+         
+         [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-liked", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
+         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }
     
     [[NSUserDefaults standardUserDefaults] setObject:self.likedIDs forKey:@"likedItems"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.favEvents forKey:@"favEvents"];
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSLog(@" count likeIds %lu", (unsigned long)[self.likedIDs count]);
     
     [self.eventTable reloadData];
     [self.eventTable setNeedsLayout];

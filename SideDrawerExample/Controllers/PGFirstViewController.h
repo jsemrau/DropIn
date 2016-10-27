@@ -53,6 +53,8 @@
     
     NSMutableDictionary *notiDictionary;
     NSMutableDictionary *likedIDs;
+    NSMutableDictionary *favEvents;
+
  
     
     IBOutlet UIRefreshControl *refreshControl;
@@ -99,6 +101,7 @@
 @property (nonatomic, retain) NSMutableDictionary *likedIDs;
 @property (nonatomic, retain) NSMutableDictionary *prefCats; //there are 12 categories
 @property(nonatomic, retain) NSMutableDictionary *userDetails;
+@property(nonatomic, retain) NSMutableDictionary *favEvents;
 
 @property (nonatomic, retain) IBOutlet UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet GADBannerView  *bannerView;

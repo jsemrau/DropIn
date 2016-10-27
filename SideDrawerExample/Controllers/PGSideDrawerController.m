@@ -39,9 +39,9 @@
     self.upcomingImage.contentMode=UIViewContentModeScaleAspectFit;
     [self.upcomingImage setImage:iconImage];
     
-    FAKIonIcons *favCIcon = [FAKIonIcons waterdropIconWithSize:tSize];
-    [favCIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
-    iconImage = [favCIcon imageWithSize:CGSizeMake(44, 44)];
+    FAKFontAwesome *favIcon = [FAKFontAwesome heartOIconWithSize:tSize];
+    [favIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
+    iconImage = [favIcon imageWithSize:CGSizeMake(44, 44)];
     self.favImage.contentMode=UIViewContentModeScaleAspectFit;
     [self.favImage setImage:iconImage];
     

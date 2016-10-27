@@ -7,16 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "favCell.h"
+#import "TQ_EventDetailsViewController.h"
+#import "UIViewController+MMDrawerController.h"
 
-@interface TQ_Favorites : UIViewController
+@interface TQ_Favorites : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 {
     
     NSMutableDictionary *likedIDs;
+    NSMutableDictionary *favEventsAll;
+    
+    NSArray *likedArray;
+    
+    IBOutlet UITableView* likesTable;
     
 }
 
 @property (nonatomic, retain) NSMutableDictionary *likedIDs;
+@property (nonatomic, retain) NSMutableDictionary *favEventsAll;
+@property (nonatomic, retain) IBOutlet UITableView* likesTable;
+@property (nonatomic, retain) IBOutlet NSArray* likedArray;
 
 
 @end
