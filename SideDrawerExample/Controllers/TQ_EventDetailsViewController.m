@@ -598,22 +598,33 @@
     // Objective-C
     TWTRComposer *composer = [[TWTRComposer alloc] init];
     
-   NSString *file =  [self.handOver objectForKey:@"url"];
+   NSString *active_content_url =  [self.handOver objectForKey:@"url"];
+    
+    NSString *apiEndpoint = [NSString stringWithFormat:@"http://tinyurl.com/api-create.php?url=%@",active_content_url];
+    NSString *shortURL = [NSString stringWithContentsOfURL:[NSURL URLWithString:apiEndpoint]
+                                                  encoding:NSASCIIStringEncoding
+                                                     error:nil];
+    /* use shortURL */
     
     NSString *message;
 
     if([[self.handOver objectForKey:@"city_name"] length]>0){
     NSString *loc = [self.handOver objectForKey:@"city_name"];
     
-    message = [NSString stringWithFormat:@"Yo! Check out this event %@ in %@ I will drop!in !", file, loc];
+    message = [NSString stringWithFormat:@"Great %@ event in %@ I will drop!in ! Details here : %@ ",[self.handOver objectForKey:@"title"]  , loc,shortURL];
                                                         
     } else {
         
-    message = [NSString stringWithFormat:@"Yo! Check out this event %@ I will drop!in!", file];
+        message = [NSString stringWithFormat:@"Great %@ event I will drop!in ! Details here : %@ ",[self.handOver objectForKey:@"title"], shortURL];
     }
 
+    if([message length]>140){
+        
+        message = [NSString stringWithFormat:@"Yo! Check out this event %@ I will drop!in!", shortURL];
+    }
+    
     [composer setText:message];
-    [composer setImage:[UIImage imageNamed:@"logo-final_400.png"]];
+    [composer setImage:[UIImage imageNamed:@"Icon-76.png"]];
     
     // Called from a UIViewController
     [composer showFromViewController:self completion:^(TWTRComposerResult result) {

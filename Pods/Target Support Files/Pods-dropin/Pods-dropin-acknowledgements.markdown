@@ -362,8 +362,6 @@ THE SOFTWARE.
 
 iRate
 
-Version 1.11.6, August 4th, 2016
-
 Copyright (C) 2011 Charcoal Design
 
 This software is provided 'as-is', without any express or implied

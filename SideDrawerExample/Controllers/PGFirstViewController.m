@@ -1,9 +1,9 @@
 //
 //  PGFirstViewController.m
-// SideDrawerExample
 //
-//  Created by Pulkit Goyal on 18/09/14.
-//  Copyright (c) 2014 Pulkit Goyal. All rights reserved.
+//
+//  Created by Jan Semrau .
+//  Copyright (c) 2016 Tenqyu. All rights reserved.
 //
 
 #import "PGFirstViewController.h"
@@ -116,6 +116,7 @@
          **/
         
         if ([eventDetails count]>0){
+            
             self.eventList=eventDetails;
             self.filteredEventList=[self filterArrayWithCategories:self.eventList];
             
@@ -203,12 +204,6 @@
     
     [self.navigationItem setRightBarButtonItems:arr];
     
-
-    [self.eventTable reloadData];
-    [self.eventTable setNeedsLayout];
-    [self.eventTable layoutIfNeeded];
-    [self.eventTable reloadData];
-    
     /* If need to get updates do that now */
     
 
@@ -244,25 +239,12 @@
     
     self.eventTable.scrollsToTop =YES;
     
-    
-    [self.eventTable reloadData];
-    [self.eventTable setNeedsLayout];
-    [self.eventTable layoutIfNeeded];
-    [self.eventTable reloadData];
-    
-}
-- (void) viewDidLoad:(BOOL) animated {
-    
-    [super viewDidLoad];
-    
-    [self.eventTable reloadData];
-    [self.eventTable setNeedsLayout];
-    [self.eventTable layoutIfNeeded];
-    [self.eventTable reloadData];
+    [self fadeInTableView];
 
     
-    
 }
+
+
 
 -(void)showTime{
     
@@ -333,6 +315,13 @@
     return 60;
 }*/
 
+- (BOOL)tableView:(UITableView *)tableView
+canEditRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    
+    return FALSE;
+    
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 
 {
@@ -341,9 +330,12 @@
     
 }
 
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 90;
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -351,31 +343,56 @@
     
     static NSString *CellIdentifier = @"lotCell";
     
-    lotCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    lotCell *cell =(lotCell*) [self.eventTable dequeueReusableCellWithIdentifier:CellIdentifier];
+  
+    if(!cell){
     
-    if (!cell) {
-        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        // More initializations if needed.
+    cell = [[lotCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    
         
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"lotCell" owner:self options:nil];
+    cell = (lotCell*)[[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
+
+
+    
+ 
+        
+    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
         
         for(id currentObject in topLevelObjects)
         {
             if([currentObject isKindOfClass:[lotCell class]])
             {
                 cell = (lotCell *)currentObject;
+                
                 break;
             }
         }
+    
     }
     
+    /*
+    if(!cell){
+        
+        return cell;
+        
+    }*/
+    
+    /* restore contentView */
+    
+    BOOL hasContentView = [cell.subviews containsObject:cell.contentView];
+    if(!hasContentView){
+        [cell.contentView addSubview:cell.contentView];
+    }
+    //cell.alpha=1.0;
+    
+    //cell.contentMode=UIViewContentModeScaleAspectFill;
     
     
-    cell.contentMode=UIViewContentModeScaleAspectFill;
-    
+   
     /* Check that there is an element to display */
     
     if ([self.filteredEventList count]>0){
+        
         
         /* 'text' will now hold the current event item */
         
@@ -428,98 +445,7 @@
         cell.leftButtons = @[likeBtn];
         cell.leftSwipeSettings.transition = MGSwipeTransitionDrag;
         
-        
-        cell.title.text=[text objectForKey:@"title"];
-        
-        NSAttributedString *tmpStr = [[NSAttributedString alloc] initWithData:[[text objectForKey:@"description"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
-        
-        cell.desc.text=[tmpStr string];
-
-        /* Calculate time intervals */
-        
-        NSString *dateString = [text objectForKey:@"start_time"];
-        NSDateFormatter *startDateFormat = [[NSDateFormatter alloc] init];
-        [startDateFormat setDateFormat:@"yyyy-MM-dd H:mm:ss"];
-//        NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-        NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
-        
-        [startDateFormat setTimeZone:timeZone];
-        [startDateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
-        NSDate *startDate1 = [startDateFormat dateFromString:dateString];
-        
-        int tInterval = (int)round([startDate1 timeIntervalSinceNow]/60);
-        
-        
-        if(tInterval<=0){
-            
-            cell.inXMinutes.text=@"started";
-            
-           // cell.inXMinutes.textColor=[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0];
-            cell.inXMinutes.textColor=[UIColor flatSkyBlueColor];
-            
-            
-        } else {
-            if (tInterval>60) {
-                //convert to hours
-                tInterval=tInterval/60;
-               // NSLog(@" My Interval %d", tInterval);
-                if (tInterval == 1) {
-                     cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" hr"]];
-                } else {
-                    cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" hrs"]];
-                }
-            } else {
-               // NSLog(@" My Interval %d", tInterval);
-                
-                cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" min"]];
-                cell.inXMinutes.textColor= [UIColor flatSkyBlueColor];
-                //[UIColor colorWithRed:57/255.0 green:181/255.0 blue:74/255.0 alpha:1.0];
-            }
-        }
-        
-        if ([[text objectForKey:@"recommend_flag"] isEqualToString:@"1"]){
-            
-            cell.inXMinutes.text=@"recommended";
-            cell.inXMinutes.textColor=[UIColor flatGreenColor];
-            
-        }
-        
-        
-        
-        if ([[text objectForKey:@"recur_string"] length]==0) {
-            
-          //  NSLog(@" Length zero %@" , [text objectForKey:@"recur_string"]);
-            [cell.recurringLabel removeFromSuperview];
-            
-        } else {
-
-            NSLog(@" Recurring %@" , [text objectForKey:@"recur_string"]);
-            
-           // FAKIonIcons *clockIcon = [FAKIonIcons iosLoopStrongIconWithSize:15];
-            FAKIonIcons *clockIcon = [FAKIonIcons loopIconWithSize:15];
-            UIColor *btnColor = [UIColor flatRedColor];
-            [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
-            UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(15, 15)];
-            UIImage *image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-            cell.recurringLabel.image=image;
-            
-            cell.recurringLabel.layer.cornerRadius = cell.recurringLabel.frame.size.height/2;
-            cell.recurringLabel.clipsToBounds = YES;
-            
-           // cell.recurringLabel.backgroundColor=[UIColor flatRedColor];
-            cell.recurringLabel.alpha=1.0;
-
-        }
-        
-        int durationCheck= [[text objectForKey:@"duration"] intValue]*-1 ;
-        //which one is more negative
-        if (tInterval <= durationCheck ){
-            cell.inXMinutes.text=@"expired";
-            cell.inXMinutes.textColor=[UIColor flatRedColor];
-        }
-        
-    
-        /* Design category images */
+        /* Design category images -- I am moving this here to see if that solves the loading problem */
         
         if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]]) {
             cell.category.image = [UIImage imageNamed:@"arts.png"];
@@ -578,7 +504,7 @@
         }
         
         else if ([[text valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[11]", nil)]]) {
-           
+            
             cell.category.image = [UIImage imageNamed:@"other.png"];
             cell.category.backgroundColor=[UIColor flatWhiteColorDark];
             
@@ -586,16 +512,115 @@
             
             cell.category.image = [UIImage imageNamed:@"other.png"];
             cell.category.backgroundColor=[UIColor flatWhiteColorDark];
-
+            
             
         }
         
         
         /* Rounded Edges */
         
-       //Make it round
+        //Make it round
         cell.category.layer.cornerRadius = cell.category.frame.size.height/2; // this value vary as per your desire
         cell.category.clipsToBounds = YES;
+       
+        /* Set title & description */
+        
+        NSLog(@"%@",[text objectForKey:@"title"]);
+        
+        cell.title.text=[text objectForKey:@"title"];
+        
+        NSAttributedString *tmpStr = [[NSAttributedString alloc] initWithData:[[text objectForKey:@"description"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
+        
+        cell.desc.text=[tmpStr string];
+
+        
+        
+        /* Calculate time intervals */
+        
+        NSString *dateString = [text objectForKey:@"start_time"];
+        NSDateFormatter *startDateFormat = [[NSDateFormatter alloc] init];
+        [startDateFormat setDateFormat:@"yyyy-MM-dd H:mm:ss"];
+//        NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+        NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
+        
+        [startDateFormat setTimeZone:timeZone];
+        [startDateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
+        NSDate *startDate1 = [startDateFormat dateFromString:dateString];
+        
+        int tInterval = (int)round([startDate1 timeIntervalSinceNow]/60);
+        
+        
+        if(tInterval<=0){
+            
+            cell.inXMinutes.text=@"started";
+            
+           // cell.inXMinutes.textColor=[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0];
+            cell.inXMinutes.textColor=[UIColor flatSkyBlueColor];
+            
+            
+        } else {
+            if (tInterval>60) {
+                //convert to hours
+                tInterval=tInterval/60;
+               // NSLog(@" My Interval %d", tInterval);
+                if (tInterval == 1) {
+                     cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" hr"]];
+                } else {
+                    cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" hrs"]];
+                }
+            } else {
+               // NSLog(@" My Interval %d", tInterval);
+                
+                cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" min"]];
+                cell.inXMinutes.textColor= [UIColor flatSkyBlueColor];
+                //[UIColor colorWithRed:57/255.0 green:181/255.0 blue:74/255.0 alpha:1.0];
+            }
+        }
+        
+        
+        /* Set additional characteristica in the view */
+        
+        if ([[text objectForKey:@"recommend_flag"] isEqualToString:@"1"]){
+            
+            cell.inXMinutes.text=@"recommended";
+            cell.inXMinutes.textColor=[UIColor flatGreenColor];
+            
+        }
+        
+        
+        if ([[text objectForKey:@"recur_string"] length]==0) {
+            
+          //  NSLog(@" Length zero %@" , [text objectForKey:@"recur_string"]);
+            [cell.recurringLabel removeFromSuperview];
+            
+        } else {
+
+            NSLog(@" Recurring %@" , [text objectForKey:@"recur_string"]);
+            
+           // FAKIonIcons *clockIcon = [FAKIonIcons iosLoopStrongIconWithSize:15];
+            FAKIonIcons *clockIcon = [FAKIonIcons loopIconWithSize:15];
+            UIColor *btnColor = [UIColor flatRedColor];
+            [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
+            UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(15, 15)];
+            UIImage *image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            cell.recurringLabel.image=image;
+            
+            cell.recurringLabel.layer.cornerRadius = cell.recurringLabel.frame.size.height/2;
+            cell.recurringLabel.clipsToBounds = YES;
+            
+           // cell.recurringLabel.backgroundColor=[UIColor flatRedColor];
+            cell.recurringLabel.alpha=1.0;
+
+        }
+        
+        int durationCheck= [[text objectForKey:@"duration"] intValue]*-1 ;
+        //which one is more negative
+        if (tInterval <= durationCheck ){
+            cell.inXMinutes.text=@"expired";
+            cell.inXMinutes.textColor=[UIColor flatRedColor];
+        }
+        
+    
         
         /* Calculate going count */
        
@@ -797,17 +822,6 @@
         }
         
         
-        /* round edges */
-        
-        UIBezierPath * maskPath = [UIBezierPath bezierPathWithRoundedRect:cell.lotViewIndicator.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
-        // Create the shape layer and set its path
-        CAShapeLayer *maskLayer = [CAShapeLayer layer];
-        maskLayer.frame = cell.lotViewIndicator.bounds;
-        maskLayer.path = maskPath.CGPath;
-        // Set the newly created shape layer as the mask for the image view's layer
-        cell.lotViewIndicator.layer.mask = maskLayer;
-        cell.lotViewIndicator.clipsToBounds = NO;
-        
         
         NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
         fmt.numberStyle=NSNumberFormatterDecimalStyle;
@@ -817,9 +831,15 @@
         if (self.likedIDs) {
             
             //if the current event is in the liked list then execute
-            
+           
+          
             if ([self.likedIDs objectForKey:[text objectForKey:@"id"]]) {
                 
+                NSLog(@" %@ ", [text objectForKey:@"title"]);
+                NSLog(@" %@ ", self.likedIDs);
+                NSLog(@"***");
+                
+                NSLog(@"***** Found it %@ *****", [text objectForKey:@"id"]);
                 //get image
                 FAKFontAwesome *likeIcon = [FAKFontAwesome heartIconWithSize:10];
                 [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
@@ -835,16 +855,27 @@
                 cell.lotViewIndicator.layer.cornerRadius = cell.lotViewIndicator.frame.size.height/2; // this value vary as per your desire
                 cell.lotViewIndicator.clipsToBounds = YES;
                 
+                /* round edges -- set if selected */
+                
+                UIBezierPath * maskPath = [UIBezierPath bezierPathWithRoundedRect:cell.lotViewIndicator.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
+                // Create the shape layer and set its path
+                CAShapeLayer *maskLayer = [CAShapeLayer layer];
+                maskLayer.frame = cell.lotViewIndicator.bounds;
+                maskLayer.path = maskPath.CGPath;
+                // Set the newly created shape layer as the mask for the image view's layer
+                cell.lotViewIndicator.layer.mask = maskLayer;
+                cell.lotViewIndicator.clipsToBounds = NO;
                 
               //--orig  [cell.lotViewIndicator setImage:[UIImage imageNamed:@"Liked.png"]];
                 
             }
         }
         
-            
+        NSLog(@"Inside Cell %@", cell.title.text);
         
     } // self.eventlist - this one checks if there are more than one item in the list
     
+    NSLog(@" Cell %@", cell.title.text);
     
     return cell;
     
@@ -957,7 +988,7 @@
 - (void)locationsReceived:(NSDictionary *)resultData
 {
     
-    NSLog(@" loc -> %@",resultData);
+    //NSLog(@" loc -> %@",resultData);
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
@@ -981,11 +1012,7 @@
         [self fadeOutImage];
         //self.messager.alpha=1.0;
         self.eventTable.alpha=1.0;
-        
-        [self.eventTable reloadData];
-        [self.eventTable setNeedsLayout];
-        [self.eventTable layoutIfNeeded];
-        [self.eventTable reloadData];
+
     
         //[self reloadInputViews];
         
@@ -1029,11 +1056,7 @@
         [[self.view viewWithTag:12] removeFromSuperview];
         
         //Now it is time to show the table again
-       
-        [self.eventTable reloadData];
-        [self.eventTable setNeedsLayout];
-        [self.eventTable layoutIfNeeded];
-        [self.eventTable reloadData];
+
         
     
     }
@@ -1050,6 +1073,9 @@
         [self fadeInTableView];
         
     }
+    
+    
+    NSLog(@" %@", self.likedIDs);
     
    
     
@@ -1300,8 +1326,15 @@
 
 - (void)fadeInTableView
 {
+    
+   // [self.eventTable reloadData];
+    [self.eventTable setNeedsLayout];
+    [self.eventTable layoutIfNeeded];
+    [self.eventTable reloadData];
+    
+    
     [UIView beginAnimations:@"fade in" context:nil];
-    [UIView setAnimationDuration:1.5];
+    [UIView setAnimationDuration:0.5];
     self.eventTable.alpha = 1.0;
     [UIView commitAnimations];
     
@@ -1526,10 +1559,6 @@
     
     [self notifyMe:@"game" withMessage:@"err-spam"];
     
-    [self.eventTable reloadData];
-    [self.eventTable setNeedsLayout];
-    [self.eventTable layoutIfNeeded];
-    [self.eventTable reloadData];
     
     
 }
@@ -1542,9 +1571,15 @@
         return;
     }
     
+   // [self toggleFavEvent:idStr];
     
     if ([self.likedIDs objectForKey: idStr]) // YES
         {
+            
+            
+            NSLog(@" %@ ", idStr);
+            NSLog(@" %@ ", self.likedIDs);
+            NSLog(@"***");
             
             /*
             If the key already exists then we need to remove it
@@ -1553,7 +1588,7 @@
             */
            
             [self.likedIDs removeObjectForKey:idStr];
-            [self.favEvents removeObjectForKey:idStr];
+            
             
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
@@ -1573,30 +1608,8 @@
           otherwise just add the item.
           */
          
-         NSMutableArray *data= [[NSMutableArray alloc] initWithCapacity:[self.likedIDs count]];
+       //  NSMutableArray *data= [[NSMutableArray alloc] initWithCapacity:[self.likedIDs count]];
          
-         for (NSMutableDictionary *event in self.eventList){
-             
-             if([idStr isEqualToString: [event objectForKey:@"id"]]){
-                 
-                 /* Now you got the event; Add it to the fav list */
-                 
-                 if([self.favEvents count]>0){
-                     
-                     [self.favEvents setObject:event forKey:idStr];
-                     
-                 } else {
-                     
-                     self.favEvents = [[[NSDictionary alloc] initWithObjectsAndKeys:idStr,event,nil] mutableCopy];
-                 }
-                 
-                 //[data addObject:event];
-                 
-             }
-             
-         }
-         
-         NSLog(@"data %@", data);
          
          
         /* If likedID's does not exist create it. */
@@ -1620,20 +1633,75 @@
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }
     
-    [[NSUserDefaults standardUserDefaults] setObject:self.likedIDs forKey:@"likedItems"];
-    [[NSUserDefaults standardUserDefaults] setObject:self.favEvents forKey:@"favEvents"];
     
+    [[NSUserDefaults standardUserDefaults] setObject:self.likedIDs forKey:@"likedItems"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     NSLog(@" count likeIds %lu", (unsigned long)[self.likedIDs count]);
     
-    [self.eventTable reloadData];
-    [self.eventTable setNeedsLayout];
-    [self.eventTable layoutIfNeeded];
-    [self.eventTable reloadData];
     
 }
 
+- (void) toggleFavEvent :(NSString*) idStr{
+    
+    /* If you currently don't have an object check if there is one in prefs */
+    if(! self.favEvents){
+        
+        NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
+        self.favEvents =[prefs objectForKey:@"favEvents"];
+        
+    }
+    
+    /*  If the favourites still does not exist */
+    if(! self.favEvents){
+        
+        //create empty favEvents
+        self.favEvents = [[NSMutableDictionary alloc]init];
+        
+    }
+    
+    NSLog(@"data %@", self.favEvents );
+    
+    if([self.favEvents objectForKey: idStr]){
+        
+        //favorite exists
+        
+        [self.favEvents removeObjectForKey:idStr];
+        
+    } else {
+    
+        //favourite does not exist
+    
+    for (NSMutableDictionary *event in self.eventList){
+        
+        if([idStr isEqualToString: [event objectForKey:@"id"]]){
+            
+            /* Now you got the event; Add it to the fav list */
+            
+            if(![self.favEvents objectForKey:idStr]){
+                
+                if([self.favEvents count]>0){
+                    
+                    [self.favEvents setObject:event forKey:idStr];
+                    
+                    
+                } else {
+                    
+                    self.favEvents = [[[NSDictionary alloc] initWithObjectsAndKeys:idStr,event,nil] mutableCopy];
+                }
+                
+            } // end / check event already exists in list...no duplicates
+        }
+        
+    }
+    
+    }//end else
+    
+    NSArray *favs =[self.favEvents allValues];
+    [[NSUserDefaults standardUserDefaults] setObject:favs forKey:@"favEvents"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
 
 - (void)sendDislike:(id)sender withId:(NSString*)idStr atIndex:(NSIndexPath *)indexPath{
     
@@ -1686,12 +1754,7 @@
     }
     
    
-   
-    
-    [self.eventTable reloadData];
-    [self.eventTable setNeedsLayout];
-    [self.eventTable layoutIfNeeded];
-    [self.eventTable reloadData];
+
     
 }
 
@@ -1761,7 +1824,32 @@
     
     
 }
+/*
 
+-(BOOL) swipeTableCell:(MGSwipeTableCell*) cell canSwipe:(MGSwipeDirection) direction
+{
+    return true;
+}
+-(void) swipeTableCell:(MGSwipeTableCell*) cell didChangeSwipeState:(MGSwipeState) state gestureIsActive:(BOOL) gestureIsActive
+{
+}
 
+-(BOOL) swipeTableCell:(MGSwipeTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion
+{
+    NSIndexPath *indexPath = [eventTable indexPathForCell:cell];
+    NSInteger rowOfTheCell = [indexPath row];
+    NSInteger sectionOfTheCell = [indexPath section];
+    NSLog(@"rowofthecell %ld", rowOfTheCell);
+    NSLog(@"sectionOfTheCell %ld", sectionOfTheCell);
+    
+    return NO; // If you don't want to hide the cell.
+}
+-(NSArray*) swipeTableCell:(MGSwipeTableCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
+             swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings
+{
+
+    NSIndexPath *myPath = [eventTable indexPathForCell:cell];
+    NSLog(@"Pressed Credit last = %ld", (long)myPath.row);
+}*/
 
 @end

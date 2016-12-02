@@ -10,11 +10,11 @@
 
 @implementation favCell
 
-@synthesize title,desc, goingCount, maxCount, distance, inXMinutes,price,recurringLabel;
+@synthesize title,desc, maxCount, distance, inXMinutes,price,recurringLabel;
 @synthesize lotViewIndicator,category,catLabel;
-@synthesize priceInd1,priceInd2,priceInd3,priceInd4 ;
-@synthesize priceLabel1,priceLabel2,priceLabel3 ;
-@synthesize favInd1,favInd2,favInd3,favInd4;
+@synthesize priceInd1;
+@synthesize priceLabel1,tStamped;
+@synthesize favInd1;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -37,6 +37,15 @@
     self.lotViewIndicator.layer.mask = maskLayer;
     self.lotViewIndicator.clipsToBounds = NO;
     
+    return self;
+}
+
+-(id) initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor clearColor];
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    }
     return self;
 }
 

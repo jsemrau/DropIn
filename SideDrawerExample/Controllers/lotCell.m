@@ -30,6 +30,7 @@
         // Initialization code
     }
     
+    /*
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.lotViewIndicator.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(10.0, 10.0)];
     // Create the shape layer and set its path
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
@@ -37,8 +38,17 @@
     maskLayer.path = maskPath.CGPath;
     // Set the newly created shape layer as the mask for the image view's layer
     self.lotViewIndicator.layer.mask = maskLayer;
-    self.lotViewIndicator.clipsToBounds = NO;
+    self.lotViewIndicator.clipsToBounds = NO;*/
     
+    return self;
+}
+
+-(id) initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor clearColor];
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    }
     return self;
 }
 
@@ -47,5 +57,16 @@
 
     // Configure the view for the selected state
 }
+/*
+- (void) prepareforReuse{
 
+    [super prepareForReuse];
+    
+    BOOL hasContentView = [self.subviews containsObject:self.contentView];
+    if(hasContentView){
+        [self.contentView removeFromSuperview];
+    }
+    
+}
+*/
 @end

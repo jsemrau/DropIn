@@ -17,7 +17,7 @@
 @implementation PGSideDrawerController
 
 @synthesize settingImage,aboutImage,privacyImage,mapImage,tnCImage,upcomingImage;
-@synthesize sideTable;
+@synthesize sideTable,favImage;
 
 
 - (void)viewDidLoad {
@@ -93,19 +93,19 @@
         case 0:
             centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FIRST_TOP_VIEW_CONTROLLER"];
             break;
-        case 1:
+       /* case 1:
             centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FAVOURITES"];
-            break;
-        case 2:
+            break;*/
+        case 1:
             centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"THIRD_TOP_VIEW_CONTROLLER"];
             break;
-        case 3:
+        case 2:
             centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SECOND_TOP_VIEW_CONTROLLER"];
             break;
-        case 4:
+        case 3:
             centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FOURTH_TOP_VIEW_CONTROLLER"];
             break;
-        case 5:
+        case 4:
             centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PRIVACY_POLICY"];
             break;
         default:

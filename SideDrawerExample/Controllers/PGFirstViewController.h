@@ -24,13 +24,13 @@
 @import GoogleMobileAds;
 
 
-@interface PGFirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,QyuWebDelegate,GFLocationManagerDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface PGFirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,QyuWebDelegate,GFLocationManagerDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate,MGSwipeTableCellDelegate>
 
 {
     
     
     IBOutlet UITableView* eventTable;
-    IBOutlet UITableViewCell *eventTableCellItem;
+    IBOutlet lotCell *eventTableCellItem;
     
     bool gettingUpdates;
     bool needsUpdates;
@@ -68,7 +68,7 @@
 @property (nonatomic, retain) IBOutlet UIButton* refreshButton;
 
 @property (nonatomic, retain) IBOutlet UITableView* eventTable;
-@property (nonatomic, retain) IBOutlet UITableViewCell *eventTableCellItem;
+@property (nonatomic, retain) IBOutlet lotCell *eventTableCellItem;
 @property (nonatomic, retain) IBOutlet UILabel *weatherString ;
 
 @property(nonatomic, assign) bool loadedWithLocation;
