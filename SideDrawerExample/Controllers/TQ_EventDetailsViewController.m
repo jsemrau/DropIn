@@ -164,9 +164,6 @@
     
     self.summaryView.backgroundColor= self.themeColor;
     
-    
-    NSLog(@" Category %@", [self.handOver valueForKey:@"category"]);
-    
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
@@ -180,7 +177,6 @@
     self.vStop_time=[self.handOver objectForKey:@"stop_time"];
     self.idStr=[self.handOver objectForKey:@"id"];
     
-    //NSLog(@" Check this %@",[self.handOver objectForKey:@"id"]);
     /* Before loading the items*/
     
     [self setModalPresentationStyle:UIModalPresentationFullScreen];
@@ -408,8 +404,6 @@
         
     }
     
-    NSLog(@"********** %@ **************",self.eURL);
-    
     if ([self.vNameStr isEqualToString:@""]) {
         self.vName.text=[NSString stringWithFormat:NSLocalizedString(@"no-venue", nil)];
         [self geoLookUp];
@@ -584,7 +578,7 @@
     CLLocationCoordinate2D center;
     center.latitude=latVar;
     center.longitude = longVar;
-    NSLog(@"View Controller get Location Logitute : %f",center.latitude);
+     (@"View Controller get Location Logitute : %f",center.latitude);
     NSLog(@"View Controller get Location Latitute : %f",center.longitude);
     return center;
     
@@ -599,28 +593,23 @@
     TWTRComposer *composer = [[TWTRComposer alloc] init];
     
    NSString *active_content_url =  [self.handOver objectForKey:@"url"];
-    
-    NSString *apiEndpoint = [NSString stringWithFormat:@"http://tinyurl.com/api-create.php?url=%@",active_content_url];
-    NSString *shortURL = [NSString stringWithContentsOfURL:[NSURL URLWithString:apiEndpoint]
-                                                  encoding:NSASCIIStringEncoding
-                                                     error:nil];
-    /* use shortURL */
+   
     
     NSString *message;
 
     if([[self.handOver objectForKey:@"city_name"] length]>0){
     NSString *loc = [self.handOver objectForKey:@"city_name"];
     
-    message = [NSString stringWithFormat:@"Great %@ event in %@ I will drop!in ! Details here : %@ ",[self.handOver objectForKey:@"title"]  , loc,shortURL];
+    message = [NSString stringWithFormat:@"Great %@ event ! Details here : %@ ",[self.handOver objectForKey:@"title"],active_content_url];
                                                         
     } else {
         
-        message = [NSString stringWithFormat:@"Great %@ event I will drop!in ! Details here : %@ ",[self.handOver objectForKey:@"title"], shortURL];
+        message = [NSString stringWithFormat:@"Great %@ event I will drop!in ! Details here : %@ ",[self.handOver objectForKey:@"title"], active_content_url];
     }
 
     if([message length]>140){
         
-        message = [NSString stringWithFormat:@"Yo! Check out this event %@ I will drop!in!", shortURL];
+        message = [NSString stringWithFormat:@"Yo! Check out this event %@ I will drop!in!", active_content_url];
     }
     
     [composer setText:message];
@@ -1232,8 +1221,6 @@ else
 #pragma mark animations
 - (void) startingSocialAnimation {
     
-    NSLog(@" Starting Social with at location" );
-      ;
     
     self.socialView.alpha=1.0;
     self.socialActive=TRUE;
@@ -1314,9 +1301,13 @@ else
         url_base_to_send = [NSString stringWithFormat:url_base  ,[self.fullAddress stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding ]];
     }
     
-    NSLog(@" RQV %@",url_base_to_send);
-    
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url_base_to_send]];
+    
+    
+}
+
+-(IBAction) checkInVenue:(id)sender {
+    
     
     
 }

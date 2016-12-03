@@ -464,19 +464,10 @@ if (theConnection)
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     
     NSLog(@"didFailWithError %@ at URL %@", error, connection.currentRequest.URL.absoluteString );
-/*
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
-                                                    message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)]
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];*/
-    
-  //  [RKDropdownAlert title:[NSString stringWithFormat:NSLocalizedString(@"game", nil)] message:[NSString stringWithFormat:NSLocalizedString(@"err-lost", nil)] backgroundColor:[UIColor flatWhiteColor] textColor:[UIColor flatTealColor] time:5];
-    
-    [self notifyMe:@"game" withMessage:@"err-lost"];
-    
+    if(![self.connectionType isEqual: @"saveImpression"]){
+        [self notifyMe:@"game" withMessage:@"err-lost"];
+    }
     
     if(delegate && [delegate respondsToSelector:@selector(noLocationsReceived)]) {
         NSLog(@"Delegating no locations");

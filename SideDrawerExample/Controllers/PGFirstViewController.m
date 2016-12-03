@@ -88,14 +88,6 @@
     self.loading.alpha=0.0;
     self.eventTable.alpha=0.0;
     
-  
-  /*
-    
-    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"submitScan"];
-    [webby setDelegate:self];
-    [webby submitQRScan:@"https://choose.tenqyu.com?q=103a047313a84e37c195017a0eff503601eef833f52b5ea8a49411b85ff6e30c" email:[userDetails objectForKey:@"email"]  pwd:[userDetails objectForKey:@"pwd"] mongoId:[userDetails objectForKey:@"id"] withLat:self.currentLocation.coordinate.latitude andLong:self.currentLocation.coordinate.longitude];
-    */
-    
     NSUserDefaults *prefs;
     NSArray *eventDetails;
     
@@ -225,10 +217,19 @@
     
 }
 
+- (void)viewDidLoad{
+    
+    //[self.self.eventTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"lotCell"];
+    
+    [self.self.eventTable registerNib:[UINib nibWithNibName:@"lotCell" bundle:nil]forCellReuseIdentifier:@"lotCell"];
+    
+}
 - (void)viewDidAppear:(BOOL)animated{
     
     [self.view addSubview:self.loader];
-    
+
+    //[self.eventTable registerClass:[lotCell class] forCellReuseIdentifier:@"lotCell"];
+  ;
     //disable scroll to top for all text views
     for (UITextView *view in self.view.subviews) {
         if ([view isKindOfClass:[UITextView class]]) {
@@ -237,9 +238,10 @@
     }
     
     
+
     self.eventTable.scrollsToTop =YES;
     
-    [self fadeInTableView];
+   // [self fadeInTableView];
 
     
 }
@@ -343,50 +345,30 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     
     static NSString *CellIdentifier = @"lotCell";
     
-    lotCell *cell =(lotCell*) [self.eventTable dequeueReusableCellWithIdentifier:CellIdentifier];
+   // lotCell *cell =(lotCell*) [self.eventTable dequeueReusableCellWithIdentifier:CellIdentifier];
   
+    lotCell *cell =(lotCell*) [self.eventTable dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     if(!cell){
     
-    cell = [[lotCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    
+  //  cell = [[lotCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
     cell = (lotCell*)[[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
-
-
+   
     
- 
-        
-    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
-        
-        for(id currentObject in topLevelObjects)
-        {
-            if([currentObject isKindOfClass:[lotCell class]])
-            {
-                cell = (lotCell *)currentObject;
-                
-                break;
-            }
-        }
-    
+
     }
     
-    /*
+    
     if(!cell){
         
-        return cell;
+     NSLog(@" Problem ");
+     return cell;
         
-    }*/
-    
-    /* restore contentView */
-    
-    BOOL hasContentView = [cell.subviews containsObject:cell.contentView];
-    if(!hasContentView){
-        [cell.contentView addSubview:cell.contentView];
     }
-    //cell.alpha=1.0;
     
-    //cell.contentMode=UIViewContentModeScaleAspectFill;
-    
+    //reset lotview
+    //cell.lotViewIndicator=[[UIImageView alloc]initWithFrame:CGRectZero];
     
    
     /* Check that there is an element to display */
@@ -520,7 +502,10 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         /* Rounded Edges */
         
         //Make it round
-        cell.category.layer.cornerRadius = cell.category.frame.size.height/2; // this value vary as per your desire
+        //cell.category.layer.cornerRadius = cell.category.frame.size.height/2; // this value vary as per your desire
+        
+        cell.category.layer.cornerRadius = 14;
+        
         cell.category.clipsToBounds = YES;
        
         /* Set title & description */
@@ -828,54 +813,21 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         [fmt setMaximumFractionDigits:0];
         [fmt setMinimumFractionDigits:0];
         
+        
+        cell.lotViewIndicator.hidden=YES;
+        
         if (self.likedIDs) {
             
             //if the current event is in the liked list then execute
-           
-          
             if ([self.likedIDs objectForKey:[text objectForKey:@"id"]]) {
                 
-                NSLog(@" %@ ", [text objectForKey:@"title"]);
-                NSLog(@" %@ ", self.likedIDs);
-                NSLog(@"***");
-                
-                NSLog(@"***** Found it %@ *****", [text objectForKey:@"id"]);
-                //get image
-                FAKFontAwesome *likeIcon = [FAKFontAwesome heartIconWithSize:10];
-                [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];
-                UIImage *iconImage = [likeIcon imageWithSize:CGSizeMake(20, 20)];
-                cell.lotViewIndicator.contentMode=UIViewContentModeScaleAspectFit;
-                
-                //set image
-                //[self.favButton setBackgroundImage:iconImage forState:UIControlStateNormal];
-                cell.lotViewIndicator.backgroundColor = [UIColor flatWhiteColor];
-                [cell.lotViewIndicator setImage:iconImage];
-                
-                //round edges
-                cell.lotViewIndicator.layer.cornerRadius = cell.lotViewIndicator.frame.size.height/2; // this value vary as per your desire
-                cell.lotViewIndicator.clipsToBounds = YES;
-                
-                /* round edges -- set if selected */
-                
-                UIBezierPath * maskPath = [UIBezierPath bezierPathWithRoundedRect:cell.lotViewIndicator.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
-                // Create the shape layer and set its path
-                CAShapeLayer *maskLayer = [CAShapeLayer layer];
-                maskLayer.frame = cell.lotViewIndicator.bounds;
-                maskLayer.path = maskPath.CGPath;
-                // Set the newly created shape layer as the mask for the image view's layer
-                cell.lotViewIndicator.layer.mask = maskLayer;
-                cell.lotViewIndicator.clipsToBounds = NO;
-                
-              //--orig  [cell.lotViewIndicator setImage:[UIImage imageNamed:@"Liked.png"]];
-                
+                cell.lotViewIndicator.hidden=FALSE;
             }
         }
         
-        NSLog(@"Inside Cell %@", cell.title.text);
         
     } // self.eventlist - this one checks if there are more than one item in the list
     
-    NSLog(@" Cell %@", cell.title.text);
     
     return cell;
     
@@ -1539,13 +1491,16 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     if (iValue!=-1) {
         
         NSMutableArray *tmpArray = [NSMutableArray arrayWithArray:self.eventList];
+        
         [tmpArray removeObjectAtIndex:(NSInteger)iValue];
+       
         self.eventList = [NSArray arrayWithArray: tmpArray];
         self.filteredEventList=[self filterArrayWithCategories:self.eventList];
         //Now sync back.
         [[NSUserDefaults standardUserDefaults] setObject:self.eventList forKey:@"currentEvents"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
+        [self.eventTable reloadData];
     }
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -1639,6 +1594,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     
     NSLog(@" count likeIds %lu", (unsigned long)[self.likedIDs count]);
     
+    [self.eventTable reloadData];
     
 }
 
@@ -1744,13 +1700,16 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     if (iValue!=-1) {
         
         NSMutableArray *tmpArray = [NSMutableArray arrayWithArray:self.eventList];
+        
         [tmpArray removeObjectAtIndex:(NSInteger)iValue];
+        
         self.eventList = [NSArray arrayWithArray: tmpArray];
         self.filteredEventList=[self filterArrayWithCategories:self.eventList];
         //Now sync back.
         [[NSUserDefaults standardUserDefaults] setObject:self.eventList forKey:@"currentEvents"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
+        [self.eventTable reloadData];
     }
     
    
@@ -1824,12 +1783,17 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     
     
 }
-/*
+
+#pragma mark swipe delegate
+
+
 
 -(BOOL) swipeTableCell:(MGSwipeTableCell*) cell canSwipe:(MGSwipeDirection) direction
 {
-    return true;
+    return YES;
 }
+
+ /*
 -(void) swipeTableCell:(MGSwipeTableCell*) cell didChangeSwipeState:(MGSwipeState) state gestureIsActive:(BOOL) gestureIsActive
 {
 }

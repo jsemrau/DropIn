@@ -25,21 +25,74 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
+    
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         // Initialization code
+        title=[[UILabel alloc]initWithFrame:CGRectZero];
+        desc=[[UILabel alloc]initWithFrame:CGRectZero];
+        inXMinutes=[[UILabel alloc]initWithFrame:CGRectZero];
+        goingCount=[[UILabel alloc]initWithFrame:CGRectZero];
+        maxCount=[[UILabel alloc]initWithFrame:CGRectZero];
+        distance=[[UILabel alloc]initWithFrame:CGRectZero];
+        lotViewIndicator = [[UIImageView alloc] initWithFrame:CGRectZero];
+        category= [[UIImageView alloc] initWithFrame:CGRectZero];
+        price=[[UILabel alloc]initWithFrame:CGRectZero];
+        catLabel=[[UILabel alloc]initWithFrame:CGRectZero];
+        
+        recurringLabel= [[UIImageView alloc] initWithFrame:CGRectZero];
+        
+        
+        priceLabel1=[[UILabel alloc]initWithFrame:CGRectZero];
+        priceLabel2=[[UILabel alloc]initWithFrame:CGRectZero];
+        priceLabel3=[[UILabel alloc]initWithFrame:CGRectZero];
+        
+        priceInd1= [[UIImageView alloc] initWithFrame:CGRectZero];
+        priceInd2= [[UIImageView alloc] initWithFrame:CGRectZero];
+        priceInd3= [[UIImageView alloc] initWithFrame:CGRectZero];
+        priceInd4= [[UIImageView alloc] initWithFrame:CGRectZero];
+        
+        favInd1= [[UIImageView alloc] initWithFrame:CGRectZero];
+        favInd2= [[UIImageView alloc] initWithFrame:CGRectZero];
+        favInd3= [[UIImageView alloc] initWithFrame:CGRectZero];
+        favInd4= [[UIImageView alloc] initWithFrame:CGRectZero];
+        
+        [self.contentView addSubview:title];
+        [self.contentView addSubview:desc];
+        [self.contentView addSubview:inXMinutes];
+        [self.contentView addSubview:goingCount];
+        [self.contentView addSubview:maxCount];
+        [self.contentView addSubview:distance];
+        [self.contentView addSubview:lotViewIndicator];
+        [self.contentView addSubview:category];
+        [self.contentView addSubview:price];
+        [self.contentView addSubview:catLabel];
+        [self.contentView addSubview:recurringLabel];
+        [self.contentView addSubview:priceLabel1];
+        [self.contentView addSubview:priceLabel2];
+        [self.contentView addSubview:priceLabel3];
+        
+        [self.contentView addSubview:priceInd1];
+        [self.contentView addSubview:priceInd2];
+        [self.contentView addSubview:priceInd3];
+        [self.contentView addSubview:priceInd4];
+        
+        [self.contentView addSubview:favInd1];
+        [self.contentView addSubview:favInd2];
+        [self.contentView addSubview:favInd3];
+        [self.contentView addSubview:favInd4];
+        
+        
     }
     
-    /*
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.lotViewIndicator.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(10.0, 10.0)];
-    // Create the shape layer and set its path
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = self.lotViewIndicator.bounds;
-    maskLayer.path = maskPath.CGPath;
-    // Set the newly created shape layer as the mask for the image view's layer
-    self.lotViewIndicator.layer.mask = maskLayer;
-    self.lotViewIndicator.clipsToBounds = NO;*/
     
+    self.backgroundColor = [UIColor clearColor];
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    if(!self){
+        
+        NSLog(@" oh shit");
+        
+    }
     return self;
 }
 

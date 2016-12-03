@@ -12,8 +12,7 @@
 #import "FontAwesomeKit/FAKZocial.h"
 #import "FontAwesomeKit/FontAwesomeKit/FAKIonIcons.h"
 
-@interface lotCell : MGSwipeTableCell
-
+@interface lotCell : MGSwipeTableCell <MGSwipeTableCellDelegate>
 {
     
     IBOutlet UILabel *title;
@@ -74,5 +73,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView *favInd2;
 @property (nonatomic, retain) IBOutlet UIImageView *favInd3;
 @property (nonatomic, retain) IBOutlet UIImageView *favInd4;
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
 @end
