@@ -510,8 +510,6 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
        
         /* Set title & description */
         
-        NSLog(@"%@",[text objectForKey:@"title"]);
-        
         cell.title.text=[text objectForKey:@"title"];
         
         NSAttributedString *tmpStr = [[NSAttributedString alloc] initWithData:[[text objectForKey:@"description"] dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
@@ -1616,7 +1614,6 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         
     }
     
-    NSLog(@"data %@", self.favEvents );
     
     if([self.favEvents objectForKey: idStr]){
         
@@ -1679,8 +1676,6 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     
     NSDictionary *tmpCell= [self.filteredEventList objectAtIndex:indexPath.row];
     
-    NSLog(@" testing %@", [tmpCell objectForKey:@"id"]                              );
-
    // for(NSDictionary *vDic in self.eventList){
     
     int iValue=-1;
@@ -1690,7 +1685,6 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         
         if([tmpCell objectForKey:@"id"]  == [vDic objectForKey:@"id"] ){
             
-            NSLog(@" Found it %@", [vDic objectForKey:@"title"]);
             iValue= i;
             break;
             

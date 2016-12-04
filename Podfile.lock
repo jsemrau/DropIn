@@ -12,11 +12,11 @@ PODS:
   - DGActivityIndicatorView (2.1.1)
   - DZNEmptyDataSet (1.8.1)
   - EFCircularSlider (0.2.0)
-  - FBSDKCoreKit (4.17.0):
+  - FBSDKCoreKit (4.18.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.17.0):
+  - FBSDKLoginKit (4.18.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.17.0):
+  - FBSDKShareKit (4.18.0):
     - FBSDKCoreKit
   - FontAwesomeKit (2.2.0):
     - FontAwesomeKit/Core (= 2.2.0)
@@ -72,7 +72,7 @@ DEPENDENCIES:
   - GoogleConversionTracking
   - iRate
   - MGSwipeTableCell
-  - MMDrawerController (~> 0.6)
+  - MMDrawerController
   - Onboard
   - RKDropdownAlert
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
@@ -94,9 +94,9 @@ SPEC CHECKSUMS:
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EFCircularSlider: 3af1dd6f86eb3eeeeaab0345ef3d6d1c2fc93d17
-  FBSDKCoreKit: 30a21d2d7b92984b3d80497113433c00824c35e9
-  FBSDKLoginKit: 42b7129ac0373ca99eaf4cbebf4d07bd42371f59
-  FBSDKShareKit: 9b573d03fbee36cbaf42d5bb1f2bc019e0d72347
+  FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
+  FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
+  FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
   FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
   FSOpenInWhatsApp: 9122fd285faef1ef5c980b4acb649eece9720a3e
   Google-Mobile-Ads-SDK: 75d41dfcf06f7666ab211573d212768b0f766c5d
@@ -108,6 +108,6 @@ SPEC CHECKSUMS:
   RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: 48c7426fa64b903dfbe880cfebe7bd19de03589a
+PODFILE CHECKSUM: a8ed8ca9eb4467e4acf73d5b602728412fd054ff
 
 COCOAPODS: 1.1.0.rc.2
