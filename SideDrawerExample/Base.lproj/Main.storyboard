@@ -44,7 +44,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NAV_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="6du-M4-QlT" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="kWd-UB-h6o"/>
-                    <navigationBar key="navigationBar" contentMode="scaleAspectFit" misplaced="YES" id="DsS-nQ-bFe">
+                    <navigationBar key="navigationBar" contentMode="scaleAspectFit" id="DsS-nQ-bFe">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -243,7 +243,7 @@
         <scene sceneID="R8Q-uh-a7J">
             <objects>
                 <navigationController storyboardIdentifier="SECOND_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="Npu-zI-ucI" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ORc-fG-Vor">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ORc-fG-Vor">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -618,7 +618,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="112.5" placeholderIntrinsicHeight="23.5" text="distance (km)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0e-gr-Lzp">
-                                <rect key="frame" x="91" y="97.5" width="112.5" height="23.5"/>
+                                <rect key="frame" x="91" y="98" width="113" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="w4W-6a-4wW"/>
                                 </constraints>
@@ -1412,12 +1412,24 @@ Cg
                                     </mask>
                                 </variation>
                             </view>
-                            <view hidden="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-IQ-5Ho" customClass="SpringView" customModule="Spring">
+                            <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-IQ-5Ho" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="73" y="219" width="230" height="230"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop!in-logo_inverted_transparent.png" translatesAutoresizingMaskIntoConstraints="NO" id="kUR-cL-zyN">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="230"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="230" id="2PE-95-2rC"/>
+                                            <constraint firstAttribute="height" constant="230" id="Ijo-we-2bM"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="230" id="5q5-Hx-dtJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="kUR-cL-zyN" secondAttribute="bottom" id="GxV-y3-odF"/>
+                                    <constraint firstAttribute="trailing" secondItem="kUR-cL-zyN" secondAttribute="trailing" id="V2p-HR-uvC"/>
+                                    <constraint firstItem="kUR-cL-zyN" firstAttribute="leading" secondItem="pR4-IQ-5Ho" secondAttribute="leading" id="gxg-71-kyw"/>
                                     <constraint firstAttribute="width" constant="230" id="puw-Ua-KVj"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -1528,7 +1540,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgk-we-V9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2176" y="830"/>
+            <point key="canvasLocation" x="2175.1999999999998" y="829.83508245877067"/>
         </scene>
         <!--Event Details View Controller-->
         <scene sceneID="RwV-I0-c5S">
@@ -2921,7 +2933,7 @@ Cg
         <scene sceneID="47g-27-QuL">
             <objects>
                 <navigationController storyboardIdentifier="FIRST_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="CcW-hR-ldX" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xvD-Ql-RIJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xvD-Ql-RIJ">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2938,7 +2950,7 @@ Cg
             <objects>
                 <navigationController storyboardIdentifier="THIRD_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="lH9-uC-RbK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Hx1-1s-wpm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hx1-1s-wpm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2956,7 +2968,7 @@ Cg
             <objects>
                 <navigationController storyboardIdentifier="FOURTH_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="Myg-2i-C8C" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fed-i3-wNN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fed-i3-wNN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2974,7 +2986,7 @@ Cg
             <objects>
                 <navigationController storyboardIdentifier="PRIVACY_POLICY" automaticallyAdjustsScrollViewInsets="NO" id="sUF-zb-d2M" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kNI-Zh-u13">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kNI-Zh-u13">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2992,7 +3004,7 @@ Cg
             <objects>
                 <navigationController storyboardIdentifier="FAVOURITES" automaticallyAdjustsScrollViewInsets="NO" id="o5l-7i-fmk" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="obk-U6-cWZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="obk-U6-cWZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3015,6 +3027,7 @@ Cg
         <image name="about.png" width="132" height="132"/>
         <image name="asia-img.png" width="384" height="273"/>
         <image name="drop!in-logo.png" width="1024" height="1024"/>
+        <image name="drop!in-logo_inverted_transparent.png" width="1024" height="1024"/>
         <image name="drop-in-logo.png" width="806" height="1313"/>
         <image name="dropin-logo.png" width="963" height="356"/>
         <image name="grey-selected-button.png" width="342" height="92"/>

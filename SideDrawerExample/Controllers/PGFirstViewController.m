@@ -289,7 +289,7 @@
 }
 - (IBAction)refreshButtonPress:(id)sender {
     
-    // self.loader.alpha=1.0;
+    self.loader.alpha=1.0;
     self.hasUpdates=FALSE;
     self.needsUpdates=TRUE;
     
@@ -895,6 +895,9 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     
     gettingUpdates=FALSE;
     
+    self.loader.alpha=0.0;
+    
+    
     [self stoppingLoadingAnimation ];
     self.eventTable.alpha=0.0;
     self.blurry.alpha=0.0;
@@ -912,6 +915,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)notificationsReceived:(NSDictionary *)resultData{
     
     gettingUpdates=FALSE;
+    self.loader.alpha=0.0;
     
     //NSLog(@" -> %@",resultData);
     
@@ -946,6 +950,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     
     /* Case there are no events around you */
+    self.loader.alpha=0.0;
     
     gettingUpdates=FALSE;
     
