@@ -25,19 +25,30 @@
 
     self.currentIndex = 0;
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky"]];
+    /* sets the background image for the drawer
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background-white"]];
     imageView.alpha=0.64;
     self.tableView.backgroundView = imageView;
     self.tableView.contentMode=UIViewContentModeScaleToFill;
+    */
+    UIVisualEffect *blurEffect;
+    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    
+    UIVisualEffectView *visualEffectView;
+    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    
+    visualEffectView.frame = self.tableView.backgroundView.bounds;
+    [self.tableView.backgroundView addSubview:visualEffectView];
+    
     
     float tSize = 30;
     
-    
-    FAKIonIcons *upCIcon = [FAKIonIcons waterdropIconWithSize:tSize];
+    FAKIonIcons *upCIcon = [FAKIonIcons happyOutlineIconWithSize:tSize];
     [upCIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
     UIImage *iconImage = [upCIcon imageWithSize:CGSizeMake(44, 44)];
+    UIImage *iconImage2 = [UIImage imageNamed:@"drop!in-logo_inverted_transparent.png"];
     self.upcomingImage.contentMode=UIViewContentModeScaleAspectFit;
-    [self.upcomingImage setImage:iconImage];
+    [self.upcomingImage setImage:iconImage2];
     
     FAKFontAwesome *favIcon = [FAKFontAwesome heartOIconWithSize:tSize];
     [favIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor]];

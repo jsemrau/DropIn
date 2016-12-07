@@ -890,9 +890,8 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)lmapView viewForAnnotation:(id < MKAnnotation >)annotation{
     
-    if ([[annotation title] isEqualToString:@"Current Location"]) {
+    if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
-    }
     
     MapOverlay *qItem = (MapOverlay *)[lmapView dequeueReusableAnnotationViewWithIdentifier: @"qView"];
     
@@ -901,7 +900,7 @@
         qItem = (MapOverlay*)[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"qView"];
         qItem.canShowCallout = YES;
         
-        UIImage *pinImage = [UIImage imageNamed:@"drop-logo 33x20.png"];
+        UIImage *pinImage = [UIImage imageNamed:@"drop_map.png"];
         [qItem setImage:pinImage];
         
         //rightButton.imageView.image=pinImage;

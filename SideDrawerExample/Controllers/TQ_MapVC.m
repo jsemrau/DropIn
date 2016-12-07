@@ -29,6 +29,7 @@
     [self.myMapView setMapType:MKMapTypeStandard];
     [self.myMapView setZoomEnabled:YES];
     [self.myMapView setScrollEnabled:YES];
+    
     self.myMapView.showsUserLocation=TRUE;
     
     [self.myMapView .layer setMasksToBounds:YES];
@@ -115,11 +116,11 @@
 - (MKAnnotationView *)mapView:(MKMapView *)lmapView viewForAnnotation:(id < MKAnnotation >)annotation{
     
     
-          
-    if ([[annotation title] isEqualToString:@"Current Location"]) {
+    if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
-    }
     
+    
+    MapOverlay *qItem = (MapOverlay *)[lmapView dequeueReusableAnnotationViewWithIdentifier: @"qView"];
     MapPin *tPin;
     
     if([annotation isMemberOfClass:[MapPin class]]) {
@@ -130,7 +131,6 @@
     }
         
     
-    MapOverlay *qItem = (MapOverlay *)[lmapView dequeueReusableAnnotationViewWithIdentifier: @"qView"];
     
     if (qItem == nil)
     {
@@ -156,6 +156,8 @@
     qItem.annotation = annotation;
     
     return qItem;
+         
+   
 }
 
 

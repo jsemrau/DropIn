@@ -217,6 +217,7 @@
     
 }
 
+
 - (void)viewDidLoad{
     
     //[self.self.eventTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"lotCell"];
