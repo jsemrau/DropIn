@@ -28,7 +28,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.3</string>
+	<string>1.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -86,14 +86,14 @@
 	<string>drop!in needs your location to function.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>drop!in needs your location to function.</string>
-	<key>UILaunchStoryboardName</key>
-	<string>Main</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Hobo Std Medium.ttf</string>
 	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>Main</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
