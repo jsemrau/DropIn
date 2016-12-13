@@ -61,6 +61,8 @@
 
 /* Login */
 "load" =  "...Loading...";
+"getEvents" =  "...Getting Events...";
+
 "press" = "Press to start";
 "help" = "Help";
 
