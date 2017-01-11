@@ -34,7 +34,7 @@ PODS:
   - FontAwesomeKit/Zocial (2.2.0):
     - FontAwesomeKit/Core
   - FSOpenInWhatsApp (2.1)
-  - Google-Mobile-Ads-SDK (7.15.0)
+  - Google-Mobile-Ads-SDK (7.16.0)
   - GoogleConversionTracking (3.4.0)
   - iRate (1.11.7)
   - MGSwipeTableCell (1.5.6)
@@ -99,7 +99,7 @@ SPEC CHECKSUMS:
   FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
   FontAwesomeKit: 025fd4dd1017fe4e3f8d47b03e024deedbb33cd4
   FSOpenInWhatsApp: 9122fd285faef1ef5c980b4acb649eece9720a3e
-  Google-Mobile-Ads-SDK: 75d41dfcf06f7666ab211573d212768b0f766c5d
+  Google-Mobile-Ads-SDK: 92dff0e9ce1cfdfe640d9d80ab86d5e4371e478f
   GoogleConversionTracking: ca8c89abda2bd28bb6472b316eeb4ece9264e279
   iRate: adae3f183d83c925ac42d7a2e86e89e838963f57
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7

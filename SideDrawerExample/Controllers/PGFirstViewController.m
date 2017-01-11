@@ -1193,15 +1193,29 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     
     SpringImageView *springView = [[SpringImageView alloc] initWithFrame:CGRectMake(
                                     (([[UIScreen mainScreen] bounds].size.width)/2)-50,  (([[UIScreen mainScreen] bounds].size.width)/2)+50, 100, 100)];
+    
     self.loading = springView;
-    self.loading.image= [UIImage imageNamed:@"drop-in-1024.png"];
+    self.loading.image= [UIImage imageNamed:@"drop!in-logo.png"];
+//  self.loading.image= [UIImage imageNamed:@"drop!in-logo_inverted_transparent.png"];
+   
     self.loading.backgroundColor = [UIColor clearColor];
     self.loading.animation = @"morph";
     self.loading.delay = 0;
-    self.loading.duration = 3;
+    self.loading.duration = 2;
     self.loading.repeatCount=20;
     self.loading.autostart = true;
     self.loading.contentMode= UIViewContentModeScaleAspectFit;
+    
+    /* round edges */
+    
+    UIBezierPath * maskPath = [UIBezierPath bezierPathWithRoundedRect:self.loading.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(8.0,8.0)];
+    // Create the shape layer and set its path
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = self.loading.bounds;
+    maskLayer.path = maskPath.CGPath;
+    // Set the newly created shape layer as the mask for the image view's layer
+    self.loading.layer.mask = maskLayer;
+    self.loading.clipsToBounds = NO;
     
     [self.view addSubview:self.loading];
     [self.loading animate];

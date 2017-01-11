@@ -46,7 +46,7 @@
     FAKIonIcons *upCIcon = [FAKIonIcons happyOutlineIconWithSize:tSize];
     [upCIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
     UIImage *iconImage = [upCIcon imageWithSize:CGSizeMake(44, 44)];
-    UIImage *iconImage2 = [UIImage imageNamed:@"drop!in-logo_inverted_transparent.png"];
+    UIImage *iconImage2 = [UIImage imageNamed:@"drop!in-logo_inv.png"];
     self.upcomingImage.contentMode=UIViewContentModeScaleAspectFit;
     [self.upcomingImage setImage:iconImage2];
     

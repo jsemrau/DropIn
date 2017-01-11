@@ -34,12 +34,12 @@
     
     [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
     
-    // drop!in October Attack
+    // dropin-installs
     // Google iOS first open tracking snippet
     // Add this code to your application delegate's
     // application:didFinishLaunchingWithOptions: method.
     
-    [ACTConversionReporter reportWithConversionID:@"979706255" label:@"ODXVCPCOyWoQj8OU0wM" value:@"1.00" isRepeatable:NO];
+    [ACTConversionReporter reportWithConversionID:@"979706255" label:@"I55YCM-AiG0Qj8OU0wM" value:@"1.00" isRepeatable:NO];
     
     return YES;
 }

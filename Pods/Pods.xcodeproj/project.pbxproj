@@ -803,7 +803,6 @@
 		1859B3277D3A502F10C41CA1121D465D /* FBSDKLoginError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKLoginError.h; path = FBSDKLoginKit/FBSDKLoginKit/Internal/FBSDKLoginError.h; sourceTree = "<group>"; };
 		18FE701D9D49EF942B6C228F20F4E2C7 /* FSOpenInWhatsApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FSOpenInWhatsApp-dummy.m"; sourceTree = "<group>"; };
 		190076DCC93143BDC6CEEE39F8924B2B /* Spring-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Spring-prefix.pch"; sourceTree = "<group>"; };
-		1916061FAF92EE027B52478B2F4AC3EC /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Frameworks/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		19198C0D5BB9A805DAF867F67576C5EB /* FBSDKColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKColor.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/UI/FBSDKColor.m; sourceTree = "<group>"; };
 		1A20C836CF51DD82C3B93B56DACDF724 /* FBSDKConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKConstants.m; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKConstants.m; sourceTree = "<group>"; };
 		1A5DF8225428476F29EE7C2B607902B2 /* Pods-dropin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-dropin.modulemap"; sourceTree = "<group>"; };
@@ -951,6 +950,7 @@
 		56779B80D424D0B93D48C7912B8354D1 /* BLKFlexibleHeightBar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BLKFlexibleHeightBar-umbrella.h"; sourceTree = "<group>"; };
 		5686DD9916F26D114B3395B944B573FB /* FAKIcon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FAKIcon.m; path = FontAwesomeKit/FAKIcon.m; sourceTree = "<group>"; };
 		56AF65C94F7BE536CFA9EB119248035F /* FBSDKGraphRequestBody.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKGraphRequestBody.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKGraphRequestBody.m; sourceTree = "<group>"; };
+		5702ACD3CACA7288B16FFDEC82A7EA0E /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Frameworks/frameworks/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		57B999813326D230FF5D728A80DB53D6 /* FBSDKShareVideo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKShareVideo.m; path = FBSDKShareKit/FBSDKShareKit/FBSDKShareVideo.m; sourceTree = "<group>"; };
 		57D3C78B29D7D8C9A970FFF7CCB3EB91 /* FBSDKShareUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKShareUtility.m; path = FBSDKShareKit/FBSDKShareKit/Internal/FBSDKShareUtility.m; sourceTree = "<group>"; };
 		57DBF86D6640BB712F2CD5944B43D408 /* iRate-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iRate-prefix.pch"; sourceTree = "<group>"; };
@@ -1965,6 +1965,14 @@
 			path = "../Target Support Files/DZNEmptyDataSet";
 			sourceTree = "<group>";
 		};
+		6B3F9800BA4A1E719919DA50F549DCD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5702ACD3CACA7288B16FFDEC82A7EA0E /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		79269B91021305588F9A9752ECEF74E9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -2414,14 +2422,6 @@
 			name = Zocial;
 			sourceTree = "<group>";
 		};
-		CB54AD2F39827DDEC59E3BEAF19FA4C4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1916061FAF92EE027B52478B2F4AC3EC /* GoogleMobileAds.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		CB605D71D48712314FF0F9561E287389 /* DZNEmptyDataSet */ = {
 			isa = PBXGroup;
 			children = (
@@ -2476,7 +2476,7 @@
 		DA7C39CF250A04A45A83E39FBEBB8BF6 /* Google-Mobile-Ads-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				CB54AD2F39827DDEC59E3BEAF19FA4C4 /* Frameworks */,
+				6B3F9800BA4A1E719919DA50F549DCD8 /* Frameworks */,
 			);
 			path = "Google-Mobile-Ads-SDK";
 			sourceTree = "<group>";
