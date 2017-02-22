@@ -103,6 +103,7 @@
 
 @property (nonatomic, retain) IBOutlet UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet GADBannerView  *bannerView;
+@property (retain, nonatomic) IBOutlet UIButton *helpButton;
 
 
 - (void) playSound:(NSString*) path;

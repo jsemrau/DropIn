@@ -22,7 +22,7 @@
 
 @implementation PGFirstViewController
 
-@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter,prefCats,hasCategories,hasUpdates, blurry, gotoSettings,gotoRefresh,userDetails,footerImageView, bar1,bar2,bar3,favEvents;
+@synthesize eventTable,eventTableCellItem,eventList,refreshButton,currentLocation,loading,loader,messager, messagerLabel,loadedWithLocation,needsUpdates,weatherString,weatherNeedsUpdates,notiDictionary,likedIDs,refreshControl,cityHeader,whiter,prefCats,hasCategories,hasUpdates, blurry, gotoSettings,gotoRefresh,userDetails,footerImageView, bar1,bar2,bar3,favEvents,helpButton;
 
 -(void) viewWillAppear:(BOOL)animated{
     
@@ -47,6 +47,19 @@
     self.bannerView.alpha=0.0;
     
     self.eventTable.separatorStyle=UITableViewCellSeparatorStyleNone;
+    
+    FAKFontAwesome *likeIcon = [FAKFontAwesome questionIconWithSize:25];
+    [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
+    UIImage *iconImage = [likeIcon imageWithSize:CGSizeMake(40, 40)];
+    self.helpButton.contentMode=UIViewContentModeScaleAspectFit;
+    [self.helpButton setBackgroundImage:iconImage forState:UIControlStateNormal];
+    
+    
+    self.helpButton.backgroundColor=[UIColor flatWhiteColor];
+    // this value makes a circle
+    self.helpButton.layer.cornerRadius = self.helpButton.frame.size.height/2;
+    self.helpButton.clipsToBounds = YES;
+    
     
     /* for future release you can have that based on the selection configuration*/
     self.hasCategories=TRUE;
@@ -171,7 +184,7 @@
     
     //  FAKFontAwesome *clockIcon = [FAKFontAwesome mapMarkerIconWithSize:25];
     [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
-    UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
+    iconImage = [clockIcon imageWithSize:CGSizeMake(35, 35)];
     //[UIImage imageNamed:@"sortByDistance32x32.png"]
     UIImage *image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.bar1 = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(sortByDistance:)];
