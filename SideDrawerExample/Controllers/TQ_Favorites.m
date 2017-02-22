@@ -47,10 +47,8 @@
     
     prefs= [NSUserDefaults standardUserDefaults];
     self.likedIDs=[[prefs objectForKey:@"likedItems"] mutableCopy];
-    self.favEventsAll=[[prefs objectForKey:@"favEvents"] mutableCopy];
     
     NSLog(@"data %lu", (unsigned long)[likedIDs count]);
-    NSLog(@"data %lu", (unsigned long)[favEventsAll count]);
     
     NSMutableArray *data= [[NSMutableArray alloc] initWithCapacity:[self.likedIDs count]];
     

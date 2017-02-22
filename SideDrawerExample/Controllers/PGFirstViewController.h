@@ -55,8 +55,6 @@
     NSMutableDictionary *likedIDs;
     NSMutableDictionary *favEvents;
 
- 
-    
     IBOutlet UIRefreshControl *refreshControl;
     IBOutlet UIView *blurry;
     

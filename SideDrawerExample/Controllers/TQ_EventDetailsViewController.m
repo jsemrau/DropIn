@@ -592,26 +592,9 @@
     // Objective-C
     TWTRComposer *composer = [[TWTRComposer alloc] init];
     
-   NSString *active_content_url =  [self.handOver objectForKey:@"url"];
+    NSString *message = [self createMessage:@"Twitter" withURL:self.eURL];
+
    
-    
-    NSString *message;
-
-    if([[self.handOver objectForKey:@"city_name"] length]>0){
-    NSString *loc = [self.handOver objectForKey:@"city_name"];
-    
-    message = [NSString stringWithFormat:@"Great %@ event ! Details here : %@ ",[self.handOver objectForKey:@"title"],active_content_url];
-                                                        
-    } else {
-        
-        message = [NSString stringWithFormat:@"Great %@ event I will drop!in ! Details here : %@ ",[self.handOver objectForKey:@"title"], active_content_url];
-    }
-
-    if([message length]>140){
-        
-        message = [NSString stringWithFormat:@"Yo! Check out this event %@ I will drop!in!", active_content_url];
-    }
-    
     [composer setText:message];
     [composer setImage:[UIImage imageNamed:@"Icon-76.png"]];
     
@@ -826,7 +809,9 @@
         [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-whapp", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
-        NSString *message = [NSString stringWithFormat:@"Yo! Check you this event %@ where I will drop in now!", self.eURL];
+        NSString *message = [self createMessage:@"whatsapp" withURL:self.eURL ];
+        
+        //NSString *message = [NSString stringWithFormat:@"Yo! Check you this event %@ where I will drop in now!", self.eURL];
         
         [FSOpenInWhatsApp sendText:message];
         
@@ -978,7 +963,9 @@ else
     
     
     NSArray *recipents = @[@""];
-    NSString *message = [NSString stringWithFormat:@"Yo! Check you this event %@ where I will drop in now!", file];
+   
+    NSString *message = [self createMessage:@"SMS" withURL:self.eURL ];
+    // NSString *message = [NSString stringWithFormat:@"Yo! Check you this event %@ where I will drop in now!", file];
     
     MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
     messageController.messageComposeDelegate = self;
@@ -1308,6 +1295,35 @@ else
 -(IBAction) checkInVenue:(id)sender {
     
     
+    
+}
+
+- (NSString*) createMessage:(NSString*) source withURL:(NSString*)url {
+    
+    
+    NSString *utm= @"?utm_source=tenqyu_dropin";
+    NSString *active_content_url = [ NSString stringWithFormat:@"%@%@",url, utm ];
+    
+    
+    NSArray *tips = @[@"Great",@"Awesome",@"Super"];
+    
+    uint32_t rnd =arc4random_uniform((int)[tips count]);
+    
+    NSString *randomObject = [tips objectAtIndex:rnd];
+    
+    NSString *message;
+    
+    if([[self.handOver objectForKey:@"city_name"] length]>0){
+        NSString *loc = [self.handOver objectForKey:@"city_name"];
+        
+        message = [NSString stringWithFormat:@"%@ event in %@! %@, %@! found on http://idrop.in",[self.handOver objectForKey:@"title"], loc, active_content_url, randomObject];
+        
+    } else {
+        
+        message = [NSString stringWithFormat:@"%@ event! %@, %@! found on http://idrop.in",[self.handOver objectForKey:@"title"], active_content_url,randomObject];
+    }
+    
+    return message;
     
 }
 @end
