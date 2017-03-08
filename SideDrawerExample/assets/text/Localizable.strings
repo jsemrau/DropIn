@@ -87,4 +87,10 @@
 
 "d-save" = "Saved";
 
+/* defaults */
+
+
+"def-distance" = "15";
+
+
 

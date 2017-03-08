@@ -1,0 +1,6 @@
+framework module FSOpenInWhatsApp {
+  umbrella header "FSOpenInWhatsApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -12,11 +12,11 @@ PODS:
   - DGActivityIndicatorView (2.1.1)
   - DZNEmptyDataSet (1.8.1)
   - EFCircularSlider (0.2.0)
-  - FBSDKCoreKit (4.19.0):
+  - FBSDKCoreKit (4.20.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.19.0):
+  - FBSDKLoginKit (4.20.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.19.0):
+  - FBSDKShareKit (4.20.0):
     - FBSDKCoreKit
   - FontAwesomeKit (2.2.1):
     - FontAwesomeKit/Core (= 2.2.1)
@@ -40,7 +40,7 @@ PODS:
   - FontAwesomeKit/Zocial (2.2.1):
     - FontAwesomeKit/Core
   - FSOpenInWhatsApp (2.1)
-  - Google-Mobile-Ads-SDK (7.17.0)
+  - Google-Mobile-Ads-SDK (7.18.0)
   - GoogleConversionTracking (3.4.0)
   - iRate (1.11.7)
   - MGSwipeTableCell (1.5.6)
@@ -100,12 +100,12 @@ SPEC CHECKSUMS:
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EFCircularSlider: 3af1dd6f86eb3eeeeaab0345ef3d6d1c2fc93d17
-  FBSDKCoreKit: 894b2b6eda6a4c8c4204e92e59cc355709ef045c
-  FBSDKLoginKit: 83ca4d8f12a2022570af9fd6aacf27f6b425b99f
-  FBSDKShareKit: 5953758366278430dc322d5cdc906db361ed7f81
+  FBSDKCoreKit: 2d16979b28fe28c2b95af0d275ad5f9703c6c8de
+  FBSDKLoginKit: a9d9391506c687e2304a590bf9312837fce7f375
+  FBSDKShareKit: 1b91af62a603d67f392bc7fde63bc4a0705dde31
   FontAwesomeKit: 3614979b3dbb0ec3f7fac1bd760b91f66c31db67
   FSOpenInWhatsApp: 9122fd285faef1ef5c980b4acb649eece9720a3e
-  Google-Mobile-Ads-SDK: a8bf4211624999b73e4184be516f94770b139525
+  Google-Mobile-Ads-SDK: 658065b4cb5a299bea254c4d24bf7786b6d3e75d
   GoogleConversionTracking: ca8c89abda2bd28bb6472b316eeb4ece9264e279
   iRate: adae3f183d83c925ac42d7a2e86e89e838963f57
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7

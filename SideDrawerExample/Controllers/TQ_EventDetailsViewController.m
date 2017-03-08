@@ -1316,11 +1316,11 @@ else
     if([[self.handOver objectForKey:@"city_name"] length]>0){
         NSString *loc = [self.handOver objectForKey:@"city_name"];
         
-        message = [NSString stringWithFormat:@"%@ event in %@! %@, %@! found on http://idrop.in",[self.handOver objectForKey:@"title"], loc, active_content_url, randomObject];
+        message = [NSString stringWithFormat:@"%@ event #%@! %@ %@! via http://idrop.in",[self.handOver objectForKey:@"title"], loc, active_content_url, randomObject];
         
     } else {
         
-        message = [NSString stringWithFormat:@"%@ event! %@, %@! found on http://idrop.in",[self.handOver objectForKey:@"title"], active_content_url,randomObject];
+        message = [NSString stringWithFormat:@"%@ event! %@, %@! via http://idrop.in",[self.handOver objectForKey:@"title"], active_content_url,randomObject];
     }
     
     return message;

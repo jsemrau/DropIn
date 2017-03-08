@@ -39,7 +39,7 @@
     
     if(!self.distance){
         
-        self.distance=@"5";
+        self.distance=[NSString stringWithFormat:NSLocalizedString(@"def-distance", nil)];
         
     }
     
@@ -76,7 +76,7 @@
     
     if(!self.distance){
         
-        self.distance=@"5";
+        self.distance=[NSString stringWithFormat:NSLocalizedString(@"def-distance", nil)];
         
     }
     

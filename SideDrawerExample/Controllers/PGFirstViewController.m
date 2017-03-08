@@ -556,15 +556,17 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
             
             
         } else {
+            
             if (tInterval>60) {
                 //convert to hours
-                tInterval=tInterval/60;
+                int hInterval=tInterval/60;
                // NSLog(@" My Interval %d", tInterval);
-                if (tInterval == 1) {
-                     cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" hr"]];
+                if (hInterval == 1) {
+                     cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",hInterval] stringByAppendingString:@" hr"]];
                 } else {
-                    cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" hrs"]];
+                    cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",hInterval] stringByAppendingString:@" hrs"]];
                 }
+                
             } else {
                // NSLog(@" My Interval %d", tInterval);
                 
@@ -1156,12 +1158,16 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 
 -(IBAction) sortByDistance :(id)sender {
     
-    
+    /*
     NSSortDescriptor *dateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
     self.filteredEventList  = [self.filteredEventList  sortedArrayUsingDescriptors:@[dateSortDescriptor]];
     
-    [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];*/
     
+    NSSortDescriptor *aSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"distance" ascending:YES];
+   self.filteredEventList = [NSMutableArray arrayWithArray:[self.filteredEventList sortedArrayUsingDescriptors:[NSArray arrayWithObject:aSortDescriptor]]];
+    
+    [self.eventTable performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
     
 }
 
