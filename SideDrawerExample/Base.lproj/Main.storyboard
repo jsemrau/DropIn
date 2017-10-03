@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yEV-Ye-adc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yEV-Ye-adc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+            <string>Avenir-Light</string>
+        </array>
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Regular</string>
+            <string>AvenirNext-UltraLight</string>
+        </array>
         <array key="Hobo Std Medium.ttf">
             <string>HoboStd</string>
         </array>
@@ -45,7 +53,7 @@
                 <navigationController storyboardIdentifier="NAV_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="6du-M4-QlT" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="kWd-UB-h6o"/>
                     <navigationBar key="navigationBar" contentMode="scaleAspectFit" misplaced="YES" id="DsS-nQ-bFe">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -104,7 +112,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Upcoming" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zGn-Ia-xgh">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="44"/>
+                                                    <rect key="frame" x="16" y="0.0" width="344" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" red="0.19376453760000001" green="0.50850099329999998" blue="0.85232251879999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -127,7 +135,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="igw-JU-fxE">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="44"/>
+                                                    <rect key="frame" x="16" y="0.0" width="344" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -151,7 +159,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TnJ-PQ-l3c">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="44"/>
+                                                    <rect key="frame" x="16" y="0.0" width="344" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -175,7 +183,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xrR-L6-RTx">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="44"/>
+                                                    <rect key="frame" x="16" y="0.0" width="344" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -200,7 +208,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Privacy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QTZ-IF-ma9">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="44"/>
+                                                    <rect key="frame" x="16" y="0.0" width="344" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -244,7 +252,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SECOND_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="Npu-zI-ucI" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ORc-fG-Vor">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1168,7 +1176,7 @@ Cg
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6df-7L-WmJ" id="hiL-KQ-GNC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1243,7 +1251,7 @@ Cg
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="3le-5u-fT5"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="570" id="63t-K0-rXP"/>
-                                                <constraint firstAttribute="width" constant="200" id="6xB-H6-xpc"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="6xB-H6-xpc"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="XqI-Uu-C0K"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1261,7 +1269,7 @@ Cg
                                             <rect key="frame" x="72" y="0.0" width="240" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="1Id-YP-iuN"/>
-                                                <constraint firstAttribute="width" constant="240" id="X67-Pc-QWm"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="X67-Pc-QWm"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HoboStd" family="Hobo Std" pointSize="27"/>
                                             <color key="textColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1278,7 +1286,7 @@ Cg
                                         <constraint firstItem="kVf-cu-IYw" firstAttribute="centerX" secondItem="T9d-Ai-mQp" secondAttribute="centerX" id="16x-Ap-GsF"/>
                                         <constraint firstAttribute="bottom" secondItem="bOd-Yg-Ov7" secondAttribute="bottom" id="2Q2-n0-eAF"/>
                                         <constraint firstItem="ivh-L5-BNN" firstAttribute="centerX" secondItem="T9d-Ai-mQp" secondAttribute="centerX" id="7DC-cL-meq"/>
-                                        <constraint firstItem="b5P-M2-ixD" firstAttribute="leading" secondItem="T9d-Ai-mQp" secondAttribute="leading" constant="15" id="9Gv-ue-Npb"/>
+                                        <constraint firstItem="b5P-M2-ixD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="T9d-Ai-mQp" secondAttribute="leading" id="9Gv-ue-Npb"/>
                                         <constraint firstItem="ivh-L5-BNN" firstAttribute="top" secondItem="T9d-Ai-mQp" secondAttribute="top" id="Hm7-HU-LoG"/>
                                         <constraint firstItem="RPf-2Y-Jjc" firstAttribute="top" secondItem="T9d-Ai-mQp" secondAttribute="top" id="IkM-tz-ogQ"/>
                                         <constraint firstItem="kVf-cu-IYw" firstAttribute="centerY" secondItem="T9d-Ai-mQp" secondAttribute="centerY" id="Ira-3d-2CE"/>
@@ -1317,7 +1325,7 @@ Cg
                                         <rect key="frame" x="0.0" y="63" width="383" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" tableViewCell="Zw3-u8-1xO" id="J5g-EK-1tU">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="89"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1340,7 +1348,7 @@ Cg
                                         <rect key="frame" x="8" y="156" width="60" height="25"/>
                                         <color key="backgroundColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="k5K-2R-Nup"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="k5K-2R-Nup"/>
                                             <constraint firstAttribute="height" constant="25" id="opS-Sw-ESQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
@@ -1356,7 +1364,7 @@ Cg
                                         <color key="backgroundColor" red="0.19376453757286072" green="0.50850099325180054" blue="0.85232251882553101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="5Tj-b9-vgd"/>
-                                            <constraint firstAttribute="width" constant="60" id="Zcy-Ca-Vuk"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Zcy-Ca-Vuk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                         <state key="normal" title="Retry">
@@ -1372,8 +1380,10 @@ Cg
                                     <constraint firstAttribute="bottom" secondItem="f68-iQ-Uko" secondAttribute="bottom" constant="-1" id="Nea-Zs-mdB"/>
                                     <constraint firstAttribute="bottom" secondItem="xtK-1h-nJF" secondAttribute="bottom" constant="-1" id="XjX-Xk-nMV"/>
                                     <constraint firstItem="xtK-1h-nJF" firstAttribute="leading" secondItem="LHU-IS-9Zk" secondAttribute="leading" constant="8" id="YF8-to-bUR"/>
+                                    <constraint firstItem="f68-iQ-Uko" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LHU-IS-9Zk" secondAttribute="leading" constant="20" symbolic="YES" id="dwQ-ME-7zx"/>
                                     <constraint firstAttribute="width" constant="280" id="dzA-0H-HrL"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="hDO-jG-gsC"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xtK-1h-nJF" secondAttribute="trailing" constant="20" symbolic="YES" id="j0W-VB-NBw"/>
                                     <constraint firstAttribute="width" constant="320" id="jQh-El-orm"/>
                                     <constraint firstAttribute="trailing" secondItem="f68-iQ-Uko" secondAttribute="trailing" constant="8" id="nlc-F5-dBK"/>
                                 </constraints>
@@ -2945,7 +2955,7 @@ Cg
             <objects>
                 <navigationController storyboardIdentifier="FIRST_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="CcW-hR-ldX" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xvD-Ql-RIJ">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -2962,7 +2972,7 @@ Cg
                 <navigationController storyboardIdentifier="THIRD_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="lH9-uC-RbK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Hx1-1s-wpm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2980,7 +2990,7 @@ Cg
                 <navigationController storyboardIdentifier="FOURTH_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="Myg-2i-C8C" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fed-i3-wNN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2998,7 +3008,7 @@ Cg
                 <navigationController storyboardIdentifier="PRIVACY_POLICY" automaticallyAdjustsScrollViewInsets="NO" id="sUF-zb-d2M" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kNI-Zh-u13">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3016,7 +3026,7 @@ Cg
                 <navigationController storyboardIdentifier="FAVOURITES" automaticallyAdjustsScrollViewInsets="NO" id="o5l-7i-fmk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="obk-U6-cWZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

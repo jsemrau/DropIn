@@ -552,7 +552,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
             cell.inXMinutes.text=@"started";
             
            // cell.inXMinutes.textColor=[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0];
-            cell.inXMinutes.textColor=[UIColor flatSkyBlueColor];
+            //cell.inXMinutes.textColor=[UIColor flatSkyBlueColor];
             
             
         } else {
@@ -571,7 +571,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
                // NSLog(@" My Interval %d", tInterval);
                 
                 cell.inXMinutes.text=[@"in " stringByAppendingString: [[NSString stringWithFormat:@"%d",tInterval] stringByAppendingString:@" min"]];
-                cell.inXMinutes.textColor= [UIColor flatSkyBlueColor];
+               // cell.inXMinutes.textColor= [UIColor flatSkyBlueColor];
                 //[UIColor colorWithRed:57/255.0 green:181/255.0 blue:74/255.0 alpha:1.0];
             }
         }
@@ -582,7 +582,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         if ([[text objectForKey:@"recommend_flag"] isEqualToString:@"1"]){
             
             cell.inXMinutes.text=@"recommended";
-            cell.inXMinutes.textColor=[UIColor flatGreenColor];
+         //   cell.inXMinutes.textColor=[UIColor flatGreenColor];
             
         }
         
@@ -616,7 +616,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         //which one is more negative
         if (tInterval <= durationCheck ){
             cell.inXMinutes.text=@"expired";
-            cell.inXMinutes.textColor=[UIColor flatRedColor];
+          //  cell.inXMinutes.textColor=[UIColor flatRedColor];
         }
         
     

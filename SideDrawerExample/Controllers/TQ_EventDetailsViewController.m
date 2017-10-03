@@ -846,8 +846,9 @@
     
     FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
     content.contentURL = [NSURL URLWithString:self.eURL];
-    content.contentTitle=self.eTitle.text;
-    content.contentDescription=self.eDescription.text;
+
+    //content.contentTitle=self.eTitle.text;
+//   content.contentDescription=self.eDescription.text;
     
    // [FBSDKMessageDialog showWithContent:content delegate:nil];
     
