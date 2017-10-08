@@ -486,7 +486,7 @@ if (theConnection)
   
     NSString *messageStr = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
     
-    NSLog(@" Return dataset :  %@", messageStr);
+   // NSLog(@" Return dataset :  %@", messageStr);
     
     if ([messageStr isEqual:@""]) {
         NSLog(@"Empty string !!");

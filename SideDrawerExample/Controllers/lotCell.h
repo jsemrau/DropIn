@@ -30,17 +30,12 @@
     IBOutlet UIImageView *priceInd3;
     IBOutlet UIImageView *priceInd4;
     
-    IBOutlet UIImageView *favInd1;
-    IBOutlet UIImageView *favInd2;
-    IBOutlet UIImageView *favInd3;
-    IBOutlet UIImageView *favInd4;
-    
     IBOutlet UILabel *catLabel;
     
     IBOutlet UILabel *priceLabel1;
     IBOutlet UILabel *priceLabel2;
     IBOutlet UILabel *priceLabel3;
-    
+    IBOutlet UILabel *popular;
     IBOutlet UIImageView *recurringLabel;
     
 }
@@ -63,16 +58,13 @@
 @property (nonatomic, retain) IBOutlet UILabel *priceLabel1;
 @property (nonatomic, retain) IBOutlet UILabel *priceLabel2;
 @property (nonatomic, retain) IBOutlet UILabel *priceLabel3;
+@property (nonatomic, retain) IBOutlet UILabel *popular;
+
 
 @property (nonatomic, retain) IBOutlet UIImageView *priceInd1;
 @property (nonatomic, retain) IBOutlet UIImageView *priceInd2;
 @property (nonatomic, retain) IBOutlet UIImageView *priceInd3;
 @property (nonatomic, retain) IBOutlet UIImageView *priceInd4;
-
-@property (nonatomic, retain) IBOutlet UIImageView *favInd1;
-@property (nonatomic, retain) IBOutlet UIImageView *favInd2;
-@property (nonatomic, retain) IBOutlet UIImageView *favInd3;
-@property (nonatomic, retain) IBOutlet UIImageView *favInd4;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 

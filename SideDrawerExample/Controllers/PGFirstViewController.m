@@ -550,10 +550,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         if(tInterval<=0){
             
             cell.inXMinutes.text=@"started";
-            
-           // cell.inXMinutes.textColor=[UIColor colorWithRed:0/255.0 green:174/255.0 blue:239/255.0 alpha:1.0];
-            //cell.inXMinutes.textColor=[UIColor flatSkyBlueColor];
-            
+
             
         } else {
             
@@ -582,21 +579,16 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         if ([[text objectForKey:@"recommend_flag"] isEqualToString:@"1"]){
             
             cell.inXMinutes.text=@"recommended";
-         //   cell.inXMinutes.textColor=[UIColor flatGreenColor];
             
         }
         
         
         if ([[text objectForKey:@"recur_string"] length]==0) {
             
-          //  NSLog(@" Length zero %@" , [text objectForKey:@"recur_string"]);
             [cell.recurringLabel removeFromSuperview];
             
         } else {
 
-            NSLog(@" Recurring %@" , [text objectForKey:@"recur_string"]);
-            
-           // FAKIonIcons *clockIcon = [FAKIonIcons iosLoopStrongIconWithSize:15];
             FAKIonIcons *clockIcon = [FAKIonIcons loopIconWithSize:15];
             UIColor *btnColor = [UIColor flatRedColor];
             [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
@@ -651,45 +643,31 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         
         /* Populate people going indicator */
         
-        UIImage *filledPerson = [UIImage imageNamed:@"personRun_blue.png"];
         
-        int counter = (int)[[text valueForKey:@"going_count"] integerValue ];
+        int going = (int)[[text valueForKey:@"going_count"] integerValue ];
+        int max_count = (int)[[text valueForKey:@"max_count"] integerValue ];
         
-        if (0 <  counter  && counter  <10 ){
+        int gVal=0;
+        
+        if ( max_count > 0 ) {
+        
+             gVal = going/max_count;
+        
+        }
+        
+        
+        
+        
+        if (gVal  < 0.6 ){
             
-            cell.favInd1.image=filledPerson;
-            cell.favInd1.alpha=1.0;
-            cell.favInd2.alpha=0.35;
-            cell.favInd3.alpha=0.35;
+            cell.popular.alpha=0.0;
             
-        } else if (10 <=  counter  && counter  <50) {
-         
-            cell.favInd1.image=filledPerson;
-            cell.favInd2.image=filledPerson;
-            
-            cell.favInd1.alpha=1.0;
-            cell.favInd2.alpha=1.0;
-            cell.favInd3.alpha=0.35;
-            
-            
-        } else if (50 <= counter ) {
-            
-            
-            cell.favInd1.image=filledPerson;
-            cell.favInd2.image=filledPerson;
-            cell.favInd3.image=filledPerson;
-            
-            cell.favInd1.alpha=1.0;
-            cell.favInd2.alpha=1.0;
-            cell.favInd3.alpha=1.0;
-            
-          
             
         } else {
-            
-            cell.favInd1.alpha=0.35;
-            cell.favInd2.alpha=0.35;
-            cell.favInd3.alpha=0.35;
+         
+            cell.popular.backgroundColor =[UIColor flatRedColorDark];
+            cell.popular.textColor =[UIColor flatWhiteColor];
+            cell.popular.alpha=1;
             
         }
         
@@ -1046,7 +1024,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     }
     
     
-    NSLog(@" %@", self.likedIDs);
+    ///NSLog(@" %@", self.likedIDs);
     
    
     
@@ -1436,8 +1414,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 - (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
 {
     
-    NSLog(@" this is here");
-   /* UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    /* UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [activityView startAnimating];
     return activityView;*/
     
@@ -1481,7 +1458,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view
 {
     // Do something
-    NSLog(@"Hey view, you should go to settings now");
+    //NSLog(@"Hey view, you should go to settings now");
     
     UINavigationController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"THIRD_TOP_VIEW_CONTROLLER"];
     
@@ -1507,9 +1484,6 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 
     NSDictionary *tmpCell= [self.filteredEventList objectAtIndex:indexPath.row];
     
-    NSLog(@" testing %@", [tmpCell objectForKey:@"id"]                              );
-    
-    // for(NSDictionary *vDic in self.eventList){
     
     int iValue=-1;
     for(int i=0; i < [self.eventList count]; i++){
@@ -1518,7 +1492,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         
         if([tmpCell objectForKey:@"id"]  == [vDic objectForKey:@"id"] ){
             
-            NSLog(@" Found it %@", [vDic objectForKey:@"title"]);
+            //NSLog(@" Found it %@", [vDic objectForKey:@"title"]);
             iValue= i;
             break;
             
@@ -1569,9 +1543,6 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         {
             
             
-            NSLog(@" %@ ", idStr);
-            NSLog(@" %@ ", self.likedIDs);
-            NSLog(@"***");
             
             /*
             If the key already exists then we need to remove it
@@ -1629,7 +1600,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     [[NSUserDefaults standardUserDefaults] setObject:self.likedIDs forKey:@"likedItems"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    NSLog(@" count likeIds %lu", (unsigned long)[self.likedIDs count]);
+    //NSLog(@" count likeIds %lu", (unsigned long)[self.likedIDs count]);
     
     [self.eventTable reloadData];
     

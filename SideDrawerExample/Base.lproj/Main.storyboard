@@ -53,7 +53,7 @@
                 <navigationController storyboardIdentifier="NAV_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="6du-M4-QlT" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="kWd-UB-h6o"/>
                     <navigationBar key="navigationBar" contentMode="scaleAspectFit" misplaced="YES" id="DsS-nQ-bFe">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -252,7 +252,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SECOND_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="Npu-zI-ucI" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ORc-fG-Vor">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -281,7 +281,6 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dPQ-LH-XgM" firstAttribute="top" secondItem="Q5z-fl-WYT" secondAttribute="bottom" constant="-64" id="Hjk-Rq-BPJ"/>
                             <constraint firstItem="dPQ-LH-XgM" firstAttribute="leading" secondItem="GcJ-Fq-sFx" secondAttribute="leadingMargin" constant="-16" id="XGW-UK-O5m"/>
                             <constraint firstItem="XKy-6J-fcE" firstAttribute="top" secondItem="dPQ-LH-XgM" secondAttribute="bottom" id="f3E-9B-csJ"/>
                             <constraint firstItem="dPQ-LH-XgM" firstAttribute="centerY" secondItem="GcJ-Fq-sFx" secondAttribute="centerY" id="qOo-Sy-S8B"/>
@@ -872,22 +871,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="drop-in-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ixc-o2-rvs">
-                                <rect key="frame" x="138" y="72" width="100" height="100"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="imageView:ixc-o2-rvs:image" translatesAutoresizingMaskIntoConstraints="NO" id="ixc-o2-rvs">
+                                <rect key="frame" x="138" y="76" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="6yp-aI-Wgh"/>
                                     <constraint firstAttribute="width" constant="100" id="86s-gW-oJr"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYq-bo-TFU">
-                                <rect key="frame" x="136" y="200" width="103" height="36"/>
+                                <rect key="frame" x="136" y="204" width="103" height="36"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Privacy Policy">
                                     <color key="titleColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <textView clipsSubviews="YES" contentMode="top" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGW-t8-SVn">
-                                <rect key="frame" x="16" y="238" width="343" height="416"/>
+                                <rect key="frame" x="16" y="242" width="343" height="412"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -2955,7 +2954,7 @@ Cg
             <objects>
                 <navigationController storyboardIdentifier="FIRST_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="CcW-hR-ldX" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xvD-Ql-RIJ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -2972,7 +2971,7 @@ Cg
                 <navigationController storyboardIdentifier="THIRD_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="lH9-uC-RbK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Hx1-1s-wpm">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2990,7 +2989,7 @@ Cg
                 <navigationController storyboardIdentifier="FOURTH_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="Myg-2i-C8C" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fed-i3-wNN">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3008,7 +3007,7 @@ Cg
                 <navigationController storyboardIdentifier="PRIVACY_POLICY" automaticallyAdjustsScrollViewInsets="NO" id="sUF-zb-d2M" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kNI-Zh-u13">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3026,7 +3025,7 @@ Cg
                 <navigationController storyboardIdentifier="FAVOURITES" automaticallyAdjustsScrollViewInsets="NO" id="o5l-7i-fmk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="obk-U6-cWZ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3047,16 +3046,30 @@ Cg
         <image name="Users_Users-24-01.png" width="61" height="61"/>
         <image name="about.png" width="132" height="132"/>
         <image name="asia-img.png" width="384" height="273"/>
-        <image name="drop-in-logo.png" width="806" height="1313"/>
         <image name="dropin-logo.png" width="963" height="356"/>
         <image name="grey-selected-button.png" width="342" height="92"/>
         <image name="horizontal_line.png" width="640" height="2"/>
+        <image name="imageView:ixc-o2-rvs:image" width="806" height="1313">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
+GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
+V05TQ29sb3KAAoAMEiTAAACAA4AKW3s4MDYsIDEzMTN90hUKFhhaTlMub2JqZWN0c6EXgASACdIVChoY
+ohscgAWABoAJEAXTIAohIiMkV05TLmJhc2VbTlMucmVsYXRpdmWAAIAIgAdfEHNmaWxlOi8vL0FwcGxp
+Y2F0aW9ucy9YY29kZS5hcHAvQ29udGVudHMvUGx1Z0lucy9JREVJbnRlcmZhY2VCdWlsZGVyS2l0LmZy
+YW1ld29yay9SZXNvdXJjZXMvSUJNaXNzaW5nSW1hZ2VHbHlwaC50aWZm0icoKSpaJGNsYXNzbmFtZVgk
+Y2xhc3Nlc1VOU1VSTKIpK1hOU09iamVjdNInKC0uV05TQXJyYXmiLSvTMDEKMjM0V05TV2hpdGVcTlND
+b2xvclNwYWNlRDAgMAAQA4AL0icoNjdXTlNDb2xvcqI2K9InKDk6V05TSW1hZ2WiOStfEA9OU0tleWVk
+QXJjaGl2ZXLRPT5Ucm9vdIABAAgAEQAaACMALQAyADcARQBLAFYAXQBkAHEAeACAAIIAhACJAIsAjQCZ
+AJ4AqQCrAK0ArwC0ALcAuQC7AL0AvwDGAM4A2gDcAN4A4AFWAVsBZgFvAXUBeAGBAYYBjgGRAZgBoAGt
+AbIBtAG2AbsBwwHGAcsB0wHWAegB6wHwAAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAAAAAAAAAAAfI
+</mutableData>
+        </image>
         <image name="pk_compo_2_button_blue_flat.png" width="169" height="78"/>
         <image name="pk_compo_2_button_grey.png" width="169" height="78"/>
         <image name="sky.png" width="5000" height="5000"/>
         <image name="vertical_line.png" width="2" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BX2-7E-RiK"/>
+        <segue reference="F6X-Rd-5TQ"/>
     </inferredMetricsTieBreakers>
 </document>

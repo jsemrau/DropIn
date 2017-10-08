@@ -14,8 +14,7 @@
 @synthesize lotViewIndicator,category,catLabel;
 @synthesize priceInd1,priceInd2,priceInd3,priceInd4 ;
 @synthesize priceLabel1,priceLabel2,priceLabel3 ;
-@synthesize favInd1,favInd2,favInd3,favInd4;
-
+@synthesize popular;
 
 
 - (void)awakeFromNib {
@@ -51,10 +50,7 @@
         priceInd3= [[UIImageView alloc] initWithFrame:CGRectZero];
         priceInd4= [[UIImageView alloc] initWithFrame:CGRectZero];
         
-        favInd1= [[UIImageView alloc] initWithFrame:CGRectZero];
-        favInd2= [[UIImageView alloc] initWithFrame:CGRectZero];
-        favInd3= [[UIImageView alloc] initWithFrame:CGRectZero];
-        favInd4= [[UIImageView alloc] initWithFrame:CGRectZero];
+        popular= [[UILabel alloc] initWithFrame:CGRectZero];
         
         [self.contentView addSubview:title];
         [self.contentView addSubview:desc];
@@ -76,10 +72,7 @@
         [self.contentView addSubview:priceInd3];
         [self.contentView addSubview:priceInd4];
         
-        [self.contentView addSubview:favInd1];
-        [self.contentView addSubview:favInd2];
-        [self.contentView addSubview:favInd3];
-        [self.contentView addSubview:favInd4];
+        [self.contentView addSubview:popular];
         
         
     }
