@@ -158,6 +158,24 @@
     
     self.currentLocation=[[GFLocationManager sharedInstance] currentLocation];
     
+    bool showAlertSetting = [[GFLocationManager sharedInstance]checkSettings:self ];
+    
+    if(showAlertSetting){
+        
+        NSLog(@"Denied user rights?");
+        [self moveToDenied:self];
+        
+        
+    } else {
+        
+        
+        [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
+        //This triggers the dialogue!! - DON'T DELETE
+        [locationManager startUpdatingLocation];
+        
+    }
+    
+    
     /******** check existint user data **********/
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -238,69 +256,6 @@
     self.locationManager = [[CLLocationManager alloc] init];
     
     
-    BOOL locationEnabled = [CLLocationManager locationServicesEnabled];
-    BOOL showAlertSetting=false;
-    BOOL showInitLocation=false;
-    
-    if (locationEnabled)
-    {
-        
-        switch ([CLLocationManager authorizationStatus]) {
-            case kCLAuthorizationStatusDenied:
-                showAlertSetting = true;
-                NSLog(@"HH: kCLAuthorizationStatusDenied");
-                break;
-            case kCLAuthorizationStatusRestricted:
-                showAlertSetting = true;
-                NSLog(@"HH: kCLAuthorizationStatusRestricted");
-                break;
-            case kCLAuthorizationStatusAuthorizedAlways:
-                showInitLocation = true;
-                NSLog(@"HH: kCLAuthorizationStatusAuthorizedAlways");
-                break;
-            case kCLAuthorizationStatusAuthorizedWhenInUse:
-                showInitLocation = true;
-                NSLog(@"HH: kCLAuthorizationStatusAuthorizedWhenInUse");
-                break;
-            case kCLAuthorizationStatusNotDetermined:
-                showInitLocation = true;
-                NSLog(@"HH: kCLAuthorizationStatusNotDetermined");
-                break;
-            default:
-                break;
-               
-        }
-       
-        
-        } else {
-        
-        
-            NSLog ( @" What if no location services" );
-        
-        }
-    
-    if(showAlertSetting){
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
-                                                        message:[NSString stringWithFormat:NSLocalizedString(@"err-loc", nil)]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        
-        
-        NSLog(@"Why would I be here?");
-       
-    }
-    
-    if (showInitLocation){
-        
-        
-        [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
-        //This triggers the dialogue!! - DON'T DELETE
-        [locationManager startUpdatingLocation];
-        
-    }
     
     //if there is no userdetails then init
     if ([self.userDetails count] == 0 && !self.isAuthenticating){
@@ -744,6 +699,28 @@
     }
 
 }
+
+- (IBAction) moveToDenied:(id)sender {
+    
+    NSLog(@" Entered move 2 First");
+    
+    
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // code here
+            
+            PGViewController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DENIED_TOP_VIEW_CONTROLLER"];
+            
+            [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
+            
+            [self presentViewController:centerViewController animated:TRUE completion:nil];
+            
+            
+        });
+        
+    
+}
+
+
 #pragma mark - drawer
 
 - (void)setupLeftMenuButton {

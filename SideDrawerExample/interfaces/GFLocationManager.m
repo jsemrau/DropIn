@@ -77,6 +77,7 @@ static int errorCount = 0;
 }
 
 
+
 #pragma mark - Location Manager Delegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -101,4 +102,45 @@ static int errorCount = 0;
     }
 }
 
+-(BOOL) checkSettings:(id<GFLocationManagerDelegate>)delegate {
+    
+    BOOL locationEnabled = [CLLocationManager locationServicesEnabled];
+    BOOL showAlertSetting=false;
+    
+    if (locationEnabled)
+    {
+        
+        switch ([CLLocationManager authorizationStatus]) {
+            case kCLAuthorizationStatusDenied:
+                showAlertSetting = true;
+                NSLog(@"HH: kCLAuthorizationStatusDenied");
+                break;
+            case kCLAuthorizationStatusRestricted:
+                showAlertSetting = true;
+                NSLog(@"HH: kCLAuthorizationStatusRestricted");
+                break;
+            case kCLAuthorizationStatusAuthorizedAlways:
+                showAlertSetting = false;
+                NSLog(@"HH: kCLAuthorizationStatusAuthorizedAlways");
+                break;
+            case kCLAuthorizationStatusAuthorizedWhenInUse:
+                showAlertSetting = false;
+                NSLog(@"HH: kCLAuthorizationStatusAuthorizedWhenInUse");
+                break;
+            case kCLAuthorizationStatusNotDetermined:
+                showAlertSetting = true;
+                NSLog(@"HH: kCLAuthorizationStatusNotDetermined");
+                break;
+            default:
+                break;
+                
+        }
+        
+        
+       
+        
+    }
+ 
+    return showAlertSetting;
+}
 @end

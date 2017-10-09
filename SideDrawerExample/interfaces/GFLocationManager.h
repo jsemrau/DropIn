@@ -28,5 +28,6 @@
 + (GFLocationManager *)sharedInstance;
 - (void) addLocationManagerDelegate:(id<GFLocationManagerDelegate>) delegate;
 - (void) removeLocationManagerDelegate:(id<GFLocationManagerDelegate>) delegate;
+- (BOOL) checkSettings:(id<GFLocationManagerDelegate>)delegate;
 
 @end

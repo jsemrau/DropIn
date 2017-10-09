@@ -10,4 +10,15 @@
 
 @interface TQ_LocationDenied : UIViewController
 
+{
+    
+    IBOutlet UIButton *settings;
+    
+}
+
+- (IBAction) gotoSettings;
+- (IBAction) moveToLogin:(id)sender ;
+
+@property (nonatomic, retain) IBOutlet UIButton *settings;
+
 @end
