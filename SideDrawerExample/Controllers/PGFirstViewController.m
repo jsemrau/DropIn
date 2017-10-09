@@ -175,7 +175,7 @@
     }
     
     
-    NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
+   // NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
     UIColor *btnColor =[UIColor flatSkyBlueColor];
     
     //distance

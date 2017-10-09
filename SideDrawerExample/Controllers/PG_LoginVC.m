@@ -147,36 +147,13 @@
 {
     self.hasUpdated=NO;
    
-    /**** Load the banner ad *****/
+    NSLog(@"viewWillAppear");
     
-    self.bannerView.adUnitID = @"ca-app-pub-7857198660418019/3237842480";
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:[GADRequest request]];
-    self.bannerView.alpha=0.0;
-    
-    /******** Let's see if we can reuse this information about location **********/
+   /******** Let's see if we can reuse this information about location **********/
     
     self.currentLocation=[[GFLocationManager sharedInstance] currentLocation];
     
-    bool showAlertSetting = [[GFLocationManager sharedInstance]checkSettings:self ];
-    
-    if(showAlertSetting){
-        
-        NSLog(@"Denied user rights?");
-        [self moveToDenied:self];
-        
-        
-    } else {
-        
-        
-        [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
-        //This triggers the dialogue!! - DON'T DELETE
-        [locationManager startUpdatingLocation];
-        
-    }
-    
-    
-    /******** check existint user data **********/
+    /******** check existing user data **********/
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
@@ -186,35 +163,6 @@
     UIApplication *application =  [ UIApplication sharedApplication ];
     application.applicationIconBadgeNumber=0;
     
-    /******** Check background refresh **********/
-    
-    if ([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusAvailable) {
-        
-        NSLog(@"Background updates are available for the app.");
-    }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusDenied)
-    {
-        NSLog(@"The user explicitly disabled background behavior for this app or for the whole system.");
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
-                                                        message:
-                              [NSString stringWithFormat:NSLocalizedString(@"err-bg", nil)]
-                              
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        
-    }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted)
-    {
-        NSLog(@"Background updates are unavailable and the user cannot enable them again. For example, this status can occur when parental controls are in effect for the current user.");
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
-                                                        message:[NSString stringWithFormat:NSLocalizedString(@"err-bg", nil)]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
     
     /******** csome visual updates **********/
     
@@ -306,8 +254,68 @@
 {
     [super viewDidLoad];
     
+    NSLog(@"ViewDidLoad");
+    
+    /**** Load the banner ad *****/
+    
+    self.bannerView.adUnitID = @"ca-app-pub-7857198660418019/3237842480";
+    self.bannerView.rootViewController = self;
+    [self.bannerView loadRequest:[GADRequest request]];
+    self.bannerView.alpha=0.0;
+    
+    bool showAlertSetting = [[GFLocationManager sharedInstance]checkSettings:self ];
+    
+    if(showAlertSetting){
+        
+        NSLog(@"Denied user rights?");
+        [self moveToDenied:self];
+        
+        
+    } else {
+        
+        
+        [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
+        //This triggers the dialogue!! - DON'T DELETE
+        [locationManager startUpdatingLocation];
+        
+    }
+    
+    /******** Check background refresh **********/
+    
+    if ([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusAvailable) {
+        
+        NSLog(@"Background updates are available for the app.");
+    }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusDenied)
+    {
+        NSLog(@"The user explicitly disabled background behavior for this app or for the whole system.");
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+                                                        message:
+                              [NSString stringWithFormat:NSLocalizedString(@"err-bg", nil)]
+                              
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+    }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted)
+    {
+        NSLog(@"Background updates are unavailable and the user cannot enable them again. For example, this status can occur when parental controls are in effect for the current user.");
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+                                                        message:[NSString stringWithFormat:NSLocalizedString(@"err-bg", nil)]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    
+    /********* Getting user credentials *********/
+    
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
+    
     
     if([self.userDetails count]>0) {
         
@@ -702,7 +710,7 @@
 
 - (IBAction) moveToDenied:(id)sender {
     
-    NSLog(@" Entered move 2 First");
+    NSLog(@" Entered move 2 Denied");
     
     
         dispatch_async(dispatch_get_main_queue(), ^{

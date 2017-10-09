@@ -23,11 +23,16 @@
 @synthesize distance,duration,going_count,max_count,latitude,longitude,price,start_time,stop_time,eTitle,eDescription,eURL,eSource,vAddress,vName,vRecur,vStop_time,vStart_time,vNameStr, timeDiff,fScore,openLocation, debugView,mapView,shareView, myMapView,scannedURL, openURL,favButton,spamButton,idStr,inXminutes,likedIDs,userDetails,vSource,summaryView,handOver,tweetButton,socialView,activePage,wAppButton,fbButton,chatButton,themeColor,category, clockImg, socialLocation, socialActive,constraintArray, triangle, checkInButton,directionsButton,fullAddress;
 
 - (void) viewWillDisappear:(BOOL)animated{
+    
+     NSLog(@"viewWillAppear");
+    
     //there is a lag
     if(self.socialActive){
         //[self stoppingSocialAnimation];
         self.socialView.alpha=0.0;
     }
+    
+    [self dismissViewControllerAnimated:NO completion:nil];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -482,7 +487,7 @@
     [webby setDelegate:self];
     
     [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-seen", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
    
 }
@@ -1022,6 +1027,8 @@ else
     
    // NSLog(@"%@",resultData);
     
+     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
 }
 
 - (void) noLocationsReceived{
@@ -1038,14 +1045,14 @@ else
     //[20160717] No need to notify anyone about his
    // [self notifyMe:@"game" withMessage:@"no-loc"];
   
-    
+     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 - (void)locationsReceived:(NSDictionary *)resultData
 {
     
   // NSLog(@"%@",resultData);
-    
+     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 #pragma mark swipeGestureRecognizers
