@@ -53,7 +53,7 @@
                 <navigationController storyboardIdentifier="NAV_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="6du-M4-QlT" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="kWd-UB-h6o"/>
                     <navigationBar key="navigationBar" contentMode="scaleAspectFit" misplaced="YES" id="DsS-nQ-bFe">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -252,7 +252,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SECOND_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="Npu-zI-ucI" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ORc-fG-Vor">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -294,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PW5-Gi-gZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2175.1999999999998" y="1527.8860569715143"/>
+            <point key="canvasLocation" x="2169" y="1528"/>
         </scene>
         <!--SettingsVC-->
         <scene sceneID="3gh-1J-KBi">
@@ -857,7 +857,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n2V-Ej-jpp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2169" y="2963"/>
+            <point key="canvasLocation" x="2508" y="2962.6686656671668"/>
         </scene>
         <!--Privacy Policy-->
         <scene sceneID="VGW-5b-cyN">
@@ -872,21 +872,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="imageView:ixc-o2-rvs:image" translatesAutoresizingMaskIntoConstraints="NO" id="ixc-o2-rvs">
-                                <rect key="frame" x="138" y="76" width="100" height="100"/>
+                                <rect key="frame" x="138" y="72" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="6yp-aI-Wgh"/>
                                     <constraint firstAttribute="width" constant="100" id="86s-gW-oJr"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYq-bo-TFU">
-                                <rect key="frame" x="136" y="204" width="103" height="36"/>
+                                <rect key="frame" x="136" y="200" width="103" height="36"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Privacy Policy">
                                     <color key="titleColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <textView clipsSubviews="YES" contentMode="top" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGW-t8-SVn">
-                                <rect key="frame" x="16" y="242" width="343" height="412"/>
+                                <rect key="frame" x="16" y="238" width="343" height="416"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -1152,7 +1152,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lAl-uR-wva" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2169" y="3691"/>
+            <point key="canvasLocation" x="2508" y="3690.4047976011998"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="yEp-pM-cZW">
@@ -1191,7 +1191,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUw-ye-iWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3114.4000000000001" y="4417.2413793103451"/>
+            <point key="canvasLocation" x="2175" y="4417"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="Tfa-C0-Mxo">
@@ -2653,7 +2653,7 @@ Cg
                 <swipeGestureRecognizer direction="right" id="kGC-pq-ft9"/>
                 <swipeGestureRecognizer direction="right" id="s61-dT-B7V"/>
             </objects>
-            <point key="canvasLocation" x="2903" y="830"/>
+            <point key="canvasLocation" x="3108" y="830"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="9lM-Ia-nlo">
@@ -2890,7 +2890,50 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKD-ci-k0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-42.399999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="-2673" y="2253"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eHM-HC-B3x">
+            <objects>
+                <viewController id="prr-nE-GF1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8m0-Q1-T3D"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZoM-Rp-Uu6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="knX-gg-jMJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="asia-blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZhN-Wf-CjO">
+                                <rect key="frame" x="0.0" y="439" width="375" height="228"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location denied" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nep-x8-pBr">
+                                <rect key="frame" x="16" y="72" width="343" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi, this app needs the access to your GPS in order to lookup the event information around you. Kindly re-enable it." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxz-Em-PrS">
+                                <rect key="frame" x="16" y="252" width="343" height="246"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="x_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ueo-jZ-8nN">
+                                <rect key="frame" x="127" y="124" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dq9-qi-euB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Edv-a9-Qu3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-114.40000000000001" y="3130.8845577211396"/>
         </scene>
         <!--Init Page View Controller-->
         <scene sceneID="dOx-qq-tHU">
@@ -2898,7 +2941,7 @@ Cg
                 <viewController id="VOk-j7-wSr" customClass="TQInitPageViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEL-gf-CyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-982" y="2253"/>
+            <point key="canvasLocation" x="-983" y="2253"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="CWe-9w-r5g">
@@ -2906,7 +2949,7 @@ Cg
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Sv0-en-gVK" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3k6-BU-tlZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2493" y="1584"/>
+            <point key="canvasLocation" x="-983" y="1340"/>
         </scene>
         <!--Page Content View Controller-->
         <scene sceneID="Rtq-sP-0ds">
@@ -2947,14 +2990,14 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apE-yE-VuR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1819" y="1584"/>
+            <point key="canvasLocation" x="-114" y="1340"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="47g-27-QuL">
             <objects>
                 <navigationController storyboardIdentifier="FIRST_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="CcW-hR-ldX" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xvD-Ql-RIJ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -2971,7 +3014,7 @@ Cg
                 <navigationController storyboardIdentifier="THIRD_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="lH9-uC-RbK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Hx1-1s-wpm">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2989,7 +3032,7 @@ Cg
                 <navigationController storyboardIdentifier="FOURTH_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="Myg-2i-C8C" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fed-i3-wNN">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2999,7 +3042,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eI-rQ-uI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1175.625" y="2963.0281690140841"/>
+            <point key="canvasLocation" x="1514.4000000000001" y="2962.6686656671668"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="244-VL-r4I">
@@ -3007,7 +3050,7 @@ Cg
                 <navigationController storyboardIdentifier="PRIVACY_POLICY" automaticallyAdjustsScrollViewInsets="NO" id="sUF-zb-d2M" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kNI-Zh-u13">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3017,7 +3060,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Bf-8U-9pV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1175" y="3691"/>
+            <point key="canvasLocation" x="1512.8" y="3690.4047976011998"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mte-dm-aU0">
@@ -3025,7 +3068,7 @@ Cg
                 <navigationController storyboardIdentifier="FAVOURITES" automaticallyAdjustsScrollViewInsets="NO" id="o5l-7i-fmk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="obk-U6-cWZ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3035,7 +3078,25 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0F9-tu-LxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2173.5999999999999" y="4416.3418290854579"/>
+            <point key="canvasLocation" x="1175" y="4417"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ejb-F1-W3E">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c4M-yV-G1M" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O9i-hX-MUe">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="prr-nE-GF1" kind="relationship" relationship="rootViewController" id="Fy7-hc-XHu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dwa-jy-nWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-983" y="3131"/>
         </scene>
     </scenes>
     <resources>
@@ -3045,6 +3106,7 @@ Cg
         <image name="Time_Time-03-01.png" width="61" height="61"/>
         <image name="Users_Users-24-01.png" width="61" height="61"/>
         <image name="about.png" width="132" height="132"/>
+        <image name="asia-blue.png" width="320" height="228"/>
         <image name="asia-img.png" width="384" height="273"/>
         <image name="dropin-logo.png" width="963" height="356"/>
         <image name="grey-selected-button.png" width="342" height="92"/>
@@ -3068,6 +3130,7 @@ AbIBtAG2AbsBwwHGAcsB0wHWAegB6wHwAAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAAAAAAAAAAAfI
         <image name="pk_compo_2_button_grey.png" width="169" height="78"/>
         <image name="sky.png" width="5000" height="5000"/>
         <image name="vertical_line.png" width="2" height="20"/>
+        <image name="x_icon.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="F6X-Rd-5TQ"/>

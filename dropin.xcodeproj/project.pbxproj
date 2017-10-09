@@ -186,6 +186,7 @@
 		06B5E0371BECE4FF009A88CF /* round_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B5E0361BECE4FF009A88CF /* round_button.png */; };
 		06B5E0391BED695B009A88CF /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 06B5E0381BED695B009A88CF /* save.png */; };
 		06B821011DC4E2DD00750FA9 /* Hobo Std Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06B821001DC4E2DD00750FA9 /* Hobo Std Medium.ttf */; };
+		06B9E5701F8ADAE30091545F /* TQ_LocationDenied.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B9E56F1F8ADAE30091545F /* TQ_LocationDenied.m */; };
 		06C5B3561CA0D50C002EE661 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C5B3521CA0D50C002EE661 /* Fabric.framework */; };
 		06C5B3571CA0D50C002EE661 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C5B3531CA0D50C002EE661 /* TwitterKit.framework */; };
 		06C5B3581CA0D50C002EE661 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06C5B3541CA0D50C002EE661 /* TwitterKitResources.bundle */; };
@@ -468,6 +469,9 @@
 		06B5E0361BECE4FF009A88CF /* round_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round_button.png; sourceTree = "<group>"; };
 		06B5E0381BED695B009A88CF /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		06B821001DC4E2DD00750FA9 /* Hobo Std Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Hobo Std Medium.ttf"; path = "assets/font/Hobo Std Medium.ttf"; sourceTree = "<group>"; };
+		06B9E56E1F8ADAE30091545F /* TQ_LocationDenied.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TQ_LocationDenied.h; sourceTree = "<group>"; };
+		06B9E56F1F8ADAE30091545F /* TQ_LocationDenied.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TQ_LocationDenied.m; sourceTree = "<group>"; };
+		06B9E5711F8ADE750091545F /* unauthorised-156169_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unauthorised-156169_1280.png"; path = "icons/unauthorised-156169_1280.png"; sourceTree = "<group>"; };
 		06C5B3521CA0D50C002EE661 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		06C5B3531CA0D50C002EE661 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		06C5B3541CA0D50C002EE661 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
@@ -767,6 +771,7 @@
 			isa = PBXGroup;
 			children = (
 				0611E9021D5B51B700C4A5C6 /* pk_tbl_icon_marker_blue.png */,
+				06B9E5711F8ADE750091545F /* unauthorised-156169_1280.png */,
 				061731591D5B53D600A7A29C /* drop-new@32.png */,
 				0617315B1D5B546B00A7A29C /* drop-new@64.png */,
 				0614CFC61D078FA300260D45 /* fonts */,
@@ -1043,6 +1048,8 @@
 		ED73689719CB2E0A00B69BEC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				06B9E56E1F8ADAE30091545F /* TQ_LocationDenied.h */,
+				06B9E56F1F8ADAE30091545F /* TQ_LocationDenied.m */,
 				06B166281D12F9D4009C0F49 /* PageView */,
 				06B166271D12F9BA009C0F49 /* SideDrawerTemplates */,
 				06377C901BDD20C3004FE094 /* PG_LoginVC.h */,
@@ -1496,6 +1503,7 @@
 				068A86871BC96F1400578BCA /* TQ_SettingsVC.m in Sources */,
 				066218B91E5D53AC00B9E032 /* TQ_Launch.m in Sources */,
 				06F9FEAF1C0C9389008DA44C /* TQ_IntroViewController.m in Sources */,
+				06B9E5701F8ADAE30091545F /* TQ_LocationDenied.m in Sources */,
 				ED7368B019CB2E0A00B69BEC /* PGAppDelegate.m in Sources */,
 				ED7368A919CB2E0A00B69BEC /* PGFirstViewController.m in Sources */,
 				06AC42731BB83B8B00872A9D /* LocationController.m in Sources */,

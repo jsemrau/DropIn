@@ -888,11 +888,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.h"
-            timestampString = "470769729.073414"
+            timestampString = "529204035.08195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "5"
-            endingLineNumber = "5">
+            endingLineNumber = "5"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1642,7 +1644,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.962394"
+            timestampString = "529204035.08244"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "238"
@@ -1658,27 +1660,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.963674"
+            timestampString = "529204035.08341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "-viewWillAppear:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.964281"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "432"
-            endingLineNumber = "432"
+            startingLineNumber = "479"
+            endingLineNumber = "479"
             landmarkName = "-performAnimation"
             landmarkType = "7">
          </BreakpointContent>
@@ -1690,11 +1676,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.964873"
+            timestampString = "529204035.084108"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "443"
-            endingLineNumber = "443"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
             landmarkName = "-performAnimation"
             landmarkType = "7">
          </BreakpointContent>
@@ -1706,11 +1692,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.965433"
+            timestampString = "529204035.084721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "434"
-            endingLineNumber = "434"
+            startingLineNumber = "481"
+            endingLineNumber = "481"
             landmarkName = "-performAnimation"
             landmarkType = "7">
          </BreakpointContent>
@@ -1738,11 +1724,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.966101"
+            timestampString = "529204035.085327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1754,11 +1740,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.966674"
+            timestampString = "529204035.08596"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1770,11 +1756,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.967325"
+            timestampString = "529204035.086605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1786,11 +1772,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.968142"
+            timestampString = "529204035.08729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "493"
-            endingLineNumber = "493"
+            startingLineNumber = "540"
+            endingLineNumber = "540"
             landmarkName = "-locationManagerDidUpdateLocation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1802,11 +1788,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.968873"
+            timestampString = "529204035.087878"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "502"
-            endingLineNumber = "502"
+            startingLineNumber = "549"
+            endingLineNumber = "549"
             landmarkName = "-locationManagerDidUpdateLocation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1818,11 +1804,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.969419"
+            timestampString = "529204035.088464"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "494"
-            endingLineNumber = "494"
+            startingLineNumber = "541"
+            endingLineNumber = "541"
             landmarkName = "-locationManagerDidUpdateLocation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1834,11 +1820,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.969953"
+            timestampString = "529204035.089046"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "584"
-            endingLineNumber = "584"
+            startingLineNumber = "631"
+            endingLineNumber = "631"
             landmarkName = "-locationsReceived:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1850,11 +1836,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.970484"
+            timestampString = "529204035.089633"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "587"
-            endingLineNumber = "587"
+            startingLineNumber = "634"
+            endingLineNumber = "634"
             landmarkName = "-locationsReceived:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1962,7 +1948,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/PGAppDelegate.m"
-            timestampString = "487774100.099093"
+            timestampString = "529204035.090285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
@@ -2122,11 +2108,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.971655"
+            timestampString = "529204035.090418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "505"
-            endingLineNumber = "505"
+            startingLineNumber = "552"
+            endingLineNumber = "552"
             landmarkName = "-locationManagerDidUpdateLocation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -2890,12 +2876,12 @@
                   moduleName = "dropin"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tenqyu/Desktop/Tenqyu/Products/Drop-in/SideDrawerExample/Controllers/TQ_EventDetailsViewController.m"
-                  timestampString = "528906677.907731"
+                  timestampString = "529204035.297056"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "553"
                   endingLineNumber = "553"
-                  offsetFromSymbolStart = "594">
+                  offsetFromSymbolStart = "692">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2905,12 +2891,12 @@
                   moduleName = "dropin"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tenqyu/Desktop/Tenqyu/Products/Drop-in/SideDrawerExample/Controllers/TQ_EventDetailsViewController.m"
-                  timestampString = "528906677.91032"
+                  timestampString = "529204035.298257"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "553"
                   endingLineNumber = "553"
-                  offsetFromSymbolStart = "602">
+                  offsetFromSymbolStart = "696">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3130,12 +3116,12 @@
                   moduleName = "dropin"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tenqyu/Desktop/Tenqyu/Products/Drop-in/SideDrawerExample/Controllers/TQ_Favorites.m"
-                  timestampString = "528906677.936477"
+                  timestampString = "529204035.310969"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
                   endingLineNumber = "55"
-                  offsetFromSymbolStart = "503">
+                  offsetFromSymbolStart = "592">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3145,12 +3131,12 @@
                   moduleName = "dropin"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tenqyu/Desktop/Tenqyu/Products/Drop-in/SideDrawerExample/Controllers/TQ_Favorites.m"
-                  timestampString = "528906677.939046"
+                  timestampString = "529204035.312167"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
                   endingLineNumber = "55"
-                  offsetFromSymbolStart = "511">
+                  offsetFromSymbolStart = "610">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3562,11 +3548,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.975373"
+            timestampString = "529204035.091844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "641"
-            endingLineNumber = "641"
+            startingLineNumber = "688"
+            endingLineNumber = "688"
             landmarkName = "-noLocationsReceived"
             landmarkType = "7">
          </BreakpointContent>
@@ -3578,11 +3564,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.976085"
+            timestampString = "529204035.092437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "621"
-            endingLineNumber = "621"
+            startingLineNumber = "668"
+            endingLineNumber = "668"
             landmarkName = "-locationsReceived:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3594,11 +3580,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.976617"
+            timestampString = "529204035.093025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "623"
-            endingLineNumber = "623"
+            startingLineNumber = "670"
+            endingLineNumber = "670"
             landmarkName = "-locationsReceived:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3610,11 +3596,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.977145"
+            timestampString = "529204035.093609"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "568"
-            endingLineNumber = "568"
+            startingLineNumber = "615"
+            endingLineNumber = "615"
             landmarkName = "-notificationsReceived:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3641,38 +3627,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.977722"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.978231"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "323"
-            endingLineNumber = "323"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/TQ_MapVC.m"
             timestampString = "502753413.148352"
             startingColumnNumber = "9223372036854775807"
@@ -3690,11 +3644,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.978824"
+            timestampString = "529204035.094218"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "504"
-            endingLineNumber = "504"
+            startingLineNumber = "551"
+            endingLineNumber = "551"
             landmarkName = "-locationManagerDidUpdateLocation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3706,11 +3660,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
-            timestampString = "528906737.979672"
+            timestampString = "529204035.094989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "503"
-            endingLineNumber = "503"
+            startingLineNumber = "550"
+            endingLineNumber = "550"
             landmarkName = "-locationManagerDidUpdateLocation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -3776,6 +3730,118 @@
             startingLineNumber = "219"
             endingLineNumber = "219"
             landmarkName = "-viewWillAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
+            timestampString = "529204035.095703"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
+            timestampString = "529204035.096334"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
+            timestampString = "529204035.096916"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "568"
+            endingLineNumber = "568"
+            landmarkName = "-locationManagerDidUpdateLocation:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
+            timestampString = "529204035.0975"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
+            timestampString = "529204035.09811"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
+            timestampString = "529204035.098688"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SideDrawerExample/Controllers/PG_LoginVC.m"
+            timestampString = "529204035.099257"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "780"
+            endingLineNumber = "780"
+            landmarkName = "-alertView:didDismissWithButtonIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

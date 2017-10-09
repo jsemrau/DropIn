@@ -238,18 +238,69 @@
     self.locationManager = [[CLLocationManager alloc] init];
     
     
-    BOOL locationAllowed = [CLLocationManager locationServicesEnabled];
-    if (!locationAllowed)
+    BOOL locationEnabled = [CLLocationManager locationServicesEnabled];
+    BOOL showAlertSetting=false;
+    BOOL showInitLocation=false;
+    
+    if (locationEnabled)
     {
+        
+        switch ([CLLocationManager authorizationStatus]) {
+            case kCLAuthorizationStatusDenied:
+                showAlertSetting = true;
+                NSLog(@"HH: kCLAuthorizationStatusDenied");
+                break;
+            case kCLAuthorizationStatusRestricted:
+                showAlertSetting = true;
+                NSLog(@"HH: kCLAuthorizationStatusRestricted");
+                break;
+            case kCLAuthorizationStatusAuthorizedAlways:
+                showInitLocation = true;
+                NSLog(@"HH: kCLAuthorizationStatusAuthorizedAlways");
+                break;
+            case kCLAuthorizationStatusAuthorizedWhenInUse:
+                showInitLocation = true;
+                NSLog(@"HH: kCLAuthorizationStatusAuthorizedWhenInUse");
+                break;
+            case kCLAuthorizationStatusNotDetermined:
+                showInitLocation = true;
+                NSLog(@"HH: kCLAuthorizationStatusNotDetermined");
+                break;
+            default:
+                break;
+               
+        }
+       
+        
+        } else {
+        
+        
+            NSLog ( @" What if no location services" );
+        
+        }
+    
+    if(showAlertSetting){
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                         message:[NSString stringWithFormat:NSLocalizedString(@"err-loc", nil)]
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"prefs:root=LOCATION_SERVICES"]];
+        
+        
+        NSLog(@"Why would I be here?");
+       
     }
     
+    if (showInitLocation){
+        
+        
+        [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
+        //This triggers the dialogue!! - DON'T DELETE
+        [locationManager startUpdatingLocation];
+        
+    }
     
     //if there is no userdetails then init
     if ([self.userDetails count] == 0 && !self.isAuthenticating){
@@ -279,10 +330,6 @@
     
     
     self.start.text = [NSString stringWithFormat:NSLocalizedString(@"getEvents", nil)];
-    
-    [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
-    //This triggers the dialogue!! - DON'T DELETE
-    [locationManager startUpdatingLocation];
     
     
     /******** Some more polishing **********/
@@ -728,5 +775,9 @@
     
 }
 
-
+- (void) alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"prefs:root=LOCATION_SERVICES"]];
+    
+}
 @end
