@@ -15,11 +15,73 @@
 
 @implementation TQ_LocationDenied
 
-@synthesize settings;
+@synthesize settings, locationManager, currentLocation,hasProperRights, hasUpdated,shader;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+}
+- (void)viewWillAppear:(BOOL)animated {
+   
+    
     // Do any additional setup after loading the view.
+    self.hasProperRights=false;
+    self.hasUpdated=false;
+    
+    self.hasProperRights = [[GFLocationManager sharedInstance]checkSettings:self ];
+    
+    if(!self.hasProperRights){
+        
+        [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
+        //This triggers the dialogue!! - DON'T DELETE
+        [locationManager startUpdatingLocation];
+        
+        NSLog(@"Has proper rights");
+        
+        [self nextStep:self];
+        
+
+    } else {
+        
+        
+        shader.alpha=0.0;
+        
+    }
+    
+    
+    
+    /******** Check background refresh **********/
+    
+    if ([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusAvailable) {
+        
+        NSLog(@"Background updates are available for the app.");
+    }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusDenied)
+    {
+        NSLog(@"The user explicitly disabled background behavior for this app or for the whole system.");
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+                                                        message:
+                              [NSString stringWithFormat:NSLocalizedString(@"err-bg", nil)]
+                              
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+    }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted)
+    {
+        NSLog(@"Background updates are unavailable and the user cannot enable them again. For example, this status can occur when parental controls are in effect for the current user.");
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+                                                        message:[NSString stringWithFormat:NSLocalizedString(@"err-bg", nil)]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +97,19 @@
     } else {
         NSURL *URL = [NSURL URLWithString:@"App-Prefs:root=Privacy&path=LOCATION"];
         [[UIApplication sharedApplication] openURL:URL options:@{} completionHandler:nil];
+    }
+    
+}
+
+- (IBAction)nextStep:(id)sender {
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
+    
+    if([userDetails count]>0){
+        [self moveToLogin:self];
+    } else {
+        [self moveToHelper:self];
     }
     
 }
@@ -58,6 +133,29 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PG_LoginVC *myVC = (PG_LoginVC *)[storyboard instantiateViewControllerWithIdentifier:@"LOGINVC"];
+    //LOGINVC
+    [self presentViewController:myVC animated:YES completion:nil];
+}
+
+- (IBAction) moveToHelper:(id)sender {
+    
+    NSLog(@" Entered move To Helper");
+    
+    /*
+     dispatch_async(dispatch_get_main_queue(), ^{
+     // code here
+     
+     PGViewController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_VIEW_CONTROLLER"];
+     
+     [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
+     
+     [self presentViewController:centerViewController animated:TRUE completion:nil];
+     
+     
+     });*/
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PG_LoginVC *myVC = (PG_LoginVC *)[storyboard instantiateViewControllerWithIdentifier:@"INITPAGEVC"];
     [self presentViewController:myVC animated:YES completion:nil];
 }
 
@@ -71,4 +169,17 @@
 }
 */
 
+#pragma mark location delegate
+
+- (void) locationManagerDidUpdateLocation:(CLLocation *)location {
+    self.currentLocation = location;
+    
+    NSLog(@"Updated location in Location Denied");
+    
+    if(!hasProperRights && !self.hasUpdated) {
+      self.hasUpdated=TRUE;
+    }
+    
+}
+       
 @end

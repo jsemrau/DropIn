@@ -1048,10 +1048,10 @@
 		ED73689719CB2E0A00B69BEC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				06B9E56E1F8ADAE30091545F /* TQ_LocationDenied.h */,
-				06B9E56F1F8ADAE30091545F /* TQ_LocationDenied.m */,
 				06B166281D12F9D4009C0F49 /* PageView */,
 				06B166271D12F9BA009C0F49 /* SideDrawerTemplates */,
+				06B9E56E1F8ADAE30091545F /* TQ_LocationDenied.h */,
+				06B9E56F1F8ADAE30091545F /* TQ_LocationDenied.m */,
 				06377C901BDD20C3004FE094 /* PG_LoginVC.h */,
 				06377C911BDD20C3004FE094 /* PG_LoginVC.m */,
 				ED73689819CB2E0A00B69BEC /* PGFirstViewController.h */,
@@ -1187,6 +1187,11 @@
 					EDB058011858C5BD000EAA9C = {
 						DevelopmentTeam = 546NVCFW57;
 						LastSwiftMigration = 0900;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					EDB058221858C5BE000EAA9C = {
 						TestTargetID = EDB058011858C5BD000EAA9C;

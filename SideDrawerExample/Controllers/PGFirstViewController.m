@@ -9,7 +9,7 @@
 #import "PGFirstViewController.h"
 #import "MMDrawerBarButtonItem.h"
 #import "TQ_EventDetailsViewController.h"
-
+#import "TQ_LocationDenied.h"
 
 @import GoogleMobileAds;
 
@@ -87,7 +87,6 @@
             
             [self notifyMe:@"err-loc-disable" withMessage:@"err-loc-enable"];
             
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"prefs:root=LOCATION_SERVICES"]];
         }
         
         [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
@@ -301,6 +300,34 @@
     
 }
 - (IBAction)refreshButtonPress:(id)sender {
+    
+    bool showAlertSetting = [[GFLocationManager sharedInstance]checkSettings:self ];
+    
+    if (showAlertSetting){
+        
+       
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        TQ_LocationDenied *myVC = (TQ_LocationDenied *)[storyboard instantiateViewControllerWithIdentifier:@"LOGINVC"];
+        //LOGINVC
+        [self presentViewController:myVC animated:YES completion:nil];
+        
+        /*
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // code here
+            
+        
+            TQ_LocationDenied *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DENIED_TOP_VIEW_CONTROLLER"];
+            
+            [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
+            
+            [self presentViewController:centerViewController animated:TRUE completion:nil];
+            
+            
+        });*/
+        
+       [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
     
     self.loader.alpha=1.0;
     self.hasUpdates=FALSE;
@@ -900,6 +927,9 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         /* Show message*/
         self.messagerLabel.text=[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
         self.messager.alpha=1.0;
+        self.eventTable.alpha=1.0;
+    } else {
+        
         self.eventTable.alpha=1.0;
     }
     

@@ -7,17 +7,34 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GFLocationManager.h"
 
-@interface TQ_LocationDenied : UIViewController
+
+@interface TQ_LocationDenied : UIViewController<GFLocationManagerDelegate>
 
 {
     
     IBOutlet UIButton *settings;
+    IBOutlet UIView *shader;
     
+    CLLocationManager *locationManager;
+    CLLocation *currentLocation;
+    bool hasProperRights;
+    bool hasUpdated;
 }
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (retain, nonatomic) CLLocation *currentLocation;
+@property (retain, nonatomic) UIView *shader;
+
+
+@property (nonatomic, assign) BOOL hasProperRights;
+@property (nonatomic, assign) BOOL firstTime;
+@property (nonatomic, assign) BOOL hasUpdated;
 
 - (IBAction) gotoSettings;
 - (IBAction) moveToLogin:(id)sender ;
+- (IBAction) nextStep:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UIButton *settings;
 

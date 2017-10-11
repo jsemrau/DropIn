@@ -69,6 +69,8 @@
 }
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (retain, nonatomic) CLLocation *currentLocation;
+
 
 @property (nonatomic, retain)  UITextField *passwordField;
 @property (nonatomic, retain)  UITextField *emailField;
@@ -103,7 +105,6 @@
 
 @property(nonatomic, retain) NSMutableArray *colorArray;
 @property(nonatomic, retain) NSMutableDictionary *userDetails;
-@property (retain, nonatomic) CLLocation *currentLocation;
 
 @property (retain, nonatomic) IBOutlet UIButton *loginButton;
 @property (retain, nonatomic) IBOutlet UIButton *helpButton;

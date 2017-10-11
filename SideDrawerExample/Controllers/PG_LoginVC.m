@@ -149,6 +149,18 @@
    
     NSLog(@"viewWillAppear");
     
+    /*** One more check ***/
+    
+    bool showAlertSetting = [[GFLocationManager sharedInstance]checkSettings:self ];
+    
+    if(showAlertSetting){
+        
+        NSLog(@"Denied user rights?");
+        [self moveToDenied:self];
+        
+        
+    }
+    
    /******** Let's see if we can reuse this information about location **********/
     
     self.currentLocation=[[GFLocationManager sharedInstance] currentLocation];
@@ -202,8 +214,6 @@
     [self startingLoadingAnimation];
     
     self.locationManager = [[CLLocationManager alloc] init];
-    
-    
     
     //if there is no userdetails then init
     if ([self.userDetails count] == 0 && !self.isAuthenticating){
@@ -267,12 +277,13 @@
     
     if(showAlertSetting){
         
-        NSLog(@"Denied user rights?");
+        NSLog(@"Denied user rights!");
         [self moveToDenied:self];
         
         
     } else {
         
+        NSLog(@"Accepted user rights?");
         
         [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
         //This triggers the dialogue!! - DON'T DELETE
@@ -298,7 +309,8 @@
                                               otherButtonTitles:nil];
         [alert show];
         
-    }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted)
+    }
+    else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted)
     {
         NSLog(@"Background updates are unavailable and the user cannot enable them again. For example, this status can occur when parental controls are in effect for the current user.");
         
@@ -320,6 +332,11 @@
     if([self.userDetails count]>0) {
         
         NSLog(@" User details available");
+        NSLog(@" Update status %i ", self.hasUpdated );
+        if (!showAlertSetting){
+            
+            [self moveToFirst:self];
+        }
         
     } else {
 
@@ -330,7 +347,7 @@
     if(self.hasUpdated){
         NSLog(@"Updated data");
     } else {
-        NSLog(@"****ERROR****ERROR****");
+        NSLog(@"Need to update data");
     }
     
 }
@@ -497,8 +514,8 @@
 
 - (void) locationManagerDidUpdateLocation:(CLLocation *)location {
     self.currentLocation = location;
-    NSLog(@"Updated location");
-    NSLog(@" coordinates are %f and %f", location.coordinate.latitude ,location.coordinate.longitude);
+    NSLog(@"Updated location needs it ? -> %i ", self.hasUpdated);
+    NSLog(@" coordinates are %f and %f and accuracy %f", location.coordinate.latitude ,location.coordinate.longitude, location.horizontalAccuracy);
 
 
     if([self.userDetails count]==0) {
@@ -610,6 +627,7 @@
             
         }
         
+
         self.eventList = [[NSArray alloc] initWithArray:data];
        
         
