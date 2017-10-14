@@ -19,8 +19,8 @@
     
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
-    bool hasProperRights;
-    bool hasUpdated;
+    BOOL hasNoRight;
+    BOOL hasUpdated;
 }
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -28,7 +28,7 @@
 @property (retain, nonatomic) UIView *shader;
 
 
-@property (nonatomic, assign) BOOL hasProperRights;
+@property (nonatomic, assign) BOOL hasNoRight;
 @property (nonatomic, assign) BOOL firstTime;
 @property (nonatomic, assign) BOOL hasUpdated;
 

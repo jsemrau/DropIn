@@ -15,7 +15,7 @@
 
 @implementation TQ_LocationDenied
 
-@synthesize settings, locationManager, currentLocation,hasProperRights, hasUpdated,shader;
+@synthesize settings, locationManager, currentLocation,hasNoRight, hasUpdated,shader;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,12 +26,12 @@
    
     
     // Do any additional setup after loading the view.
-    self.hasProperRights=false;
+    self.hasNoRight=true;
     self.hasUpdated=false;
     
-    self.hasProperRights = [[GFLocationManager sharedInstance]checkSettings:self ];
+    self.hasNoRight = [[GFLocationManager sharedInstance]checkSettings:self ];
     
-    if(!self.hasProperRights){
+    if(!self.hasNoRight){
         
         [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
         //This triggers the dialogue!! - DON'T DELETE
@@ -91,9 +91,10 @@
 
 - (IBAction) gotoSettings {
     
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 11.0)
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 10.0)
     {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"prefs:root=LOCATION_SERVICES"]];
+   
     } else {
         NSURL *URL = [NSURL URLWithString:@"App-Prefs:root=Privacy&path=LOCATION"];
         [[UIApplication sharedApplication] openURL:URL options:@{} completionHandler:nil];
@@ -106,10 +107,26 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
     
-    if([userDetails count]>0){
-        [self moveToLogin:self];
+    self.hasNoRight = [[GFLocationManager sharedInstance]checkSettings:self ];
+    
+    if (!self.hasNoRight) {
+        
+        if([userDetails count]>0){
+            [self moveToLogin:self];
+        } else {
+            [self moveToHelper:self];
+        }
     } else {
-        [self moveToHelper:self];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
+                                                        message:
+                              [NSString stringWithFormat:NSLocalizedString(@"err-fixrights", nil)]
+                              
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
     }
     
 }
@@ -135,6 +152,7 @@
     PG_LoginVC *myVC = (PG_LoginVC *)[storyboard instantiateViewControllerWithIdentifier:@"LOGINVC"];
     //LOGINVC
     [self presentViewController:myVC animated:YES completion:nil];
+    
 }
 
 - (IBAction) moveToHelper:(id)sender {
@@ -154,9 +172,11 @@
      
      });*/
     
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PG_LoginVC *myVC = (PG_LoginVC *)[storyboard instantiateViewControllerWithIdentifier:@"INITPAGEVC"];
     [self presentViewController:myVC animated:YES completion:nil];
+    
 }
 
 /*
@@ -176,7 +196,7 @@
     
     NSLog(@"Updated location in Location Denied");
     
-    if(!hasProperRights && !self.hasUpdated) {
+    if(!self.hasNoRight && !self.hasUpdated) {
       self.hasUpdated=TRUE;
     }
     

@@ -105,7 +105,7 @@ static int errorCount = 0;
 -(BOOL) checkSettings:(id<GFLocationManagerDelegate>)delegate {
     
     BOOL locationEnabled = [CLLocationManager locationServicesEnabled];
-    BOOL showAlertSetting=false;
+    BOOL showAlertSetting=true;
     
     if (locationEnabled)
     {

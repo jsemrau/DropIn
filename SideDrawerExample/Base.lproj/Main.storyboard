@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c4M-yV-G1M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PLx-9i-WJq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
             <string>Avenir-Light</string>
         </array>
         <array key="AvenirNext.ttc">
-            <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Medium</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-UltraLight</string>
         </array>
@@ -54,7 +55,7 @@
                 <navigationController storyboardIdentifier="NAV_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="6du-M4-QlT" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="kWd-UB-h6o"/>
                     <navigationBar key="navigationBar" contentMode="scaleAspectFit" misplaced="YES" id="DsS-nQ-bFe">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -253,7 +254,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SECOND_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="Npu-zI-ucI" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ORc-fG-Vor">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -772,7 +773,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ezp-oO-6Xu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2169" y="2253"/>
+            <point key="canvasLocation" x="2508" y="2252.9235382308848"/>
         </scene>
         <!--AboutVC-->
         <scene sceneID="k5l-dH-x9O">
@@ -873,21 +874,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="imageView:ixc-o2-rvs:image" translatesAutoresizingMaskIntoConstraints="NO" id="ixc-o2-rvs">
-                                <rect key="frame" x="138" y="72" width="100" height="100"/>
+                                <rect key="frame" x="138" y="76" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="6yp-aI-Wgh"/>
                                     <constraint firstAttribute="width" constant="100" id="86s-gW-oJr"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYq-bo-TFU">
-                                <rect key="frame" x="136" y="200" width="103" height="36"/>
+                                <rect key="frame" x="136" y="204" width="103" height="36"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Privacy Policy">
                                     <color key="titleColor" red="0.1529411765" green="0.62352941179999999" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <textView clipsSubviews="YES" contentMode="top" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGW-t8-SVn">
-                                <rect key="frame" x="16" y="238" width="343" height="416"/>
+                                <rect key="frame" x="16" y="242" width="343" height="412"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -2861,12 +2862,12 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKD-ci-k0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2673" y="2253"/>
+            <point key="canvasLocation" x="-1838" y="2253"/>
         </scene>
         <!--Location Denied-->
         <scene sceneID="eHM-HC-B3x">
             <objects>
-                <viewController id="prr-nE-GF1" customClass="TQ_LocationDenied" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="L" id="prr-nE-GF1" customClass="TQ_LocationDenied" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8m0-Q1-T3D"/>
                         <viewControllerLayoutGuide type="bottom" id="ZoM-Rp-Uu6"/>
@@ -2885,46 +2886,51 @@ Cg
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mre-vv-Tdb">
-                                <rect key="frame" x="112.5" y="347" width="150" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="qEE-4W-Mco"/>
-                                    <constraint firstAttribute="height" constant="43" id="xPU-pi-l9X"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                <state key="normal" title="Update settings" backgroundImage="pk_compo_2_button_blue_flat.png">
-                                    <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="gotoSettings" destination="prr-nE-GF1" eventType="touchUpInside" id="CEu-hv-CSI"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drop!in needs location services to work" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpQ-jj-czr">
+                                <rect key="frame" x="28" y="107" width="320" height="52"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ppg-EI-BrB">
-                                <rect key="frame" x="112.5" y="407" width="150" height="38"/>
+                                <rect key="frame" x="113" y="461" width="150" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="Fbj-Co-0gU"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="aGa-Lu-xhy"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="bDO-gT-9V4"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="bT3-W6-Ezf"/>
                                     <constraint firstAttribute="width" constant="150" id="wLE-6a-IS5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Continue" backgroundImage="pk_compo_2_button_blue_flat.png">
-                                    <color key="titleColor" red="0.111818932" green="0.11183650050000001" blue="0.1118125319" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="nextStep:" destination="Edv-a9-Qu3" eventType="touchUpInside" id="1gu-BT-sZP"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="asia-blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZhN-Wf-CjO">
-                                <rect key="frame" x="27.5" y="111" width="320" height="228"/>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LocationServices.png" translatesAutoresizingMaskIntoConstraints="NO" id="oII-Uv-X3q">
+                                <rect key="frame" x="22" y="168" width="331" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oII-Uv-X3q" secondAttribute="height" multiplier="331:220" id="OI6-sf-ZId"/>
+                                    <constraint firstAttribute="height" constant="220" id="ZtQ-ID-BwR"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location services need to be enabled" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpQ-jj-czr">
-                                <rect key="frame" x="38" y="111" width="298" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VeY-z7-f0o">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mre-vv-Tdb">
+                                <rect key="frame" x="113" y="396" width="150" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="qEE-4W-Mco"/>
+                                    <constraint firstAttribute="height" constant="43" id="xPU-pi-l9X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Settings" backgroundImage="pk_compo_2_button_blue_flat.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="gotoSettings" destination="prr-nE-GF1" eventType="touchUpInside" id="CEu-hv-CSI"/>
+                                </connections>
+                            </button>
+                            <view autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VeY-z7-f0o">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2932,14 +2938,17 @@ Cg
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ppg-EI-BrB" firstAttribute="top" secondItem="mre-vv-Tdb" secondAttribute="bottom" constant="16.999999999999545" id="024-9m-y3a"/>
-                            <constraint firstItem="Ppg-EI-BrB" firstAttribute="centerX" secondItem="knX-gg-jMJ" secondAttribute="centerX" id="KTT-gA-kU1"/>
-                            <constraint firstItem="mre-vv-Tdb" firstAttribute="centerX" secondItem="knX-gg-jMJ" secondAttribute="centerX" id="Maa-6a-1Aw"/>
-                            <constraint firstItem="mre-vv-Tdb" firstAttribute="top" secondItem="ZhN-Wf-CjO" secondAttribute="bottom" constant="8.0000000000004547" id="PAj-JY-Rbl"/>
-                            <constraint firstItem="ZhN-Wf-CjO" firstAttribute="centerX" secondItem="knX-gg-jMJ" secondAttribute="centerX" id="abe-UK-eD5"/>
-                            <constraint firstItem="ZhN-Wf-CjO" firstAttribute="top" secondItem="Nep-x8-pBr" secondAttribute="bottom" constant="8" id="fRX-9R-W3R"/>
+                            <constraint firstItem="mre-vv-Tdb" firstAttribute="top" secondItem="oII-Uv-X3q" secondAttribute="bottom" constant="8" id="1Wq-yw-vYS"/>
+                            <constraint firstItem="lpQ-jj-czr" firstAttribute="leading" secondItem="Nep-x8-pBr" secondAttribute="leading" id="4xq-eV-UHi"/>
+                            <constraint firstItem="Ppg-EI-BrB" firstAttribute="centerX" secondItem="knX-gg-jMJ" secondAttribute="centerX" id="7jf-J2-7ZI"/>
+                            <constraint firstItem="lpQ-jj-czr" firstAttribute="top" secondItem="Nep-x8-pBr" secondAttribute="bottom" constant="4" id="Duo-Ek-hFD"/>
+                            <constraint firstItem="lpQ-jj-czr" firstAttribute="trailing" secondItem="Nep-x8-pBr" secondAttribute="trailing" id="IJR-ya-I6u"/>
+                            <constraint firstItem="oII-Uv-X3q" firstAttribute="centerX" secondItem="knX-gg-jMJ" secondAttribute="centerX" id="Jr7-qy-aIo"/>
+                            <constraint firstItem="oII-Uv-X3q" firstAttribute="top" secondItem="Nep-x8-pBr" secondAttribute="bottom" constant="65" id="ePs-k6-ouG"/>
+                            <constraint firstItem="mre-vv-Tdb" firstAttribute="centerX" secondItem="knX-gg-jMJ" secondAttribute="centerX" id="hLG-ID-BHR"/>
                             <constraint firstItem="Nep-x8-pBr" firstAttribute="centerX" secondItem="knX-gg-jMJ" secondAttribute="centerX" id="l3m-cq-htV"/>
                             <constraint firstItem="Nep-x8-pBr" firstAttribute="top" secondItem="8m0-Q1-T3D" secondAttribute="bottom" constant="8" id="nUm-vI-zcb"/>
+                            <constraint firstItem="Ppg-EI-BrB" firstAttribute="top" secondItem="mre-vv-Tdb" secondAttribute="bottom" constant="22" id="sRn-d3-2SH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dq9-qi-euB"/>
@@ -2950,7 +2959,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edv-a9-Qu3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3642.4000000000001" y="2252.9235382308848"/>
+            <point key="canvasLocation" x="-3303.1999999999998" y="2252.9235382308848"/>
         </scene>
         <!--Init Page View Controller-->
         <scene sceneID="dOx-qq-tHU">
@@ -2958,7 +2967,7 @@ Cg
                 <viewController storyboardIdentifier="INITPAGEVC" id="VOk-j7-wSr" customClass="TQInitPageViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEL-gf-CyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-983" y="2253"/>
+            <point key="canvasLocation" x="-644" y="2252.9235382308848"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="CWe-9w-r5g">
@@ -3014,7 +3023,7 @@ Cg
             <objects>
                 <navigationController storyboardIdentifier="FIRST_TOP_VIEW_CONTROLLER" definesPresentationContext="YES" id="CcW-hR-ldX" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xvD-Ql-RIJ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -3031,7 +3040,7 @@ Cg
                 <navigationController storyboardIdentifier="THIRD_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="lH9-uC-RbK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Hx1-1s-wpm">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3041,7 +3050,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJ2-P8-z89" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1175.625" y="2253.1690140845067"/>
+            <point key="canvasLocation" x="1514.4000000000001" y="2252.9235382308848"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tlc-3F-0Fz">
@@ -3049,7 +3058,7 @@ Cg
                 <navigationController storyboardIdentifier="FOURTH_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="Myg-2i-C8C" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fed-i3-wNN">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3067,7 +3076,7 @@ Cg
                 <navigationController storyboardIdentifier="PRIVACY_POLICY" automaticallyAdjustsScrollViewInsets="NO" id="sUF-zb-d2M" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kNI-Zh-u13">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3085,7 +3094,7 @@ Cg
                 <navigationController storyboardIdentifier="FAVOURITES" automaticallyAdjustsScrollViewInsets="NO" id="o5l-7i-fmk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="obk-U6-cWZ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3098,32 +3107,32 @@ Cg
             <point key="canvasLocation" x="1175" y="4417"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ejb-F1-W3E">
+        <scene sceneID="z8p-aw-dDM">
             <objects>
-                <navigationController storyboardIdentifier="DENIED_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="c4M-yV-G1M" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DENIED_TOP_VIEW_CONTROLLER" automaticallyAdjustsScrollViewInsets="NO" id="PLx-9i-WJq" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O9i-hX-MUe">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fjy-Xb-Gin">
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="prr-nE-GF1" kind="relationship" relationship="rootViewController" id="Fy7-hc-XHu"/>
+                        <segue destination="prr-nE-GF1" kind="relationship" relationship="rootViewController" id="zlu-QN-NFy"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dwa-jy-nWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="skQ-bh-oHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4567" y="2253"/>
+            <point key="canvasLocation" x="-4183" y="2253"/>
         </scene>
     </scenes>
     <resources>
         <image name="Edition_Edition-10-01.png" width="61" height="61"/>
+        <image name="LocationServices.png" width="1160" height="772"/>
         <image name="Shopping_Shopping-25-01.png" width="61" height="61"/>
         <image name="Tenqyu logo.png" width="362" height="108"/>
         <image name="Time_Time-03-01.png" width="61" height="61"/>
         <image name="Users_Users-24-01.png" width="61" height="61"/>
         <image name="about.png" width="132" height="132"/>
-        <image name="asia-blue.png" width="320" height="228"/>
         <image name="asia-img.png" width="384" height="273"/>
         <image name="dropin-logo.png" width="963" height="356"/>
         <image name="grey-selected-button.png" width="342" height="92"/>
@@ -3148,6 +3157,6 @@ AbIBtAG2AbsBwwHGAcsB0wHWAegB6wHwAAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAAAAAAAAAAAfI
         <image name="vertical_line.png" width="2" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F6X-Rd-5TQ"/>
+        <segue reference="BX2-7E-RiK"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -83,7 +83,7 @@
 		<string>MKDirectionsModePedestrian</string>
 	</array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>drop!in does not always need to track your location. </string>
+	<string>drop!in only needs your location at the time we catch the events</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>drop!in needs your location to select events nearby happening now.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
