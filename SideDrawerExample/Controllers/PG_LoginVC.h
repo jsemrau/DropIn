@@ -86,7 +86,8 @@
 
 @property (nonatomic, assign)  BOOL validated;
 @property (nonatomic, assign)  BOOL isTwitter;
-@property (nonatomic, assign)  BOOL isUpdating;
+@property (nonatomic, assign)  BOOL isUpdatingLocation;
+@property (nonatomic, assign)  BOOL isUpdatingEventData;
 @property (nonatomic, assign) BOOL hasUpdated;
 @property (nonatomic, assign) BOOL isAuthenticating;
 

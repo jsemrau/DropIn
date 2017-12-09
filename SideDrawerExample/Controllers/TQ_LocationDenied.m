@@ -8,6 +8,7 @@
 
 #import "TQ_LocationDenied.h"
 #import "PG_LoginVC.h"
+#import "TQInitPageViewController.h"
 
 @interface TQ_LocationDenied ()
 
@@ -15,16 +16,12 @@
 
 @implementation TQ_LocationDenied
 
-@synthesize settings, locationManager, currentLocation,hasNoRight, hasUpdated,shader;
+@synthesize settings, locationManager, currentLocation,hasNoRight, hasUpdated,shader,locRights;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-}
-- (void)viewWillAppear:(BOOL)animated {
-   
-    
+    self.locRights.text=[NSString stringWithFormat:NSLocalizedString(@"err-loc-rights", nil)];
     // Do any additional setup after loading the view.
     self.hasNoRight=true;
     self.hasUpdated=false;
@@ -41,7 +38,8 @@
         
         [self nextStep:self];
         
-
+        [self dismissViewControllerAnimated:NO completion:nil];
+        
     } else {
         
         
@@ -81,6 +79,12 @@
         [alert show];
     }
     
+}
+- (void)viewWillAppear:(BOOL)animated {
+   
+    
+   
+    
     
 }
 
@@ -104,6 +108,8 @@
 
 - (IBAction)nextStep:(id)sender {
     
+    NSLog(@" Entered next step");
+    
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
     
@@ -112,10 +118,26 @@
     if (!self.hasNoRight) {
         
         if([userDetails count]>0){
-            [self moveToLogin:self];
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            PG_LoginVC *myVC = (PG_LoginVC *)[storyboard instantiateViewControllerWithIdentifier:@"LOGINVC"];
+            //LOGINVC
+            [self presentViewController:myVC animated:YES completion:nil];
+            
         } else {
-            [self moveToHelper:self];
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            TQInitPageViewController *myVC = (TQInitPageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"INITPAGEVC"];
+            [self presentViewController:myVC animated:YES completion:nil];
+            
         }
+        
+      /*  [self dismissViewControllerAnimated:NO completion:^{
+            
+            NSLog(@"Completed Denied Dismissal");
+                                                                   
+        }];*/
+        
     } else {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
@@ -131,53 +153,7 @@
     
 }
 
-- (IBAction) moveToLogin:(id)sender {
-    
-    NSLog(@" Entered move 2 Login");
-    
-    /*
-    dispatch_async(dispatch_get_main_queue(), ^{
-        // code here
-        
-        PGViewController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_VIEW_CONTROLLER"];
-        
-        [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
-        
-        [self presentViewController:centerViewController animated:TRUE completion:nil];
-        
-        
-    });*/
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    PG_LoginVC *myVC = (PG_LoginVC *)[storyboard instantiateViewControllerWithIdentifier:@"LOGINVC"];
-    //LOGINVC
-    [self presentViewController:myVC animated:YES completion:nil];
-    
-}
 
-- (IBAction) moveToHelper:(id)sender {
-    
-    NSLog(@" Entered move To Helper");
-    
-    /*
-     dispatch_async(dispatch_get_main_queue(), ^{
-     // code here
-     
-     PGViewController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGIN_VIEW_CONTROLLER"];
-     
-     [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
-     
-     [self presentViewController:centerViewController animated:TRUE completion:nil];
-     
-     
-     });*/
-    
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    PG_LoginVC *myVC = (PG_LoginVC *)[storyboard instantiateViewControllerWithIdentifier:@"INITPAGEVC"];
-    [self presentViewController:myVC animated:YES completion:nil];
-    
-}
 
 /*
 #pragma mark - Navigation
@@ -201,5 +177,6 @@
     }
     
 }
-       
+
+
 @end

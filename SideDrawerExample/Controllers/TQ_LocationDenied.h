@@ -33,9 +33,9 @@
 @property (nonatomic, assign) BOOL hasUpdated;
 
 - (IBAction) gotoSettings;
-- (IBAction) moveToLogin:(id)sender ;
 - (IBAction) nextStep:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UIButton *settings;
+@property (nonatomic, retain) IBOutlet UILabel *locRights;
 
 @end

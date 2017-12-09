@@ -157,23 +157,15 @@
 		06A5574E1BC17E81004152C8 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556D71BC17E81004152C8 /* background.png */; };
 		06A5574F1BC17E81004152C8 /* bg_city.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556D81BC17E81004152C8 /* bg_city.png */; };
 		06A557501BC17E81004152C8 /* parkedHere.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556D91BC17E81004152C8 /* parkedHere.png */; };
-		06A5575B1BC17E81004152C8 /* pk_compo_message_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556E51BC17E81004152C8 /* pk_compo_message_white.png */; };
-		06A5575D1BC17E81004152C8 /* pk_map_directions.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556E71BC17E81004152C8 /* pk_map_directions.png */; };
-		06A5575E1BC17E81004152C8 /* pk_map_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556E81BC17E81004152C8 /* pk_map_icon.png */; };
-		06A5575F1BC17E81004152C8 /* pk_table_item.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556E91BC17E81004152C8 /* pk_table_item.png */; };
 		06A557601BC17E81004152C8 /* check_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556EC1BC17E81004152C8 /* check_icon.png */; };
 		06A557611BC17E81004152C8 /* check_icon_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556ED1BC17E81004152C8 /* check_icon_small.png */; };
 		06A557621BC17E81004152C8 /* locateMe.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556EE1BC17E81004152C8 /* locateMe.png */; };
 		06A557631BC17E81004152C8 /* numPad_40x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556EF1BC17E81004152C8 /* numPad_40x.png */; };
-		06A557651BC17E81004152C8 /* pk_icon_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556F11BC17E81004152C8 /* pk_icon_refresh.png */; };
-		06A557661BC17E81004152C8 /* pk_map_directions copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556F21BC17E81004152C8 /* pk_map_directions copy.png */; };
-		06A557671BC17E81004152C8 /* pk_map_directions.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556F31BC17E81004152C8 /* pk_map_directions.png */; };
 		06A557731BC17E81004152C8 /* save_icon-40x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A556FF1BC17E81004152C8 /* save_icon-40x.png */; };
 		06A557751BC17E81004152C8 /* save_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A557011BC17E81004152C8 /* save_icon.png */; };
 		06A557761BC17E81004152C8 /* x_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A557021BC17E81004152C8 /* x_icon.png */; };
 		06A557771BC17E81004152C8 /* x_icon_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A557031BC17E81004152C8 /* x_icon_small.png */; };
 		06A5578B1BC17E81004152C8 /* loopingCircle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 06A557181BC17E81004152C8 /* loopingCircle.gif */; };
-		06A557B61BC17E81004152C8 /* pk_point_finger.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A557431BC17E81004152C8 /* pk_point_finger.png */; };
 		06A609431BE4B8E8009DF9D9 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A609421BE4B8E8009DF9D9 /* line.png */; };
 		06AC42721BB83B8B00872A9D /* GFLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AC42691BB83B8B00872A9D /* GFLocationManager.m */; };
 		06AC42731BB83B8B00872A9D /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AC426B1BB83B8B00872A9D /* LocationController.m */; };
@@ -375,9 +367,9 @@
 		066218B71E5D53AC00B9E032 /* TQ_Launch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQ_Launch.h; sourceTree = "<group>"; };
 		066218B81E5D53AC00B9E032 /* TQ_Launch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQ_Launch.m; sourceTree = "<group>"; };
 		066218BA1E5D589A00B9E032 /* bg_jump.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_jump.jpeg; sourceTree = "<group>"; };
-		06635B941F917A2800CC178C /* pk_compo_2_button_blue_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pk_compo_2_button_blue_flat.png; path = SideDrawerExample/assets/ui/components/pk_compo_2_button_blue_flat.png; sourceTree = "<group>"; };
-		06635B961F917A3200CC178C /* LocationServices.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LocationServices.png; path = SideDrawerExample/assets/ui/LocationServices.png; sourceTree = "<group>"; };
-		06635B981F917A5B00CC178C /* drop!in-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "drop!in-logo.png"; path = "SideDrawerExample/assets/ci-logo/drop!in-logo.png"; sourceTree = "<group>"; };
+		06635B941F917A2800CC178C /* pk_compo_2_button_blue_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pk_compo_2_button_blue_flat.png; path = assets/ui/components/pk_compo_2_button_blue_flat.png; sourceTree = "<group>"; };
+		06635B961F917A3200CC178C /* LocationServices.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LocationServices.png; path = assets/ui/LocationServices.png; sourceTree = "<group>"; };
+		06635B981F917A5B00CC178C /* drop!in-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "drop!in-logo.png"; path = "assets/ci-logo/drop!in-logo.png"; sourceTree = "<group>"; };
 		066E48F71C1E260800897133 /* filledCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filledCoin.png; sourceTree = "<group>"; };
 		066E48F81C1E260800897133 /* filledPerson.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filledPerson.png; sourceTree = "<group>"; };
 		066E48FB1C1E413B00897133 /* notfilledCoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notfilledCoin.png; sourceTree = "<group>"; };
@@ -626,6 +618,9 @@
 		063823431BC01889004EECAD /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				06635B981F917A5B00CC178C /* drop!in-logo.png */,
+				06635B961F917A3200CC178C /* LocationServices.png */,
+				06635B941F917A2800CC178C /* pk_compo_2_button_blue_flat.png */,
 				0606E9B51E26FB6000DC6BBA /* launchimages */,
 				067F222A1DC57C6F00177909 /* ci-logo */,
 				06B820FF1DC4E28D00750FA9 /* font */,
@@ -1083,9 +1078,6 @@
 		EDB057F91858C5BD000EAA9C = {
 			isa = PBXGroup;
 			children = (
-				06635B981F917A5B00CC178C /* drop!in-logo.png */,
-				06635B961F917A3200CC178C /* LocationServices.png */,
-				06635B941F917A2800CC178C /* pk_compo_2_button_blue_flat.png */,
 				ED73689419CB2E0A00B69BEC /* Drop-In */,
 				EDB0582A1858C5BE000EAA9C /* MMDrawerTestTests */,
 				EDB058041858C5BD000EAA9C /* Frameworks */,
@@ -1247,13 +1239,11 @@
 				06A557501BC17E81004152C8 /* parkedHere.png in Resources */,
 				0659708E1DF79622007C5412 /* Icon-Small-40.png in Resources */,
 				06F9FEB21C0D5EE5008DA44C /* header.png in Resources */,
-				06A557661BC17E81004152C8 /* pk_map_directions copy.png in Resources */,
 				065584DC1C1CDD5E0089D4F8 /* family.png in Resources */,
 				ED7368AE19CB2E0A00B69BEC /* Images.xcassets in Resources */,
 				065970871DF79622007C5412 /* Icon-76@2x.png in Resources */,
 				065970891DF79622007C5412 /* Icon-App-.png in Resources */,
 				065584CD1C1CDD5E0089D4F8 /* business2.png in Resources */,
-				06A5575D1BC17E81004152C8 /* pk_map_directions.png in Resources */,
 				062691891C25924D00B68D88 /* family-button-unselected.png in Resources */,
 				06C6C38F1D27CBEE00A229DF /* page2.png in Resources */,
 				062AED211BE95DBC004FE681 /* home.png in Resources */,
@@ -1290,7 +1280,6 @@
 				06DDCB781C036940008B9F98 /* master-slider_02.png in Resources */,
 				067771721C0F4D95001993CA /* asia-img.png in Resources */,
 				065584CF1C1CDD5E0089D4F8 /* entertainment.png in Resources */,
-				06A5575E1BC17E81004152C8 /* pk_map_icon.png in Resources */,
 				060CE88F1C13CAE10073685F /* eventfinda.png in Resources */,
 				066218BB1E5D589A00B9E032 /* bg_jump.jpeg in Resources */,
 				06982F4D1D445B40002B6C0E /* sky2_600x35.png in Resources */,
@@ -1308,7 +1297,6 @@
 				06F9FEBA1C0D6227008DA44C /* map-icon.png in Resources */,
 				06A3AE791C1CF88200C12051 /* money.png in Resources */,
 				065584DE1C1CDD5E0089D4F8 /* mass.png in Resources */,
-				06A5575F1BC17E81004152C8 /* pk_table_item.png in Resources */,
 				067771701C0F4D95001993CA /* asia-blue-stretch-01.png in Resources */,
 				0677717E1C0F58F6001993CA /* Shopping_Shopping-25-01.png in Resources */,
 				06C6C38D1D27CBEE00A229DF /* page0.png in Resources */,
@@ -1324,7 +1312,6 @@
 				068A20631C79FF4500B4694F /* Liked-orig.png in Resources */,
 				06054D551DC62E7500F90449 /* dropin-logo.png in Resources */,
 				065584CC1C1CDD5E0089D4F8 /* business.png in Resources */,
-				06A557651BC17E81004152C8 /* pk_icon_refresh.png in Resources */,
 				065970901DF79622007C5412 /* Icon-Small-40@3x.png in Resources */,
 				06E146741BE6E7B0004AFD33 /* url.png in Resources */,
 				0606E9BF1E26FB7500DC6BBA /* Default@2x.png in Resources */,
@@ -1333,7 +1320,6 @@
 				063F7EB91DF61CAD00DD2225 /* drop_map.png in Resources */,
 				ED7368A819CB2E0A00B69BEC /* Main.storyboard in Resources */,
 				0606E9BC1E26FB7500DC6BBA /* Default-667h@2x.png in Resources */,
-				06A5575B1BC17E81004152C8 /* pk_compo_message_white.png in Resources */,
 				06A2A3D11CA197EB00EFD1C0 /* Rotated-layers_0005_Layer-5.png in Resources */,
 				0619F7911C3C0B6600EA29F8 /* LaunchImage@Ret55.png in Resources */,
 				06A5574E1BC17E81004152C8 /* background.png in Resources */,
@@ -1374,7 +1360,6 @@
 				0626E6E81D2751DE00CA2D0F /* Tenqyu logo.png in Resources */,
 				067771771C0F4F00001993CA /* berlin-01.png in Resources */,
 				06C6C3901D27CBEE00A229DF /* page3.png in Resources */,
-				06A557B61BC17E81004152C8 /* pk_point_finger.png in Resources */,
 				066E49011C1F227D00897133 /* personRun_blue.png in Resources */,
 				065970991DF79622007C5412 /* iTunesArtwork@2x.png in Resources */,
 				06735BB61CF89AF500E607EF /* facebook-64-black.png in Resources */,
@@ -1393,7 +1378,6 @@
 				067771881C110CCC001993CA /* name.png in Resources */,
 				060CE8901C13CAE10073685F /* meetup.png in Resources */,
 				062691871C25924D00B68D88 /* education-button-unselected.png in Resources */,
-				06A557671BC17E81004152C8 /* pk_map_directions.png in Resources */,
 				0626918A1C25924D00B68D88 /* food-button-unselected.png in Resources */,
 				065584E01C1CDD5E0089D4F8 /* social.png in Resources */,
 				0606B52A1C15BFAD0005F035 /* drop-logo 33x20.png in Resources */,
@@ -1460,9 +1444,44 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-dropin/Pods-dropin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BLKFlexibleHeightBar/BLKFlexibleHeightBar.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/DGActivityIndicatorView/DGActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/EFCircularSlider/EFCircularSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FSOpenInWhatsApp/FSOpenInWhatsApp.framework",
+				"${BUILT_PRODUCTS_DIR}/FontAwesomeKit/FontAwesomeKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
+				"${BUILT_PRODUCTS_DIR}/MMDrawerController/MMDrawerController.framework",
+				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
+				"${BUILT_PRODUCTS_DIR}/RKDropdownAlert/RKDropdownAlert.framework",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+				"${BUILT_PRODUCTS_DIR}/iRate/iRate.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLKFlexibleHeightBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFCircularSlider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSOpenInWhatsApp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesomeKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMDrawerController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RKDropdownAlert.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iRate.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1475,13 +1494,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dropin-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC2A155A9D11C573A4128B29 /* [CP] Copy Pods Resources */ = {

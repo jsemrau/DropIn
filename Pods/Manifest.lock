@@ -12,11 +12,11 @@ PODS:
   - DGActivityIndicatorView (2.1.1)
   - DZNEmptyDataSet (1.8.1)
   - EFCircularSlider (0.2.0)
-  - FBSDKCoreKit (4.27.1):
+  - FBSDKCoreKit (4.29.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.27.1):
+  - FBSDKLoginKit (4.29.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.27.1):
+  - FBSDKShareKit (4.29.0):
     - FBSDKCoreKit
   - FontAwesomeKit (2.2.1):
     - FontAwesomeKit/Core (= 2.2.1)
@@ -40,10 +40,10 @@ PODS:
   - FontAwesomeKit/Zocial (2.2.1):
     - FontAwesomeKit/Core
   - FSOpenInWhatsApp (2.1)
-  - Google-Mobile-Ads-SDK (7.24.1)
+  - Google-Mobile-Ads-SDK (7.26.0)
   - GoogleConversionTracking (3.4.0)
   - iRate (1.12.1)
-  - MGSwipeTableCell (1.6.1)
+  - MGSwipeTableCell (1.6.6)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
     - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
@@ -100,15 +100,15 @@ SPEC CHECKSUMS:
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EFCircularSlider: 3af1dd6f86eb3eeeeaab0345ef3d6d1c2fc93d17
-  FBSDKCoreKit: 03365dad5d790249196ffad8be4f6d8a2d98f932
-  FBSDKLoginKit: 66ff53b73cffd967ab773e32fac39e90a60e6d46
-  FBSDKShareKit: 6a6a0ef9e850c741e4e1d7a7d21335205e997ec1
+  FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
+  FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
+  FBSDKShareKit: 18a2cd118aef11dd657fe7e8b64bae5c719088b2
   FontAwesomeKit: 3614979b3dbb0ec3f7fac1bd760b91f66c31db67
   FSOpenInWhatsApp: 9122fd285faef1ef5c980b4acb649eece9720a3e
-  Google-Mobile-Ads-SDK: ed8004a7265b424568dc84f3d2bbe3ea3fff958f
+  Google-Mobile-Ads-SDK: 22d4a6fe18d526adcc12a86d8cc2d53872700966
   GoogleConversionTracking: ca8c89abda2bd28bb6472b316eeb4ece9264e279
   iRate: 59c63a290d4988f365d4338e58eca192ae92b552
-  MGSwipeTableCell: 19a1d65dcc1ceaea42eb44bb2adae32101904514
+  MGSwipeTableCell: c3bc6e261e7bc06c112909fe3fb8205de286082c
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
   RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
@@ -116,4 +116,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: a8ed8ca9eb4467e4acf73d5b602728412fd054ff
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.3.1

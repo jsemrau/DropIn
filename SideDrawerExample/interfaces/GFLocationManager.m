@@ -135,10 +135,7 @@ static int errorCount = 0;
                 break;
                 
         }
-        
-        
-       
-        
+         
     }
  
     return showAlertSetting;

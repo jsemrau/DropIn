@@ -26,12 +26,17 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     
+    //NSLog(@"Setup navigation");
     [self setupLeftMenuButton];
     [self.navigationController setHidesNavigationBarHairline:YES];
+    
+   //NSLog(@"Setup blurry");
     
     self.blurry.layer.cornerRadius = self.blurry.frame.size.height/2; // this value vary as per your desire
     self.blurry.clipsToBounds = YES;
     self.blurry.alpha=0.0;
+    
+    //NSLog(@"Setup Event Table");
     
     [self.eventTable setDataSource:self];
     self.eventTable.delegate = self;
@@ -40,13 +45,16 @@
     /* Set delegate for empty data source */
     self.eventTable.emptyDataSetSource = self;
     self.eventTable.emptyDataSetDelegate = self;
+    self.eventTable.separatorStyle=UITableViewCellSeparatorStyleNone;
+    
+    //NSLog(@"Setup Google Banner");
     
     self.bannerView.adUnitID = @"ca-app-pub-7857198660418019/3237842480";
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];
     self.bannerView.alpha=0.0;
     
-    self.eventTable.separatorStyle=UITableViewCellSeparatorStyleNone;
+    //NSLog(@"Setup FKIcons");
     
     FAKFontAwesome *likeIcon = [FAKFontAwesome questionIconWithSize:25];
     [likeIcon addAttribute:NSForegroundColorAttributeName value:[UIColor flatSkyBlueColor] ];
@@ -66,6 +74,8 @@
     
     /* round edges */
     
+    //NSLog(@"Setup Round Edges");
+    
     UIBezierPath * maskPath = [UIBezierPath bezierPathWithRoundedRect:self.messager.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(3.0,3.0)];
     // Create the shape layer and set its path
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
@@ -75,6 +85,7 @@
    self.messager.layer.mask = maskLayer;
    self.messager.clipsToBounds = NO;
     
+    //NSLog(@"Setup Needsupdates");
     //if there were updates then you need to reload data
     if(needsUpdates){
         
@@ -89,16 +100,22 @@
             
         }
         
-        [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
+        //[[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
+        
         
     }
     
     /*  Make sure only the table is displayed on start */
     //don't show anything
     
+    //NSLog(@"Setup Alphas");
+    
     self.messager.alpha=0.0;
     self.loading.alpha=0.0;
     self.eventTable.alpha=0.0;
+    
+    //NSLog(@"Setup User Defaults");
+    
     
     NSUserDefaults *prefs;
     NSArray *eventDetails;
@@ -151,6 +168,8 @@
         
     }
     
+    //NSLog(@"Setup Refreshcontrol");
+    
     
     if(!self.refreshControl){
         self.refreshControl = [UIRefreshControl new];
@@ -173,6 +192,8 @@
         [self.eventTable sendSubviewToBack:refreshControl];
     }
     
+  
+    //NSLog(@"Setup FK Icons 2");
     
    // NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
     UIColor *btnColor =[UIColor flatSkyBlueColor];
@@ -210,7 +231,9 @@
     
     /* If need to get updates do that now */
     
-
+    //NSLog(@"Setup Fade In's");
+    
+    
     if (self.needsUpdates) {
         
         self.messager.alpha=0.0;
@@ -232,6 +255,7 @@
 
 - (void)viewDidLoad{
     
+    NSLog(@"viewDidLoad First");
     //[self.self.eventTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"lotCell"];
     
     [self.self.eventTable registerNib:[UINib nibWithNibName:@"lotCell" bundle:nil]forCellReuseIdentifier:@"lotCell"];
@@ -239,12 +263,15 @@
 }
 - (void)viewDidAppear:(BOOL)animated{
     
+    NSLog(@"viewDidAppear First");
+    
     [self.view addSubview:self.loader];
 
     //[self.eventTable registerClass:[lotCell class] forCellReuseIdentifier:@"lotCell"];
   ;
     //disable scroll to top for all text views
-    for (UITextView *view in self.view.subviews) {
+   
+    /*for (UITextView *view in self.view.subviews) {
         if ([view isKindOfClass:[UITextView class]]) {
             view.scrollsToTop = NO;
         }
@@ -252,7 +279,8 @@
     
     
 
-    self.eventTable.scrollsToTop =YES;
+    self.eventTable.scrollsToTop =YES;*/
+    
     
    // [self fadeInTableView];
 
@@ -292,6 +320,8 @@
 
 - (IBAction)settingsButtonPress:(id)sender{
     
+    NSLog(@"settingsButtonPress First");
+    
     UINavigationController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"THIRD_TOP_VIEW_CONTROLLER"];
     
     //UIViewController *vc= [centerViewController.viewControllers objectAtIndex:0];
@@ -300,6 +330,8 @@
     
 }
 - (IBAction)refreshButtonPress:(id)sender {
+    
+    NSLog(@"refreshButtonPress First");
     
     bool showAlertSetting = [[GFLocationManager sharedInstance]checkSettings:self ];
     
@@ -382,7 +414,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
+  //   NSLog(@"tableView cellForRowAtIndexPath First");
     
     static NSString *CellIdentifier = @"lotCell";
     
@@ -410,6 +442,17 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     
     //reset lotview
     //cell.lotViewIndicator=[[UIImageView alloc]initWithFrame:CGRectZero];
+    
+    FAKIonIcons *clockIcon = [FAKIonIcons androidFavoriteOutlineIconWithSize:15];
+    UIColor *btnColor = [UIColor flatSkyBlueColor];
+    [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
+    UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(15, 15)];
+    UIImage *image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    cell.lotViewIndicator.image=image;
+    cell.lotViewIndicator.clipsToBounds = YES;
+    
+    //cell.lotViewIndicator.layer.cornerRadius = cell.lotViewIndicator.frame.size.height/2;
+    
     
    
     /* Check that there is an element to display */
@@ -616,8 +659,8 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
             
         } else {
 
-            FAKIonIcons *clockIcon = [FAKIonIcons loopIconWithSize:15];
-            UIColor *btnColor = [UIColor flatRedColor];
+            FAKIonIcons *clockIcon = [FAKIonIcons iosLoopIconWithSize:15];
+            UIColor *btnColor = [UIColor flatWhiteColorDark];
             [clockIcon addAttribute:NSForegroundColorAttributeName value:btnColor ];
             UIImage *iconImage = [clockIcon imageWithSize:CGSizeMake(15, 15)];
             UIImage *image = [iconImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -841,6 +884,8 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
             if ([self.likedIDs objectForKey:[text objectForKey:@"id"]]) {
                 
                 cell.lotViewIndicator.hidden=FALSE;
+                
+                
             }
         }
         
@@ -913,10 +958,14 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void) noLocationsReceived{
     
+    NSLog(@"noLocationsReceived First");
+    
     gettingUpdates=FALSE;
     
     self.loader.alpha=0.0;
     
+    self.eventList=nil;
+    self.filteredEventList=nil;
     
     [self stoppingLoadingAnimation ];
     self.eventTable.alpha=0.0;
@@ -936,6 +985,8 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 }
 
 - (void)notificationsReceived:(NSDictionary *)resultData{
+    
+     NSLog(@"notificationsReceived First");
     
     gettingUpdates=FALSE;
     self.loader.alpha=0.0;
@@ -965,6 +1016,8 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)locationsReceived:(NSDictionary *)resultData
 {
+    
+    NSLog(@"locationsReceived First");
     
     //NSLog(@" loc -> %@",resultData);
     
@@ -1064,6 +1117,8 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 #pragma mark location delegate
 
 - (void) locationManagerDidUpdateLocation:(CLLocation *)location {
+    
+    NSLog(@"locationManagerDidUpdateLocation First");
     
     
   //  NSTimeInterval locationAge = -[location.timestamp timeIntervalSinceNow];
@@ -1324,8 +1379,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)fadeInTableView
 {
     
-   // [self.eventTable reloadData];
-    [self.eventTable setNeedsLayout];
+/*    [self.eventTable setNeedsLayout];
     [self.eventTable layoutIfNeeded];
     [self.eventTable reloadData];
     
@@ -1334,7 +1388,8 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     [UIView setAnimationDuration:0.5];
     self.eventTable.alpha = 1.0;
     [UIView commitAnimations];
-    
+  */
+    self.eventTable.alpha=1.0;
 }
 
 - (void)fadeOutTableView

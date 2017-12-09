@@ -6,6 +6,8 @@
 //  Copyright © 2015 Pulkit Goyal. All rights reserved.
 //
 
+
+//Why 
 #import "TQ_EventDetailsViewController.h"
 #import "FSOpenInWhatsApp.h"
 
@@ -24,7 +26,7 @@
 
 - (void) viewWillDisappear:(BOOL)animated{
     
-     NSLog(@"viewWillAppear");
+     NSLog(@"Details viewWillDisappear");
     
     //there is a lag
     if(self.socialActive){
@@ -32,7 +34,7 @@
         self.socialView.alpha=0.0;
     }
     
-    [self dismissViewControllerAnimated:NO completion:nil];
+ //  [self dismissViewControllerAnimated:NO completion:nil];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -41,41 +43,12 @@
     
     [self setupButtons];
     
-    
-    //Now I am doing this for all.
-    //Apple will bear it.
-    //Still does not work.
-    
     NSString *fulladdress = [NSString stringWithFormat:@"%@%@%@%@%@",[[self.handOver objectForKey:@"country_name"] uppercaseString] ,@" ",[self.handOver objectForKey:@"city_name"] ,@" ",
                              [self.handOver objectForKey:@"venue_address"]];
     
     NSLog(@" %@ ", fulladdress);
     
     self.fullAddress=fulladdress;
-    
-    //[self getLocationFromAddressString:fulladdress];
-    
-    //self.latitude=tmp.latitude;
-    //self.longitude=tmp.longitude;
-    
-    /* setup the swipes
-    UISwipeGestureRecognizer * swipeleftShare=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(toggleSwipe:)];
-    swipeleftShare.direction=UISwipeGestureRecognizerDirectionLeft;
-    [self.shareView addGestureRecognizer:swipeleftShare];
-    
-    UISwipeGestureRecognizer * swiperightShare=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(toggleSwipe:)];
-    swiperightShare.direction=UISwipeGestureRecognizerDirectionRight;
-    [self.shareView addGestureRecognizer:swiperightShare];
-    
-    UISwipeGestureRecognizer * swipeleftSoc=[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(toggleSwipe:)];
-    swipeleftSoc.direction=UISwipeGestureRecognizerDirectionLeft;
-    [self.socialView addGestureRecognizer:swipeleftSoc];
-    
-    UISwipeGestureRecognizer * swiperightSoc=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(toggleSwipe:)];
-    swiperightSoc.direction=UISwipeGestureRecognizerDirectionRight;
-    [self.socialView addGestureRecognizer:swiperightSoc];
-    
-    */
     
     self.directionsButton.layer.cornerRadius = self.directionsButton.frame.size.height/2; // this value vary as per your desire
     self.directionsButton.clipsToBounds = YES;
@@ -87,15 +60,6 @@
     
     self.socialView.alpha=0.0;
     
-    //store constraints in array
-    self.constraintArray = [NSMutableArray new];
-    for (NSLayoutConstraint *con in self.view.constraints) {
-        if (con.firstItem == self.socialView ) {
-            [self.constraintArray addObject:con];
-        }
-    }
-    
-   // UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"dropin-header2.png"]];
     if ([[self.handOver valueForKey:@"category"] isEqualToString: [NSString stringWithFormat:NSLocalizedString(@"category[0]", nil)]]) {
         self.category.image = [UIImage imageNamed:@"arts.png"];
         self.themeColor=[UIColor flatRedColor];
@@ -363,28 +327,6 @@
     [startDateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
     startDate1 = [startDateFormat dateFromString:dateString];
     
-    /*
-     float fInterval= [startDate1 timeIntervalSinceNow];
-     
-     if (fInterval>60) {
-     //convert to hours
-     fInterval=fInterval/60;
-     
-     if (fInterval == 1.00) {
-     self.timeDiff.self.handOver=[NSString stringWithFormat:@"%.2f",fInterval];
-     self.inXminutes.self.handOver=@"hr";
-     } else {
-     self.timeDiff.self.handOver=[NSString stringWithFormat:@"%.2f",fInterval];
-     self.inXminutes.self.handOver=@"hrs";
-     }
-     } else {
-     //    NSLog(@" My Interval %.2f", fInterval);
-     
-     self.timeDiff.self.handOver=[NSString stringWithFormat:@"%d",(int)fInterval];
-     self.inXminutes.self.handOver=@"min";
-     }
-     */
-    
     float fInterval= [startDate1 timeIntervalSinceNow]/60;
     
     int hours= fabsf(fInterval)/60;
@@ -439,35 +381,14 @@
             
         }
     }
-    
-    // [self loadActionBar];
-    
+   
     self.mapView.alpha=0;
 
-    /*
-    
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    
-    gradient.frame = self.eDescription.superview.bounds;
-    gradient.colors = @[(id)[UIColor clearColor].CGColor, (id)[UIColor blackColor].CGColor, (id)[UIColor blackColor].CGColor, (id)[UIColor clearColor].CGColor];
-    gradient.locations = @[@0.0, @0.03, @0.97, @1.0];
-    
-    self.eDescription.superview.layer.mask = gradient;
-    */
-  
-  
-    
         self.summaryView.layer.shadowColor = [UIColor flatGrayColorDark].CGColor;
         self.summaryView.layer.shadowOffset = CGSizeMake(0, 1);
         self.summaryView.layer.shadowOpacity = 0.5;
         self.summaryView.layer.shadowRadius = 0.5;
         
-    
-        /*
-    self.shareView.layer.shadowColor = [UIColor grayColor].CGColor;
-    self.shareView.layer.shadowOffset = CGSizeMake(0, 2);
-    self.shareView.layer.shadowOpacity = 0.5;
-    self.shareView.layer.shadowRadius = 1.0;*/
     
     if(!self.userDetails){
         
@@ -481,13 +402,18 @@
     self.activePage=2;
     self.socialActive=false;
     
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
-    [webby setDelegate:self];
-    
-    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-seen", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // code here
+       
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+        [webby setDelegate:self];
+        
+        [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-seen", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        
+        
+    });
     
    
 }
@@ -609,14 +535,21 @@
             NSLog(@"Tweet composition cancelled");
         }
         else {
-            NSLog(@"Sending Tweet!");
             
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-            QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
-            [webby setDelegate:self];
             
-            [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"tweeted", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // code here
+                
+                NSLog(@"Sending Tweet!");
+                
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+                QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+                [webby setDelegate:self];
+                
+                [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"tweeted", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                
+            });
             
         }
     }];
@@ -649,12 +582,17 @@
            
             [self.likedIDs removeObjectForKey:self.idStr];
             
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-            QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
-            [webby setDelegate:self];
-        
-            [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-unliked", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // code here
+                
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+                QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+                [webby setDelegate:self];
+                
+                [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-unliked", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                
+            });
             
         }
         
@@ -677,12 +615,18 @@
                 self.likedIDs = [[[NSDictionary alloc] initWithObjectsAndKeys:[NSDate date ],self.idStr,nil] mutableCopy];
             }
             
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-            QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
-            [webby setDelegate:self];
-          
-            [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-liked", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
-             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+           
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // code here
+                
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+                QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
+                [webby setDelegate:self];
+                
+                [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-liked", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                
+            });
             
         }
         NSLog(@"%@", self.idStr);
@@ -1003,7 +947,7 @@ else
             break;
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+   // [self dismissViewControllerAnimated:YES completion:nil];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
@@ -1324,11 +1268,11 @@ else
     if([[self.handOver objectForKey:@"city_name"] length]>0){
         NSString *loc = [self.handOver objectForKey:@"city_name"];
         
-        message = [NSString stringWithFormat:@"%@ event #%@! %@ %@! via http://idrop.in",[self.handOver objectForKey:@"title"], loc, active_content_url, randomObject];
+        message = [NSString stringWithFormat:@"%@ event #%@! %@ %@! ",[self.handOver objectForKey:@"title"], loc, active_content_url, randomObject];
         
     } else {
         
-        message = [NSString stringWithFormat:@"%@ event! %@, %@! via http://idrop.in",[self.handOver objectForKey:@"title"], active_content_url,randomObject];
+        message = [NSString stringWithFormat:@"%@ event! %@, %@! ",[self.handOver objectForKey:@"title"], active_content_url,randomObject];
     }
     
     return message;

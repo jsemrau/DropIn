@@ -26,7 +26,7 @@
 @synthesize loginIndicator;
 @synthesize conn;
 @synthesize receivedData;
-@synthesize validated, isTwitter, isUpdating,hasUpdated,isAuthenticating;
+@synthesize validated, isTwitter, isUpdatingLocation, isUpdatingEventData,hasUpdated,isAuthenticating;
 @synthesize scrollView;
 @synthesize twitterButton,helpButton,loginButton;
 @synthesize twitAccount;
@@ -147,7 +147,7 @@
 {
     self.hasUpdated=NO;
    
-    NSLog(@"viewWillAppear");
+    NSLog(@"[LoginVC] viewWillAppear");
     
     /*** One more check ***/
     
@@ -215,32 +215,6 @@
     
     self.locationManager = [[CLLocationManager alloc] init];
     
-    //if there is no userdetails then init
-    if ([self.userDetails count] == 0 && !self.isAuthenticating){
-        
-        self.isTwitter=NO;
-        NSString *tFlag = [NSString stringWithFormat:@"%d", self.isTwitter];
-        
-        
-        char data[8];
-        for (int x=0;x<8;data[x++] = (char)('A' + (arc4random_uniform(26))));
-        
-        NSString *pwd= [[NSString alloc] initWithBytes:data length:8 encoding:NSUTF8StringEncoding];
-        
-        [self prepareUserData:@"DropInUser" withPassword:pwd isTwitter:tFlag];
-        
-        NSLog(@" this is the pwd %@", pwd);
-        
-    } else {
-        
-        
-        NSLog(@"User registered with ID %i" , [[self.userDetails objectForKey:@"id"] intValue]);
-       
-        self.validated=YES;
-        
-        
-    }
-    
     
     self.start.text = [NSString stringWithFormat:NSLocalizedString(@"getEvents", nil)];
     
@@ -264,7 +238,7 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"ViewDidLoad");
+    NSLog(@"[LoginVC] ViewDidLoad");
     
     /**** Load the banner ad *****/
     
@@ -277,14 +251,15 @@
     
     if(showAlertSetting){
         
-        NSLog(@"Denied user rights!");
+        NSLog(@"LoginVC Denied user rights!");
         [self moveToDenied:self];
         
         
     } else {
         
-        NSLog(@"Accepted user rights?");
+        NSLog(@"LoginVC Accepted user rights.");
         
+        self.isUpdatingLocation=TRUE;
         [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
         //This triggers the dialogue!! - DON'T DELETE
         [locationManager startUpdatingLocation];
@@ -331,25 +306,47 @@
     
     if([self.userDetails count]>0) {
         
-        NSLog(@" User details available");
-        NSLog(@" Update status %i ", self.hasUpdated );
+        NSLog(@"[LoginVC] User details available");
+        NSLog(@"[LoginVC] Update status %i ", self.hasUpdated );
         if (!showAlertSetting){
-            
+            self.validated=TRUE;
             [self moveToFirst:self];
         }
         
     } else {
 
-        [self fadeInImage];
+        //if there is no userdetails then init
+        if ([self.userDetails count] == 0 && !self.isAuthenticating){
+            
+            self.isTwitter=NO;
+            NSString *tFlag = [NSString stringWithFormat:@"%d", self.isTwitter];
+            
+            
+            char data[8];
+            for (int x=0;x<8;data[x++] = (char)('A' + (arc4random_uniform(26))));
+            
+            NSString *pwd= [[NSString alloc] initWithBytes:data length:8 encoding:NSUTF8StringEncoding];
+            
+            [self prepareUserData:@"DropInUser" withPassword:pwd isTwitter:tFlag];
+            
+            NSLog(@" this is the pwd %@", pwd);
+            
+        } else {
+            
+            
+            NSLog(@"User registered with ID %i" , [[self.userDetails objectForKey:@"id"] intValue]);
+            
+            self.validated=YES;
+            
+            
+        }
+        
+        
     
     }
+
     
-    if(self.hasUpdated){
-        NSLog(@"Updated data");
-    } else {
-        NSLog(@"Need to update data");
-    }
-    
+    NSLog(@" LoginVC Completed view did load");
 }
 
 - (void)viewDidUnload
@@ -361,7 +358,26 @@
 
 -(void)loginDidFinish:(PG_LoginVC *)login{
     
-    [self dismissViewControllerAnimated:NO completion:nil];
+//    [self dismissViewControllerAnimated:NO completion:nil];
+    
+    NSLog(@"[LoginVC] Now dismissing viewcontroller");
+    
+    if(self.isUpdatingEventData || self.isAuthenticating) {
+        
+        NSLog(@"[LoginVC] Is doing something");
+        self.isUpdatingLocation=TRUE;
+        [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
+        //This triggers the dialogue!! - DON'T DELETE
+        [locationManager startUpdatingLocation];
+        
+    } else {
+        
+        self.isUpdatingLocation=TRUE;
+        [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
+        //This triggers the dialogue!! - DON'T DELETE
+        [locationManager startUpdatingLocation];
+        
+    }
 }
 
 - (BOOL) textFieldShouldReturn: (UITextField *) theTextField
@@ -503,7 +519,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-   NSLog(@" I am soooo great");
+   NSLog(@"[LoginVC]  I am soooo great");
     
     
     
@@ -513,9 +529,12 @@
 #pragma mark location delegate
 
 - (void) locationManagerDidUpdateLocation:(CLLocation *)location {
+    
+   
+    
     self.currentLocation = location;
-    NSLog(@"Updated location needs it ? -> %i ", self.hasUpdated);
-    NSLog(@" coordinates are %f and %f and accuracy %f", location.coordinate.latitude ,location.coordinate.longitude, location.horizontalAccuracy);
+    NSLog(@"[LoginVC]  Updated location needs it ? -> %i ", self.hasUpdated);
+    NSLog(@"[LoginVC]  coordinates are %f and %f and accuracy %f", location.coordinate.latitude ,location.coordinate.longitude, location.horizontalAccuracy);
 
 
     if([self.userDetails count]==0) {
@@ -540,15 +559,14 @@
         
         self.eventList=nil;
         
+        self.isUpdatingEventData=TRUE;
+        
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
         [webby setDelegate:self];
         [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] ];
        
-        self.isUpdating=TRUE;
-        
-        
-        
+       
         
     } else {
         
@@ -566,14 +584,20 @@
             
             NSString *pwd= [[NSString alloc] initWithBytes:data length:8 encoding:NSUTF8StringEncoding];
             
-            [self prepareUserData:@"DropInUser" withPassword:pwd isTwitter:tFlag];
-            
-            NSLog(@" this is the pwd %@", pwd);
+           [self prepareUserData:@"DropInUser" withPassword:pwd isTwitter:tFlag];
+       
+            NSLog(@"[LoginVC]  this is the pwd %@", pwd);
         }
         
     }
-    
-}
+  
+    if(!self.isUpdatingLocation && location!=nil){
+        
+        [[GFLocationManager sharedInstance] removeLocationManagerDelegate:self];
+        self.isUpdatingLocation=FALSE;
+        
+    }
+} // end function
 
 
 
@@ -601,6 +625,8 @@
 
 - (void)locationsReceived:(NSDictionary *)resultData
 {
+    
+    NSLog(@"[LoginVC] Received locations : %lu ", (unsigned long)[resultData count]);
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
@@ -657,6 +683,8 @@
     /* you need to remove the list */
     /* should you already tell the user? */
     
+    NSLog(@"[LoginVC] ERR no locations");
+    
     [self.activityLoader stopAnimating];
     
     self.eventList=nil;
@@ -697,14 +725,15 @@
 
 - (IBAction) moveToFirst:(id)sender {
     
-    NSLog(@" Entered move 2 First");
+    NSLog(@"[LoginVC]  Entered move 2 First");
     
+    //--the problem is this is not validated
     if(self.validated){
         
         
-        NSLog(@" Validated");
+        NSLog(@"[LoginVC]  Validated user account iniating move 2 first");
         
-       // [self setupLeftMenuButton];
+        [self setupLeftMenuButton];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             // code here
@@ -728,7 +757,7 @@
 
 - (IBAction) moveToDenied:(id)sender {
     
-    NSLog(@" Entered move 2 Denied");
+    NSLog(@" [LoginVC] Entered move 2 Denied");
     
     
         dispatch_async(dispatch_get_main_queue(), ^{

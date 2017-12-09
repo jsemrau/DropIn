@@ -7,6 +7,7 @@
 //
 
 #import "TQInitPageViewController.h"
+#import "PG_LoginVC.h"
 
 @interface TQInitPageViewController ()
 
@@ -91,11 +92,22 @@
     if (index == [self.pageTitles count]) {
         // here I am at the last page
         // then go to the app
+         NSLog(@" Completed Walkthrough");
        // return nil;
+       //   [self dismissPageViewController];
         
+        /*
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        PG_LoginVC *myVC = (PG_LoginVC *)[storyboard instantiateViewControllerWithIdentifier:@"LOGINVC"];
+        [self presentViewController:myVC animated:YES completion:nil];*/
+        
+    
         UIViewController *myController = [self.storyboard instantiateViewControllerWithIdentifier:@"LOGINVC"];
         [self presentViewController:myController animated:NO completion:nil];
+    
+       // [self dismissViewControllerAnimated:NO completion:nil];
         
+   
     }
     return [self viewControllerAtIndex:index];
 }
@@ -109,6 +121,25 @@
 {
     return 0;
 }
+
+- (void)dismissPageViewController
+{
+    // Dismiss your page view controllers here.
+    [self.pageViewController dismissViewControllerAnimated:NO completion:nil];
+    self.pageViewController = nil;
+    
+    // Or remove the page view controllers from its parent view controller,
+    [self.pageViewController willMoveToParentViewController:nil];
+    [self.pageViewController removeFromParentViewController];
+    [self.pageViewController didMoveToParentViewController:nil];
+    
+    // Or its view from its super view.
+    [self.pageViewController.view removeFromSuperview];
+    self.pageViewController = nil;
+    
+  
+}
+
 
 
 /*
