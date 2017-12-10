@@ -32,13 +32,13 @@
         
         [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
         //This triggers the dialogue!! - DON'T DELETE
-        [locationManager startUpdatingLocation];
+       // [locationManager startUpdatingLocation];
         
-        NSLog(@"Has proper rights");
+        NSLog(@"[LocDeniedVC] Has proper rights");
         
         [self nextStep:self];
         
-        [self dismissViewControllerAnimated:NO completion:nil];
+     //   [self dismissViewControllerAnimated:NO completion:nil];
         
     } else {
         
@@ -53,10 +53,10 @@
     
     if ([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusAvailable) {
         
-        NSLog(@"Background updates are available for the app.");
+        NSLog(@"[LocDeniedVC] Background updates are available for the app.");
     }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusDenied)
     {
-        NSLog(@"The user explicitly disabled background behavior for this app or for the whole system.");
+        NSLog(@"[LocDeniedVC] The user explicitly disabled background behavior for this app or for the whole system.");
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                         message:
@@ -69,7 +69,7 @@
         
     }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted)
     {
-        NSLog(@"Background updates are unavailable and the user cannot enable them again. For example, this status can occur when parental controls are in effect for the current user.");
+        NSLog(@"[LocDeniedVC] Background updates are unavailable and the user cannot enable them again. For example, this status can occur when parental controls are in effect for the current user.");
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                         message:[NSString stringWithFormat:NSLocalizedString(@"err-bg", nil)]
@@ -84,6 +84,13 @@
    
     
    
+    
+    
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    //the assumption is that when you leave here, then the view will have to be white
+    self.shader.alpha=1.0;
     
     
 }
@@ -108,7 +115,7 @@
 
 - (IBAction)nextStep:(id)sender {
     
-    NSLog(@" Entered next step");
+    NSLog(@"[LocDeniedVC] Entered next step");
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
@@ -170,7 +177,7 @@
 - (void) locationManagerDidUpdateLocation:(CLLocation *)location {
     self.currentLocation = location;
     
-    NSLog(@"Updated location in Location Denied");
+    NSLog(@"[LocDeniedVC] Updated location in Location Denied");
     
     if(!self.hasNoRight && !self.hasUpdated) {
       self.hasUpdated=TRUE;

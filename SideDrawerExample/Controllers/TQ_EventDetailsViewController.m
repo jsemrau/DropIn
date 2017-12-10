@@ -520,6 +520,8 @@
     
     NSLog(@" we are tweeting");
    
+     [self notifyMe:@"game" withMessage:@"err-tw"];
+    
     // Objective-C
     TWTRComposer *composer = [[TWTRComposer alloc] init];
     
@@ -548,6 +550,8 @@
                 
                 [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"tweeted", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                
+                 [self notifyMe:@"game" withMessage:@"comp-tw"];
                 
             });
             
@@ -724,7 +728,7 @@
     [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-sms", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
-        [self showSMS:self.eURL];
+    [self showSMS:self.eURL];
   
     
 }
@@ -796,12 +800,9 @@
     FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
     content.contentURL = [NSURL URLWithString:self.eURL];
 
-    //content.contentTitle=self.eTitle.text;
-//   content.contentDescription=self.eDescription.text;
-    
-   // [FBSDKMessageDialog showWithContent:content delegate:nil];
-    
     [FBSDKShareDialog showFromViewController:self withContent:content delegate:nil];
+    
+    [self notifyMe:@"game" withMessage:@"comp-fb"];
     
 }
 
@@ -941,13 +942,13 @@ else
         }
             
         case MessageComposeResultSent:
+            [self notifyMe:@"game" withMessage:@"comp-sms"];
             break;
             
         default:
             break;
     }
     
-   // [self dismissViewControllerAnimated:YES completion:nil];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
@@ -955,6 +956,8 @@ else
     
     [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"sms-complete", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

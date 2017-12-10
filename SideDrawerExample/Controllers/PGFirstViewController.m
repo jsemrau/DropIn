@@ -91,18 +91,6 @@
         
         self.eventTable.alpha=0.0;
   
-        BOOL locationAllowed = [CLLocationManager locationServicesEnabled];
-        
-        if (!locationAllowed)
-        {
-            
-            [self notifyMe:@"err-loc-disable" withMessage:@"err-loc-enable"];
-            
-        }
-        
-        //[[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
-        
-        
     }
     
     /*  Make sure only the table is displayed on start */
@@ -255,7 +243,7 @@
 
 - (void)viewDidLoad{
     
-    NSLog(@"viewDidLoad First");
+    NSLog(@"[FirstVC] viewDidLoad First");
     //[self.self.eventTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"lotCell"];
     
     [self.self.eventTable registerNib:[UINib nibWithNibName:@"lotCell" bundle:nil]forCellReuseIdentifier:@"lotCell"];
@@ -263,7 +251,7 @@
 }
 - (void)viewDidAppear:(BOOL)animated{
     
-    NSLog(@"viewDidAppear First");
+    NSLog(@"[FirstVC] viewDidAppear First");
     
     [self.view addSubview:self.loader];
 
@@ -320,7 +308,7 @@
 
 - (IBAction)settingsButtonPress:(id)sender{
     
-    NSLog(@"settingsButtonPress First");
+    NSLog(@"[FirstVC] settingsButtonPress First");
     
     UINavigationController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"THIRD_TOP_VIEW_CONTROLLER"];
     
@@ -331,33 +319,22 @@
 }
 - (IBAction)refreshButtonPress:(id)sender {
     
-    NSLog(@"refreshButtonPress First");
+    NSLog(@"[FirstVC] refreshButtonPress First");
     
     bool showAlertSetting = [[GFLocationManager sharedInstance]checkSettings:self ];
     
+    
     if (showAlertSetting){
-        
        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        TQ_LocationDenied *myVC = (TQ_LocationDenied *)[storyboard instantiateViewControllerWithIdentifier:@"LOGINVC"];
-        //LOGINVC
-        [self presentViewController:myVC animated:YES completion:nil];
+        [self notifyMe:@"err-loc-disable" withMessage:@"err-loc-enable"];
         
-        /*
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // code here
-            
+        TQ_LocationDenied *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DENIED_TOP_VIEW_CONTROLLER"];
         
-            TQ_LocationDenied *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DENIED_TOP_VIEW_CONTROLLER"];
-            
-            [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
-            
-            [self presentViewController:centerViewController animated:TRUE completion:nil];
-            
-            
-        });*/
+        [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
         
-       [self dismissViewControllerAnimated:YES completion:nil];
+       // UIViewController *top = [UIApplication sharedApplication].keyWindow.rootViewController;
+        
+     //   [self presentViewController:centerViewController animated:TRUE completion:nil];
         
     }
     
@@ -435,7 +412,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     
     if(!cell){
         
-     NSLog(@" Problem ");
+     NSLog(@"[FirstVC] Problem with Cell");
      return cell;
         
     }
@@ -475,7 +452,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         
         MGSwipeButton *likeBtn = [MGSwipeButton buttonWithTitle:@"" icon:iconImage backgroundColor:[UIColor flatBlueColor] callback:^BOOL(MGSwipeTableCell *sender) {
             
-            NSLog(@"Convenience callback for swipe buttons!");
+            NSLog(@"[FirstVC] Convenience callback for swipe buttons!");
              [self sendFavorite:sender withId:[text objectForKey:@"id"]];
             
             
@@ -484,7 +461,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         } ];
         
         MGSwipeButton *spamBtn = [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"reportSpam.png"] backgroundColor:[UIColor flatRedColor] callback:^BOOL(MGSwipeTableCell *sender) {
-            NSLog(@"Convenience callback for reportSpam:!");
+            NSLog(@"[FirstVC] Convenience callback for reportSpam:!");
             
             [self reportSpam:[text objectForKey:@"id"] atIndex:indexPath];
             
@@ -497,7 +474,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         iconImage = [dislikeIcon imageWithSize:CGSizeMake(75, 75)];
         
         MGSwipeButton *dislikeBtn = [MGSwipeButton buttonWithTitle:@"" icon:iconImage backgroundColor:[UIColor flatRedColorDark] callback:^BOOL(MGSwipeTableCell *sender) {
-            NSLog(@"Convenience callback for dislikeBtn:!");
+            NSLog(@"[FirstVC] Convenience callback for dislikeBtn:!");
             
             [self sendDislike:sender withId:[text objectForKey:@"id"] atIndex:indexPath];
             
@@ -958,7 +935,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void) noLocationsReceived{
     
-    NSLog(@"noLocationsReceived First");
+    NSLog(@"[FirstVC] noLocationsReceived First");
     
     gettingUpdates=FALSE;
     
@@ -986,7 +963,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)notificationsReceived:(NSDictionary *)resultData{
     
-     NSLog(@"notificationsReceived First");
+     NSLog(@"[FirstVC] notificationsReceived First");
     
     gettingUpdates=FALSE;
     self.loader.alpha=0.0;
@@ -1017,7 +994,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)locationsReceived:(NSDictionary *)resultData
 {
     
-    NSLog(@"locationsReceived First");
+    NSLog(@"[FirstVC] locationsReceived First");
     
     //NSLog(@" loc -> %@",resultData);
     
@@ -1118,7 +1095,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void) locationManagerDidUpdateLocation:(CLLocation *)location {
     
-    NSLog(@"locationManagerDidUpdateLocation First");
+    NSLog(@"[FirstVC] locationManagerDidUpdateLocation First");
     
     
   //  NSTimeInterval locationAge = -[location.timestamp timeIntervalSinceNow];
@@ -1151,7 +1128,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
        
     }
     
-    NSLog(@" Getting location updates horizontalAccuracy is %f", location.horizontalAccuracy);
+    NSLog(@"[FirstVC] Getting location updates horizontalAccuracy is %f", location.horizontalAccuracy);
     
     if(self.needsUpdates ){
     
@@ -1509,7 +1486,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
 {
     
-    NSLog (@" ***** table header : %f **** ",-self.eventTable.tableHeaderView.frame.size.height/2.0f);
+    NSLog (@"[FirstVC]  ***** table header : %f **** ",-self.eventTable.tableHeaderView.frame.size.height/2.0f);
     
     return -self.eventTable.tableHeaderView.frame.size.height/2.0f;
 }
@@ -1554,7 +1531,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button
 {
     // Do something
-    NSLog(@"Hey Button you should go to settings now");
+    NSLog(@"[FirstVC] Hey Button you should go to settings now");
     
     UINavigationController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"THIRD_TOP_VIEW_CONTROLLER"];
     
@@ -1603,7 +1580,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    NSLog(@" trying to send for user : %@ and id %@", [userDetails objectForKey:@"email"], idStr);
+    NSLog(@"[FirstVC] trying to send for user : %@ and id %@", [userDetails objectForKey:@"email"], idStr);
     
     [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-spam", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude  andLong:(double)(double)self.currentLocation.coordinate.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

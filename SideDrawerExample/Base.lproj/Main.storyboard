@@ -793,6 +793,7 @@
                                     <constraint firstAttribute="width" constant="320" id="3y9-al-cqa"/>
                                     <constraint firstAttribute="height" constant="60" id="c7R-hU-WHk"/>
                                 </constraints>
+                                <variation key="heightClass=regular-widthClass=compact" image="drop!in-logo_inv.png"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLJ-lo-jvj">
                                 <rect key="frame" x="36" y="152" width="303" height="419"/>
@@ -2883,20 +2884,15 @@ Cg
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VeY-z7-f0o">
-                                <rect key="frame" x="0.0" y="68" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LocationServices.png" translatesAutoresizingMaskIntoConstraints="NO" id="oII-Uv-X3q">
-                                <rect key="frame" x="19" y="185" width="337" height="224"/>
+                                <rect key="frame" x="22" y="185" width="331" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oII-Uv-X3q" secondAttribute="height" multiplier="331:220" id="OI6-sf-ZId"/>
                                     <constraint firstAttribute="height" constant="220" id="ZtQ-ID-BwR"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mre-vv-Tdb">
-                                <rect key="frame" x="113" y="502" width="150" height="43"/>
+                                <rect key="frame" x="113" y="498" width="150" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="qEE-4W-Mco"/>
                                     <constraint firstAttribute="height" constant="43" id="xPU-pi-l9X"/>
@@ -2910,7 +2906,7 @@ Cg
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ppg-EI-BrB">
-                                <rect key="frame" x="113" y="563" width="150" height="38"/>
+                                <rect key="frame" x="113" y="559" width="150" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="Fbj-Co-0gU"/>
                                     <constraint firstAttribute="width" constant="150" id="wLE-6a-IS5"/>
@@ -2923,13 +2919,18 @@ Cg
                                     <action selector="nextStep:" destination="Edv-a9-Qu3" eventType="touchUpInside" id="1gu-BT-sZP"/>
                                 </connections>
                             </button>
+                            <view autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VeY-z7-f0o">
+                                <rect key="frame" x="0.0" y="68" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mre-vv-Tdb" firstAttribute="top" secondItem="oII-Uv-X3q" secondAttribute="bottom" constant="93" id="1Wq-yw-vYS"/>
                             <constraint firstItem="Ppg-EI-BrB" firstAttribute="centerX" secondItem="knX-gg-jMJ" secondAttribute="centerX" id="7jf-J2-7ZI"/>
                             <constraint firstItem="oII-Uv-X3q" firstAttribute="centerX" secondItem="knX-gg-jMJ" secondAttribute="centerX" id="Jr7-qy-aIo"/>
-                            <constraint firstItem="ZoM-Rp-Uu6" firstAttribute="top" secondItem="Ppg-EI-BrB" secondAttribute="bottom" constant="66" id="TBT-2p-3Ef"/>
+                            <constraint firstItem="ZoM-Rp-Uu6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ppg-EI-BrB" secondAttribute="bottom" constant="66" id="TBT-2p-3Ef"/>
                             <constraint firstItem="oII-Uv-X3q" firstAttribute="top" secondItem="Nep-x8-pBr" secondAttribute="bottom" constant="34" id="ePs-k6-ouG"/>
                             <constraint firstItem="mre-vv-Tdb" firstAttribute="centerX" secondItem="knX-gg-jMJ" secondAttribute="centerX" id="hLG-ID-BHR"/>
                             <constraint firstItem="Nep-x8-pBr" firstAttribute="centerX" secondItem="knX-gg-jMJ" secondAttribute="centerX" id="l3m-cq-htV"/>
@@ -3121,6 +3122,7 @@ Cg
         <image name="Users_Users-24-01.png" width="61" height="61"/>
         <image name="about.png" width="132" height="132"/>
         <image name="asia-img.png" width="384" height="273"/>
+        <image name="drop!in-logo_inv.png" width="1024" height="1024"/>
         <image name="dropin-logo.png" width="963" height="356"/>
         <image name="grey-selected-button.png" width="342" height="92"/>
         <image name="horizontal_line.png" width="640" height="2"/>

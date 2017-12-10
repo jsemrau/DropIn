@@ -47,7 +47,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
     // Release anything that's not essential, such as cached data
-    NSLog(@"Did I receive a memory warning ? ");
+    NSLog(@"[LoginVC]  Did I receive a memory warning ? ");
 }
 
 
@@ -58,7 +58,7 @@
     
     self.isAuthenticating=YES;
     
-    NSLog(@"Login Submitted");
+    NSLog(@"[LoginVC]  Login Submitted");
     
     // TODO: spawn a login thread
     NSString *reason =@"auth";
@@ -69,7 +69,7 @@
     NSString *long1 = [[NSString alloc] initWithFormat:@"%f", self.currentLocation.coordinate.longitude];
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSLocale *locale = [NSLocale currentLocale];
-    NSLog(@" language %@ and Long %@", language, locale );
+    NSLog(@"[LoginVC]   language %@ and Long %@", language, locale );
     
     NSString *lat =[lat1 stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     NSString *longv =[long1 stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
@@ -79,7 +79,7 @@
     
     NSString *requestVar = [base stringByAppendingFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@", @"&mail=", mail , @"&pwd=", pwd, @"&validated=",val,@"&lat=",lat,@"&long=", longv,@"&langPref=", language, @"&twitterFlag=", twitFlag, @"&gameId=", @"5"];
     
-    NSLog(@"Login Request URL %@", requestVar);
+    NSLog(@"[LoginVC]  Login Request URL %@", requestVar);
     
     NSString *urlAddress = @"https://choose.tenqyu.com";
     
@@ -155,7 +155,7 @@
     
     if(showAlertSetting){
         
-        NSLog(@"Denied user rights?");
+        NSLog(@"[LoginVC] Denied user rights?");
         [self moveToDenied:self];
         
         
@@ -251,13 +251,13 @@
     
     if(showAlertSetting){
         
-        NSLog(@"LoginVC Denied user rights!");
+        NSLog(@"[LoginVC] Denied user rights!");
         [self moveToDenied:self];
-        
+        [self dismissViewControllerAnimated:TRUE completion:nil];
         
     } else {
         
-        NSLog(@"LoginVC Accepted user rights.");
+        NSLog(@"[LoginVC] Accepted user rights.");
         
         self.isUpdatingLocation=TRUE;
         [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
@@ -270,10 +270,10 @@
     
     if ([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusAvailable) {
         
-        NSLog(@"Background updates are available for the app.");
+        NSLog(@"[LoginVC] Background updates are available for the app.");
     }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusDenied)
     {
-        NSLog(@"The user explicitly disabled background behavior for this app or for the whole system.");
+        NSLog(@"[LoginVC] The user explicitly disabled background behavior for this app or for the whole system.");
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                         message:
@@ -287,7 +287,7 @@
     }
     else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted)
     {
-        NSLog(@"Background updates are unavailable and the user cannot enable them again. For example, this status can occur when parental controls are in effect for the current user.");
+        NSLog(@"[LoginVC] Background updates are unavailable and the user cannot enable them again. For example, this status can occur when parental controls are in effect for the current user.");
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"game", nil)]
                                                         message:[NSString stringWithFormat:NSLocalizedString(@"err-bg", nil)]
@@ -308,8 +308,12 @@
         
         NSLog(@"[LoginVC] User details available");
         NSLog(@"[LoginVC] Update status %i ", self.hasUpdated );
-        if (!showAlertSetting){
-            self.validated=TRUE;
+        
+        self.validated=TRUE;
+        
+        //Try to trigger the move to the First only if all updates are completed
+        if (!showAlertSetting && !self.isUpdatingLocation && !self.isUpdatingEventData){
+            
             [self moveToFirst:self];
         }
         
@@ -329,12 +333,12 @@
             
             [self prepareUserData:@"DropInUser" withPassword:pwd isTwitter:tFlag];
             
-            NSLog(@" this is the pwd %@", pwd);
+            NSLog(@"[LoginVC] this is the pwd %@", pwd);
             
         } else {
             
             
-            NSLog(@"User registered with ID %i" , [[self.userDetails objectForKey:@"id"] intValue]);
+            NSLog(@"[LoginVC] User registered with ID %i" , [[self.userDetails objectForKey:@"id"] intValue]);
             
             self.validated=YES;
             
@@ -346,7 +350,7 @@
     }
 
     
-    NSLog(@" LoginVC Completed view did load");
+    NSLog(@"[LoginVC] Completed view did load");
 }
 
 - (void)viewDidUnload
@@ -390,17 +394,17 @@
 
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     
-    NSLog(@"Login didReceiveResponse");
+    NSLog(@"[LoginVC] didReceiveResponse");
     [receivedData setLength:0];
 }
 
 - (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    NSLog(@"Login didReceiveData");
+    NSLog(@"[LoginVC] didReceiveData");
     [receivedData appendData:data];
 }
 
 - (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"Login didFailWithError %@", error);
+    NSLog(@"[LoginVC] didFailWithError %@", error);
     
 }
 
@@ -423,7 +427,7 @@
         
     } else {
         
-        NSLog(@" Error receving information from Server");
+        NSLog(@"[LoginVC] Error receving information from Server");
     }
     NSString *auth1 = @"Initialized";
     
@@ -435,7 +439,7 @@
     [self loginDidFinish:self];
     
     
-    NSLog(@" This is the end");
+    NSLog(@"[LoginVC] This is the end");
     
 }
 
@@ -530,11 +534,13 @@
 
 - (void) locationManagerDidUpdateLocation:(CLLocation *)location {
     
-   
+    if(location.horizontalAccuracy < 150){
+        self.isUpdatingLocation=FALSE;
+    }
     
     self.currentLocation = location;
-    NSLog(@"[LoginVC]  Updated location needs it ? -> %i ", self.hasUpdated);
-    NSLog(@"[LoginVC]  coordinates are %f and %f and accuracy %f", location.coordinate.latitude ,location.coordinate.longitude, location.horizontalAccuracy);
+    NSLog(@"[LoginVC] Updated location needs it ? -> %i ", self.hasUpdated);
+    NSLog(@"[LoginVC] coordinates are %f and %f and accuracy %f", location.coordinate.latitude ,location.coordinate.longitude, location.horizontalAccuracy);
 
 
     if([self.userDetails count]==0) {
@@ -586,7 +592,7 @@
             
            [self prepareUserData:@"DropInUser" withPassword:pwd isTwitter:tFlag];
        
-            NSLog(@"[LoginVC]  this is the pwd %@", pwd);
+            NSLog(@"[LoginVC] this is the pwd %@", pwd);
         }
         
     }
@@ -643,11 +649,11 @@
         self.eventList=nil;
         self.eventList = [NSMutableArray array];
         
-        // NSLog(@"********************************");
+        // NSLog(@"[LoginVC]  ********************************");
         
         for (NSDictionary* campaignData in resultData) {
             
-          //  NSLog(@"Outputting cData %@", campaignData);
+          //  NSLog(@"[LoginVC]  Outputting cData %@", campaignData);
             [data addObject:campaignData];
             
             
@@ -655,7 +661,8 @@
         
 
         self.eventList = [[NSArray alloc] initWithArray:data];
-       
+        self.isUpdatingEventData=false;
+        
         
         [[NSUserDefaults standardUserDefaults] setObject:self.eventList forKey:@"currentEvents"];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -675,7 +682,9 @@
     
     self.hasUpdated=YES;
    
-    [self moveToFirst:self];
+    if(!self.isUpdatingLocation && !self.isUpdatingEventData){
+        [self moveToFirst:self];
+    }
 }
 
 - (void) noLocationsReceived{
@@ -695,7 +704,12 @@
     
     self.hasUpdated=YES;
     
-    [self moveToFirst:self];
+    self.isUpdatingEventData=false;
+    
+    
+    if(!self.isUpdatingLocation && !self.isUpdatingEventData){
+        [self moveToFirst:self];
+    }
     
 }
 
@@ -735,21 +749,15 @@
         
         [self setupLeftMenuButton];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // code here
-            
             PGViewController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"NAV_TOP_VIEW_CONTROLLER"];
-            
-           /* PGFirstViewController *vc=(PGFirstViewController*)[centerViewController.viewControllers objectAtIndex:0];
-            vc.hasUpdates=TRUE;
-            [vc setupLeftMenuButton];*/
-            
+        
             [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
-            
+        
+           // PGFirstViewController *vc = 
+        
+           // UIViewController *top = [UIApplication sharedApplication].keyWindow.rootViewController;
+        
             [self presentViewController:centerViewController animated:TRUE completion:nil];
-            
-            
-        });
         
     }
 
@@ -759,19 +767,19 @@
     
     NSLog(@" [LoginVC] Entered move 2 Denied");
     
+    self.isUpdatingLocation=FALSE;
+    self.isUpdatingEventData=FALSE;
+    self.hasUpdated=FALSE;
     
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // code here
-            
+    
             PGViewController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DENIED_TOP_VIEW_CONTROLLER"];
             
             [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
             
-            [self presentViewController:centerViewController animated:TRUE completion:nil];
+            UIViewController *top = [UIApplication sharedApplication].keyWindow.rootViewController;
             
-            
-        });
-        
+            [top presentViewController:centerViewController animated:TRUE completion:nil];
+    
     
 }
 
