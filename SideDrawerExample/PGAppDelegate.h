@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "GFLocationManager.h"
 #import <ChameleonFramework/Chameleon.h>
+#import <UserNotifications/UserNotifications.h>
+#import "QyuWebAccess.h"
 
 //#import "Socialize.h"
 
-@interface PGAppDelegate : UIResponder <UIApplicationDelegate,GFLocationManagerDelegate>
+@interface PGAppDelegate : UIResponder <UIApplicationDelegate,GFLocationManagerDelegate,QyuWebDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

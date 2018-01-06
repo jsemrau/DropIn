@@ -49,7 +49,7 @@ target "dropin" do
 
     #pod 'LTMorphingLabel'
 
-
+	pod 'lottie-ios'
 	
 
 end

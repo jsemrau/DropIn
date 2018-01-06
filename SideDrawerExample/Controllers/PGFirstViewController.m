@@ -963,7 +963,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)notificationsReceived:(NSDictionary *)resultData{
     
-     NSLog(@"[FirstVC] notificationsReceived First");
+     NSLog(@"[FirstVC] %i notificationsReceived First", [resultData count]);
     
     gettingUpdates=FALSE;
     self.loader.alpha=0.0;
@@ -994,7 +994,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)locationsReceived:(NSDictionary *)resultData
 {
     
-    NSLog(@"[FirstVC] locationsReceived First");
+    NSLog(@"[FirstVC] locationsReceived First with count %lu", [resultData count]);
     
     //NSLog(@" loc -> %@",resultData);
     
@@ -1006,14 +1006,12 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     self.loader.alpha=0.0;
     
     gettingUpdates=FALSE;
+    self.eventList=nil;
+    self.filteredEventList=nil;
     
     if ([resultData count] ==0){
         
         //Now you need to do the empty screen
-        
-        self.eventList=nil;
-        self.filteredEventList=nil;
-      
         
         self.messagerLabel.text=[NSString stringWithFormat:NSLocalizedString(@"err-noloc", nil)];
         
@@ -1021,10 +1019,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         [self fadeOutImage];
         //self.messager.alpha=1.0;
         self.eventTable.alpha=1.0;
-
-    
-        //[self reloadInputViews];
-        
+  
         
         //
         self.needsUpdates=TRUE;
@@ -1037,9 +1032,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
         
         NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:[resultData count]];
         
-        
-        self.eventList=nil;
-        self.filteredEventList=nil;
+      
         self.eventList = [NSMutableArray array];
         
        // NSLog(@"********************************");
@@ -1142,11 +1135,11 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
        
      //   *fix that later
         if(!gettingUpdates){
-        
+            
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
             [webby setDelegate:self];
-            [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] ];
+            [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude ];
             gettingUpdates=TRUE;
             
             //stop updating locations
@@ -1422,12 +1415,13 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
    
-    NSString *text =  [NSString stringWithFormat:NSLocalizedString(@"game", nil)];
+   // NSString *text = [NSString stringWithFormat:NSLocalizedString(@"game", nil)];
     
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
-                                 NSForegroundColorAttributeName: [UIColor flatGrayColorDark]};
+   // NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
+     //                            NSForegroundColorAttributeName: [UIColor flatGrayColorDark]};
     
-    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+    //return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+    return nil;
 }
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
@@ -1488,12 +1482,12 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     
     NSLog (@"[FirstVC]  ***** table header : %f **** ",-self.eventTable.tableHeaderView.frame.size.height/2.0f);
     
-    return -self.eventTable.tableHeaderView.frame.size.height/2.0f;
+    return -(self.eventTable.tableHeaderView.frame.size.height/2.0f)+60.0f;
 }
 
 - (CGFloat)spaceHeightForEmptyDataSet:(UIScrollView *)scrollView
 {
-    return 20.0f;
+    return 11.0f;
 }
 
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
@@ -1582,7 +1576,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     
     NSLog(@"[FirstVC] trying to send for user : %@ and id %@", [userDetails objectForKey:@"email"], idStr);
     
-    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-spam", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude  andLong:(double)(double)self.currentLocation.coordinate.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-spam", nil)] onAsset:idStr withLat:(double)self.currentLocation.coordinate.latitude  andLong:(double)(double)self.currentLocation.coordinate.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     [self notifyMe:@"game" withMessage:@"err-spam"];
@@ -1619,7 +1613,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
             QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
             [webby setDelegate:self];
             
-            [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-unliked", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
+            [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-unliked", nil)] onAsset:idStr withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             
      } else {
@@ -1654,7 +1648,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
          QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
          [webby setDelegate:self];
          
-         [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-liked", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
+         [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-liked", nil)] onAsset:idStr withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     }
     
@@ -1734,7 +1728,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-disliked", nil)] onAsset:idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-disliked", nil)] onAsset:idStr withLat:(double)self.currentLocation.coordinate.latitude andLong:(double)self.currentLocation.coordinate.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   
     //[self.likedIDs removeObjectForKey:idStr];

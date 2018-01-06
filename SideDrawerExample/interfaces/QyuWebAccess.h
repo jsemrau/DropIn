@@ -32,12 +32,20 @@
     NSDictionary *jsondata;
     UIImage *webImg;
     NSString *coreDataKey;
-  //  CLLocationManager *locationManager;
     NSString *iPath ;
     
+    //User defaults
     NSString *distance;
     NSString *timeFrame;
     NSString *timeZone;
+    NSMutableDictionary *userDetails;
+    
+    //All information about the player
+    NSString *email;
+    NSString *pwd;
+    NSString *playerId;
+    NSString *currentScore;
+    
     
     __strong id<QyuWebDelegate> delegate;
      
@@ -52,22 +60,31 @@
 @property(nonatomic, retain) NSString *connectionType;
 @property(nonatomic, retain) NSDictionary *jsondata;
 @property(nonatomic, retain) UIImage *webImg;
-@property(nonatomic, retain) NSString *coreDataKey;
-@property(nonatomic, retain) NSString *iPath ;
+
 @property(nonatomic, retain) NSString *distance ;
 @property(nonatomic, retain) NSString *timeFrame ;
 @property(nonatomic, retain) NSString *timeZone ;
+
+//user detais
+@property(nonatomic, retain) NSMutableDictionary *userDetails;
+@property(nonatomic, retain) NSString *email;
+@property(nonatomic, retain) NSString *pwd;
+@property(nonatomic, retain) NSString *playerId;
+@property(nonatomic, retain) NSString *currentScore;
+
+@property(nonatomic, assign) BOOL error;
 
 @property(nonatomic, assign) BOOL finishedLoading;
 @property (nonatomic, retain) __strong id <QyuWebDelegate> delegate;
 
 -(id)initWithConnectionType:(NSString *) cType;
-//-(id) submitLocationScan:(NSString *)latitude longitude:(NSString *)longitude distance:(NSString *)distance ;
 
--(id) submitLocationScan:(double)lat andLong:(double)lon email:(NSString *)email pwd:(NSString *)pwd  mongoId:(NSString *)mongoId;
--(id) submitQRScan:(NSString *)qrcode email:(NSString *)email pwd:(NSString *)pwd  mongoId:(NSString *)mongoId withLat:(double)lat andLong:(double)lon ;
--(id) saveImpression:(NSString *)impression onAsset:(NSString*)onAsset email:(NSString *)email pwd:(NSString *)pwd  mongoId:(NSString *)mongoId withLat:(double)lat andLong:(double)lon;
--(id) submitWeatherRequest:(double)lat andLong:(double)lon;
+-(void) submitLocationScan:(double)lat andLong:(double)lon;
+-(void) submitQRScan:(NSString *)qrcode withLat:(double)lat andLong:(double)lon ;
+-(void) saveImpression:(NSString *)impression onAsset:(NSString*)onAsset withLat:(double)lat andLong:(double)lon;
+-(void) submitWeatherRequest:(double)lat andLong:(double)lon;
+-(void) sendDailyEventPrefs;
+-(id) prepareWebRequest:(NSString*)base withParam:(NSString*)parameters withError:(bool) error;
 
 @end
 

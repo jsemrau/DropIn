@@ -409,7 +409,7 @@
         QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
         [webby setDelegate:self];
         
-        [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-seen", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+        [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-seen", nil)] onAsset:self.idStr withLat:(double)self.latitude andLong:(double)self.longitude];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         
         
@@ -520,7 +520,7 @@
     
     NSLog(@" we are tweeting");
    
-     [self notifyMe:@"game" withMessage:@"err-tw"];
+  //   [self notifyMe:@"game" withMessage:@"err-tw"];
     
     // Objective-C
     TWTRComposer *composer = [[TWTRComposer alloc] init];
@@ -548,7 +548,7 @@
                 QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
                 [webby setDelegate:self];
                 
-                [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"tweeted", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+                [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"tweeted", nil)] onAsset:self.idStr withLat:(double)self.latitude andLong:(double)self.longitude];
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                 
                  [self notifyMe:@"game" withMessage:@"comp-tw"];
@@ -593,7 +593,7 @@
                 QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
                 [webby setDelegate:self];
                 
-                [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-unliked", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+                [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-unliked", nil)] onAsset:self.idStr withLat:(double)self.latitude andLong:(double)self.longitude];
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                 
             });
@@ -627,7 +627,7 @@
                 QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
                 [webby setDelegate:self];
                 
-                [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-liked", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+                [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-liked", nil)] onAsset:self.idStr withLat:(double)self.latitude andLong:(double)self.longitude];
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                 
             });
@@ -650,7 +650,7 @@
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-url", nil)] onAsset:self.eURL email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-url", nil)] onAsset:self.eURL withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
 }
@@ -669,7 +669,7 @@
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-map", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-map", nil)] onAsset:self.idStr withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   
     
@@ -725,7 +725,7 @@
     [webby setDelegate:self];
     
     
-    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-sms", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-sms", nil)] onAsset:self.idStr withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     [self showSMS:self.eURL];
@@ -740,7 +740,7 @@
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-spam", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-spam", nil)] onAsset:self.idStr withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
     
@@ -759,7 +759,7 @@
         QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
         [webby setDelegate:self];
         
-        [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-whapp", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+        [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"imp-whapp", nil)] onAsset:self.idStr withLat:(double)self.latitude andLong:(double)self.longitude];
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         NSString *message = [self createMessage:@"whatsapp" withURL:self.eURL ];
@@ -793,7 +793,7 @@
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"startedFB", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"startedFB", nil)] onAsset:self.idStr withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     
@@ -954,7 +954,7 @@ else
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"saveImpression"];
     [webby setDelegate:self];
     
-    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"sms-complete", nil)] onAsset:self.idStr email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] withLat:(double)self.latitude andLong:(double)self.longitude];
+    [webby saveImpression:[NSString stringWithFormat:NSLocalizedString(@"sms-complete", nil)] onAsset:self.idStr withLat:(double)self.latitude andLong:(double)self.longitude];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
      [self dismissViewControllerAnimated:YES completion:nil];

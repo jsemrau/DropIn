@@ -40,9 +40,10 @@ PODS:
   - FontAwesomeKit/Zocial (2.2.1):
     - FontAwesomeKit/Core
   - FSOpenInWhatsApp (2.1)
-  - Google-Mobile-Ads-SDK (7.26.0)
+  - Google-Mobile-Ads-SDK (7.27.0)
   - GoogleConversionTracking (3.4.0)
   - iRate (1.12.1)
+  - lottie-ios (2.1.5)
   - MGSwipeTableCell (1.6.6)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
@@ -77,6 +78,7 @@ DEPENDENCIES:
   - Google-Mobile-Ads-SDK (~> 7.0)
   - GoogleConversionTracking
   - iRate
+  - lottie-ios
   - MGSwipeTableCell
   - MMDrawerController
   - Onboard
@@ -105,15 +107,16 @@ SPEC CHECKSUMS:
   FBSDKShareKit: 18a2cd118aef11dd657fe7e8b64bae5c719088b2
   FontAwesomeKit: 3614979b3dbb0ec3f7fac1bd760b91f66c31db67
   FSOpenInWhatsApp: 9122fd285faef1ef5c980b4acb649eece9720a3e
-  Google-Mobile-Ads-SDK: 22d4a6fe18d526adcc12a86d8cc2d53872700966
+  Google-Mobile-Ads-SDK: 83f7f890e638ce8f1debd440ea363338c9f6be3b
   GoogleConversionTracking: ca8c89abda2bd28bb6472b316eeb4ece9264e279
   iRate: 59c63a290d4988f365d4338e58eca192ae92b552
+  lottie-ios: 836cdbba92f62f3c6a00e37a4ce485321fe317cf
   MGSwipeTableCell: c3bc6e261e7bc06c112909fe3fb8205de286082c
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
   RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: a8ed8ca9eb4467e4acf73d5b602728412fd054ff
+PODFILE CHECKSUM: 8c884493ff27eeeb70d3f31fda1477944128035f
 
 COCOAPODS: 1.3.1

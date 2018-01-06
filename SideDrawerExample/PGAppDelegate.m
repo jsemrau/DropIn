@@ -20,14 +20,13 @@
     UIBarButtonItem *barButtonAppearance = [UIBarButtonItem appearance];
     [barButtonAppearance setTintColor:[UIColor flatSkyBlueColor]];
     
-    
-    //[self setupDailyNotification];
-    
-    // [Socialize storeConsumerKey:@"92c84474-5d99-4825-8a97-bccf2b413f93"];
-    //[Socialize storeConsumerSecret:@"ce5251ad-8b7b-409d-9721-6532b9a4c82b"];
-   
-    [Fabric with:@[[Twitter class]]];
 
+    [Fabric with:@[[Twitter class]]];
+    
+    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"updateDailyPreferences"];
+    [webby setDelegate:self];
+    [webby sendDailyEventPrefs];
+    
     /*
      No need for global theme
      [Chameleon setGlobalThemeUsingPrimaryColor:[UIColor colorWithRed:0.0/255.0 green:174.0/255.0 blue:239.0/255.0 alpha:1.0] withContentStyle:UIContentStyleLight];
@@ -97,26 +96,45 @@
 
 - (void) setupDailyNotification {
     
-    NSDate *now = [NSDate date];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:now];
-    [components setHour:9];
-    // Gives us today's date but at 9am
-    NSDate *next9am = [calendar dateFromComponents:components];
-    if ([next9am timeIntervalSinceNow] < 0) {
-        // If today's 9am already occurred, add 24hours to get to tomorrow's
-        next9am = [next9am dateByAddingTimeInterval:60*60*24];
-    }
+    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
+                          completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                              // Enable or disable features based on authorization.
+                              
+                              if(granted){
+                                  
+                              UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+                              content.title = [NSString localizedUserNotificationStringForKey:@"Wake up!" arguments:nil];
+                              content.body = [NSString localizedUserNotificationStringForKey:@"Rise and shine! It's morning time!"
+                                                                                   arguments:nil];
+                              
+                              // Configure the trigger for a 7am wakeup.
+                              NSDateComponents* date = [[NSDateComponents alloc] init];
+                              date.hour = 9;
+                              date.minute = 34;
+                              UNCalendarNotificationTrigger* trigger = [UNCalendarNotificationTrigger
+                                                                        triggerWithDateMatchingComponents:date repeats:NO];
+                              
+                              // Create the request object.
+                              UNNotificationRequest* request = [UNNotificationRequest
+                                                                requestWithIdentifier:@"MorningAlarm" content:content trigger:trigger];
+                              
+                              UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+                              [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+                                  if (error != nil) {
+                                      NSLog(@"%@", error.localizedDescription);
+                                  }
+                              }];
+                              
+                              } // granted
+                              
+                          }];
     
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.fireDate = next9am;
-    notification.alertBody = @"It's been 24 hours.";
-    // Set a repeat interval to daily
-    notification.repeatInterval = NSCalendarUnitDay;
-    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     
- 
-
 }
+
+- (void)notificationsReceived:(NSDictionary *)resultData{}
+- (void)locationsReceived:(NSDictionary *)resultData{}
+- (void) noLocationsReceived{}
 
 @end

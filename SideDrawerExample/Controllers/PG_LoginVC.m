@@ -570,7 +570,7 @@
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
         [webby setDelegate:self];
-        [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude email:[userDetails objectForKey:@"email"] pwd:[userDetails objectForKey:@"pwd"]  mongoId:[userDetails objectForKey:@"id"] ];
+        [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude];
        
        
         
@@ -661,18 +661,18 @@
         
 
         self.eventList = [[NSArray alloc] initWithArray:data];
-        self.isUpdatingEventData=false;
-        
-        
-        [[NSUserDefaults standardUserDefaults] setObject:self.eventList forKey:@"currentEvents"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
         
         
     } else {
         
         //what happens if there were no events?
-        
+        //Just in case you need to do something
     }
+    
+    self.isUpdatingEventData=false;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.eventList forKey:@"currentEvents"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
      [self.loginButton setEnabled:YES];
     
@@ -718,22 +718,7 @@
     
     self.activityLoader.tintColor=[UIColor flatSkyBlueColor];
     self.activityLoader.type=DGActivityIndicatorAnimationTypeTriplePulse;
-    /*
     
-    DGActivityIndicatorView *activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeTriplePulse tintColor:[UIColor flatSkyBlueColor] size: 50.0f];
-    
-  //  activityIndicatorView.frame = self.activityLoader.frame;
-    activityIndicatorView.layer.speed=1.0;
-    
-    self.activityLoader=activityIndicatorView;
-    
- //   [self.activityLoader addSubview: activityIndicatorView];
-
-    [self.activityLoader startAnimating];
-    */
-   
-    
-   
     
 }
 
@@ -750,13 +735,7 @@
         [self setupLeftMenuButton];
         
             PGViewController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"NAV_TOP_VIEW_CONTROLLER"];
-        
             [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
-        
-           // PGFirstViewController *vc = 
-        
-           // UIViewController *top = [UIApplication sharedApplication].keyWindow.rootViewController;
-        
             [self presentViewController:centerViewController animated:TRUE completion:nil];
         
     }
@@ -773,11 +752,8 @@
     
     
             PGViewController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DENIED_TOP_VIEW_CONTROLLER"];
-            
             [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
-            
             UIViewController *top = [UIApplication sharedApplication].keyWindow.rootViewController;
-            
             [top presentViewController:centerViewController animated:TRUE completion:nil];
     
     
@@ -808,9 +784,6 @@
 - (IBAction)settingsButtonPress:(id)sender{
     
     UINavigationController *centerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"THIRD_TOP_VIEW_CONTROLLER"];
-    
-    //UIViewController *vc= [centerViewController.viewControllers objectAtIndex:0];
-    
     [self.mm_drawerController setCenterViewController:centerViewController withCloseAnimation:YES completion:nil];
     
 }
