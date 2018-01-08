@@ -79,11 +79,13 @@
 
 -(id)initWithConnectionType:(NSString *) cType;
 
--(void) submitLocationScan:(double)lat andLong:(double)lon;
+-(void) getEventData:(double)lat andLong:(double)lon;
+-(void) getWeatherData:(double)lat andLong:(double)lon;
+
 -(void) submitQRScan:(NSString *)qrcode withLat:(double)lat andLong:(double)lon ;
 -(void) saveImpression:(NSString *)impression onAsset:(NSString*)onAsset withLat:(double)lat andLong:(double)lon;
--(void) submitWeatherRequest:(double)lat andLong:(double)lon;
--(void) sendDailyEventPrefs;
+
+-(void) setDailyEventPrefs:(double)lat andLong:(double)lon;
 -(id) prepareWebRequest:(NSString*)base withParam:(NSString*)parameters withError:(bool) error;
 
 @end

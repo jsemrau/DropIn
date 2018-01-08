@@ -9,7 +9,7 @@
 #import "PGAppDelegate.h"
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
-#import <GoogleConversionTracking/ACTReporter.h>
+//#import <GoogleConversionTracking/ACTReporter.h>
 
 @implementation PGAppDelegate
 
@@ -20,12 +20,9 @@
     UIBarButtonItem *barButtonAppearance = [UIBarButtonItem appearance];
     [barButtonAppearance setTintColor:[UIColor flatSkyBlueColor]];
     
+    self.sendsData=FALSE;
 
     [Fabric with:@[[Twitter class]]];
-    
-    QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"updateDailyPreferences"];
-    [webby setDelegate:self];
-    [webby sendDailyEventPrefs];
     
     /*
      No need for global theme
@@ -39,7 +36,7 @@
     // Add this code to your application delegate's
     // application:didFinishLaunchingWithOptions: method.
     
-    [ACTConversionReporter reportWithConversionID:@"979706255" label:@"I55YCM-AiG0Qj8OU0wM" value:@"1.00" isRepeatable:NO];
+   // [ACTConversionReporter reportWithConversionID:@"979706255" label:@"I55YCM-AiG0Qj8OU0wM" value:@"1.00" isRepeatable:NO];
     
     return YES;
 }
@@ -87,8 +84,15 @@
 
 - (void) locationManagerDidUpdateLocation:(CLLocation *)location {
     
-    NSLog(@"Updated Location");
+    NSLog(@"[App Delegate ]Updated Location");
     
+    if(!self.sendsData){
+        NSLog(@"[App Delegate ] Sends data");
+        QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"updateDailyPreferences"];
+        [webby setDelegate:self];
+        [webby setDailyEventPrefs:location.coordinate.latitude andLong:location.coordinate.longitude];
+        self.sendsData=TRUE;
+    }
 }
 
 

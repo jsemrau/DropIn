@@ -1139,7 +1139,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
             [webby setDelegate:self];
-            [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude ];
+            [webby getEventData:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude ];
             gettingUpdates=TRUE;
             
             //stop updating locations
@@ -1296,7 +1296,7 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getWeatherContext"];
     [webby setDelegate:self];
-    [webby submitWeatherRequest:currentLocation.coordinate.latitude andLong:currentLocation.coordinate.longitude];
+    [webby getWeatherData:currentLocation.coordinate.latitude andLong:currentLocation.coordinate.longitude];
     
 }
 

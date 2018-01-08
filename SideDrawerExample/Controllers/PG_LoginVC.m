@@ -570,7 +570,7 @@
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         QyuWebAccess *webby = [[QyuWebAccess alloc] initWithConnectionType:@"getEventList"];
         [webby setDelegate:self];
-        [webby submitLocationScan:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude];
+        [webby getEventData:(double)location.coordinate.latitude andLong:(double)location.coordinate.longitude];
        
        
         

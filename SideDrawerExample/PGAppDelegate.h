@@ -17,5 +17,5 @@
 @interface PGAppDelegate : UIResponder <UIApplicationDelegate,GFLocationManagerDelegate,QyuWebDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property(nonatomic,assign) bool sendsData;
 @end

@@ -139,7 +139,7 @@
 } //End submitQRScan Function
 
 
--(void) submitLocationScan:(double)lat andLong:(double)lon{
+-(void) getEventData:(double)lat andLong:(double)lon{
 
 
     // Configure the new event with information from the location
@@ -159,12 +159,14 @@
     
     NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@", latStr,longStr,distanceStr,eventHrsStr,mailStr,pwdStr,mongoStr,tzStr];
 
+    NSLog(@"%@",requestVars);
+    self.error=FALSE;
     
     [self prepareWebRequest:base withParam:requestVars withError:self.error];
     
 }
 
--(void) sendDailyEventPrefs{
+-(void) setDailyEventPrefs:(double)lat andLong:(double)lon {
     
     // Configure the new event with information from the location
     NSString *base = @"https://choose.tenqyu.com/v1/context/index.php";
@@ -173,7 +175,36 @@
     NSString *mailStr = [@"&email=" stringByAppendingString:self.email ];
     NSString *pwdStr = [@"&pwd=" stringByAppendingString:self.pwd];
     
-    NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@",mailStr,pwdStr,playerIdStr];
+    //Now go for the event data
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *tmpEventPrefs = [prefs objectForKey:@"pref_Categories"];
+
+   // NSLog (@"%@",tmpEventPrefs);
+
+    NSString *ArtsStr= [@"&Arts=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Arts"]];
+    NSString *BusinessStr= [@"&Business=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Business"]];
+    NSString *EducationStr= [@"&Education=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Education"]];
+    NSString *EntertainmentStr=[@"&Entertainment=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Entertainment"]];
+    NSString *FamilyStr=[@"&Family=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Family"]];
+    NSString *FoodStr= [@"&Food=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Food"]];
+    NSString *LargeStr=[@"&Large=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Large"]];
+    NSString *MeetingStr= [@"&Meeting=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Meeting"]];
+    NSString *OtherStr=[@"&Other=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Other"]];
+    NSString *SocialStr= [@"&Social=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Social"]];
+    NSString *SportsStr=[@"&Sports=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Sports"]];
+    NSString *TechStr=[@"&Tech=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Tech"]];
+    
+    NSString *latitude = [NSString stringWithFormat:@"%f", lat];
+    NSString *longitude = [NSString stringWithFormat:@"%f", lon];
+    NSString *latStr = [@"&latitude=" stringByAppendingString:latitude];
+    NSString *longStr = [@"&longitude=" stringByAppendingString:longitude ];
+    
+    
+    NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",mailStr,pwdStr,playerIdStr,ArtsStr,BusinessStr,EducationStr,EntertainmentStr,FamilyStr,FoodStr,LargeStr,MeetingStr,OtherStr,SocialStr,SportsStr,TechStr,latStr,longStr];
+    
+    NSLog(@"%@",requestVars);
+    
+    self.error=FALSE;
     
     [self prepareWebRequest:base withParam:requestVars withError:self.error];
 }
@@ -202,9 +233,9 @@
     
     [self prepareWebRequest:base withParam:requestVars withError:self.error];
     
-} //End submitQRScan Function
+} //End saveImpression Function
 
--(void) submitWeatherRequest:(double)lat andLong:(double)lon{
+-(void) getWeatherData:(double)lat andLong:(double)lon{
     
     NSLog(@" Entering submit weather");
     NSString *base = @"https://choose.tenqyu.com/v1/context/index.php";
@@ -305,8 +336,9 @@
         //   NSLog(@"%@",self.jsondata);
     }
     
-    if ([self.connectionType isEqual: @"submitScan"] || [self.connectionType isEqual: @"saveImpression"]|| [self.connectionType isEqual: @"getWeatherContext"]) {
-      //  NSLog(@" submitScan String %@ ",self.jsondata);
+    if ([self.connectionType isEqual: @"submitScan"] || [self.connectionType isEqual: @"saveImpression"]|| [self.connectionType isEqual: @"getWeatherContext"]|| [self.connectionType isEqual: @"updateDailyPreferences"]) {
+      
+        NSLog(@"[QuWebAccess] con type %@ with data  %@ ",self.connectionType, self.jsondata);
         
         if(delegate && [delegate respondsToSelector:@selector(notificationsReceived:)]) {
             //NSLog(@"Delegating!");
