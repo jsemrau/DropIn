@@ -90,7 +90,7 @@
     //User details
     self.userDetails = [[NSMutableDictionary alloc] initWithDictionary:[prefs objectForKey:@"userData"] ] ;
     
-    if(self.userDetails) {
+    if([self.userDetails count]>0) {
         
         self.email=[userDetails objectForKey:@"email"];
         self.pwd=[userDetails objectForKey:@"pwd"];
@@ -98,6 +98,7 @@
         
     } else {
         
+        NSLog(@"[QyuWebAccess] [Func] InitwithConnectionYype [Err] User details not found");
         self.error=TRUE;
     }
 
@@ -117,15 +118,28 @@
         self.error=TRUE;
     }
     
+    NSString *playerIdStr =nil;
+    NSString *mailStr =nil;
+    NSString *pwdStr=nil;
+    
+    if([self.userDetails count]>0) {
+        
+        playerIdStr = [@"&playerId=" stringByAppendingString:self.playerId];
+        mailStr = [@"&email=" stringByAppendingString:self.email ];
+        pwdStr = [@"&pwd=" stringByAppendingString:self.pwd];
+        
+        
+    } else {
+        
+        self.error=TRUE;
+    }
+    
     NSString *escapedQRCode = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( NULL, (CFStringRef)qrcode, NULL, (CFStringRef)@"!’\"();:@&=+$,/?%#[]% ", kCFStringEncodingUTF8));
 
     NSString *base = @"https://choose.tenqyu.com/index.php";
-    NSString *mailStr = [@"&email=" stringByAppendingString:self.email ];
-    NSString *pwdStr = [@"&pwd=" stringByAppendingString:self.pwd];
     NSString *idstr = [@"id=" stringByAppendingString:@"validateCode"];
     NSString *qrcodeStr = [@"&qrcode=" stringByAppendingString:escapedQRCode];
     NSString *tzStr = [@"&tz=" stringByAppendingString:self.timeZone];
-    NSString *playerIdStr = [@"&playerId=" stringByAppendingString:self.playerId];
     NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *langPref = [@"&langPref=" stringByAppendingString:language];
     NSString *latStr = [@"&lat=" stringByAppendingString:[NSString stringWithFormat:@"%f", lat]];
@@ -141,7 +155,22 @@
 
 -(void) getEventData:(double)lat andLong:(double)lon{
 
-
+    NSString *playerIdStr =nil;
+    NSString *mailStr =nil;
+    NSString *pwdStr=nil;
+    
+    if([self.userDetails count]>0) {
+        
+        playerIdStr = [@"&playerId=" stringByAppendingString:self.playerId];
+        mailStr = [@"&email=" stringByAppendingString:self.email ];
+        pwdStr = [@"&pwd=" stringByAppendingString:self.pwd];
+        
+        
+    } else {
+        
+        self.error=TRUE;
+    }
+    
     // Configure the new event with information from the location
     NSString *base = @"https://choose.tenqyu.com/index.php";
     NSString *idstr = [@"id=" stringByAppendingString:@"getEventList"];
@@ -150,16 +179,13 @@
     NSString *longitude = [NSString stringWithFormat:@"%f", lon];
     NSString *latStr = [@"&lat=" stringByAppendingString:latitude];
     NSString *longStr = [@"&lng=" stringByAppendingString:longitude ];
-    NSString *mailStr = [@"&email=" stringByAppendingString:self.email ];
-    NSString *pwdStr = [@"&pwd=" stringByAppendingString:self.pwd];
-    NSString *mongoStr = [@"&playerId=" stringByAppendingString:self.playerId];
     NSString *eventHrsStr = [@"&nextHours=" stringByAppendingString:self.timeFrame];
     NSString *tzStr = [@"&tz=" stringByAppendingString:self.timeZone];
     
     
-    NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@", latStr,longStr,distanceStr,eventHrsStr,mailStr,pwdStr,mongoStr,tzStr];
+    NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@", latStr,longStr,distanceStr,eventHrsStr,mailStr,pwdStr,playerIdStr,tzStr];
 
-    NSLog(@"%@",requestVars);
+    //NSLog(@"%@",requestVars);
     self.error=FALSE;
     
     [self prepareWebRequest:base withParam:requestVars withError:self.error];
@@ -168,12 +194,25 @@
 
 -(void) setDailyEventPrefs:(double)lat andLong:(double)lon {
     
+    NSString *playerIdStr =nil;
+    NSString *mailStr =nil;
+    NSString *pwdStr=nil;
+    
+    if([self.userDetails count]>0) {
+        
+    playerIdStr = [@"&playerId=" stringByAppendingString:self.playerId];
+    mailStr = [@"&email=" stringByAppendingString:self.email ];
+    pwdStr = [@"&pwd=" stringByAppendingString:self.pwd];
+        
+        
+    } else {
+        
+        self.error=TRUE;
+    }
+    
     // Configure the new event with information from the location
     NSString *base = @"https://choose.tenqyu.com/v1/context/index.php";
     NSString *idstr = [@"id=" stringByAppendingString:@"setDailyEventPrefs"];
-    NSString *playerIdStr = [@"&playerId=" stringByAppendingString:self.playerId];
-    NSString *mailStr = [@"&email=" stringByAppendingString:self.email ];
-    NSString *pwdStr = [@"&pwd=" stringByAppendingString:self.pwd];
     
     //Now go for the event data
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -181,18 +220,38 @@
 
    // NSLog (@"%@",tmpEventPrefs);
 
-    NSString *ArtsStr= [@"&Arts=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Arts"]];
-    NSString *BusinessStr= [@"&Business=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Business"]];
-    NSString *EducationStr= [@"&Education=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Education"]];
-    NSString *EntertainmentStr=[@"&Entertainment=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Entertainment"]];
-    NSString *FamilyStr=[@"&Family=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Family"]];
-    NSString *FoodStr= [@"&Food=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Food"]];
-    NSString *LargeStr=[@"&Large=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Large"]];
-    NSString *MeetingStr= [@"&Meeting=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Meeting"]];
-    NSString *OtherStr=[@"&Other=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Other"]];
-    NSString *SocialStr= [@"&Social=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Social"]];
-    NSString *SportsStr=[@"&Sports=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Sports"]];
-    NSString *TechStr=[@"&Tech=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Tech"]];
+    NSString *ArtsStr;
+    NSString *BusinessStr;
+    NSString *EducationStr;
+    NSString *EntertainmentStr;
+    NSString *FamilyStr;
+    NSString *FoodStr;
+    NSString *LargeStr;
+    NSString *MeetingStr;
+    NSString *OtherStr;
+    NSString *SocialStr;
+    NSString *SportsStr;
+    NSString *TechStr;
+    
+    if(tmpEventPrefs) {
+        
+   ArtsStr = [@"&Arts=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Arts"]];
+   BusinessStr  = [@"&Business=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Business"]];
+   EducationStr = [@"&Education=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Education"]];
+   EntertainmentStr =[@"&Entertainment=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Entertainment"]];
+   FamilyStr =[@"&Family=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Family"]];
+   FoodStr= [@"&Food=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Food"]];
+   LargeStr =[@"&Large=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Large"]];
+   MeetingStr = [@"&Meeting=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Meeting"]];
+   OtherStr =[@"&Other=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Other"]];
+   SocialStr = [@"&Social=" stringByAppendingString:[tmpEventPrefs objectForKey:@"Social"]];
+   SportsStr =[@"&Sports=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Sports"]];
+   TechStr=[@"&Tech=" stringByAppendingString: [tmpEventPrefs objectForKey:@"Tech"]];
+    
+    } else {
+        
+        self.error=TRUE;
+    }
     
     NSString *latitude = [NSString stringWithFormat:@"%f", lat];
     NSString *longitude = [NSString stringWithFormat:@"%f", lon];
@@ -202,7 +261,7 @@
     
     NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",mailStr,pwdStr,playerIdStr,ArtsStr,BusinessStr,EducationStr,EntertainmentStr,FamilyStr,FoodStr,LargeStr,MeetingStr,OtherStr,SocialStr,SportsStr,TechStr,latStr,longStr];
     
-    NSLog(@"%@",requestVars);
+    //NSLog(@"%@",requestVars);
     
     self.error=FALSE;
     
@@ -211,25 +270,37 @@
 
 -(void) saveImpression:(NSString *)impression onAsset:(NSString*)onAsset withLat:(double)lat andLong:(double)lon{
     
-    NSLog(@" Entering save Impression");
     if (!impression){
         self.error=TRUE;
     }
     
+    NSString *playerIdStr =nil;
+    NSString *mailStr =nil;
+    NSString *pwdStr=nil;
+    
+    if([self.userDetails count]>0) {
+        
+        playerIdStr = [@"&playerId=" stringByAppendingString:self.playerId];
+        mailStr = [@"&email=" stringByAppendingString:self.email ];
+        pwdStr = [@"&pwd=" stringByAppendingString:self.pwd];
+        
+        
+    } else {
+        
+        self.error=TRUE;
+    }
+    
     NSString *base = @"https://choose.tenqyu.com/v1/activity/index.php";
-    NSString *mailStr = [@"&email=" stringByAppendingString:self.email ];
-    NSString *pwdStr = [@"&pwd=" stringByAppendingString:self.pwd];
     NSString *idstr = [@"id=" stringByAppendingString:@"saveImpression"];
     NSString *impressionStr = [@"&impression=" stringByAppendingString:impression];
     NSString *onAssetStr = [@"&onAsset=" stringByAppendingString:onAsset];
-    NSString *mongoStr = [@"&playerId=" stringByAppendingString:self.playerId];
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *langPref = [@"&langPref=" stringByAppendingString:language];
     NSString *latStr = [@"&lat=" stringByAppendingString:[NSString stringWithFormat:@"%f", lat]];
     NSString *longStr = [@"&lng=" stringByAppendingString:[NSString stringWithFormat:@"%f", lon]];
     NSString *gameId = @"&gameId=5";
     
-    NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@%@",  latStr, longStr,mailStr,pwdStr,mongoStr,langPref, impressionStr,onAssetStr,gameId];
+    NSString *requestVars = [idstr stringByAppendingFormat:@"%@%@%@%@%@%@%@%@%@",  latStr, longStr,mailStr,pwdStr,playerIdStr,langPref, impressionStr,onAssetStr,gameId];
     
     [self prepareWebRequest:base withParam:requestVars withError:self.error];
     
@@ -237,7 +308,6 @@
 
 -(void) getWeatherData:(double)lat andLong:(double)lon{
     
-    NSLog(@" Entering submit weather");
     NSString *base = @"https://choose.tenqyu.com/v1/context/index.php";
     NSString *idstr = [@"id=" stringByAppendingString:@"getWeather"];
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];

@@ -353,6 +353,8 @@
     //don't do this here you don't know if the call to update will be successful.
  
     if(!gettingUpdates){
+        self.eventList=nil;
+        self.filteredEventList=nil;
         [[GFLocationManager sharedInstance] addLocationManagerDelegate:self];
     }
     
